@@ -1,0 +1,1385 @@
+
+
+// Utitlities
+
+@import "../../Scss-Utilities/Utilities.scss";
+
+// -------------------- Master - Desktop - General -------------------- //
+
+// ----- CSS - Global - Variable ----- //
+
+:root {
+
+    // General
+
+    --vw                                                        : 1550;
+    --multiplier                                                : 100vw;
+
+    // Color
+
+    --color-primary                                             : #1F2FBE;
+    --color-secondary                                           : #1F2FBE;
+    --color-tertiary                                            : #1F2FBE;
+    --color-quarter                                             : #1F2FBE;
+    --color-quinary                                             : #1F2FBE;
+
+    --color-white                                               : #FFFFFF;
+    --color-black                                               : #171A21;
+    --color-grey-super-light                                    : #FAFAFA;
+    --color-grey-light                                          : #E7E7E8;
+    --color-grey                                                : #3B3F48;
+
+    // Transition
+
+    --cubic-bezier-1                                            : cubic-bezier(0.625, 0.05, 0, 1);;
+    --cubic-bezier-2                                            : cubic-bezier(0.4, 0, 0.7, 1);
+    --cubic-bezier-3                                            : cubic-bezier(0.35, 1, 0.70, 1);
+    --cubic-bezier-4                                            : cubic-bezier(0.25, 0.1, 0, 2.05);
+
+    // Font - Family
+
+    --font-family-primary                                       : 'Inter';
+    --font-family-secondary                                     : 'Inter';
+
+    --font-family-general                                       : 'Inter';
+    --font-family-title                                         : 'Inter';
+    --font-family-subtitle                                      : 'Inter';
+    --font-family-description                                   : 'Inter';
+    --font-family-date                                          : 'Inter';
+    --font-family-caption                                       : 'Inter';
+    --font-family-number                                        : 'Inter';
+    --font-family-tag                                           : 'Inter';
+    --font-family-link                                          : 'Inter';
+    --font-family-button                                        : 'Inter';
+    --font-family-textprice                                     : 'Inter';
+    --font-family-sellprice                                     : 'Inter';
+
+    // Font - Weight
+
+    --font-weight-title                                         : 900;
+    --font-weight-subtitle                                      : 900;
+    --font-weight-description                                   : 400;
+    --font-weight-date                                          : 400;
+    --font-weight-caption                                       : 900;
+    --font-weight-number                                        : 900;
+    --font-weight-tag                                           : 900;
+    --font-weight-link                                          : 500;
+    --font-weight-button                                        : 900;
+    --font-weight-textprice                                     : 900;
+    --font-weight-sellprice                                     : 900;
+
+    --font-weight-thin                                          : 100;
+    --font-weight-extralight                                    : 200;
+    --font-weight-light                                         : 300;
+    --font-weight-regular                                       : 400;
+    --font-weight-book                                          : 400;
+    --font-weight-medium                                        : 500;
+    --font-weight-semibold                                      : 600;
+    --font-weight-bold                                          : 700;
+    --font-weight-extrabold                                     : 800;
+    --font-weight-black                                         : 900;
+    --font-weight-heavy                                         : 900;
+
+    // Font - Size
+
+    --font-size-general                                         : 16;
+    --font-size-title                                           : 75;
+    --font-size-subtitle                                        : 24;
+    --font-size-description                                     : 18;
+    --font-size-date                                            : 16;
+    --font-size-caption                                         : 16;
+    --font-size-number                                          : 42.5;
+    --font-size-tag                                             : 20;
+    --font-size-link                                            : 14;
+    --font-size-button                                          : 16;
+    --font-size-icon                                            : 12;
+    --font-size-textprice                                       : 20;
+    --font-size-sellprice                                       : 55;
+
+    --font-size-display1                                        : 60px;
+    --font-size-display2                                        : 60px;
+    --font-size-display3                                        : 60px;
+    --font-size-display4                                        : 60px;
+    --font-size-h1                                              : 48px;
+    --font-size-h2                                              : 32px;
+    --font-size-h3                                              : 28px;
+    --font-size-h4                                              : 24px;
+    --font-size-h5                                              : 20px;
+    --font-size-h6                                              : 16px;
+    --font-size-p                                               : 14px;
+    --font-size-small                                           : 12px;
+    --font-size-smallest                                        : 10px;
+
+    // Letter Spacing
+
+    --letter-spacing-title                                      : 0.5;
+    --letter-spacing-description                                : 1;
+
+    // Button
+
+    --button-type-solid-size                                    : 75;
+}
+
+@include media-breakpoint-down(lg) {
+
+    :root {
+        --vw                            : 900;
+
+        --button-type-solid-size        : 75;
+    }
+}
+
+@include media-breakpoint-down(sm) {
+
+    :root {
+        --vw                            : 400;
+
+        --button-type-solid-size        : 65;
+    }
+}
+
+// Animation
+
+@keyframes animationLoopSpin {
+    0% {
+        transform           :rotate(0deg);
+    }
+
+    100% {
+        transform           :rotate(360deg);
+    }
+}
+
+// Html
+
+html {
+    scroll-behavior             : smooth;
+
+    -webkit-font-smoothing      : antialiased;
+    -moz-osx-font-smoothing     : grayscale;
+}
+
+// Body
+
+body {
+    @include pr-0;
+
+    font-family                 : var(--font-family-general);
+    font-weight                 : var(--font-weight-regular);
+    font-size                   : calc(16 / var(--vw) * var(--multiplier));
+
+    color                       : var(--color-black);
+
+    background                  : var(--color-grey-super-light);
+
+    &.icv__body {
+        overflow                : auto !important;
+    }
+
+    // Wizard
+
+    .wizard {
+        @include position-relative;
+    }
+}
+
+::selection {
+    /*color                       : var(--color-black);
+
+    background                  : var(--color-white);*/
+}
+
+// Image
+
+.image-parallax {
+    @include overflow-hidden;
+
+    img {
+        @include display-block;
+
+        transform               : scale(1.125);
+    }
+}
+
+img {
+    width                       : 100%;
+}
+
+img::selection {
+    background                  : transparent;
+}
+
+a, button {
+    outline                     : none !important;
+
+    box-shadow                  : none !important;
+
+    transition                  : 0.4s ease;
+
+    * {
+        transition              : 0.4s ease;
+    }
+
+    ::before, ::after {
+       transition               : 0.4s ease;
+    }
+}
+
+svg {
+    width                       : calc(16.5 / var(--vw) * var(--multiplier));
+    height                      : calc(16.5 / var(--vw) * var(--multiplier));
+}
+
+// Cursor
+
+.mf-cursor {
+    background                  : var(--color-primary);
+}
+
+.mf-cursor.-icon {
+    &:after {
+        @include position-absolute;
+
+        z-index                 : 20;
+
+        font-size               : calc(12 / var(--vw) * var(--multiplier));
+
+        color                   : var(--color-white);
+
+        top                     : 50%;
+        left                    : 50%;
+        
+        transform               : translate(-50%, -50%);
+
+        transition              : transform .25s ease-in-out, opacity .1s;
+    }
+}
+
+.mf-cursor.-text {
+    &:before {
+        width                   : calc(45 / var(--vw) * var(--multiplier));
+        height                  : calc(45 / var(--vw) * var(--multiplier));
+
+        opacity                 : 1;
+
+        top                     : calc(-22.5 / var(--vw) * var(--multiplier));
+        left                    : calc(-22.5 / var(--vw) * var(--multiplier));
+
+        transform               : scale(2.25);
+
+        background-color        : var(--color-black);
+    }
+    
+    .mf-cursor-inner {
+        .mf-cursor-text {
+            width               : calc(45 / var(--vw) * var(--multiplier));
+            height              : unset;
+    
+            font-family         : var(--font-family-general);
+
+            top                 : 50%;
+            left                : 50%;
+
+            font-size           : calc(14 / var(--vw) * var(--multiplier));
+
+            line-height         : 1.35;
+
+            color               : var(--color-white);
+
+            transform           : translate(-50%, -50%) scale(1);
+        }
+    }
+}
+
+// Grid
+
+.container {
+    @include py-5;
+}
+
+// Form
+
+.form-group {
+    label {
+        @include position-relative;
+
+        @include text-transform-uppercase;
+
+        z-index                 : 20;
+
+        padding                 : calc(8.5 / var(--vw) * var(--multiplier)) calc(20 / var(--vw) * var(--multiplier));
+
+        font-family             : var(--font-family-primary);
+        font-weight             : var(--font-weight-black);
+        font-size               : calc(14 / var(--vw) * var(--multiplier));
+
+        line-height             : 1.25;
+
+        color                   : var(--color-black);
+
+        background              : var(--color-white);
+
+        border                  : calc(3 / var(--vw) * var(--multiplier)) solid var(--color-black);
+        border-radius           : 50em;
+
+        > em {
+            font-style          : normal;
+
+            color               : #ff0000;
+        }
+
+        > span {
+            color               : rgba($color-black, 0.65);
+        }
+    }
+
+    .form-input {
+        .form-control {
+            @include p-3;
+
+            resize              : none;
+
+            font-family         : var(--font-family-general);
+            font-weight         : var(--font-weight-regular);
+            font-size           : calc(16 / var(--vw) * var(--multiplier));
+
+            color               : var(--color-black);
+
+            background          : var(--color-white);
+
+            border              : calc(3 / var(--vw) * var(--multiplier)) solid var(--color-black);
+            border-radius       : 0;
+
+            box-shadow          : none;
+
+            &::placeholder {
+                opacity         : 0.65;
+
+                color           : var(--color-black);
+            }
+        }
+    }
+
+    .form-option {
+        .select2 {
+            @include position-relative;
+
+            @include p-3;
+
+            font-family         : var(--font-family-general);
+            font-weight         : var(--font-weight-regular);
+            font-size           : calc(16 / var(--vw) * var(--multiplier));
+
+            color               : var(--color-black);
+
+            background          : var(--color-white);
+
+            border              : calc(3 / var(--vw) * var(--multiplier)) solid var(--color-black);
+            border-radius       : 0;
+
+            box-shadow          : none;
+
+            .select2-selection {
+                @include height-100;
+
+                background          : transparent;
+
+                border              : none;
+                border-radius       : 0;
+
+                .select2-selection__rendered {
+                    @include px-0;
+
+                    line-height         : unset;
+
+                    color               : var(--color-black);
+
+                    .flag-text {
+                        @include ml-3;
+                    }
+                }
+
+                .select2-selection__arrow {
+                    top                     : 55%;
+                    right                   : calc(15 / var(--vw) * var(--multiplier));
+
+                    transform               : translateY(-50%);
+
+                    > b {
+                        border-color        : var(--color-black) transparent transparent transparent;
+                    }
+                }
+            }
+        }
+
+        .form-control {
+            &::placeholder {
+                opacity     : 0.65;
+            }
+        }
+    }
+}
+
+.select2-dropdown {
+    background              : var(--color-white);
+
+    border                  : calc(3 / var(--vw) * var(--multiplier)) solid var(--color-black);
+
+    .select2-search {
+        @include display-none;
+
+        .select2-search__field {
+            @include p-2;
+
+            outline             : none;
+
+            font-family         : var(--font-family-general);
+            font-weight         : var(--font-weight-regular);
+            font-size           : calc(16 / var(--vw) * var(--multiplier));
+
+            color               : var(--color-black);
+
+            background          : var(--color-white);
+
+            border              : calc(3 / var(--vw) * var(--multiplier)) solid var(--color-black);
+            border-radius       : 0;
+
+            box-shadow          : none;
+        }
+    }
+
+    .select2-results {
+        .select2-results__options {
+            .select2-results__option {
+                @include p-2;
+
+                font-family         : var(--font-family-general);
+                font-weight         : var(--font-weight-regular);
+                font-size           : calc(16 / var(--vw) * var(--multiplier));
+
+                color               : var(--color-black);
+
+                &.select2-results__option--highlighted {
+                    background      : var(--color-primary);
+                }
+
+                .flag-text {
+                    @include ml-3;
+                }
+            }
+        }
+    }
+}
+
+// Text
+
+.title {
+    @include mb-4;
+
+    &.title-wrapper-special {
+        @include position-relative;
+
+        @include display-inline-block;
+
+        @include mb-0;
+
+        padding             : calc(15 / var(--vw) * var(--multiplier)) calc(20 / var(--vw) * var(--multiplier));
+
+        background          : var(--color-white);
+
+        border              : calc(3 / var(--vw) * var(--multiplier)) solid var(--color-black);
+
+        &:before {
+            @include position-absolute;
+
+            content         : '';
+
+            width           : calc(100% + calc(4 / var(--vw) * var(--multiplier)));
+            height          : calc(20 / var(--vw) * var(--multiplier));
+
+            top             : calc(-20 / var(--vw) * var(--multiplier));;
+            left            : 50%;
+
+            transform       : translateX(-50%);
+
+            background      : var(--color-quinary);
+
+            border          : calc(3 / var(--vw) * var(--multiplier)) solid var(--color-black);
+        }
+
+        .text-title {
+            @include mb-0;
+        }
+    }
+
+    .text-title {
+        @include text-transform-uppercase;
+
+        font-family             : var(--font-family-title);
+        font-weight             : var(--font-weight-title);                  
+        font-size               : calc(var(--font-size-title) / var(--vw) * var(--multiplier));
+
+        line-height             : 1;
+
+        letter-spacing          : calc(var(--letter-spacing-title) / var(--vw) * var(--multiplier));
+
+        color                   : inherit;
+
+        &.text-title-special {
+            cursor              : default;
+
+            * {
+                transition      : 0.65s var(--cubic-bezier-4);
+            }
+
+            span {
+                &.text {
+                    @include mx-2;
+
+                    > span {
+                        &.char {
+                            @include position-relative;
+
+                            margin                  : 0 calc(-0.5 / var(--vw) * var(--multiplier));
+
+                            @for $i from 1 through 20 {
+
+                                &:nth-child(#{$i}) {
+                                    z-index         : #{100 - $i};
+                                }
+                            }
+
+                            &.space {
+                                @include mx-2;
+                            }
+
+                            > span {
+                                &.base {
+                                    @include position-relative;
+
+                                    user-select                     : auto;
+                                }
+                    
+                                &.overlap {
+                                    @include position-absolute;
+
+                                    z-index                         : 20;
+
+                                    color                           : $color-white;
+                                                
+                                    -webkit-text-stroke-width       : calc(2.25 / var(--vw) * var(--multiplier));
+                                    -webkit-text-stroke-color       : $color-black;
+
+                                    top                             : 0;
+                                    left                            : 0;
+                    
+                                    transform                       : translate(calc(6.5 / var(--vw) * var(--multiplier)), calc(-1.5 / var(--vw) * var(--multiplier)));
+                                }
+                    
+                                &.extrude {
+                                    z-index                         : -1;
+
+                                    color                           : $color-black;
+                    
+                                    -webkit-text-stroke-width       : calc(2 / var(--vw) * var(--multiplier));
+                                    -webkit-text-stroke-color       : $color-black;
+                    
+                                    @for $i from 1 through 15 {
+                    
+                                        > span:nth-child(#{$i}n) {
+                                            transform               : translate(calc(#{$i} * 0.35 / var(--vw) * var(--multiplier)), calc(-#{$i} * 0.35 / var(--vw) * var(--multiplier)));
+                                        }
+                                    }    
+                    
+                                    > span {
+                                        @include position-absolute;
+
+                                        left                            : 0;
+                                    }
+                                }
+                            }
+                        }
+
+                        &:hover {
+                            + span {
+                                > span {
+                                    &.overlap {
+                                        transform                       : translate(calc(10 / var(--vw) * var(--multiplier)), calc(-3.5 / var(--vw) * var(--multiplier)));
+
+                                        transition-delay                : unset !important;
+                                    }
+                    
+                                    &.extrude {
+                                        @for $i from 1 through 15 {
+                    
+                                            > span:nth-child(#{$i}n) {
+                                                transform               : translate(calc(#{$i} * 0.5 / var(--vw) * var(--multiplier)), calc(-#{$i} * 0.5 / var(--vw) * var(--multiplier)));
+                                            }
+                                        }     
+                                    }
+                                }
+                            }
+
+                            > span {
+                                &.overlap {
+                                    transform                           : translate(calc(13.5 / var(--vw) * var(--multiplier)), calc(-7.5 / var(--vw) * var(--multiplier)));
+                                }
+                    
+                                &.extrude {
+                                    @for $i from 1 through 15 {
+                    
+                                        > span:nth-child(#{$i}n) {
+                                            transform                   : translate(calc(#{$i} * 0.75 / var(--vw) * var(--multiplier)), calc(-#{$i} * 0.75 / var(--vw) * var(--multiplier)));
+                                        }
+                                    }   
+                                }
+                            }
+                        }
+
+                        &:active {
+                            > span {
+                                &.overlap {
+                                    transform                       : translate(calc(8 / var(--vw) * var(--multiplier)), calc(-2.5 / var(--vw) * var(--multiplier)));
+                                }
+                    
+                                &.extrude {
+                                    @for $i from 1 through 15 {
+                    
+                                        > span:nth-child(#{$i}n) {
+                                            transform               : translate(calc(#{$i} * 0.375 / var(--vw) * var(--multiplier)), calc(-#{$i} * 0.375 / var(--vw) * var(--multiplier)));
+                                        }
+                                    }     
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.subtitle {
+    @include mb-4;
+
+    .text-subtitle {
+        @include text-transform-uppercase;
+
+        font-family             : var(--font-family-subtitle);
+        font-weight             : var(--font-weight-subtitle);                       
+        font-size               : calc(var(--font-size-subtitle) / var(--vw) * var(--multiplier));
+
+        line-height             : 1.35;
+
+        color                   : var(--color-black);
+    }
+}
+
+.desc {
+    .text-description {
+        font-family             : var(--font-family-description);
+        font-weight             : var(--font-weight-description);                     
+        font-size               : calc(var(--font-size-description) / var(--vw) * var(--multiplier));
+
+        line-height             : 1.65;
+
+        letter-spacing          : calc(var(--letter-spacing-description) / var(--vw) * var(--multiplier));
+
+        color                   : var(--color-black);
+
+        > b {
+            @include text-transform-uppercase;
+
+            @include text-decoration-underline;
+
+            font-family         : var(--font-family-primary);
+            font-weight         : var(--font-weight-black);
+
+            letter-spacing      : calc(0.5 / var(--vw) * var(--multiplier));
+        }
+    }
+}
+
+.date {
+    > span {
+        font-family             : var(--font-family-date);
+        font-weight             : var(--font-weight-date);                     
+        font-size               : calc(var(--font-size-date) / var(--vw) * var(--multiplier));
+        font-style              : italic;
+
+        line-height             : 1.65;
+
+        color                   : inherit;
+    }
+}
+
+// Number
+
+.number {
+    > span {
+        font-family             : var(--font-family-number);
+        font-weight             : var(--font-weight-number);
+        font-size               : calc(var(--font-size-number) / var(--vw) * var(--multiplier));
+
+        line-height             : 1.25;
+
+        letter-spacing          : calc(-1.5 / var(--vw) * var(--multiplier));
+
+        color                   : inherit;
+    }
+}
+
+// Tag
+
+.tag {
+    > span {
+        @include position-relative;
+
+        @include display-inline-flex;
+
+        @include align-items-center;
+
+        @include text-transform-uppercase;
+
+        justify-content         : center;
+
+        width                   : calc(90 / var(--vw) * var(--multiplier));
+        height                  : calc(90 / var(--vw) * var(--multiplier));
+
+        font-family             : var(--font-family-caption);
+        font-weight             : var(--font-weight-caption);
+        font-size               : calc(var(--font-size-caption) / var(--vw) * var(--multiplier));
+
+        line-height             : 1;
+
+        color                   : var(--color-black);
+
+        background              : var(--color-white);
+
+        border                  : calc(3 / var(--vw) * var(--multiplier)) solid var(--color-black);
+        border-radius           : 100%;
+
+        &:before {
+            @include position-absolute;
+
+            content             : '';
+
+            width               : calc(77.5 / var(--vw) * var(--multiplier));
+            height              : calc(77.5 / var(--vw) * var(--multiplier));
+
+            top                 : 50%;
+            left                : 50%;
+
+            transform           : translate(-50%, -50%);
+
+            background          : transparent;
+
+            border              : calc(3 / var(--vw) * var(--multiplier)) solid var(--color-black);
+            border-radius       : 100%;
+        }
+    }
+
+    // Tertiary
+
+    &.tag-tertiary {
+        > span {
+            color               : var(--color-white);
+
+            background          : var(--color-tertiary);
+
+            border              : calc(3 / var(--vw) * var(--multiplier)) solid var(--color-tertiary);
+
+            &:before {
+                border          : calc(3 / var(--vw) * var(--multiplier)) solid var(--color-white);
+            }
+        }
+    }
+}
+
+// Price
+
+.price {
+    > span {
+        @include display-block;
+    }
+
+    .textprice {
+        @include text-transform-uppercase;
+
+        font-family             : var(--font-family-textprice);
+        font-weight             : var(--font-weight-textprice);
+        font-size               : calc(var(--font-size-textprice) / var(--vw) * var(--multiplier));
+
+        line-height             : 1.25;
+
+        letter-spacing          : calc(-0.5 / var(--vw) * var(--multiplier));
+
+        color                   : var(--color-black);
+    }
+
+    .sellprice {
+        font-family             : var(--font-family-sellprice);
+        font-weight             : var(--font-weight-sellprice);
+        font-size               : calc(var(--font-size-sellprice) / var(--vw) * var(--multiplier));
+
+        line-height             : 1.25;
+
+        letter-spacing          : calc(-1.5 / var(--vw) * var(--multiplier));
+
+        color                   : var(--color-black);
+    }
+}
+
+// Button
+
+.btn-default {
+    @include position-relative;
+
+    @include display-inline-block;
+
+    @include p-0;
+
+    @include text-transform-uppercase;
+
+    font-family                 : var(--font-family-button);
+    font-weight                 : var(--font-weight-button);
+    font-size                   : calc(var(--font-size-button) / var(--vw) * var(--multiplier));
+
+    border-radius               : calc(0 / var(--vw) * var(--multiplier));
+
+    &:before, &:after {
+        border-radius           : calc(0 / var(--vw) * var(--multiplier));
+    }
+
+    *:before, *:after {
+        border-radius           : calc(0 / var(--vw) * var(--multiplier));
+    }
+
+    > span {
+        @include display-flex;
+
+        @include align-items-center;
+
+        justify-content         : center;
+
+        padding                 : calc(20 / var(--vw) * var(--multiplier)) calc(50 / var(--vw) * var(--multiplier));
+
+        > span {
+            @include position-relative;
+
+            &.icon {
+                @include display-inline-flex;
+
+                @include align-items-center;
+
+                @include mx-2;
+
+                justify-content         : center;
+
+                width                   : 1.65rem;
+
+                > span {
+                    @include position-relative;
+
+                    @include display-inline-flex;
+
+                    @include overflow-hidden;
+
+                    > i {
+                        &:nth-child(2) {
+                            @include position-absolute;
+
+                            left            : -105%;
+                        }
+                    }
+                }
+            }
+
+            &.text {
+                @include display-block;
+
+                @include overflow-hidden;
+
+                > span {
+                    @include display-block;      
+                    
+                    &:nth-child(2) {
+                        @include position-absolute;
+
+                        top                         : 100%;
+                    }                  
+
+                    > span {
+                        @include display-inline-block;
+
+                        white-space                 : pre;
+
+                        @for $i from 1 through 25 {
+                            &:nth-child(#{$i}) {
+                                transition-delay    : #{($i - 1) * 0.005}s;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &:hover {
+        > span {
+            > span {
+                &.icon { 
+                    > span {
+                        > i {
+                            &:nth-child(1) {
+                                transform               : translateX(100%);
+                            }
+
+                            &:nth-child(2) {
+                                left                    : 0;
+                            }
+                        }
+                    }
+                }
+
+                &.text {
+                    > span {
+                        &:nth-child(1) {
+                            > span {
+                                transform                   : translateY(-100%);
+                            }
+                        }
+
+                        &:nth-child(2) {
+                            > span {
+                                transform                   : translateY(-100%);
+                            }
+                        }
+
+                        > span {
+                            @for $i from 1 through 25 {
+                                &:nth-child(#{$i}) {
+                                    transition-delay        : #{($i - 1) * 0.0125}s;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // Solid
+
+    &.btn-solid {
+        background              : none;
+
+        border                  : none;
+        border-radius           : calc(0 / var(--vw) * var(--multiplier));
+
+        > span {
+            &:before, &:after {
+                @include position-absolute;
+
+                @include width-100;
+                @include height-100;
+
+                content                 : '';
+
+                top                     : 0;
+                left                    : 0;
+
+                transform               : scale(1);
+            }
+        }
+
+        &:hover {
+            > span {
+                &:before, &:after {
+                    transform       : scale(0.95);
+                }
+            }
+        }
+
+        // Primary
+
+        &.btn-primary {
+            color                       : var(--color-black);
+
+            > span {
+                &:before {
+                    background          : var(--color-primary);
+
+                    box-shadow          : 0 0 0 calc(2 / var(--vw) * var(--multiplier)) var(--color-black) inset;
+                }
+            }
+        }
+
+        // Secondary
+
+        &.btn-secondary {
+            color                       : var(--color-black);
+
+            > span {
+                &:before {
+                    background          : var(--color-secondary);
+
+                    box-shadow          : 0 0 0 calc(2 / var(--vw) * var(--multiplier)) var(--color-black) inset;
+                }
+            }
+        }
+
+        // Quarter
+
+        &.btn-light {
+            color               : var(--color-black);
+
+            > span {
+                &:before {
+                    background          : var(--color-white);
+
+                    box-shadow          : 0 0 0 calc(2 / var(--vw) * var(--multiplier)) var(--color-black) inset;
+                }
+            }
+        }
+    }
+}
+
+// Link
+
+.link-default {
+    @include position-relative;
+
+    @include display-inline-block;
+
+    @include p-0;
+
+    @include text-decoration-none;
+
+    font-family         : var(--font-family-link);
+    font-weight         : var(--font-weight-link);
+    font-size           : calc(var(--font-size-link) / var(--vw) * var(--multiplier));
+
+    line-height         : 1.5;
+
+    > span {
+        &.wrapper {
+            @include position-relative;
+
+            @include overflow-hidden;
+
+            @include display-flex;
+
+            @include align-items-center;
+
+            padding                 : calc(1.5 / var(--vw) * var(--multiplier)) calc(5 / var(--vw) * var(--multiplier));
+
+            &:before, &:after {
+                @include position-absolute;
+
+                @include width-100;
+                @include height-100;
+
+                content                 : '';
+
+                bottom                  : 0;
+                left                    : 0;
+
+                transform               : scaleX(0);
+
+                background              : var(--color-black);
+            }
+
+            &:before {
+                transform-origin        : right;
+            }
+
+            &:after {
+                transition              : unset;
+
+                transform-origin        : left;
+            }
+
+            > span {
+                @include position-relative;
+
+                z-index                 : 20;
+
+                &.text {
+                    @include display-flex;
+
+                    @include align-items-center;
+
+                    @include overflow-hidden;
+
+                    > span {
+                        @include display-block;
+
+                        @include overflow-hidden;
+
+                        z-index                 : 20;
+
+                        &:nth-child(1) {
+                            color               : rgba($color-black, 0.85);
+                        }
+
+                        &:nth-child(2) {
+                            @include position-absolute;
+
+                            top                 : 50%;
+
+                            transform           : translateY(-50%);
+
+                            color               : rgba($color-primary, 1);
+
+                            > span {
+                                transform       : translateY(100%);
+                            }
+                        }
+
+                        > span {
+                            @include display-inline-block;
+
+                            white-space                     : pre;
+
+                            @for $i from 1 through 20 {
+                                &:nth-child(#{$i}) {
+                                    transition-delay        : #{($i - 1) * 0.005}s;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &:hover {
+        > span {
+            &.wrapper {
+                &:before, &:after {
+                    transform               : scaleX(1);
+                }
+
+                &:before {
+                    transition              : unset;
+                    transition-delay        : 0.375s;
+                }
+
+                &:after {
+                    transition-duration     : 0.75s;
+                }
+            }
+
+            > span {
+                &.text {
+                    > span {
+                        &:nth-child(1) {
+                            > span {
+                                transform                   : translateY(-100%);
+                            }
+                        }
+
+                        &:nth-child(2) {
+                            > span {
+                                transform                   : translateY(0%);
+                            }
+                        }
+
+                        > span {
+                            @for $i from 1 through 20 {
+                                &:nth-child(#{$i}) {
+                                    transition-delay        : #{($i - 1) * 0.0075}s;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include media-breakpoint-down(lg) {
+
+    // Grid
+
+    .container {
+        padding                 : calc(85 / var(--vw) * var(--multiplier)) calc(15 / var(--vw) * var(--multiplier));
+    }
+
+    // Text
+
+    .title {
+        .text-title {
+            font-size           : calc(40 / var(--vw) * var(--multiplier));
+        }
+    }
+}
+
+@include media-breakpoint-down(md) {
+
+    // Grid
+
+    .container {
+        @include py-4;
+    }
+
+    // Text
+
+    .title {
+        .text-title {
+            font-size           : calc(60 / var(--vw) * var(--multiplier));
+
+            &.text-title-special {
+                span {
+                    &.text {
+                        > span {
+                            &.char {
+                                margin          : 0 calc(0.5 / var(--vw) * var(--multiplier));
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // Number
+
+    .number {
+        > span {
+            font-size               : calc(32.5 / var(--vw) * var(--multiplier));
+        }
+    }
+
+    // Caption
+
+    .caption {
+        > span {
+            @include py-1;
+            @include px-3;
+
+            font-size           : calc(12 / var(--vw) * var(--multiplier));
+        }
+    }
+
+    // Link
+
+    .link-default {
+        font-size           : calc(14 / var(--vw) * var(--multiplier));
+    }
+}
+
+@include media-breakpoint-down(sm) {
+
+    // Text
+
+    .title {
+        &.title-wrapper-special {
+            padding             : calc(10 / var(--vw) * var(--multiplier)) calc(15 / var(--vw) * var(--multiplier));
+
+            &:before {
+                height          : calc(15 / var(--vw) * var(--multiplier));
+
+                top             : calc(-15 / var(--vw) * var(--multiplier));;
+            }
+        }
+
+        .text-title {
+            font-size           : calc(40 / var(--vw) * var(--multiplier));
+
+            &.text-title-special {
+                span {
+                    &.text {
+                        @include mx-0;
+
+                        > span {
+                            &.char {
+                                margin          : 0 calc(1.25 / var(--vw) * var(--multiplier));
+
+                                > span {
+                                    &.overlap {     
+                                        -webkit-text-stroke-width       : calc(1.25 / var(--vw) * var(--multiplier));
+
+                                        transform                       : translate(calc(4 / var(--vw) * var(--multiplier)), calc(-1 / var(--vw) * var(--multiplier)));
+                                    }
+                    
+                                    &.extrude {
+                                        -webkit-text-stroke-width       : calc(1.25 / var(--vw) * var(--multiplier));
+                    
+                                        @for $i from 1 through 15 {
+                    
+                                            > span:nth-child(#{$i}n) {
+                                                transform               : translate(calc(#{$i} * 0.20 / var(--vw) * var(--multiplier)), calc(-#{$i} * 0.20 / var(--vw) * var(--multiplier)));
+                                            }
+                                        }    
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .subtitle {
+        .text-subtitle {                
+            font-size           : calc(18 / var(--vw) * var(--multiplier));
+        }
+    }
+
+    .desc {
+        .text-description {                   
+            font-size           : calc(16 / var(--vw) * var(--multiplier));
+        }
+    }
+
+    // Tag
+
+    .tag {
+        > span {
+            width                   : calc(65 / var(--vw) * var(--multiplier));
+            height                  : calc(65 / var(--vw) * var(--multiplier));
+
+            font-size               : calc(11 / var(--vw) * var(--multiplier));
+
+            &:before {
+                width               : calc(55 / var(--vw) * var(--multiplier));
+                height              : calc(55 / var(--vw) * var(--multiplier));
+            }
+        }
+    }
+
+    // Caption
+
+    .caption {
+        > span {
+            @include py-1;
+            @include px-3;
+
+            font-size               : calc(12 / var(--vw) * var(--multiplier));
+        }
+    }
+
+    // Price
+
+    .price {
+        .textprice {
+            font-size               : calc(20 / var(--vw) * var(--multiplier));
+        }
+
+        .sellprice {
+            font-size               : calc(45 / var(--vw) * var(--multiplier));
+        }
+    }
+
+    // Button
+
+    .btn-default {
+        > span {
+            padding                 : calc(17.5 / var(--vw) * var(--multiplier)) calc(40 / var(--vw) * var(--multiplier));
+        }
+    }
+}

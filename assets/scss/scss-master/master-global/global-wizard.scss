@@ -1,0 +1,534 @@
+﻿
+
+// Utitlities
+
+@import "../../Scss-Utilities/Utilities.scss";
+
+// -------------------- Master - Wizard -------------------- //
+
+// Carousel
+
+.carousel-flickity {
+    .flickity-button {
+        @include display-inline-flex;
+
+        @include align-items-center;
+
+        justify-content         : center;
+        
+        z-index                 : 20;
+
+        width                   : calc(75 / var(--vw) * var(--multiplier));
+        height                  : calc(75 / var(--vw) * var(--multiplier));
+
+        opacity                 : 1;
+
+        background              : var(--color-white);
+
+        border                  : calc(3 / var(--vw) * var(--multiplier)) solid var(--color-black);
+        border-radius           : 0;
+
+        &:before {
+            @include display-inline-block;
+
+            content             : '←';
+
+            font-size           : calc(25 / var(--vw) * var(--multiplier));
+
+            color               : var(--color-black);
+        }
+
+        &.previous {
+            left                : calc(-37.5 / var(--vw) * var(--multiplier));
+        }
+
+        &.next {
+            right               : calc(-37.5 / var(--vw) * var(--multiplier));
+
+            &:before {
+                transform       : rotate(180deg);                
+            }
+        }
+
+        svg {
+            @include display-none;
+        }
+    }
+
+    @include media-breakpoint-down(md) {
+
+        .flickity-button {
+            width                   : calc(55 / var(--vw) * var(--multiplier));
+            height                  : calc(55 / var(--vw) * var(--multiplier));
+
+            &:before {
+                font-size           : calc(15 / var(--vw) * var(--multiplier));
+            }
+
+            &.previous {
+                left                : calc(-27.5 / var(--vw) * var(--multiplier));
+            }
+
+            &.next {
+                right               : calc(-27.5 / var(--vw) * var(--multiplier));
+            }
+        }
+    }
+
+    @include media-breakpoint-down(sm) {
+
+        .flickity-button {
+            width                   : calc(40 / var(--vw) * var(--multiplier));
+            height                  : calc(40 / var(--vw) * var(--multiplier));
+
+            &:before {
+                font-size           : calc(12 / var(--vw) * var(--multiplier));
+            }
+
+            &.previous {
+                left                : calc(-20 / var(--vw) * var(--multiplier));
+            }
+
+            &.next {
+                right               : calc(-20 / var(--vw) * var(--multiplier));
+            }
+        }
+    }
+}
+
+// Page
+
+.page {
+    .page-content {
+        @include position-relative;
+
+        z-index             : 20;
+    }
+}
+
+// Navbar
+
+.navbar {
+
+    // Primary
+
+    &.primary {
+        @include p-3;
+
+        background              : var(--color-white);
+
+        border-bottom           : calc(1 / var(--vw) * var(--multiplier)) solid var(--color-grey-light);
+
+        .navbar-text {
+            @include display-inline-block;
+
+            @include text-decoration-none;
+
+            @include p-0;
+
+            max-width           : calc(400 / var(--vw) * var(--multiplier));;
+
+            font-weight         : var(--font-weight-bold);
+
+            color               : var(--color-black); 
+            
+            &:hover {
+                color           : var(--color-primary); 
+            }
+        }
+
+        .navbar-time {
+            @include display-flex;
+
+            @include align-items-center;
+
+            > div {
+                @include mr-4;
+            }
+
+            .time-caption {
+                .caption {
+                    > span {
+                        font-weight         : var(--font-weight-bold);
+
+                        color               : var(--color-black);     
+                    }
+                }
+            }
+
+            .time-button {
+                @include display-flex;
+
+                @include align-items-center;
+                
+                .button {
+                    @include mr-1;
+
+                    &:last-child {
+                        @include mr-0;
+                    }
+
+                    > button {
+                        background          : transparent;
+
+                        border              : none;
+
+                        svg {
+                            path {
+                                fill        : var(--color-black);
+                            }
+                        }
+
+                        &:hover {
+                            svg {
+                                path {
+                                    fill    : var(--color-primary);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .dropdown {
+            .nav-link {
+                padding                         : calc(12.5 / var(--vw) * var(--multiplier)) calc(15 / var(--vw) * var(--multiplier));
+
+                font-weight                     : var(--font-weight-semibold);
+
+                color                           : var(--color-primary);
+
+                background                      : rgba($color-primary, 0.075);
+
+                border-radius                   : calc(6.5 / var(--vw) * var(--multiplier));
+                
+                > span {
+                    &.wrapper {
+                        @include display-flex;
+
+                        @include align-items-center;
+
+                        justify-content             : center;   
+                    }
+
+                    > span {
+                        @include display-inline-block;
+
+                        &.text {
+                            @include mr-5;
+                        }
+
+                        &.icon {
+                            svg {
+                                path {
+                                    fill        : var(--color-primary); 
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &:hover {
+                    background                  : rgba($color-primary, 0.15);
+                }
+            }
+
+            .dropdown-menu {
+                border                          : none;
+                border-radius                   : calc(6.5 / var(--vw) * var(--multiplier));
+
+                box-shadow                      : 0px 1.5px 12.5px 3.5px rgba($color-black, 0.10);
+
+                .dropdown-item {
+                    @include p-0;
+
+                    background                 : transparent;
+
+                    .dropdown-link {
+                        @include display-block;
+
+                        @include text-decoration-none;
+
+                        @include py-2;
+                        @include px-4;
+
+                        font-size               : calc(16 / var(--vw) * var(--multiplier));
+
+                        color                   : var(--color-grey);
+
+                        > span {
+                            &.wrapper {
+                                @include display-flex;
+
+                                @include align-items-center;
+                            }
+
+                            > span {
+                                @include display-inline-block;
+
+                                &.icon {
+                                    @include mr-4;
+                                }
+                            }
+                        }
+                        
+                        &:hover {
+                            color                               : var(--color-primary);
+
+                            background                          : rgba($color-primary, 0.10);
+
+                            > span {
+                                > span {
+                                    &.icon {
+                                        svg {
+                                            path {
+                                                stroke          : var(--color-primary);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .btn-nav {
+            @include display-inline-block;
+
+            @include width-auto;
+
+            padding                         : calc(12.5 / var(--vw) * var(--multiplier)) calc(22.5 / var(--vw) * var(--multiplier));
+
+            font-weight                     : var(--font-weight-semibold);
+            font-size                       : calc(16 / var(--vw) * var(--multiplier));
+
+            border-radius                   : calc(6.5 / var(--vw) * var(--multiplier));
+
+            // Primary
+
+            &.primary {
+                color                       : var(--color-white);
+
+                background                  : var(--color-primary);
+
+                &:hover {
+                    background              : darken($color-primary, 15%);
+                }
+            }
+        }
+
+        // Navbar Nav
+
+        .navbar-nav {
+
+            // Primary
+
+            &.primary {
+                @include align-items-center;
+                
+                @include ml-auto;
+
+                .nav-item {
+                    @include mr-3;
+
+                    &:last-child {
+                        @include mr-0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Footbar
+
+.footbar {
+
+    // Primary
+
+    &.primary {
+        background                      : var(--color-primary);
+
+        .footbar-wrapper {
+
+            // Primary
+
+            &.primary {
+                @include position-relative;
+
+                z-index                 : 10;
+
+                background              : var(--color-primary);
+            }
+        }
+
+        .container {
+            @include max-width-100;
+
+            @include pb-0;
+
+            padding-top                 : calc(50 / var(--vw) * var(--multiplier));
+        }
+
+        .col-footbar-outer {
+            @include col-10;
+
+            @include ml-auto;
+
+            .col-footbar-inner {
+                @include col-6;
+
+                &:first-child {
+                    .col-outer {
+                        .col-inner {
+                            &:last-child {
+                                @include ml-auto;
+                            }
+                        }
+                    }
+                }
+
+                &:last-child {
+                    .wrapper-inner {
+                        float                       : inline-end;
+                    }
+                }
+
+                .col-outer {
+                    @include col-12;
+
+                    .col-inner {
+                        @include col-6;
+
+                        margin-bottom               : calc(65 / var(--vw) * var(--multiplier));
+                    }
+                }
+            }
+        }
+
+        .footbar-logo {
+            @include mt-5;
+
+            .logo {
+                > a {
+                    @include display-flex;
+
+                    @include text-decoration-none;
+
+                    font-family         : var(--font-family-general);
+                    font-weight         : var(--font-weight-medium);
+                    font-size           : calc(177.5 / var(--vw) * var(--multiplier));
+
+                    line-height         : 1;
+                    letter-spacing      : calc(-5 / var(--vw) * var(--multiplier));
+
+                    color               : var(--color-black);
+
+                    > span {
+                        @include position-relative;
+
+                        @include display-block;
+
+                        @include width-100;
+
+                        @include px-3;
+                        @include mx-5;
+
+                        &:before {
+                            @include position-absolute;
+
+                            @include display-block;
+
+                            @include width-100;
+
+                            content             : '';
+
+                            height              : calc(2.5 / var(--vw) * var(--multiplier));
+
+                            top                 : 50%;
+                            left                : 50%;
+
+                            transform           : translate(-50%, -50%);
+
+                            background          : var(--color-black);
+                        }
+                    }
+                }
+            }
+        }
+
+        .footbar-text {
+            @include pl-1;
+
+            .title {
+                @include mb-2;
+
+                .text-title {
+                    font-family         : var(--font-family-general);
+                    font-weight         : var(--font-weight-semibold);
+                    font-size           : calc(15 / var(--vw) * var(--multiplier));
+                }
+            }
+        }
+    }
+}
+
+// Wizard
+
+.wizard {
+    @include overflow-hidden;
+
+    section {
+        @include position-relative;
+
+        z-index                 : 10;
+
+        background              : var(--color-white);
+    }
+
+    // ----- Main - Theme ----- //
+
+    .theme {
+
+        // Hero
+
+        &.hero {
+
+            // Primary
+
+            &.primary {
+
+                .container {
+                    @include max-width-100;
+
+                    @include px-4;
+                }
+
+                // Header
+
+                .hero-header {
+                    .col-header-outer {
+                        @include col-12;
+
+                        .col-header-inner {
+                            @include col-6;
+                        }
+                    }
+                    
+                    .header-text {
+                        .title {
+                            .text-title {
+                                font-size               : calc(160 / var(--vw) * var(--multiplier));
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+

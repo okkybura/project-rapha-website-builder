@@ -1,0 +1,15 @@
+
+
+// -------------------- Master - Vendor -------------------- //
+
+@import "../../../node_modules/bootstrap/scss/bootstrap";
+@import "../../../node_modules/mouse-follower/src/scss/index";
+@import "../../../node_modules/flickity/css/flickity.css";
+@import "../../../node_modules/select2/dist/css/select2.css";
+
+// -------------------- Master - Global -------------------- //
+
+@import "master-global/global-font.scss";
+@import "master-global/global-general.scss";
+@import "master-global/global-wizard.scss";
+
