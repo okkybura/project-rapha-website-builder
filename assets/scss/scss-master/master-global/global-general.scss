@@ -327,11 +327,27 @@ svg {
         }
     }
 
-    .form-input {
+    .form-caption {
+        .caption {
+            > span {
+                @include position-relative;
+
+                font-family             : var(--font-family-general);
+                font-weight             : var(--font-weight-regular);
+                font-size               : calc(14 / var(--vw) * var(--multiplier));
+
+                line-height             : 1.25;
+
+                color                   : var(--color-black);  
+            }
+        }
+    }
+
+    .form-date, .form-input, .form-time {
         .form-control {
             @include height-auto;
 
-            @include p-3;
+            @include p-2;
 
             resize              : none;
 
@@ -344,7 +360,7 @@ svg {
             background          : var(--color-white);
 
             border              : calc(1 / var(--vw) * var(--multiplier)) solid rgba($color-black, 0.25);
-            border-radius       : calc(6.5 / var(--vw) * var(--multiplier));
+            border-radius       : calc(4.5 / var(--vw) * var(--multiplier));
 
             box-shadow          : none;
 
@@ -374,6 +390,10 @@ svg {
             border-radius       : calc(4.5 / var(--vw) * var(--multiplier));
 
             box-shadow          : none;
+
+            &::disabled {
+                @include display-none;
+            }
         }
     }
 

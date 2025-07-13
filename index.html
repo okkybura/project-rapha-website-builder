@@ -191,7 +191,7 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-block btn-nav primary" href="javascript:void(0);" data-toggle="modal" data-target="#modalClassInformationPrimary">
+                        <a class="btn btn-block btn-nav primary" href="javascript:void(0);" data-toggle="modal" data-target="#modalClassInformationPrimary-Create">
                             <span class="wrapper">
                                 <span class="text">
                                     Incluir aula
@@ -355,9 +355,9 @@
             </div>
         </div>
 
-        <!-- Modal - Class Information - Primary -->
+        <!-- Modal - Class Information - Primary - Create -->
 
-        <div class="modal modal-class-information primary fade" id="modalClassInformationPrimary" tabindex="-1" aria-labelledby="modalClassInformationPrimaryLabel" aria-hidden="true">
+        <div class="modal modal-class-information primary fade" id="modalClassInformationPrimary-Create" tabindex="-1" aria-labelledby="modalClassInformationPrimaryLabel-Create" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -492,7 +492,7 @@
                                                 <div class="form-radio">
                                                     <input class="form-radio-input" type="radio" name="radioCreateClass-Status" id="radioCreateClass-Status-2" value="radioCreateClass-Status-2" />
                                                     <label class="form-radio-label" for="radioCreateClass-Status-2">
-                                                        Não Confirmada
+                                                        Professor Confirmado
                                                     </label>
                                                 </div>
                                                 <div class="form-radio">
@@ -502,6 +502,734 @@
                                                     </label>
                                                 </div>
                                             </div>
+                                        </div>
+                                        <div class="col-form-inner">
+                                            <div class="form-group">
+                                                <div class="form-label">
+                                                    <label>
+                                                        Frequência
+                                                    </label>
+                                                </div>
+                                                <div class="form-radio">
+                                                    <input class="form-radio-input" type="radio" name="radioCreateClass-Frequency" id="radioCreateClass-Frequency-1" value="radioCreateClass-Frequency-1" checked />
+                                                    <label class="form-radio-label" for="radioCreateClass-Frequency-1">
+                                                        Evento único
+                                                    </label>
+                                                </div>
+                                                <div class="form-radio">
+                                                    <input class="form-radio-input" type="radio" name="radioCreateClass-Frequency" id="radioCreateClass-Frequency-2" value="radioCreateClass-Frequency-2" />
+                                                    <label class="form-radio-label" for="radioCreateClass-Frequency-2">
+                                                        Recorrente
+                                                    </label>
+                                                </div>
+                                            </div>      
+                                            <div class="form-group">
+                                                <div class="form-label">
+                                                    <label>
+                                                        Data
+                                                    </label>
+                                                </div>    
+                                                <div class="form-date">
+                                                    <input class="form-control" type="date" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="form-label">
+                                                    <label>
+                                                        Horário
+                                                    </label>
+                                                </div>   
+                                                <div class="group-wrapper primary">
+                                                    <div class="form-time">
+                                                        <input class="form-control" type="time" value="08:30" />                                                        
+                                                    </div>
+                                                    <div class="form-caption">
+                                                        <div class="caption">
+                                                            <span>
+                                                                até
+                                                            </span>
+                                                        </div>
+                                                    </div>  
+                                                    <div class="form-time">
+                                                        <input class="form-control" type="time" value="10:30" />                                                     
+                                                    </div>
+                                                </div>   
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="form-label">
+                                                    <label>
+                                                        Observações para os alunos
+                                                    </label>
+                                                </div>    
+                                                <div class="form-input">
+                                                    <textarea class="form-control" rows="5" placeholder="Biologia Orgânica"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="footer-button">
+                            <div class="button">
+                                <button type="button" class="btn btn-block btn-footer secondary">
+                                    Cancelar
+                                </button>
+                            </div>
+                            <div class="button">
+                                <button type="button" class="btn btn-block btn-footer primary">
+                                    Salvar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal - Class Information - Primary - Edit -->
+
+        <div class="modal modal-class-information primary fade" id="modalClassInformationPrimary-Edit" tabindex="-1" aria-labelledby="modalClassInformationPrimaryLabel-Edit" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="header-text">
+                            <div class="title">
+                                <h3 class="text-title">
+                                    Inclusão de Aula
+                                </h3>
+                            </div>
+                        </div>
+                        <div class="header-button">
+                            <div class="button">
+                                <button type="button" class="btn btn-block btn-header" data-dismiss="modal">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                                        <path
+                                            d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="body-form">
+                            <div class="row">
+                                <div class="col-form-outer">
+                                    <div class="row">
+                                        <div class="col-form-inner">
+                                            <div class="form-group">
+                                                <div class="form-label">
+                                                    <label>
+                                                        Disciplina <em>*</em>
+                                                    </label>
+                                                </div>
+                                                <div class="form-option">
+                                                    <select class="form-control" required>
+                                                        <option selected>
+                                                            Biologia Orgânica
+                                                        </option>
+                                                        <option>
+                                                            Option 1
+                                                        </option>
+                                                        <option>
+                                                            Option 2
+                                                        </option>
+                                                        <option>
+                                                            Option 3
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="form-label">
+                                                    <label>
+                                                        Professor <em>*</em>
+                                                    </label>
+                                                </div>
+                                                <div class="form-option">
+                                                    <select class="form-control" required>
+                                                        <option selected>
+                                                            Benedict Cumberbatch
+                                                        </option>
+                                                        <option>
+                                                            Option 1
+                                                        </option>
+                                                        <option>
+                                                            Option 2
+                                                        </option>
+                                                        <option>
+                                                            Option 3
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="form-label">
+                                                    <label>
+                                                        Item de Horário
+                                                    </label>
+                                                </div>
+                                                <div class="form-option">
+                                                    <select class="form-control">
+                                                        <option selected>
+                                                            Biologia Orgânica
+                                                        </option>
+                                                        <option>
+                                                            Option 1
+                                                        </option>
+                                                        <option>
+                                                            Option 2
+                                                        </option>
+                                                        <option>
+                                                            Option 3
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="form-label">
+                                                    <label>
+                                                        Sala
+                                                    </label>
+                                                </div>
+                                                <div class="form-option">
+                                                    <select class="form-control">
+                                                        <option selected>
+                                                            Biologia Orgânica
+                                                        </option>
+                                                        <option>
+                                                            Option 1
+                                                        </option>
+                                                        <option>
+                                                            Option 2
+                                                        </option>
+                                                        <option>
+                                                            Option 3
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="form-label">
+                                                    <label>
+                                                        Status
+                                                    </label>
+                                                </div>
+                                                <div class="form-radio">
+                                                    <input class="form-radio-input" type="radio" name="radioEditClass-Status" id="radioEditClass-Status-1" value="radioEditClass-Status-1" checked />
+                                                    <label class="form-radio-label" for="radioEditClass-Status-1">
+                                                        Não Confirmada
+                                                    </label>
+                                                </div>
+                                                <div class="form-radio">
+                                                    <input class="form-radio-input" type="radio" name="radioEditClass-Status" id="radioEditClass-Status-2" value="radioEditClass-Status-2" />
+                                                    <label class="form-radio-label" for="radioEditClass-Status-2">
+                                                        Professor Confirmado
+                                                    </label>
+                                                </div>
+                                                <div class="form-radio">
+                                                    <input class="form-radio-input" type="radio" name="radioEditClass-Status" id="radioEditClass-Status-3" value="radioEditClass-Status-3" />
+                                                    <label class="form-radio-label" for="radioEditClass-Status-3">
+                                                        Visível para alunos
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-form-inner">   
+                                            <div class="form-group">
+                                                <div class="form-label">
+                                                    <label>
+                                                        Data
+                                                    </label>
+                                                </div>    
+                                                <div class="form-date">
+                                                    <input class="form-control" type="date" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="form-label">
+                                                    <label>
+                                                        Horário
+                                                    </label>
+                                                </div>   
+                                                <div class="group-wrapper primary">
+                                                    <div class="form-time">
+                                                        <input class="form-control" type="time" value="08:30" />                                                        
+                                                    </div>
+                                                    <div class="form-caption">
+                                                        <div class="caption">
+                                                            <span>
+                                                                até
+                                                            </span>
+                                                        </div>
+                                                    </div>  
+                                                    <div class="form-time">
+                                                        <input class="form-control" type="time" value="10:30" />                                                     
+                                                    </div>
+                                                </div>   
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="form-label">
+                                                    <label>
+                                                        Observações para os alunos
+                                                    </label>
+                                                </div>    
+                                                <div class="form-input">
+                                                    <textarea class="form-control" rows="5" placeholder="Biologia Orgânica"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="footer-button">
+                            <div class="button">
+                                <button type="button" class="btn btn-block btn-footer secondary">
+                                    Cancelar
+                                </button>
+                            </div>
+                            <div class="button">
+                                <button type="button" class="btn btn-block btn-footer primary">
+                                    Salvar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal - Class Detail - Primary -->
+
+        <div class="modal modal-class-detail primary fade" id="modalClassDetailPrimary" tabindex="-1" aria-labelledby="modalClassDetailPrimaryLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="header-tab">
+                            <div class="tab-nav">
+                                <ul class="nav nav-pills" id="pills-tab" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <a class="nav-link active" id="pills-ClassDetailPrimary-1-tab" data-toggle="pill" href="#pills-ClassDetailPrimary-1" role="tab" aria-controls="pills-ClassDetailPrimary-1" aria-selected="true">
+                                            Informações da aula
+                                        </a>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <a class="nav-link" id="pills-ClassDetailPrimary-2-tab" data-toggle="pill" href="#pills-ClassDetailPrimary-2" role="tab" aria-controls="pills-ClassDetailPrimary-2" aria-selected="false">
+                                            Anexos
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="header-button">
+                            <div class="button">
+                                <button type="button" class="btn btn-block btn-header" data-dismiss="modal">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                                        <path
+                                            d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="body-tab">
+                            <div class="tab-content" id="pills-tabContent">
+                                <div class="tab-pane fade show active" id="pills-ClassDetailPrimary-1" role="tabpanel" aria-labelledby="pills-ClassDetailPrimary-1-tab">
+                                    <div class="row">
+                                        <div class="col-content-outer">
+                                            <div class="row">
+                                                <div class="col-content-inner">
+                                                    <div class="content-wrapper primary">
+                                                        <div class="wrapper-inner">
+                                                            <div class="row">
+                                                                <div class="col-wrapper-outer">
+                                                                    <div class="row">
+                                                                        <div class="col-wrapper-inner">
+                                                                            <div class="content-caption">
+                                                                                <div class="caption">
+                                                                                    <span>
+                                                                                        Data
+                                                                                    </span>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="content-value">
+                                                                                <div class="value">
+                                                                                    <span>
+                                                                                        28/02/2025
+                                                                                    </span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-wrapper-inner">
+                                                                            <div class="content-caption">
+                                                                                <div class="caption">
+                                                                                    <span>
+                                                                                        Horário
+                                                                                    </span>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="content-value">
+                                                                                <div class="value">
+                                                                                    <span>
+                                                                                        10:30 até 11:30
+                                                                                    </span>
+                                                                                </div>
+                                                                            </div>  
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="wrapper-inner">
+                                                            <div class="content-caption">
+                                                                <div class="caption">
+                                                                    <span>
+                                                                        Professor
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="content-value">
+                                                                <div class="value">
+                                                                    <span>
+                                                                        Benedict Cumberbatch
+                                                                    </span>
+                                                                </div>
+                                                            </div>  
+                                                        </div>
+                                                        <div class="wrapper-inner">
+                                                            <div class="content-caption">
+                                                                <div class="caption">
+                                                                    <span>
+                                                                        Item de Horário
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="content-value">
+                                                                <div class="value">
+                                                                    <span>
+                                                                        Aula Comum
+                                                                    </span>
+                                                                </div>
+                                                            </div>  
+                                                        </div>
+                                                        <div class="wrapper-inner">
+                                                            <div class="content-caption">
+                                                                <div class="caption">
+                                                                    <span>
+                                                                        Status
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="content-value">
+                                                                <div class="value">
+                                                                    <span>
+                                                                        Professor Confirmado
+                                                                    </span>
+                                                                </div>
+                                                            </div>  
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-content-inner">
+                                                    <div class="content-wrapper primary">
+                                                        <div class="wrapper-inner">
+                                                            <div class="content-caption">
+                                                                <div class="caption">
+                                                                    <span>
+                                                                        Disciplina
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="content-value">
+                                                                <div class="value">
+                                                                    <span>
+                                                                        Introdução ao Direito Constitucional
+                                                                    </span>
+                                                                </div>
+                                                            </div>  
+                                                        </div>
+                                                        <div class="wrapper-inner">
+                                                            <div class="content-caption">
+                                                                <div class="caption">
+                                                                    <span>
+                                                                        Sala
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="content-value">
+                                                                <div class="value">
+                                                                    <span>
+                                                                        3002-A
+                                                                    </span>
+                                                                </div>
+                                                            </div>  
+                                                        </div>
+                                                        <div class="wrapper-inner">
+                                                            <div class="content-caption">
+                                                                <div class="caption">
+                                                                    <span>
+                                                                        Observações para os alunos
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="content-value">
+                                                                <div class="value">
+                                                                    <span>
+                                                                        Vivamus eget est sollicitudin sed vitae maecenas convallis fringilla. Eu a scelerisque natoque arcu senectus id. A eget lectus mi...
+                                                                    </span>
+                                                                </div>
+                                                            </div>  
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="content-dropdown">
+                                            <div class="dropdown">
+                                                <a class="dropdown-secondary" href="#" id="modalClassDetailPrimaryDropdown-1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <span class="wrapper">
+                                                        <span class="text">
+                                                            Excluir
+                                                        </span>
+                                                        <span class="icon">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                                                <path
+                                                                    d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" />
+                                                            </svg>
+                                                        </span>
+                                                    </span>
+                                                </a>
+                                                <div class="dropdown-menu" aria-labelledby="modalClassDetailPrimaryDropdown-1">
+                                                    <div class="dropdown-item">
+                                                        <a class="dropdown-link" href="javascript:void(0);">
+                                                            <span class="wrapper">
+                                                                <span class="text">
+                                                                    Esta aula
+                                                                </span>
+                                                            </span>
+                                                        </a>
+                                                    </div>
+                                                    <div class="dropdown-item">
+                                                        <a class="dropdown-link" href="javascript:void(0);">
+                                                            <span class="wrapper">
+                                                                <span class="text">
+                                                                    Esta aula e as seguintes
+                                                                </span>
+                                                            </span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="dropdown">
+                                                <a class="dropdown-primary" href="#" id="modalClassDetailPrimaryDropdown-2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <span class="wrapper">
+                                                        <span class="text">
+                                                            Editar
+                                                        </span>
+                                                        <span class="icon">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                                                <path
+                                                                    d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" />
+                                                            </svg>
+                                                        </span>
+                                                    </span>
+                                                </a>
+                                                <div class="dropdown-menu" aria-labelledby="modalClassDetailPrimaryDropdown-2">
+                                                    <div class="dropdown-item">
+                                                        <a class="dropdown-link" href="javascript:void(0);">
+                                                            <span class="wrapper">
+                                                                <span class="text">
+                                                                    Esta aula
+                                                                </span>
+                                                            </span>
+                                                        </a>
+                                                    </div>
+                                                    <div class="dropdown-item">
+                                                        <a class="dropdown-link" href="javascript:void(0);">
+                                                            <span class="wrapper">
+                                                                <span class="text">
+                                                                    Esta aula e as seguintes
+                                                                </span>
+                                                            </span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="pills-ClassDetailPrimary-2" role="tabpanel" aria-labelledby="pills-ClassDetailPrimary-2-tab">
+                                    <div class="content-form">
+                                        <div class="row">
+                                            <div class="col-form-outer">
+                                                <div class="row">
+                                                    <div class="col-form-inner">
+                                                        <div class="form-group">
+                                                            <div class="form-label">
+                                                                <label>
+                                                                    Disciplina
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-option">
+                                                                <select class="form-control">
+                                                                    <option selected>
+                                                                        Biologia Orgânica
+                                                                    </option>
+                                                                    <option>
+                                                                        Option 1
+                                                                    </option>
+                                                                    <option>
+                                                                        Option 2
+                                                                    </option>
+                                                                    <option>
+                                                                        Option 3
+                                                                    </option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-form-inner">
+                                                        <div class="form-group">
+                                                            <div class="form-label">
+                                                                <label>
+                                                                    Assunto
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-option">
+                                                                <select class="form-control">
+                                                                    <option selected>
+                                                                        Módulo 3
+                                                                    </option>
+                                                                    <option>
+                                                                        Option 1
+                                                                    </option>
+                                                                    <option>
+                                                                        Option 2
+                                                                    </option>
+                                                                    <option>
+                                                                        Option 3
+                                                                    </option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-form-inner">
+                                                        <div class="form-group">
+                                                            <div class="form-label">
+                                                                <label>
+                                                                    Tipo
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-option">
+                                                                <select class="form-control">
+                                                                    <option selected>
+                                                                        Vídeo-Aula
+                                                                    </option>
+                                                                    <option>
+                                                                        Option 1
+                                                                    </option>
+                                                                    <option>
+                                                                        Option 2
+                                                                    </option>
+                                                                    <option>
+                                                                        Option 3
+                                                                    </option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-form-inner">
+                                                        <div class="form-group">
+                                                            <div class="form-label">
+                                                                <label>
+                                                                    Arquivos 
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-option">
+                                                                <select class="form-control">
+                                                                    <option selected>
+                                                                        Bloco 01 - Organi..., Gravação 365,
+                                                                    </option>
+                                                                    <option>
+                                                                        Option 1
+                                                                    </option>
+                                                                    <option>
+                                                                        Option 2
+                                                                    </option>
+                                                                    <option>
+                                                                        Option 3
+                                                                    </option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="content-table">
+                                        <div class="table-responsive">
+                                            <table class=table>
+                                                <thead>
+                                                    <tr>
+                                                        <th>
+                                                            <span>
+                                                                Tipo
+                                                            </span>
+                                                        </th>
+                                                        <th>
+                                                            <span>
+                                                                Título da aula
+                                                            </span>
+                                                        </th>
+                                                        <th>
+                                                            
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <span class="icon">
+                                                                <svg fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                    <path
+                                                                        d="M11.6666 1.66667V5.00001C11.6666 5.44203 11.8422 5.86596 12.1548 6.17852C12.4674 6.49108 12.8913 6.66667 13.3333 6.66667H16.6666M12.5 1.66667H4.99998C4.55795 1.66667 4.13403 1.84227 3.82147 2.15483C3.50891 2.46739 3.33331 2.89131 3.33331 3.33334V16.6667C3.33331 17.1087 3.50891 17.5326 3.82147 17.8452C4.13403 18.1577 4.55795 18.3333 4.99998 18.3333H15C15.442 18.3333 15.8659 18.1577 16.1785 17.8452C16.4911 17.5326 16.6666 17.1087 16.6666 16.6667V5.83334L12.5 1.66667ZM8.33331 9.16667L12.5 11.6667L8.33331 14.1667V9.16667Z"
+                                                                        stroke="#2833B0" stroke-width="1.39167" stroke-linecap="round" stroke-linejoin="round" />
+                                                                </svg>     
+                                                            </span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="title">
+                                                                Bloco 01 - Organizações Criminosas (Parte 01)
+                                                            </span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="button">
+                                                                <button type="button">
+                                                                    <svg fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                                            d="M6.90005 3.7497V2.24997H11.1001V3.7497H6.90005ZM5.70005 3.7497V2.24997C5.70005 1.58723 6.23731 1.04997 6.90005 1.04997H11.1001C11.7628 1.04997 12.3001 1.58723 12.3001 2.24997V3.7497H14.4002H16.2002C16.5315 3.7497 16.8002 4.01833 16.8002 4.3497C16.8002 4.68107 16.5315 4.9497 16.2002 4.9497H15.0002V15.4497C15.0002 16.1124 14.4629 16.6497 13.8002 16.6497H4.33431C3.67722 16.6497 3.14234 16.1212 3.1344 15.4642L3.00737 4.9497H1.80016C1.46879 4.9497 1.20016 4.68107 1.20016 4.3497C1.20016 4.01833 1.46879 3.7497 1.80016 3.7497H3.60016H5.70005ZM6.87415 4.9497H4.20746L4.33431 15.4497H13.8002V4.9497H11.126C11.1173 4.94988 11.1087 4.94997 11.1001 4.94997H6.90005C6.8914 4.94997 6.88276 4.94988 6.87415 4.9497ZM7.95035 8.09994C7.95035 7.76857 7.68172 7.49994 7.35035 7.49994C7.01898 7.49994 6.75035 7.76857 6.75035 8.09994V12.5999C6.75035 12.9313 7.01898 13.1999 7.35035 13.1999C7.68172 13.1999 7.95035 12.9313 7.95035 12.5999V8.09994ZM10.3503 7.49994C10.6816 7.49994 10.9503 7.76857 10.9503 8.09994V12.5999C10.9503 12.9313 10.6816 13.1999 10.3503 13.1999C10.0189 13.1999 9.75027 12.9313 9.75027 12.5999V8.09994C9.75027 7.76857 10.0189 7.49994 10.3503 7.49994Z"
+                                                                            fill="#E10000" />
+                                                                    </svg>
+                                                                </button>
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="content-button">
+                                        <div class="button">
+                                            <button type="button" class="btn btn-block btn-content">
+                                                Salvar
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -1575,12 +2303,6 @@
                     </div>
                 </div>
             </div>
-
-            <!--Footbar - Primary-->
-
-            <footer class="footbar primary">
-
-            </footer>
         </div>
     </div>
 

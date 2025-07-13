@@ -598,6 +598,480 @@
         }
     }
 
+    // Modal Class Detail
+
+    &.modal-class-detail {
+
+        // Primary
+
+        &.primary {
+
+            .modal-dialog {
+                max-width                       : calc(720 / var(--vw) * var(--multiplier));
+            }
+
+            .modal-content {
+                @include overflow-visible;
+
+                // Header
+
+                .modal-header {
+                    @include pb-0;
+
+                    .header-tab {
+                        .tab-nav {
+                            .nav {
+                                @include mb-0;
+
+                                .nav-item {
+                                    .nav-link {
+                                        @include pb-3;
+                                        @include px-3;
+                                        
+                                        font-weight                 : var(--font-weight-regular);                  
+                                        font-size                   : calc(16 / var(--vw) * var(--multiplier));
+
+                                        color                       : var(--color-black);
+
+                                        background                  : transparent;
+
+                                        border-bottom               : calc(5 / var(--vw) * var(--multiplier)) solid transparent;
+                                        border-radius               : 0;
+
+                                        &:hover {
+                                            color                   : var(--color-primary);
+                                        }
+
+                                        &.active {
+                                            font-weight             : var(--font-weight-semibold);
+
+                                            color                   : var(--color-primary);
+
+                                            border-bottom           : calc(5 / var(--vw) * var(--multiplier)) solid var(--color-primary);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .header-button {
+                        @include align-self-baseline;
+                    }
+                }
+
+                // Body
+
+                .modal-body {
+                    @include p-4;
+
+                    .body-tab {
+                        .tab-content {
+                            .col-content-outer {
+                                @include col-12;
+
+                                .col-content-inner {
+                                    @include col-6;
+                                }
+                            }
+
+                            .content-wrapper {
+
+                                // Primary
+
+                                &.primary {
+                                    .col-wrapper-outer {
+                                        @include col-12;
+
+                                        .col-wrapper-inner {
+                                            @include col-6;
+                                        }
+                                    }
+
+                                    .wrapper-inner {
+                                        @include mb-3;
+
+                                        &:last-child {
+                                            @include mb-0;
+                                        }
+                                    }
+                                }
+                            }
+
+                            .content-caption {
+                                .caption {
+                                    > span {
+                                        @include position-relative;
+
+                                        @include display-inline-block;
+
+                                        font-family             : var(--font-family-general);
+                                        font-weight             : var(--font-weight-semibold);
+                                        font-size               : calc(14 / var(--vw) * var(--multiplier));
+
+                                        line-height             : 1.25;
+
+                                        color                   : var(--color-black);
+                                    }
+                                }
+                            }
+
+                            .content-value {
+                                .value {
+                                    > span {
+                                        @include position-relative;
+                                        
+                                        @include ellipsis-triple;
+
+                                        font-family             : var(--font-family-general);
+                                        font-weight             : var(--font-weight-regular);
+                                        font-size               : calc(14 / var(--vw) * var(--multiplier));
+
+                                        line-height             : 1.5;
+
+                                        color                   : var(--color-black);
+                                    }
+                                }
+                            }
+
+                            .content-dropdown {
+                                @include display-flex;
+
+                                @include align-items-center;
+
+                                @include width-100;
+
+                                @include mt-5;
+
+                                justify-content                 : center;
+
+                                .dropdown {
+                                    @include mr-3;
+
+                                    &:last-child {
+                                        @include mr-0;
+                                    }
+
+                                    > a {
+                                        @include display-block;
+
+                                        @include text-decoration-none;
+
+                                        padding                         : calc(12.5 / var(--vw) * var(--multiplier)) calc(15 / var(--vw) * var(--multiplier));
+
+                                        font-weight                     : var(--font-weight-semibold);
+
+                                        border-radius                   : calc(6.5 / var(--vw) * var(--multiplier));
+
+                                        &.dropdown-primary {
+                                            color                       : var(--color-primary);
+
+                                            background                   : rgba($color-primary, 0.075);
+
+                                            > span {
+                                                > span {
+                                                    &.icon {
+                                                        svg {
+                                                            path {
+                                                                fill    : var(--color-primary); 
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+
+                                            &:hover {
+                                                background              : rgba($color-primary, 0.15);
+                                            }
+                                        }
+
+                                        &.dropdown-secondary {
+                                            color                       : #AB1D0A;
+
+                                            background                  : rgba(#AB1D0A, 0.075);
+
+                                            > span {
+                                                > span {
+                                                    &.icon {
+                                                        svg {
+                                                            path {
+                                                                fill    : #AB1D0A; 
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+
+                                            &:hover {
+                                                background              : rgba(#AB1D0A, 0.15);
+                                            }
+                                        }
+                                        
+                                        > span {
+                                            &.wrapper {
+                                                @include display-flex;
+
+                                                @include align-items-center;
+
+                                                justify-content             : center;   
+                                            }
+
+                                            > span {
+                                                @include display-inline-block;
+
+                                                &.text {
+                                                    @include mr-5;
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    .dropdown-menu {
+                                        border                          : none;
+                                        border-radius                   : calc(6.5 / var(--vw) * var(--multiplier));
+
+                                        box-shadow                      : 0px 1.5px 12.5px 3.5px rgba($color-black, 0.10);
+
+                                        .dropdown-item {
+                                            @include p-0;
+
+                                            background                 : transparent;
+
+                                            .dropdown-link {
+                                                @include display-block;
+
+                                                @include text-decoration-none;
+
+                                                @include py-2;
+                                                @include px-4;
+
+                                                font-size               : calc(16 / var(--vw) * var(--multiplier));
+
+                                                color                   : var(--color-grey);
+
+                                                > span {
+                                                    &.wrapper {
+                                                        @include display-flex;
+
+                                                        @include align-items-center;
+                                                    }
+
+                                                    > span {
+                                                        @include display-inline-block;
+
+                                                        &.icon {
+                                                            @include mr-4;
+                                                        }
+                                                    }
+                                                }
+                                                
+                                                &:hover {
+                                                    color                               : var(--color-primary);
+
+                                                    background                          : rgba($color-primary, 0.10);
+
+                                                    > span {
+                                                        > span {
+                                                            &.icon {
+                                                                svg {
+                                                                    path {
+                                                                        stroke          : var(--color-primary);
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                            .content-form {
+                                .col-form-outer {
+                                    @include col-12;
+
+                                    .col-form-inner {
+                                        @include col-6;
+
+                                        &:nth-child(3) {
+                                            @include col-5;
+                                        }
+
+                                        &:nth-child(4) {
+                                            @include col-7;
+                                        }
+                                    }
+                                }
+                            }
+
+                            .content-table {
+                                @include mt-3;
+
+                                table {
+                                    @include mb-0;
+
+                                    border                              : none;
+
+                                    thead {
+                                        tr {
+                                            th {
+                                                vertical-align          : middle;
+
+                                                font-weight             : var(--font-weight-semibold);
+                                                font-size               : calc(14 / var(--vw) * var(--multiplier)); 
+
+                                                color                   : var(--color-grey);
+
+                                                border-top              : none; 
+                                                border-bottom           : calc(1 / var(--vw) * var(--multiplier)) solid var(--color-grey-light);
+                                            }
+                                        }
+                                    }
+
+                                    tbody {
+                                        tr {
+                                            td {
+                                                vertical-align          : middle;
+                                                
+                                                > span {
+                                                    @include display-inline-block;
+
+                                                    &.button {
+                                                        > button {
+                                                            background              : unset;
+
+                                                            border                  : unset; 
+                                                        }
+                                                    }
+
+                                                    &.icon {
+                                                        @include display-inline-flex;
+
+                                                        @include align-items-center;
+
+                                                        justify-content             : center;
+
+                                                        width                       : calc(40 / var(--vw) * var(--multiplier)); 
+                                                        height                      : calc(40 / var(--vw) * var(--multiplier)); 
+
+                                                        background                  : rgba($color-primary, 0.075);
+
+                                                        border-radius               : calc(4.5 / var(--vw) * var(--multiplier));
+                                                    }
+
+                                                    &.title {
+                                                        @include display-block;
+
+                                                        @include width-100;
+
+                                                        @include p-2;
+                                                        @include mb-0;
+
+                                                        color                       : var(--color-black);
+
+                                                        background                  : var(--color-white);
+
+                                                        border                      : calc(1 / var(--vw) * var(--multiplier)) solid rgba($color-black, 0.25);
+                                                        border-radius               : calc(4.5 / var(--vw) * var(--multiplier));
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                            .content-button {
+                                @include text-align-center;
+
+                                @include mt-5;
+
+                                .button {
+                                    > button {
+                                        @include display-inline-block;
+
+                                        @include width-auto;
+
+                                        padding                         : calc(10 / var(--vw) * var(--multiplier)) calc(45 / var(--vw) * var(--multiplier));
+
+                                        font-weight                     : var(--font-weight-semibold);
+                                        font-size                       : calc(16 / var(--vw) * var(--multiplier));
+
+                                        color                           : var(--color-white);
+
+                                        background                      : var(--color-primary);
+
+                                        border-radius                   : calc(6.5 / var(--vw) * var(--multiplier));
+
+                                        &:hover {
+                                            background                  : darken($color-primary, 15%);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            @include media-breakpoint-down(sm) {
+
+                .modal-content {
+
+                    // Body
+
+                    .modal-body {
+                        .body-tab {
+                            .tab-content {
+                                .col-content-outer {
+                                    .col-content-inner {
+                                        @include col-12;
+                                    }
+                                }
+
+                                .content-form {
+                                    .col-form-outer {
+                                        .col-form-inner {
+                                            @include col-12;
+
+                                            &:nth-child(3) {
+                                                @include col-12;
+                                            }
+
+                                            &:nth-child(4) {
+                                                @include col-12;
+                                            }
+                                        }
+                                    }
+                                }
+
+                                .content-table {
+                                    table {
+                                        tbody {
+                                            tr {
+                                                td {
+                                                    > span {
+                                                        &.title {
+                                                            @include ellipsis-single;
+
+                                                            width                       : calc(250 / var(--vw) * var(--multiplier)) !important; 
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     // Modal CLass Information
 
     &.modal-class-information {
@@ -623,6 +1097,18 @@
 
                             .col-form-inner {
                                 @include col-6;
+
+                                border-right            : calc(1 / var(--vw) * var(--multiplier)) solid var(--color-grey-light);
+
+                                &:first-child {
+                                    @include pr-5;
+                                }
+
+                                &:last-child {
+                                    @include pl-5;
+
+                                    border              : unset;
+                                }
                             }
                         }
 
@@ -632,6 +1118,119 @@
                             &:last-child {
                                 @include mb-0;
                             }
+
+                            .group-wrapper {
+
+                                // Primary
+
+                                &.primary {
+                                    @include display-flex;
+
+                                    @include align-items-center;
+
+                                    .form-caption {
+                                        @include px-2;
+                                    }
+
+                                    .form-time {
+                                        @include width-100;
+                                    }
+                                }
+                            }
+
+                            .form-date {
+                                width               : 43.75%;
+                            }
+                        }
+                    }
+                }
+
+                // Footer
+                
+                .modal-footer {
+                    .footer-button {
+                        @include display-flex;
+
+                        @include align-items-center;
+
+                        justify-content         : flex-end;
+                        
+                        .button {
+                            @include mr-2;
+
+                            &:last-child {
+                                @include mr-0;
+                            }
+
+                            .btn-footer {
+                                @include display-inline-block;
+
+                                @include width-auto;
+
+                                padding                         : calc(10 / var(--vw) * var(--multiplier)) calc(45 / var(--vw) * var(--multiplier));
+
+                                font-weight                     : var(--font-weight-semibold);
+                                font-size                       : calc(16 / var(--vw) * var(--multiplier));
+
+                                color                           : var(--color-primary);
+
+                                border-radius                   : calc(6.5 / var(--vw) * var(--multiplier));
+
+                                // Primary
+
+                                &.primary {
+                                    color                       : var(--color-white);
+
+                                    background                  : var(--color-primary);
+
+                                    &:hover {
+                                        background              : darken($color-primary, 15%);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            @include media-breakpoint-down(sm) {
+
+                .modal-content {
+
+                    // Body
+                    
+                    .modal-body {
+                        .body-form {
+                            .col-form-outer {
+                                .col-form-inner {
+                                    @include col-12;
+
+                                    border-bottom           : calc(1 / var(--vw) * var(--multiplier)) solid var(--color-grey-light);
+                                    border-right            : unset;
+
+                                    &:first-child {
+                                        @include pb-4;
+                                        @include pr-3;
+                                    }
+
+                                    &:last-child {
+                                        @include pt-4;
+                                        @include pl-3;
+
+                                        border-right        : unset;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    // Footer
+                    
+                    .modal-footer {
+                        justify-content             : center;
+                        
+                        .footer-button {
+                            justify-content         : center;
                         }
                     }
                 }
