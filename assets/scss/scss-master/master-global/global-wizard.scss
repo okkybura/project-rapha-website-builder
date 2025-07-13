@@ -99,9 +99,14 @@
 // Page
 
 .page {
+    @include overflow-y-auto;
+    @include overflow-x-hidden;
+
+    height                  : calc(100vh - 72.27px);
+
     .page-content {
         @include position-relative;
-
+        
         z-index             : 20;
     }
 }
@@ -113,7 +118,8 @@
     // Primary
 
     &.primary {
-        @include p-3;
+        @include py-3;
+        @include px-4;
 
         background              : var(--color-white);
 
@@ -343,139 +349,6 @@
     }
 }
 
-// Footbar
-
-.footbar {
-
-    // Primary
-
-    &.primary {
-        background                      : var(--color-primary);
-
-        .footbar-wrapper {
-
-            // Primary
-
-            &.primary {
-                @include position-relative;
-
-                z-index                 : 10;
-
-                background              : var(--color-primary);
-            }
-        }
-
-        .container {
-            @include max-width-100;
-
-            @include pb-0;
-
-            padding-top                 : calc(50 / var(--vw) * var(--multiplier));
-        }
-
-        .col-footbar-outer {
-            @include col-10;
-
-            @include ml-auto;
-
-            .col-footbar-inner {
-                @include col-6;
-
-                &:first-child {
-                    .col-outer {
-                        .col-inner {
-                            &:last-child {
-                                @include ml-auto;
-                            }
-                        }
-                    }
-                }
-
-                &:last-child {
-                    .wrapper-inner {
-                        float                       : inline-end;
-                    }
-                }
-
-                .col-outer {
-                    @include col-12;
-
-                    .col-inner {
-                        @include col-6;
-
-                        margin-bottom               : calc(65 / var(--vw) * var(--multiplier));
-                    }
-                }
-            }
-        }
-
-        .footbar-logo {
-            @include mt-5;
-
-            .logo {
-                > a {
-                    @include display-flex;
-
-                    @include text-decoration-none;
-
-                    font-family         : var(--font-family-general);
-                    font-weight         : var(--font-weight-medium);
-                    font-size           : calc(177.5 / var(--vw) * var(--multiplier));
-
-                    line-height         : 1;
-                    letter-spacing      : calc(-5 / var(--vw) * var(--multiplier));
-
-                    color               : var(--color-black);
-
-                    > span {
-                        @include position-relative;
-
-                        @include display-block;
-
-                        @include width-100;
-
-                        @include px-3;
-                        @include mx-5;
-
-                        &:before {
-                            @include position-absolute;
-
-                            @include display-block;
-
-                            @include width-100;
-
-                            content             : '';
-
-                            height              : calc(2.5 / var(--vw) * var(--multiplier));
-
-                            top                 : 50%;
-                            left                : 50%;
-
-                            transform           : translate(-50%, -50%);
-
-                            background          : var(--color-black);
-                        }
-                    }
-                }
-            }
-        }
-
-        .footbar-text {
-            @include pl-1;
-
-            .title {
-                @include mb-2;
-
-                .text-title {
-                    font-family         : var(--font-family-general);
-                    font-weight         : var(--font-weight-semibold);
-                    font-size           : calc(15 / var(--vw) * var(--multiplier));
-                }
-            }
-        }
-    }
-}
-
 // Wizard
 
 .wizard {
@@ -485,43 +358,348 @@
         @include position-relative;
 
         z-index                 : 10;
-
-        background              : var(--color-white);
     }
 
-    // ----- Main - Theme ----- //
+    // ----- Main ----- //
 
-    .theme {
+    // Class Schedule List
 
-        // Hero
+    .class-schedule-list {
 
-        &.hero {
+        // Primary
 
-            // Primary
+        &.primary {
+            
+            // Content
 
-            &.primary {
+            .class-schedule-list-content {
+                background                  : var(--color-white);
 
-                .container {
-                    @include max-width-100;
+                border                      : calc(1 / var(--vw) * var(--multiplier)) solid var(--color-grey-light);
+                border-radius               : calc(6.5 / var(--vw) * var(--multiplier));
 
-                    @include px-4;
-                }
+                .content-wrapper {
 
-                // Header
+                    // Primary
 
-                .hero-header {
-                    .col-header-outer {
-                        @include col-12;
+                    &.primary {
+                        > .wrapper-inner {
+                            @include p-4;
 
-                        .col-header-inner {
-                            @include col-6;
+                            border-bottom           : calc(1 / var(--vw) * var(--multiplier)) solid rgba($color-grey-light, 0.5);
+
+                            &:last-child {
+                                border-bottom       : none; 
+                            }
                         }
-                    }
-                    
-                    .header-text {
-                        .title {
-                            .text-title {
-                                font-size               : calc(160 / var(--vw) * var(--multiplier));
+
+                        .col-content-outer {
+                            @include col-12;
+
+                            > .row {
+                                @include align-items-baseline;
+                            }
+
+                            .col-content-inner {
+                                &:nth-child(1) {
+                                    @include col-2;
+
+                                    @include pr-0;
+                                }
+
+                                &:nth-child(2) {
+                                    @include col-10;
+                                }
+                            }
+                        }
+
+                        .content-date {
+                            .date {
+                                &.active {
+                                    > span {
+                                        > span {
+                                            &.number {
+                                                color               : var(--color-white);
+
+                                                background          : var(--color-primary);
+                                            }
+                                        }
+                                    }
+                                }
+
+                                > span {
+                                    @include display-flex;
+
+                                    @include align-items-center;
+
+                                    > span {
+                                        @include display-inline-block;
+
+                                        &.number {
+                                            @include display-inline-flex;
+
+                                            @include align-items-center;
+
+                                            @include mr-3;
+
+                                            justify-content         : center;
+
+                                            flex-shrink             : 0;
+
+                                            width                   : calc(40 / var(--vw) * var(--multiplier));
+                                            height                  : calc(40 / var(--vw) * var(--multiplier));
+                                            
+                                            font-weight             : var(--font-weight-semibold);
+                                            font-size               : calc(25 / var(--vw) * var(--multiplier));
+
+                                            border-radius           : 100%;
+                                        }
+
+                                        &.caption {
+                                            transform               : translateY(calc(5 / var(--vw) * var(--multiplier)));
+
+                                            > span {                                                
+                                                @include ellipsis-single;
+
+                                                @include display-inline-block;
+
+                                                max-width                   : calc(80 / var(--vw) * var(--multiplier));
+
+                                                &:nth-child(1) {
+                                                    font-weight             : var(--font-weight-semibold);
+                                                }
+                                                
+                                                &:nth-child(2) {
+                                                    @include px-1;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        .content-list {
+                            .col-list-outer {
+                                @include col-12;
+
+                                > .row {
+                                    @include align-items-center;
+                                }
+
+                                .col-list-inner {
+                                    @include col-12;
+
+                                    &:nth-child(1) {
+                                        max-width           : 12%;
+                                    }
+
+                                    &:nth-child(2) {
+                                        max-width           : 88%;
+                                    }
+                                }
+                            }
+
+                            > ul {
+                                @include pl-3;
+                                @include mb-0;
+
+                                list-style          : none;
+
+                                > li {
+                                    @include mb-2;
+
+                                    &:last-child {
+                                        @include mb-0;
+                                    }
+                                }
+                            }
+
+                            .list-card {
+
+                                // Primary
+
+                                &.primary {
+                                    padding                             : calc(11.5 / var(--vw) * var(--multiplier)) calc(27.5 / var(--vw) * var(--multiplier));
+
+                                    border-radius                       : 50em;
+
+                                    // Card 1
+
+                                    &.card-1 {
+                                        background                      : var(--color-primary); 
+                                    }
+
+                                    // Card 2
+
+                                    &.card-2 {
+                                        background                      : var(--color-secondary); 
+
+                                        .list-icon {
+                                            .icon {
+                                                svg {
+                                                    fill                : var(--color-white);
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    // Card 3
+
+                                    &.card-3 {
+                                        background                      : var(--color-tertiary); 
+
+                                        .list-icon {
+                                            .icon {
+                                                svg {
+                                                    fill                : var(--color-white);
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    // Card 4
+
+                                    &.card-4 {
+                                        background                      : var(--color-quarter); 
+
+                                        .list-text {
+                                            .title {
+                                                .text-title {
+                                                    color               : var(--color-black);
+                                                }
+                                            }
+                                        }
+
+                                        .list-lesson {
+                                            .lesson {
+                                                > span {
+                                                    color               : var(--color-black);
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    .card-wrapper {
+
+                                        // Primary
+
+                                        &.primary {
+                                            @include display-flex;
+
+                                            @include align-items-center;
+
+                                            justify-content             : space-between;
+
+                                            > .wrapper-inner {
+                                                @include display-flex;
+
+                                                @include align-items-center;
+                                            }
+                                        }
+                                    }
+
+                                    .list-time {
+                                        .time {
+                                            > span {
+                                                font-size               : calc(14 / var(--vw) * var(--multiplier));
+                                            }
+                                        }
+                                    }
+
+                                    .list-text {
+                                        .title {
+                                            @include mb-0;
+
+                                            .text-title {
+                                                @include mb-0;
+
+                                                font-weight             : var(--font-weight-semibold);
+                                                font-size               : calc(16 / var(--vw) * var(--multiplier));
+
+                                                color                   : var(--color-white);
+                                            }
+                                        }
+                                    }
+
+                                    .list-lesson {
+                                        .lesson {
+                                            > span {
+                                                @include display-inline-block;
+
+                                                font-size               : calc(16 / var(--vw) * var(--multiplier));
+
+                                                color                   : var(--color-white);
+
+                                                &:before {
+                                                    @include px-2;
+
+                                                    content             : '|';
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    .list-status {
+                                        .status {
+                                            > span {
+                                                @include py-1;
+                                                @include px-2;
+
+                                                @include text-transform-uppercase;
+
+                                                font-weight             : var(--font-weight-semibold);
+                                                font-size               : calc(14 / var(--vw) * var(--multiplier));
+
+                                                border-radius           : calc(3.5 / var(--vw) * var(--multiplier));
+
+                                                // Complete
+
+                                                &.complete {
+                                                    color               : #065509;
+
+                                                    background          : #D3FFC8;
+                                                }
+
+                                                // Confirm
+
+                                                &.confirm {
+                                                    color               : #1D0075;
+
+                                                    background          : #C8E0FF;
+                                                }
+
+                                                // Unconfirm
+
+                                                &.unconfirm {
+                                                    color               : #750000;
+
+                                                    background          : #FFC8C8;
+                                                }
+
+                                                // Visible
+
+                                                &.visible {
+                                                    color               : #065509;
+
+                                                    background          : #D3FFC8;
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    .list-icon {
+                                        @include ml-4;
+
+                                        width                           : calc(25 / var(--vw) * var(--multiplier));
+
+                                        .icon {
+                                            svg {
+                                                fill                    : var(--color-black);
+                                            }
+                                        }
+                                    }
+                                }
                             }
                         }
                     }

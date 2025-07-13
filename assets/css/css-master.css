@@ -9315,9 +9315,9 @@ a.text-dark:hover, a.text-dark:focus {
   --vw: 1550;
   --multiplier: 100vw;
   --color-primary: #1F2FBE;
-  --color-secondary: #1F2FBE;
-  --color-tertiary: #1F2FBE;
-  --color-quarter: #1F2FBE;
+  --color-secondary: #357EC2;
+  --color-tertiary: #3E35C2;
+  --color-quarter: #D9EBF3;
   --color-quinary: #1F2FBE;
   --color-white: #FFFFFF;
   --color-black: #171A21;
@@ -9514,6 +9514,14 @@ svg {
 .container {
   padding-top: calc(35 / var(--vw) * var(--multiplier)) !important;
   padding-bottom: calc(35 / var(--vw) * var(--multiplier)) !important;
+  padding-left: calc(5 / var(--vw) * var(--multiplier)) !important;
+  padding-right: calc(5 / var(--vw) * var(--multiplier)) !important;
+  max-width: calc(1500 / var(--vw) * var(--multiplier));
+}
+
+.row {
+  margin-left: calc(-15 / var(--vw) * var(--multiplier)) !important;
+  margin-right: calc(-15 / var(--vw) * var(--multiplier)) !important;
 }
 
 .form-group label {
@@ -9628,328 +9636,13 @@ svg {
 .title {
   margin-bottom: calc(20 / var(--vw) * var(--multiplier)) !important;
 }
-.title.title-wrapper-special {
-  position: relative;
-  display: inline-block;
-  margin-bottom: 0 !important;
-  padding: calc(15 / var(--vw) * var(--multiplier)) calc(20 / var(--vw) * var(--multiplier));
-  background: var(--color-white);
-  border: calc(3 / var(--vw) * var(--multiplier)) solid var(--color-black);
-}
-.title.title-wrapper-special:before {
-  position: absolute;
-  content: "";
-  width: calc(100% + 4 / var(--vw) * var(--multiplier));
-  height: calc(20 / var(--vw) * var(--multiplier));
-  top: calc(-20 / var(--vw) * var(--multiplier));
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--color-quinary);
-  border: calc(3 / var(--vw) * var(--multiplier)) solid var(--color-black);
-}
-.title.title-wrapper-special .text-title {
-  margin-bottom: 0 !important;
-}
 .title .text-title {
-  text-transform: uppercase;
   font-family: var(--font-family-title);
   font-weight: var(--font-weight-title);
   font-size: calc(var(--font-size-title) / var(--vw) * var(--multiplier));
-  line-height: 1;
+  line-height: 1.5;
   letter-spacing: calc(var(--letter-spacing-title) / var(--vw) * var(--multiplier));
   color: inherit;
-}
-.title .text-title.text-title-special {
-  cursor: default;
-}
-.title .text-title.text-title-special * {
-  transition: 0.65s var(--cubic-bezier-4);
-}
-.title .text-title.text-title-special span.text {
-  margin-left: calc(10 / var(--vw) * var(--multiplier)) !important;
-  margin-right: calc(10 / var(--vw) * var(--multiplier)) !important;
-}
-.title .text-title.text-title-special span.text > span.char {
-  position: relative;
-  margin: 0 calc(-0.5 / var(--vw) * var(--multiplier));
-}
-.title .text-title.text-title-special span.text > span.char:nth-child(1) {
-  z-index: 99;
-}
-.title .text-title.text-title-special span.text > span.char:nth-child(2) {
-  z-index: 98;
-}
-.title .text-title.text-title-special span.text > span.char:nth-child(3) {
-  z-index: 97;
-}
-.title .text-title.text-title-special span.text > span.char:nth-child(4) {
-  z-index: 96;
-}
-.title .text-title.text-title-special span.text > span.char:nth-child(5) {
-  z-index: 95;
-}
-.title .text-title.text-title-special span.text > span.char:nth-child(6) {
-  z-index: 94;
-}
-.title .text-title.text-title-special span.text > span.char:nth-child(7) {
-  z-index: 93;
-}
-.title .text-title.text-title-special span.text > span.char:nth-child(8) {
-  z-index: 92;
-}
-.title .text-title.text-title-special span.text > span.char:nth-child(9) {
-  z-index: 91;
-}
-.title .text-title.text-title-special span.text > span.char:nth-child(10) {
-  z-index: 90;
-}
-.title .text-title.text-title-special span.text > span.char:nth-child(11) {
-  z-index: 89;
-}
-.title .text-title.text-title-special span.text > span.char:nth-child(12) {
-  z-index: 88;
-}
-.title .text-title.text-title-special span.text > span.char:nth-child(13) {
-  z-index: 87;
-}
-.title .text-title.text-title-special span.text > span.char:nth-child(14) {
-  z-index: 86;
-}
-.title .text-title.text-title-special span.text > span.char:nth-child(15) {
-  z-index: 85;
-}
-.title .text-title.text-title-special span.text > span.char:nth-child(16) {
-  z-index: 84;
-}
-.title .text-title.text-title-special span.text > span.char:nth-child(17) {
-  z-index: 83;
-}
-.title .text-title.text-title-special span.text > span.char:nth-child(18) {
-  z-index: 82;
-}
-.title .text-title.text-title-special span.text > span.char:nth-child(19) {
-  z-index: 81;
-}
-.title .text-title.text-title-special span.text > span.char:nth-child(20) {
-  z-index: 80;
-}
-.title .text-title.text-title-special span.text > span.char.space {
-  margin-left: calc(10 / var(--vw) * var(--multiplier)) !important;
-  margin-right: calc(10 / var(--vw) * var(--multiplier)) !important;
-}
-.title .text-title.text-title-special span.text > span.char > span.base {
-  position: relative;
-  user-select: auto;
-}
-.title .text-title.text-title-special span.text > span.char > span.overlap {
-  position: absolute;
-  z-index: 20;
-  color: #FFFFFF;
-  -webkit-text-stroke-width: calc(2.25 / var(--vw) * var(--multiplier));
-  -webkit-text-stroke-color: #171A21;
-  top: 0;
-  left: 0;
-  transform: translate(calc(6.5 / var(--vw) * var(--multiplier)), calc(-1.5 / var(--vw) * var(--multiplier)));
-}
-.title .text-title.text-title-special span.text > span.char > span.extrude {
-  z-index: -1;
-  color: #171A21;
-  -webkit-text-stroke-width: calc(2 / var(--vw) * var(--multiplier));
-  -webkit-text-stroke-color: #171A21;
-}
-.title .text-title.text-title-special span.text > span.char > span.extrude > span:nth-child(1n) {
-  transform: translate(calc(1 * 0.35 / var(--vw) * var(--multiplier)), calc(-1 * 0.35 / var(--vw) * var(--multiplier)));
-}
-.title .text-title.text-title-special span.text > span.char > span.extrude > span:nth-child(2n) {
-  transform: translate(calc(2 * 0.35 / var(--vw) * var(--multiplier)), calc(-2 * 0.35 / var(--vw) * var(--multiplier)));
-}
-.title .text-title.text-title-special span.text > span.char > span.extrude > span:nth-child(3n) {
-  transform: translate(calc(3 * 0.35 / var(--vw) * var(--multiplier)), calc(-3 * 0.35 / var(--vw) * var(--multiplier)));
-}
-.title .text-title.text-title-special span.text > span.char > span.extrude > span:nth-child(4n) {
-  transform: translate(calc(4 * 0.35 / var(--vw) * var(--multiplier)), calc(-4 * 0.35 / var(--vw) * var(--multiplier)));
-}
-.title .text-title.text-title-special span.text > span.char > span.extrude > span:nth-child(5n) {
-  transform: translate(calc(5 * 0.35 / var(--vw) * var(--multiplier)), calc(-5 * 0.35 / var(--vw) * var(--multiplier)));
-}
-.title .text-title.text-title-special span.text > span.char > span.extrude > span:nth-child(6n) {
-  transform: translate(calc(6 * 0.35 / var(--vw) * var(--multiplier)), calc(-6 * 0.35 / var(--vw) * var(--multiplier)));
-}
-.title .text-title.text-title-special span.text > span.char > span.extrude > span:nth-child(7n) {
-  transform: translate(calc(7 * 0.35 / var(--vw) * var(--multiplier)), calc(-7 * 0.35 / var(--vw) * var(--multiplier)));
-}
-.title .text-title.text-title-special span.text > span.char > span.extrude > span:nth-child(8n) {
-  transform: translate(calc(8 * 0.35 / var(--vw) * var(--multiplier)), calc(-8 * 0.35 / var(--vw) * var(--multiplier)));
-}
-.title .text-title.text-title-special span.text > span.char > span.extrude > span:nth-child(9n) {
-  transform: translate(calc(9 * 0.35 / var(--vw) * var(--multiplier)), calc(-9 * 0.35 / var(--vw) * var(--multiplier)));
-}
-.title .text-title.text-title-special span.text > span.char > span.extrude > span:nth-child(10n) {
-  transform: translate(calc(10 * 0.35 / var(--vw) * var(--multiplier)), calc(-10 * 0.35 / var(--vw) * var(--multiplier)));
-}
-.title .text-title.text-title-special span.text > span.char > span.extrude > span:nth-child(11n) {
-  transform: translate(calc(11 * 0.35 / var(--vw) * var(--multiplier)), calc(-11 * 0.35 / var(--vw) * var(--multiplier)));
-}
-.title .text-title.text-title-special span.text > span.char > span.extrude > span:nth-child(12n) {
-  transform: translate(calc(12 * 0.35 / var(--vw) * var(--multiplier)), calc(-12 * 0.35 / var(--vw) * var(--multiplier)));
-}
-.title .text-title.text-title-special span.text > span.char > span.extrude > span:nth-child(13n) {
-  transform: translate(calc(13 * 0.35 / var(--vw) * var(--multiplier)), calc(-13 * 0.35 / var(--vw) * var(--multiplier)));
-}
-.title .text-title.text-title-special span.text > span.char > span.extrude > span:nth-child(14n) {
-  transform: translate(calc(14 * 0.35 / var(--vw) * var(--multiplier)), calc(-14 * 0.35 / var(--vw) * var(--multiplier)));
-}
-.title .text-title.text-title-special span.text > span.char > span.extrude > span:nth-child(15n) {
-  transform: translate(calc(15 * 0.35 / var(--vw) * var(--multiplier)), calc(-15 * 0.35 / var(--vw) * var(--multiplier)));
-}
-.title .text-title.text-title-special span.text > span.char > span.extrude > span {
-  position: absolute;
-  left: 0;
-}
-.title .text-title.text-title-special span.text > span:hover + span > span.overlap {
-  transform: translate(calc(10 / var(--vw) * var(--multiplier)), calc(-3.5 / var(--vw) * var(--multiplier)));
-  transition-delay: unset !important;
-}
-.title .text-title.text-title-special span.text > span:hover + span > span.extrude > span:nth-child(1n) {
-  transform: translate(calc(1 * 0.5 / var(--vw) * var(--multiplier)), calc(-1 * 0.5 / var(--vw) * var(--multiplier)));
-}
-.title .text-title.text-title-special span.text > span:hover + span > span.extrude > span:nth-child(2n) {
-  transform: translate(calc(2 * 0.5 / var(--vw) * var(--multiplier)), calc(-2 * 0.5 / var(--vw) * var(--multiplier)));
-}
-.title .text-title.text-title-special span.text > span:hover + span > span.extrude > span:nth-child(3n) {
-  transform: translate(calc(3 * 0.5 / var(--vw) * var(--multiplier)), calc(-3 * 0.5 / var(--vw) * var(--multiplier)));
-}
-.title .text-title.text-title-special span.text > span:hover + span > span.extrude > span:nth-child(4n) {
-  transform: translate(calc(4 * 0.5 / var(--vw) * var(--multiplier)), calc(-4 * 0.5 / var(--vw) * var(--multiplier)));
-}
-.title .text-title.text-title-special span.text > span:hover + span > span.extrude > span:nth-child(5n) {
-  transform: translate(calc(5 * 0.5 / var(--vw) * var(--multiplier)), calc(-5 * 0.5 / var(--vw) * var(--multiplier)));
-}
-.title .text-title.text-title-special span.text > span:hover + span > span.extrude > span:nth-child(6n) {
-  transform: translate(calc(6 * 0.5 / var(--vw) * var(--multiplier)), calc(-6 * 0.5 / var(--vw) * var(--multiplier)));
-}
-.title .text-title.text-title-special span.text > span:hover + span > span.extrude > span:nth-child(7n) {
-  transform: translate(calc(7 * 0.5 / var(--vw) * var(--multiplier)), calc(-7 * 0.5 / var(--vw) * var(--multiplier)));
-}
-.title .text-title.text-title-special span.text > span:hover + span > span.extrude > span:nth-child(8n) {
-  transform: translate(calc(8 * 0.5 / var(--vw) * var(--multiplier)), calc(-8 * 0.5 / var(--vw) * var(--multiplier)));
-}
-.title .text-title.text-title-special span.text > span:hover + span > span.extrude > span:nth-child(9n) {
-  transform: translate(calc(9 * 0.5 / var(--vw) * var(--multiplier)), calc(-9 * 0.5 / var(--vw) * var(--multiplier)));
-}
-.title .text-title.text-title-special span.text > span:hover + span > span.extrude > span:nth-child(10n) {
-  transform: translate(calc(10 * 0.5 / var(--vw) * var(--multiplier)), calc(-10 * 0.5 / var(--vw) * var(--multiplier)));
-}
-.title .text-title.text-title-special span.text > span:hover + span > span.extrude > span:nth-child(11n) {
-  transform: translate(calc(11 * 0.5 / var(--vw) * var(--multiplier)), calc(-11 * 0.5 / var(--vw) * var(--multiplier)));
-}
-.title .text-title.text-title-special span.text > span:hover + span > span.extrude > span:nth-child(12n) {
-  transform: translate(calc(12 * 0.5 / var(--vw) * var(--multiplier)), calc(-12 * 0.5 / var(--vw) * var(--multiplier)));
-}
-.title .text-title.text-title-special span.text > span:hover + span > span.extrude > span:nth-child(13n) {
-  transform: translate(calc(13 * 0.5 / var(--vw) * var(--multiplier)), calc(-13 * 0.5 / var(--vw) * var(--multiplier)));
-}
-.title .text-title.text-title-special span.text > span:hover + span > span.extrude > span:nth-child(14n) {
-  transform: translate(calc(14 * 0.5 / var(--vw) * var(--multiplier)), calc(-14 * 0.5 / var(--vw) * var(--multiplier)));
-}
-.title .text-title.text-title-special span.text > span:hover + span > span.extrude > span:nth-child(15n) {
-  transform: translate(calc(15 * 0.5 / var(--vw) * var(--multiplier)), calc(-15 * 0.5 / var(--vw) * var(--multiplier)));
-}
-.title .text-title.text-title-special span.text > span:hover > span.overlap {
-  transform: translate(calc(13.5 / var(--vw) * var(--multiplier)), calc(-7.5 / var(--vw) * var(--multiplier)));
-}
-.title .text-title.text-title-special span.text > span:hover > span.extrude > span:nth-child(1n) {
-  transform: translate(calc(1 * 0.75 / var(--vw) * var(--multiplier)), calc(-1 * 0.75 / var(--vw) * var(--multiplier)));
-}
-.title .text-title.text-title-special span.text > span:hover > span.extrude > span:nth-child(2n) {
-  transform: translate(calc(2 * 0.75 / var(--vw) * var(--multiplier)), calc(-2 * 0.75 / var(--vw) * var(--multiplier)));
-}
-.title .text-title.text-title-special span.text > span:hover > span.extrude > span:nth-child(3n) {
-  transform: translate(calc(3 * 0.75 / var(--vw) * var(--multiplier)), calc(-3 * 0.75 / var(--vw) * var(--multiplier)));
-}
-.title .text-title.text-title-special span.text > span:hover > span.extrude > span:nth-child(4n) {
-  transform: translate(calc(4 * 0.75 / var(--vw) * var(--multiplier)), calc(-4 * 0.75 / var(--vw) * var(--multiplier)));
-}
-.title .text-title.text-title-special span.text > span:hover > span.extrude > span:nth-child(5n) {
-  transform: translate(calc(5 * 0.75 / var(--vw) * var(--multiplier)), calc(-5 * 0.75 / var(--vw) * var(--multiplier)));
-}
-.title .text-title.text-title-special span.text > span:hover > span.extrude > span:nth-child(6n) {
-  transform: translate(calc(6 * 0.75 / var(--vw) * var(--multiplier)), calc(-6 * 0.75 / var(--vw) * var(--multiplier)));
-}
-.title .text-title.text-title-special span.text > span:hover > span.extrude > span:nth-child(7n) {
-  transform: translate(calc(7 * 0.75 / var(--vw) * var(--multiplier)), calc(-7 * 0.75 / var(--vw) * var(--multiplier)));
-}
-.title .text-title.text-title-special span.text > span:hover > span.extrude > span:nth-child(8n) {
-  transform: translate(calc(8 * 0.75 / var(--vw) * var(--multiplier)), calc(-8 * 0.75 / var(--vw) * var(--multiplier)));
-}
-.title .text-title.text-title-special span.text > span:hover > span.extrude > span:nth-child(9n) {
-  transform: translate(calc(9 * 0.75 / var(--vw) * var(--multiplier)), calc(-9 * 0.75 / var(--vw) * var(--multiplier)));
-}
-.title .text-title.text-title-special span.text > span:hover > span.extrude > span:nth-child(10n) {
-  transform: translate(calc(10 * 0.75 / var(--vw) * var(--multiplier)), calc(-10 * 0.75 / var(--vw) * var(--multiplier)));
-}
-.title .text-title.text-title-special span.text > span:hover > span.extrude > span:nth-child(11n) {
-  transform: translate(calc(11 * 0.75 / var(--vw) * var(--multiplier)), calc(-11 * 0.75 / var(--vw) * var(--multiplier)));
-}
-.title .text-title.text-title-special span.text > span:hover > span.extrude > span:nth-child(12n) {
-  transform: translate(calc(12 * 0.75 / var(--vw) * var(--multiplier)), calc(-12 * 0.75 / var(--vw) * var(--multiplier)));
-}
-.title .text-title.text-title-special span.text > span:hover > span.extrude > span:nth-child(13n) {
-  transform: translate(calc(13 * 0.75 / var(--vw) * var(--multiplier)), calc(-13 * 0.75 / var(--vw) * var(--multiplier)));
-}
-.title .text-title.text-title-special span.text > span:hover > span.extrude > span:nth-child(14n) {
-  transform: translate(calc(14 * 0.75 / var(--vw) * var(--multiplier)), calc(-14 * 0.75 / var(--vw) * var(--multiplier)));
-}
-.title .text-title.text-title-special span.text > span:hover > span.extrude > span:nth-child(15n) {
-  transform: translate(calc(15 * 0.75 / var(--vw) * var(--multiplier)), calc(-15 * 0.75 / var(--vw) * var(--multiplier)));
-}
-.title .text-title.text-title-special span.text > span:active > span.overlap {
-  transform: translate(calc(8 / var(--vw) * var(--multiplier)), calc(-2.5 / var(--vw) * var(--multiplier)));
-}
-.title .text-title.text-title-special span.text > span:active > span.extrude > span:nth-child(1n) {
-  transform: translate(calc(1 * 0.375 / var(--vw) * var(--multiplier)), calc(-1 * 0.375 / var(--vw) * var(--multiplier)));
-}
-.title .text-title.text-title-special span.text > span:active > span.extrude > span:nth-child(2n) {
-  transform: translate(calc(2 * 0.375 / var(--vw) * var(--multiplier)), calc(-2 * 0.375 / var(--vw) * var(--multiplier)));
-}
-.title .text-title.text-title-special span.text > span:active > span.extrude > span:nth-child(3n) {
-  transform: translate(calc(3 * 0.375 / var(--vw) * var(--multiplier)), calc(-3 * 0.375 / var(--vw) * var(--multiplier)));
-}
-.title .text-title.text-title-special span.text > span:active > span.extrude > span:nth-child(4n) {
-  transform: translate(calc(4 * 0.375 / var(--vw) * var(--multiplier)), calc(-4 * 0.375 / var(--vw) * var(--multiplier)));
-}
-.title .text-title.text-title-special span.text > span:active > span.extrude > span:nth-child(5n) {
-  transform: translate(calc(5 * 0.375 / var(--vw) * var(--multiplier)), calc(-5 * 0.375 / var(--vw) * var(--multiplier)));
-}
-.title .text-title.text-title-special span.text > span:active > span.extrude > span:nth-child(6n) {
-  transform: translate(calc(6 * 0.375 / var(--vw) * var(--multiplier)), calc(-6 * 0.375 / var(--vw) * var(--multiplier)));
-}
-.title .text-title.text-title-special span.text > span:active > span.extrude > span:nth-child(7n) {
-  transform: translate(calc(7 * 0.375 / var(--vw) * var(--multiplier)), calc(-7 * 0.375 / var(--vw) * var(--multiplier)));
-}
-.title .text-title.text-title-special span.text > span:active > span.extrude > span:nth-child(8n) {
-  transform: translate(calc(8 * 0.375 / var(--vw) * var(--multiplier)), calc(-8 * 0.375 / var(--vw) * var(--multiplier)));
-}
-.title .text-title.text-title-special span.text > span:active > span.extrude > span:nth-child(9n) {
-  transform: translate(calc(9 * 0.375 / var(--vw) * var(--multiplier)), calc(-9 * 0.375 / var(--vw) * var(--multiplier)));
-}
-.title .text-title.text-title-special span.text > span:active > span.extrude > span:nth-child(10n) {
-  transform: translate(calc(10 * 0.375 / var(--vw) * var(--multiplier)), calc(-10 * 0.375 / var(--vw) * var(--multiplier)));
-}
-.title .text-title.text-title-special span.text > span:active > span.extrude > span:nth-child(11n) {
-  transform: translate(calc(11 * 0.375 / var(--vw) * var(--multiplier)), calc(-11 * 0.375 / var(--vw) * var(--multiplier)));
-}
-.title .text-title.text-title-special span.text > span:active > span.extrude > span:nth-child(12n) {
-  transform: translate(calc(12 * 0.375 / var(--vw) * var(--multiplier)), calc(-12 * 0.375 / var(--vw) * var(--multiplier)));
-}
-.title .text-title.text-title-special span.text > span:active > span.extrude > span:nth-child(13n) {
-  transform: translate(calc(13 * 0.375 / var(--vw) * var(--multiplier)), calc(-13 * 0.375 / var(--vw) * var(--multiplier)));
-}
-.title .text-title.text-title-special span.text > span:active > span.extrude > span:nth-child(14n) {
-  transform: translate(calc(14 * 0.375 / var(--vw) * var(--multiplier)), calc(-14 * 0.375 / var(--vw) * var(--multiplier)));
-}
-.title .text-title.text-title-special span.text > span:active > span.extrude > span:nth-child(15n) {
-  transform: translate(calc(15 * 0.375 / var(--vw) * var(--multiplier)), calc(-15 * 0.375 / var(--vw) * var(--multiplier)));
 }
 
 .subtitle {
@@ -9978,15 +9671,6 @@ svg {
   font-family: var(--font-family-primary);
   font-weight: var(--font-weight-black);
   letter-spacing: calc(0.5 / var(--vw) * var(--multiplier));
-}
-
-.date > span {
-  font-family: var(--font-family-date);
-  font-weight: var(--font-weight-date);
-  font-size: calc(var(--font-size-date) / var(--vw) * var(--multiplier));
-  font-style: italic;
-  line-height: 1.65;
-  color: inherit;
 }
 
 .number > span {
@@ -10712,13 +10396,21 @@ svg {
   }
 }
 
+.page {
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: calc(100vh - 72.27px);
+}
 .page .page-content {
   position: relative;
   z-index: 20;
 }
 
 .navbar.primary {
-  padding: calc(15 / var(--vw) * var(--multiplier)) !important;
+  padding-top: calc(15 / var(--vw) * var(--multiplier)) !important;
+  padding-bottom: calc(15 / var(--vw) * var(--multiplier)) !important;
+  padding-left: calc(20 / var(--vw) * var(--multiplier)) !important;
+  padding-right: calc(20 / var(--vw) * var(--multiplier)) !important;
   background: var(--color-white);
   border-bottom: calc(1 / var(--vw) * var(--multiplier)) solid var(--color-grey-light);
 }
@@ -10850,20 +10542,50 @@ svg {
   margin-right: 0 !important;
 }
 
-.footbar.primary {
-  background: var(--color-primary);
+.wizard {
+  overflow: hidden;
 }
-.footbar.primary .footbar-wrapper.primary {
+.wizard section {
   position: relative;
   z-index: 10;
-  background: var(--color-primary);
 }
-.footbar.primary .container {
-  max-width: 100% !important;
-  padding-bottom: 0 !important;
-  padding-top: calc(50 / var(--vw) * var(--multiplier));
+.wizard .class-schedule-list.primary .class-schedule-list-content {
+  background: var(--color-white);
+  border: calc(1 / var(--vw) * var(--multiplier)) solid var(--color-grey-light);
+  border-radius: calc(6.5 / var(--vw) * var(--multiplier));
 }
-.footbar.primary .col-footbar-outer {
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary > .wrapper-inner {
+  padding: calc(20 / var(--vw) * var(--multiplier)) !important;
+  border-bottom: calc(1 / var(--vw) * var(--multiplier)) solid rgba(231, 231, 232, 0.5);
+}
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary > .wrapper-inner:last-child {
+  border-bottom: none;
+}
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .col-content-outer {
+  position: relative;
+  width: 100%;
+  min-height: 1%;
+  padding: 0 calc(15 / var(--vw) * var(--multiplier));
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 100%;
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .col-content-outer > .row {
+  align-items: baseline;
+}
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .col-content-outer .col-content-inner:nth-child(1) {
+  position: relative;
+  width: 100%;
+  min-height: 1%;
+  padding: 0 calc(15 / var(--vw) * var(--multiplier));
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 16.66667%;
+  flex: 0 0 16.66667%;
+  max-width: 16.66667%;
+  padding-right: 0 !important;
+}
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .col-content-outer .col-content-inner:nth-child(2) {
   position: relative;
   width: 100%;
   min-height: 1%;
@@ -10872,25 +10594,50 @@ svg {
   -ms-flex: 0 0 83.33333%;
   flex: 0 0 83.33333%;
   max-width: 83.33333%;
-  margin-left: auto !important;
 }
-.footbar.primary .col-footbar-outer .col-footbar-inner {
-  position: relative;
-  width: 100%;
-  min-height: 1%;
-  padding: 0 calc(15 / var(--vw) * var(--multiplier));
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 50%;
-  flex: 0 0 50%;
-  max-width: 50%;
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-date .date.active > span > span.number {
+  color: var(--color-white);
+  background: var(--color-primary);
 }
-.footbar.primary .col-footbar-outer .col-footbar-inner:first-child .col-outer .col-inner:last-child {
-  margin-left: auto !important;
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-date .date > span {
+  display: flex;
+  align-items: center;
 }
-.footbar.primary .col-footbar-outer .col-footbar-inner:last-child .wrapper-inner {
-  float: inline-end;
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-date .date > span > span {
+  display: inline-block;
 }
-.footbar.primary .col-footbar-outer .col-footbar-inner .col-outer {
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-date .date > span > span.number {
+  display: inline-flex;
+  align-items: center;
+  margin-right: calc(15 / var(--vw) * var(--multiplier)) !important;
+  justify-content: center;
+  flex-shrink: 0;
+  width: calc(40 / var(--vw) * var(--multiplier));
+  height: calc(40 / var(--vw) * var(--multiplier));
+  font-weight: var(--font-weight-semibold);
+  font-size: calc(25 / var(--vw) * var(--multiplier));
+  border-radius: 100%;
+}
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-date .date > span > span.caption {
+  transform: translateY(calc(5 / var(--vw) * var(--multiplier)));
+}
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-date .date > span > span.caption > span {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  -webkit-line-clamp: 1;
+  display: inline-block;
+  max-width: calc(80 / var(--vw) * var(--multiplier));
+}
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-date .date > span > span.caption > span:nth-child(1) {
+  font-weight: var(--font-weight-semibold);
+}
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-date .date > span > span.caption > span:nth-child(2) {
+  padding-left: calc(5 / var(--vw) * var(--multiplier)) !important;
+  padding-right: calc(5 / var(--vw) * var(--multiplier)) !important;
+}
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-list .col-list-outer {
   position: relative;
   width: 100%;
   min-height: 1%;
@@ -10900,97 +10647,127 @@ svg {
   flex: 0 0 100%;
   max-width: 100%;
 }
-.footbar.primary .col-footbar-outer .col-footbar-inner .col-outer .col-inner {
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-list .col-list-outer > .row {
+  align-items: center;
+}
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-list .col-list-outer .col-list-inner {
   position: relative;
   width: 100%;
   min-height: 1%;
   padding: 0 calc(15 / var(--vw) * var(--multiplier));
   -webkit-box-flex: 0;
-  -ms-flex: 0 0 50%;
-  flex: 0 0 50%;
-  max-width: 50%;
-  margin-bottom: calc(65 / var(--vw) * var(--multiplier));
+  -ms-flex: 0 0 100%;
+  flex: 0 0 100%;
+  max-width: 100%;
 }
-.footbar.primary .footbar-logo {
-  margin-top: calc(35 / var(--vw) * var(--multiplier)) !important;
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-list .col-list-outer .col-list-inner:nth-child(1) {
+  max-width: 12%;
 }
-.footbar.primary .footbar-logo .logo > a {
-  display: flex;
-  text-decoration: none;
-  font-family: var(--font-family-general);
-  font-weight: var(--font-weight-medium);
-  font-size: calc(177.5 / var(--vw) * var(--multiplier));
-  line-height: 1;
-  letter-spacing: calc(-5 / var(--vw) * var(--multiplier));
-  color: var(--color-black);
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-list .col-list-outer .col-list-inner:nth-child(2) {
+  max-width: 88%;
 }
-.footbar.primary .footbar-logo .logo > a > span {
-  position: relative;
-  display: block;
-  width: 100% !important;
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-list > ul {
   padding-left: calc(15 / var(--vw) * var(--multiplier)) !important;
-  padding-right: calc(15 / var(--vw) * var(--multiplier)) !important;
-  margin-left: calc(35 / var(--vw) * var(--multiplier)) !important;
-  margin-right: calc(35 / var(--vw) * var(--multiplier)) !important;
+  margin-bottom: 0 !important;
+  list-style: none;
 }
-.footbar.primary .footbar-logo .logo > a > span:before {
-  position: absolute;
-  display: block;
-  width: 100% !important;
-  content: "";
-  height: calc(2.5 / var(--vw) * var(--multiplier));
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: var(--color-black);
-}
-.footbar.primary .footbar-text {
-  padding-left: calc(5 / var(--vw) * var(--multiplier)) !important;
-}
-.footbar.primary .footbar-text .title {
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-list > ul > li {
   margin-bottom: calc(10 / var(--vw) * var(--multiplier)) !important;
 }
-.footbar.primary .footbar-text .title .text-title {
-  font-family: var(--font-family-general);
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-list > ul > li:last-child {
+  margin-bottom: 0 !important;
+}
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-list .list-card.primary {
+  padding: calc(11.5 / var(--vw) * var(--multiplier)) calc(27.5 / var(--vw) * var(--multiplier));
+  border-radius: 50em;
+}
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-list .list-card.primary.card-1 {
+  background: var(--color-primary);
+}
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-list .list-card.primary.card-2 {
+  background: var(--color-secondary);
+}
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-list .list-card.primary.card-2 .list-icon .icon svg {
+  fill: var(--color-white);
+}
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-list .list-card.primary.card-3 {
+  background: var(--color-tertiary);
+}
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-list .list-card.primary.card-3 .list-icon .icon svg {
+  fill: var(--color-white);
+}
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-list .list-card.primary.card-4 {
+  background: var(--color-quarter);
+}
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-list .list-card.primary.card-4 .list-text .title .text-title {
+  color: var(--color-black);
+}
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-list .list-card.primary.card-4 .list-lesson .lesson > span {
+  color: var(--color-black);
+}
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-list .list-card.primary .card-wrapper.primary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-list .list-card.primary .card-wrapper.primary > .wrapper-inner {
+  display: flex;
+  align-items: center;
+}
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-list .list-card.primary .list-time .time > span {
+  font-size: calc(14 / var(--vw) * var(--multiplier));
+}
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-list .list-card.primary .list-text .title {
+  margin-bottom: 0 !important;
+}
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-list .list-card.primary .list-text .title .text-title {
+  margin-bottom: 0 !important;
   font-weight: var(--font-weight-semibold);
-  font-size: calc(15 / var(--vw) * var(--multiplier));
+  font-size: calc(16 / var(--vw) * var(--multiplier));
+  color: var(--color-white);
 }
-
-.wizard {
-  overflow: hidden;
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-list .list-card.primary .list-lesson .lesson > span {
+  display: inline-block;
+  font-size: calc(16 / var(--vw) * var(--multiplier));
+  color: var(--color-white);
 }
-.wizard section {
-  position: relative;
-  z-index: 10;
-  background: var(--color-white);
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-list .list-card.primary .list-lesson .lesson > span:before {
+  padding-left: calc(10 / var(--vw) * var(--multiplier)) !important;
+  padding-right: calc(10 / var(--vw) * var(--multiplier)) !important;
+  content: "|";
 }
-.wizard .theme.hero.primary .container {
-  max-width: 100% !important;
-  padding-left: calc(20 / var(--vw) * var(--multiplier)) !important;
-  padding-right: calc(20 / var(--vw) * var(--multiplier)) !important;
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-list .list-card.primary .list-status .status > span {
+  padding-top: calc(5 / var(--vw) * var(--multiplier)) !important;
+  padding-bottom: calc(5 / var(--vw) * var(--multiplier)) !important;
+  padding-left: calc(10 / var(--vw) * var(--multiplier)) !important;
+  padding-right: calc(10 / var(--vw) * var(--multiplier)) !important;
+  text-transform: uppercase;
+  font-weight: var(--font-weight-semibold);
+  font-size: calc(14 / var(--vw) * var(--multiplier));
+  border-radius: calc(3.5 / var(--vw) * var(--multiplier));
 }
-.wizard .theme.hero.primary .hero-header .col-header-outer {
-  position: relative;
-  width: 100%;
-  min-height: 1%;
-  padding: 0 calc(15 / var(--vw) * var(--multiplier));
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 100%;
-  flex: 0 0 100%;
-  max-width: 100%;
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-list .list-card.primary .list-status .status > span.complete {
+  color: #065509;
+  background: #D3FFC8;
 }
-.wizard .theme.hero.primary .hero-header .col-header-outer .col-header-inner {
-  position: relative;
-  width: 100%;
-  min-height: 1%;
-  padding: 0 calc(15 / var(--vw) * var(--multiplier));
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 50%;
-  flex: 0 0 50%;
-  max-width: 50%;
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-list .list-card.primary .list-status .status > span.confirm {
+  color: #1D0075;
+  background: #C8E0FF;
 }
-.wizard .theme.hero.primary .hero-header .header-text .title .text-title {
-  font-size: calc(160 / var(--vw) * var(--multiplier));
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-list .list-card.primary .list-status .status > span.unconfirm {
+  color: #750000;
+  background: #FFC8C8;
+}
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-list .list-card.primary .list-status .status > span.visible {
+  color: #065509;
+  background: #D3FFC8;
+}
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-list .list-card.primary .list-icon {
+  margin-left: calc(20 / var(--vw) * var(--multiplier)) !important;
+  width: calc(25 / var(--vw) * var(--multiplier));
+}
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-list .list-card.primary .list-icon .icon svg {
+  fill: var(--color-black);
 }
 
 /*# sourceMappingURL=css-master.css.map */

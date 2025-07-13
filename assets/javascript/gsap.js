@@ -74,11 +74,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
 // Scroll Smoother
 
-ScrollSmoother.create({
-    smooth: 1,
-    effects: true,
-    smoothTouch: 0.5,
-});
+// ScrollSmoother.create({
+//     smooth: 1,
+//     effects: true,
+//     smoothTouch: 0.5,
+// });
 
 document.querySelectorAll(".text-mask").forEach((el) => {
     const splitText = SplitText.create(el, {

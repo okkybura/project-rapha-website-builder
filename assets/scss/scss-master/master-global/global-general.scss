@@ -18,9 +18,9 @@
     // Color
 
     --color-primary                                             : #1F2FBE;
-    --color-secondary                                           : #1F2FBE;
-    --color-tertiary                                            : #1F2FBE;
-    --color-quarter                                             : #1F2FBE;
+    --color-secondary                                           : #357EC2;
+    --color-tertiary                                            : #3E35C2;
+    --color-quarter                                             : #D9EBF3;
     --color-quinary                                             : #1F2FBE;
 
     --color-white                                               : #FFFFFF;
@@ -295,6 +295,13 @@ svg {
 
 .container {
     @include py-5;
+    @include px-1;
+
+    max-width                   : calc(1500 / var(--vw) * var(--multiplier));
+}
+
+.row {
+    @include mx-minus-3;
 }
 
 // Form
@@ -476,186 +483,16 @@ svg {
 .title {
     @include mb-4;
 
-    &.title-wrapper-special {
-        @include position-relative;
-
-        @include display-inline-block;
-
-        @include mb-0;
-
-        padding             : calc(15 / var(--vw) * var(--multiplier)) calc(20 / var(--vw) * var(--multiplier));
-
-        background          : var(--color-white);
-
-        border              : calc(3 / var(--vw) * var(--multiplier)) solid var(--color-black);
-
-        &:before {
-            @include position-absolute;
-
-            content         : '';
-
-            width           : calc(100% + calc(4 / var(--vw) * var(--multiplier)));
-            height          : calc(20 / var(--vw) * var(--multiplier));
-
-            top             : calc(-20 / var(--vw) * var(--multiplier));;
-            left            : 50%;
-
-            transform       : translateX(-50%);
-
-            background      : var(--color-quinary);
-
-            border          : calc(3 / var(--vw) * var(--multiplier)) solid var(--color-black);
-        }
-
-        .text-title {
-            @include mb-0;
-        }
-    }
-
     .text-title {
-        @include text-transform-uppercase;
-
         font-family             : var(--font-family-title);
         font-weight             : var(--font-weight-title);                  
         font-size               : calc(var(--font-size-title) / var(--vw) * var(--multiplier));
 
-        line-height             : 1;
+        line-height             : 1.5;
 
         letter-spacing          : calc(var(--letter-spacing-title) / var(--vw) * var(--multiplier));
 
         color                   : inherit;
-
-        &.text-title-special {
-            cursor              : default;
-
-            * {
-                transition      : 0.65s var(--cubic-bezier-4);
-            }
-
-            span {
-                &.text {
-                    @include mx-2;
-
-                    > span {
-                        &.char {
-                            @include position-relative;
-
-                            margin                  : 0 calc(-0.5 / var(--vw) * var(--multiplier));
-
-                            @for $i from 1 through 20 {
-
-                                &:nth-child(#{$i}) {
-                                    z-index         : #{100 - $i};
-                                }
-                            }
-
-                            &.space {
-                                @include mx-2;
-                            }
-
-                            > span {
-                                &.base {
-                                    @include position-relative;
-
-                                    user-select                     : auto;
-                                }
-                    
-                                &.overlap {
-                                    @include position-absolute;
-
-                                    z-index                         : 20;
-
-                                    color                           : $color-white;
-                                                
-                                    -webkit-text-stroke-width       : calc(2.25 / var(--vw) * var(--multiplier));
-                                    -webkit-text-stroke-color       : $color-black;
-
-                                    top                             : 0;
-                                    left                            : 0;
-                    
-                                    transform                       : translate(calc(6.5 / var(--vw) * var(--multiplier)), calc(-1.5 / var(--vw) * var(--multiplier)));
-                                }
-                    
-                                &.extrude {
-                                    z-index                         : -1;
-
-                                    color                           : $color-black;
-                    
-                                    -webkit-text-stroke-width       : calc(2 / var(--vw) * var(--multiplier));
-                                    -webkit-text-stroke-color       : $color-black;
-                    
-                                    @for $i from 1 through 15 {
-                    
-                                        > span:nth-child(#{$i}n) {
-                                            transform               : translate(calc(#{$i} * 0.35 / var(--vw) * var(--multiplier)), calc(-#{$i} * 0.35 / var(--vw) * var(--multiplier)));
-                                        }
-                                    }    
-                    
-                                    > span {
-                                        @include position-absolute;
-
-                                        left                            : 0;
-                                    }
-                                }
-                            }
-                        }
-
-                        &:hover {
-                            + span {
-                                > span {
-                                    &.overlap {
-                                        transform                       : translate(calc(10 / var(--vw) * var(--multiplier)), calc(-3.5 / var(--vw) * var(--multiplier)));
-
-                                        transition-delay                : unset !important;
-                                    }
-                    
-                                    &.extrude {
-                                        @for $i from 1 through 15 {
-                    
-                                            > span:nth-child(#{$i}n) {
-                                                transform               : translate(calc(#{$i} * 0.5 / var(--vw) * var(--multiplier)), calc(-#{$i} * 0.5 / var(--vw) * var(--multiplier)));
-                                            }
-                                        }     
-                                    }
-                                }
-                            }
-
-                            > span {
-                                &.overlap {
-                                    transform                           : translate(calc(13.5 / var(--vw) * var(--multiplier)), calc(-7.5 / var(--vw) * var(--multiplier)));
-                                }
-                    
-                                &.extrude {
-                                    @for $i from 1 through 15 {
-                    
-                                        > span:nth-child(#{$i}n) {
-                                            transform                   : translate(calc(#{$i} * 0.75 / var(--vw) * var(--multiplier)), calc(-#{$i} * 0.75 / var(--vw) * var(--multiplier)));
-                                        }
-                                    }   
-                                }
-                            }
-                        }
-
-                        &:active {
-                            > span {
-                                &.overlap {
-                                    transform                       : translate(calc(8 / var(--vw) * var(--multiplier)), calc(-2.5 / var(--vw) * var(--multiplier)));
-                                }
-                    
-                                &.extrude {
-                                    @for $i from 1 through 15 {
-                    
-                                        > span:nth-child(#{$i}n) {
-                                            transform               : translate(calc(#{$i} * 0.375 / var(--vw) * var(--multiplier)), calc(-#{$i} * 0.375 / var(--vw) * var(--multiplier)));
-                                        }
-                                    }     
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
     }
 }
 
@@ -697,19 +534,6 @@ svg {
 
             letter-spacing      : calc(0.5 / var(--vw) * var(--multiplier));
         }
-    }
-}
-
-.date {
-    > span {
-        font-family             : var(--font-family-date);
-        font-weight             : var(--font-weight-date);                     
-        font-size               : calc(var(--font-size-date) / var(--vw) * var(--multiplier));
-        font-style              : italic;
-
-        line-height             : 1.65;
-
-        color                   : inherit;
     }
 }
 
