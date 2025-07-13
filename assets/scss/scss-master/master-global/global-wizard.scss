@@ -99,11 +99,6 @@
 // Page
 
 .page {
-    @include overflow-y-auto;
-    @include overflow-x-hidden;
-
-    height                  : calc(100vh - 72.27px);
-
     .page-content {
         @include position-relative;
         
@@ -126,7 +121,7 @@
         border-bottom           : calc(1 / var(--vw) * var(--multiplier)) solid var(--color-grey-light);
 
         .navbar-text {
-            @include display-inline-block;
+            @include ellipsis-double;
 
             @include text-decoration-none;
 
@@ -346,6 +341,34 @@
                 }
             }
         }
+
+        @include media-breakpoint-down(md) {
+
+            .navbar-text {
+                @include ellipsis-single;
+
+                max-width           : calc(200 / var(--vw) * var(--multiplier));;
+            }
+
+            .navbar-time {
+                > div {
+                    @include mr-3;
+                }
+            }
+
+            // Navbar Nav
+
+            .navbar-nav {
+
+                // Primary
+
+                &.primary {
+                    .nav-item {
+                        @include mr-2;
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -358,6 +381,45 @@
         @include position-relative;
 
         z-index                 : 10;
+    }
+
+    .section-wrapper {
+
+        // Primary
+
+        &.primary {
+            > div {
+                > .wrapper-inner {
+                    @include overflow-y-auto;
+                    @include overflow-x-hidden;
+
+                    height                      : calc(100vh - 150px);
+
+                    background                  : var(--color-white);
+
+                    border                      : calc(1 / var(--vw) * var(--multiplier)) solid var(--color-grey-light);
+                    border-radius               : calc(6.5 / var(--vw) * var(--multiplier));
+                }
+            }
+
+            @include media-breakpoint-down(md) {
+
+                > div {
+                    > .wrapper-inner {
+                        height                  : calc(100vh - 105px);
+                    }
+                }    
+            }
+
+            @include media-breakpoint-down(sm) {
+
+                > div {
+                    > .wrapper-inner {
+                        height                  : calc(100vh - 155px);
+                    }
+                }    
+            }
+        }
     }
 
     // ----- Main ----- //
@@ -373,11 +435,6 @@
             // Content
 
             .class-schedule-list-content {
-                background                  : var(--color-white);
-
-                border                      : calc(1 / var(--vw) * var(--multiplier)) solid var(--color-grey-light);
-                border-radius               : calc(6.5 / var(--vw) * var(--multiplier));
-
                 .content-wrapper {
 
                     // Primary
@@ -412,293 +469,484 @@
                                 }
                             }
                         }
+                    }
+                }
 
-                        .content-date {
-                            .date {
-                                &.active {
-                                    > span {
-                                        > span {
-                                            &.number {
-                                                color               : var(--color-white);
-
-                                                background          : var(--color-primary);
-                                            }
-                                        }
-                                    }
-                                }
-
+                .content-date {
+                    .date {
+                        &.active {
+                            > span {
                                 > span {
-                                    @include display-flex;
+                                    &.number {
+                                        color               : var(--color-white);
 
-                                    @include align-items-center;
-
-                                    > span {
-                                        @include display-inline-block;
-
-                                        &.number {
-                                            @include display-inline-flex;
-
-                                            @include align-items-center;
-
-                                            @include mr-3;
-
-                                            justify-content         : center;
-
-                                            flex-shrink             : 0;
-
-                                            width                   : calc(40 / var(--vw) * var(--multiplier));
-                                            height                  : calc(40 / var(--vw) * var(--multiplier));
-                                            
-                                            font-weight             : var(--font-weight-semibold);
-                                            font-size               : calc(25 / var(--vw) * var(--multiplier));
-
-                                            border-radius           : 100%;
-                                        }
-
-                                        &.caption {
-                                            transform               : translateY(calc(5 / var(--vw) * var(--multiplier)));
-
-                                            > span {                                                
-                                                @include ellipsis-single;
-
-                                                @include display-inline-block;
-
-                                                max-width                   : calc(80 / var(--vw) * var(--multiplier));
-
-                                                &:nth-child(1) {
-                                                    font-weight             : var(--font-weight-semibold);
-                                                }
-                                                
-                                                &:nth-child(2) {
-                                                    @include px-1;
-                                                }
-                                            }
-                                        }
+                                        background          : var(--color-primary);
                                     }
                                 }
                             }
                         }
 
-                        .content-list {
-                            .col-list-outer {
-                                @include col-12;
+                        > span {
+                            @include display-flex;
 
-                                > .row {
+                            @include align-items-center;
+
+                            > span {
+                                @include display-inline-block;
+
+                                &.number {
+                                    @include display-inline-flex;
+
                                     @include align-items-center;
+
+                                    @include mr-3;
+
+                                    justify-content         : center;
+
+                                    flex-shrink             : 0;
+
+                                    width                   : calc(40 / var(--vw) * var(--multiplier));
+                                    height                  : calc(40 / var(--vw) * var(--multiplier));
+                                    
+                                    font-weight             : var(--font-weight-semibold);
+                                    font-size               : calc(25 / var(--vw) * var(--multiplier));
+
+                                    border-radius           : 100%;
                                 }
 
-                                .col-list-inner {
-                                    @include col-12;
+                                &.caption {
+                                    transform               : translateY(calc(5 / var(--vw) * var(--multiplier)));
 
-                                    &:nth-child(1) {
-                                        max-width           : 12%;
-                                    }
+                                    > span {                                                
+                                        @include ellipsis-single;
 
-                                    &:nth-child(2) {
-                                        max-width           : 88%;
+                                        @include display-inline-block;
+
+                                        max-width                   : calc(80 / var(--vw) * var(--multiplier));
+
+                                        &:nth-child(1) {
+                                            font-weight             : var(--font-weight-semibold);
+                                        }
+                                        
+                                        &:nth-child(2) {
+                                            @include px-1;
+                                        }
                                     }
                                 }
                             }
+                        }
+                    }
+                }
 
-                            > ul {
-                                @include pl-3;
+                .content-list {
+                    .col-list-outer {
+                        @include col-12;
+
+                        > .row {
+                            @include align-items-center;
+                        }
+
+                        .col-list-inner {
+                            @include col-12;
+
+                            &:nth-child(1) {
+                                max-width           : 12%;
+                            }
+
+                            &:nth-child(2) {
+                                max-width           : 88%;
+                            }
+                        }
+                    }
+
+                    > ul {
+                        @include pl-3;
+                        @include mb-0;
+
+                        list-style          : none;
+
+                        > li {
+                            @include mb-2;
+
+                            &:last-child {
                                 @include mb-0;
+                            }
+                        }
+                    }
 
-                                list-style          : none;
+                    .list-time {
+                        .time {
+                            > span {
+                                font-size               : calc(14 / var(--vw) * var(--multiplier));
+                            }
+                        }
+                    }
 
-                                > li {
-                                    @include mb-2;
+                    .list-card {
 
-                                    &:last-child {
-                                        @include mb-0;
+                        // Primary
+
+                        &.primary {
+                            padding                             : calc(11.5 / var(--vw) * var(--multiplier)) calc(27.5 / var(--vw) * var(--multiplier));
+
+                            border-radius                       : 50em;
+
+                            // Card 1
+
+                            &.card-1 {
+                                background                      : var(--color-primary); 
+                            }
+
+                            // Card 2
+
+                            &.card-2 {
+                                background                      : var(--color-secondary); 
+
+                                .list-icon {
+                                    .icon {
+                                        svg {
+                                            fill                : var(--color-white);
+                                        }
                                     }
                                 }
                             }
 
-                            .list-card {
+                            // Card 3
+
+                            &.card-3 {
+                                background                      : var(--color-tertiary); 
+
+                                .list-icon {
+                                    .icon {
+                                        svg {
+                                            fill                : var(--color-white);
+                                        }
+                                    }
+                                }
+                            }
+
+                            // Card 4
+
+                            &.card-4 {
+                                background                      : var(--color-quarter); 
+
+                                .list-text {
+                                    .title {
+                                        .text-title {
+                                            color               : var(--color-black);
+                                        }
+                                    }
+                                }
+
+                                .list-lesson {
+                                    .lesson {
+                                        > span {
+                                            color               : var(--color-black);
+                                        }
+                                    }
+                                }
+                            }
+
+                            .card-wrapper {
 
                                 // Primary
 
                                 &.primary {
-                                    padding                             : calc(11.5 / var(--vw) * var(--multiplier)) calc(27.5 / var(--vw) * var(--multiplier));
+                                    @include display-flex;
 
-                                    border-radius                       : 50em;
+                                    @include align-items-center;
 
-                                    // Card 1
+                                    justify-content             : space-between;
 
-                                    &.card-1 {
-                                        background                      : var(--color-primary); 
+                                    > .wrapper-inner {
+                                        @include display-flex;
+
+                                        @include align-items-center;
                                     }
+                                }
+                            }
 
-                                    // Card 2
+                            .list-text {
+                                .title {
+                                    @include mb-0;
 
-                                    &.card-2 {
-                                        background                      : var(--color-secondary); 
+                                    .text-title {
+                                        @include mb-0;
 
-                                        .list-icon {
-                                            .icon {
-                                                svg {
-                                                    fill                : var(--color-white);
-                                                }
-                                            }
+                                        font-weight             : var(--font-weight-semibold);
+                                        font-size               : calc(16 / var(--vw) * var(--multiplier));
+
+                                        color                   : var(--color-white);
+                                    }
+                                }
+                            }
+
+                            .list-lesson {
+                                .lesson {
+                                    > span {
+                                        @include display-inline-block;
+
+                                        font-size               : calc(16 / var(--vw) * var(--multiplier));
+
+                                        color                   : var(--color-white);
+
+                                        &:before {
+                                            @include px-2;
+
+                                            content             : '|';
                                         }
                                     }
+                                }
+                            }
 
-                                    // Card 3
+                            .list-status {
+                                .status {
+                                    > span {
+                                        @include py-1;
+                                        @include px-2;
 
-                                    &.card-3 {
-                                        background                      : var(--color-tertiary); 
+                                        @include text-transform-uppercase;
 
-                                        .list-icon {
-                                            .icon {
-                                                svg {
-                                                    fill                : var(--color-white);
-                                                }
-                                            }
+                                        font-weight             : var(--font-weight-semibold);
+                                        font-size               : calc(14 / var(--vw) * var(--multiplier));
+
+                                        border-radius           : calc(3.5 / var(--vw) * var(--multiplier));
+
+                                        // Complete
+
+                                        &.complete {
+                                            color               : #065509;
+
+                                            background          : #D3FFC8;
+                                        }
+
+                                        // Confirm
+
+                                        &.confirm {
+                                            color               : #1D0075;
+
+                                            background          : #C8E0FF;
+                                        }
+
+                                        // Unconfirm
+
+                                        &.unconfirm {
+                                            color               : #750000;
+
+                                            background          : #FFC8C8;
+                                        }
+
+                                        // Visible
+
+                                        &.visible {
+                                            color               : #065509;
+
+                                            background          : #D3FFC8;
                                         }
                                     }
+                                }
+                            }
 
-                                    // Card 4
+                            .list-icon {
+                                @include ml-4;
 
-                                    &.card-4 {
-                                        background                      : var(--color-quarter); 
+                                width                           : calc(25 / var(--vw) * var(--multiplier));
 
-                                        .list-text {
-                                            .title {
-                                                .text-title {
-                                                    color               : var(--color-black);
-                                                }
-                                            }
-                                        }
+                                .icon {
+                                    svg {
+                                        fill                    : var(--color-black);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
 
-                                        .list-lesson {
-                                            .lesson {
-                                                > span {
-                                                    color               : var(--color-black);
-                                                }
-                                            }
-                                        }
+            @include media-breakpoint-down(md) {
+
+                // Content
+
+                .class-schedule-list-content {
+                    .content-wrapper {
+
+                        // Primary
+
+                        &.primary {
+                            .col-content-outer {
+                                .col-content-inner {
+                                    &:nth-child(1) {
+                                        @include col-12;
+
+                                        @include pr-3;
+                                        @include mb-2;
                                     }
 
-                                    .card-wrapper {
+                                    &:nth-child(2) {
+                                        @include col-12;
+                                    }
+                                }
+                            }
+                        }
+                    }
 
-                                        // Primary
-
-                                        &.primary {
-                                            @include display-flex;
-
-                                            @include align-items-center;
-
-                                            justify-content             : space-between;
-
-                                            > .wrapper-inner {
-                                                @include display-flex;
-
-                                                @include align-items-center;
-                                            }
-                                        }
+                    .content-date {
+                        .date {
+                            > span {
+                                > span {
+                                    &.number {
+                                        @include mr-2;
                                     }
 
-                                    .list-time {
-                                        .time {
-                                            > span {
-                                                font-size               : calc(14 / var(--vw) * var(--multiplier));
-                                            }
+                                    &.caption {
+                                        > span {                                                
+                                            max-width                   : calc(200 / var(--vw) * var(--multiplier));
                                         }
                                     }
+                                }
+                            }
+                        }
+                    }
 
-                                    .list-text {
-                                        .title {
-                                            @include mb-0;
+                    .content-list {
+                        .col-list-outer {
+                            .col-list-inner {
+                                &:nth-child(1) {
+                                    max-width           : 16.5%;
+                                }
 
-                                            .text-title {
+                                &:nth-child(2) {
+                                    max-width           : 83.5%;
+                                }
+                            }
+                        }
+
+                        .list-card {
+
+                            // Primary
+
+                            &.primary {
+                                padding                             : calc(11.5 / var(--vw) * var(--multiplier)) calc(27.5 / var(--vw) * var(--multiplier));
+
+                                .list-text {
+                                    .title {
+                                        .text-title {
+                                            @include ellipsis-single;
+
+                                            max-width               : calc(200 / var(--vw) * var(--multiplier));
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            @include media-breakpoint-down(sm) {
+
+                // Content
+
+                .class-schedule-list-content {
+                    .content-wrapper {
+
+                        // Primary
+
+                        &.primary {
+                            > .wrapper-inner {
+                                @include p-3;
+                                @include pl-2;
+                            }
+                        }
+                    }
+
+                    .content-date {
+                        @include ml-2;
+                    } 
+
+                    .content-list {
+                        .col-list-outer {
+                            .col-list-inner {
+                                &:nth-child(1) {
+                                    @include max-width-100;
+                                }
+
+                                &:nth-child(2) {
+                                    @include max-width-100;
+                                }
+                            }
+                        }
+
+                        .list-time {
+                            @include display-none;
+                        }
+
+                        .list-card {
+
+                            // Primary
+
+                            &.primary {
+                                @include position-relative;
+
+                                @include py-3;
+                                @include px-4;
+
+                                border-radius                       : calc(10 / var(--vw) * var(--multiplier));
+
+                                .card-wrapper {
+
+                                    // Primary
+
+                                    &.primary {
+                                        @include align-items-flex-start;
+
+                                        flex-direction              : column;
+
+                                        > .wrapper-inner {
+                                            @include align-items-flex-start;
+
+                                            @include mb-2;
+
+                                            flex-direction          : column;
+
+                                            &:last-child {
                                                 @include mb-0;
-
-                                                font-weight             : var(--font-weight-semibold);
-                                                font-size               : calc(16 / var(--vw) * var(--multiplier));
-
-                                                color                   : var(--color-white);
                                             }
                                         }
                                     }
+                                }
 
-                                    .list-lesson {
-                                        .lesson {
-                                            > span {
-                                                @include display-inline-block;
+                                .list-text {
+                                    @include order-2;
 
-                                                font-size               : calc(16 / var(--vw) * var(--multiplier));
+                                    .title {
+                                        .text-title {
+                                            @include ellipsis-single;
 
-                                                color                   : var(--color-white);
+                                            max-width               : calc(265 / var(--vw) * var(--multiplier));
+                                        }
+                                    }
+                                }
 
-                                                &:before {
-                                                    @include px-2;
+                                .list-lesson {
+                                    @include order-1;
 
-                                                    content             : '|';
-                                                }
+                                    .lesson {
+                                        > span {
+                                            &:before {
+                                                @include display-none;
                                             }
                                         }
                                     }
+                                }
 
-                                    .list-status {
-                                        .status {
-                                            > span {
-                                                @include py-1;
-                                                @include px-2;
+                                .list-icon {
+                                    @include position-absolute;
+                                    
+                                    @include ml-0;
 
-                                                @include text-transform-uppercase;
-
-                                                font-weight             : var(--font-weight-semibold);
-                                                font-size               : calc(14 / var(--vw) * var(--multiplier));
-
-                                                border-radius           : calc(3.5 / var(--vw) * var(--multiplier));
-
-                                                // Complete
-
-                                                &.complete {
-                                                    color               : #065509;
-
-                                                    background          : #D3FFC8;
-                                                }
-
-                                                // Confirm
-
-                                                &.confirm {
-                                                    color               : #1D0075;
-
-                                                    background          : #C8E0FF;
-                                                }
-
-                                                // Unconfirm
-
-                                                &.unconfirm {
-                                                    color               : #750000;
-
-                                                    background          : #FFC8C8;
-                                                }
-
-                                                // Visible
-
-                                                &.visible {
-                                                    color               : #065509;
-
-                                                    background          : #D3FFC8;
-                                                }
-                                            }
-                                        }
-                                    }
-
-                                    .list-icon {
-                                        @include ml-4;
-
-                                        width                           : calc(25 / var(--vw) * var(--multiplier));
-
-                                        .icon {
-                                            svg {
-                                                fill                    : var(--color-black);
-                                            }
-                                        }
-                                    }
+                                    top                         : calc(10 / var(--vw) * var(--multiplier));
+                                    right                       : calc(10 / var(--vw) * var(--multiplier));
                                 }
                             }
                         }

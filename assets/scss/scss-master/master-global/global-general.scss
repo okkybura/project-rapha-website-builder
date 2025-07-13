@@ -162,6 +162,8 @@ html {
 // Body
 
 body {
+    @include overflow-hidden;
+
     @include pr-0;
 
     font-family                 : var(--font-family-general);
@@ -1077,17 +1079,6 @@ svg {
         }
     }
 
-    // Caption
-
-    .caption {
-        > span {
-            @include py-1;
-            @include px-3;
-
-            font-size           : calc(12 / var(--vw) * var(--multiplier));
-        }
-    }
-
     // Link
 
     .link-default {
@@ -1173,17 +1164,6 @@ svg {
                 width               : calc(55 / var(--vw) * var(--multiplier));
                 height              : calc(55 / var(--vw) * var(--multiplier));
             }
-        }
-    }
-
-    // Caption
-
-    .caption {
-        > span {
-            @include py-1;
-            @include px-3;
-
-            font-size               : calc(12 / var(--vw) * var(--multiplier));
         }
     }
 

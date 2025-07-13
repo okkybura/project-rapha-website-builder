@@ -9422,6 +9422,7 @@ html {
 }
 
 body {
+  overflow: hidden;
   padding-right: 0 !important;
   font-family: var(--font-family-general);
   font-weight: var(--font-weight-regular);
@@ -10222,13 +10223,6 @@ svg {
   .number > span {
     font-size: calc(32.5 / var(--vw) * var(--multiplier));
   }
-  .caption > span {
-    padding-top: calc(5 / var(--vw) * var(--multiplier)) !important;
-    padding-bottom: calc(5 / var(--vw) * var(--multiplier)) !important;
-    padding-left: calc(15 / var(--vw) * var(--multiplier)) !important;
-    padding-right: calc(15 / var(--vw) * var(--multiplier)) !important;
-    font-size: calc(12 / var(--vw) * var(--multiplier));
-  }
   .link-default {
     font-size: calc(14 / var(--vw) * var(--multiplier));
   }
@@ -10318,13 +10312,6 @@ svg {
     width: calc(55 / var(--vw) * var(--multiplier));
     height: calc(55 / var(--vw) * var(--multiplier));
   }
-  .caption > span {
-    padding-top: calc(5 / var(--vw) * var(--multiplier)) !important;
-    padding-bottom: calc(5 / var(--vw) * var(--multiplier)) !important;
-    padding-left: calc(15 / var(--vw) * var(--multiplier)) !important;
-    padding-right: calc(15 / var(--vw) * var(--multiplier)) !important;
-    font-size: calc(12 / var(--vw) * var(--multiplier));
-  }
   .price .textprice {
     font-size: calc(20 / var(--vw) * var(--multiplier));
   }
@@ -10396,11 +10383,6 @@ svg {
   }
 }
 
-.page {
-  overflow-y: auto;
-  overflow-x: hidden;
-  height: calc(100vh - 72.27px);
-}
 .page .page-content {
   position: relative;
   z-index: 20;
@@ -10415,7 +10397,12 @@ svg {
   border-bottom: calc(1 / var(--vw) * var(--multiplier)) solid var(--color-grey-light);
 }
 .navbar.primary .navbar-text {
-  display: inline-block;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+  -webkit-line-clamp: 2;
   text-decoration: none;
   padding: 0 !important;
   max-width: calc(400 / var(--vw) * var(--multiplier));
@@ -10541,6 +10528,22 @@ svg {
 .navbar.primary .navbar-nav.primary .nav-item:last-child {
   margin-right: 0 !important;
 }
+@media (max-width: 991.98px) {
+  .navbar.primary .navbar-text {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    -webkit-line-clamp: 1;
+    max-width: calc(200 / var(--vw) * var(--multiplier));
+  }
+  .navbar.primary .navbar-time > div {
+    margin-right: calc(15 / var(--vw) * var(--multiplier)) !important;
+  }
+  .navbar.primary .navbar-nav.primary .nav-item {
+    margin-right: calc(10 / var(--vw) * var(--multiplier)) !important;
+  }
+}
 
 .wizard {
   overflow: hidden;
@@ -10549,10 +10552,23 @@ svg {
   position: relative;
   z-index: 10;
 }
-.wizard .class-schedule-list.primary .class-schedule-list-content {
+.wizard .section-wrapper.primary > div > .wrapper-inner {
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: calc(100vh - 150px);
   background: var(--color-white);
   border: calc(1 / var(--vw) * var(--multiplier)) solid var(--color-grey-light);
   border-radius: calc(6.5 / var(--vw) * var(--multiplier));
+}
+@media (max-width: 991.98px) {
+  .wizard .section-wrapper.primary > div > .wrapper-inner {
+    height: calc(100vh - 105px);
+  }
+}
+@media (max-width: 767.98px) {
+  .wizard .section-wrapper.primary > div > .wrapper-inner {
+    height: calc(100vh - 155px);
+  }
 }
 .wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary > .wrapper-inner {
   padding: calc(20 / var(--vw) * var(--multiplier)) !important;
@@ -10595,18 +10611,18 @@ svg {
   flex: 0 0 83.33333%;
   max-width: 83.33333%;
 }
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-date .date.active > span > span.number {
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-date .date.active > span > span.number {
   color: var(--color-white);
   background: var(--color-primary);
 }
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-date .date > span {
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-date .date > span {
   display: flex;
   align-items: center;
 }
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-date .date > span > span {
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-date .date > span > span {
   display: inline-block;
 }
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-date .date > span > span.number {
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-date .date > span > span.number {
   display: inline-flex;
   align-items: center;
   margin-right: calc(15 / var(--vw) * var(--multiplier)) !important;
@@ -10618,10 +10634,10 @@ svg {
   font-size: calc(25 / var(--vw) * var(--multiplier));
   border-radius: 100%;
 }
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-date .date > span > span.caption {
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-date .date > span > span.caption {
   transform: translateY(calc(5 / var(--vw) * var(--multiplier)));
 }
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-date .date > span > span.caption > span {
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-date .date > span > span.caption > span {
   display: block;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -10630,14 +10646,14 @@ svg {
   display: inline-block;
   max-width: calc(80 / var(--vw) * var(--multiplier));
 }
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-date .date > span > span.caption > span:nth-child(1) {
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-date .date > span > span.caption > span:nth-child(1) {
   font-weight: var(--font-weight-semibold);
 }
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-date .date > span > span.caption > span:nth-child(2) {
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-date .date > span > span.caption > span:nth-child(2) {
   padding-left: calc(5 / var(--vw) * var(--multiplier)) !important;
   padding-right: calc(5 / var(--vw) * var(--multiplier)) !important;
 }
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-list .col-list-outer {
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .col-list-outer {
   position: relative;
   width: 100%;
   min-height: 1%;
@@ -10647,10 +10663,10 @@ svg {
   flex: 0 0 100%;
   max-width: 100%;
 }
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-list .col-list-outer > .row {
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .col-list-outer > .row {
   align-items: center;
 }
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-list .col-list-outer .col-list-inner {
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .col-list-outer .col-list-inner {
   position: relative;
   width: 100%;
   min-height: 1%;
@@ -10660,83 +10676,83 @@ svg {
   flex: 0 0 100%;
   max-width: 100%;
 }
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-list .col-list-outer .col-list-inner:nth-child(1) {
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .col-list-outer .col-list-inner:nth-child(1) {
   max-width: 12%;
 }
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-list .col-list-outer .col-list-inner:nth-child(2) {
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .col-list-outer .col-list-inner:nth-child(2) {
   max-width: 88%;
 }
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-list > ul {
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-list > ul {
   padding-left: calc(15 / var(--vw) * var(--multiplier)) !important;
   margin-bottom: 0 !important;
   list-style: none;
 }
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-list > ul > li {
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-list > ul > li {
   margin-bottom: calc(10 / var(--vw) * var(--multiplier)) !important;
 }
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-list > ul > li:last-child {
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-list > ul > li:last-child {
   margin-bottom: 0 !important;
 }
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-list .list-card.primary {
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-time .time > span {
+  font-size: calc(14 / var(--vw) * var(--multiplier));
+}
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary {
   padding: calc(11.5 / var(--vw) * var(--multiplier)) calc(27.5 / var(--vw) * var(--multiplier));
   border-radius: 50em;
 }
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-list .list-card.primary.card-1 {
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary.card-1 {
   background: var(--color-primary);
 }
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-list .list-card.primary.card-2 {
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary.card-2 {
   background: var(--color-secondary);
 }
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-list .list-card.primary.card-2 .list-icon .icon svg {
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary.card-2 .list-icon .icon svg {
   fill: var(--color-white);
 }
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-list .list-card.primary.card-3 {
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary.card-3 {
   background: var(--color-tertiary);
 }
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-list .list-card.primary.card-3 .list-icon .icon svg {
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary.card-3 .list-icon .icon svg {
   fill: var(--color-white);
 }
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-list .list-card.primary.card-4 {
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary.card-4 {
   background: var(--color-quarter);
 }
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-list .list-card.primary.card-4 .list-text .title .text-title {
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary.card-4 .list-text .title .text-title {
   color: var(--color-black);
 }
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-list .list-card.primary.card-4 .list-lesson .lesson > span {
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary.card-4 .list-lesson .lesson > span {
   color: var(--color-black);
 }
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-list .list-card.primary .card-wrapper.primary {
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary .card-wrapper.primary {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-list .list-card.primary .card-wrapper.primary > .wrapper-inner {
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary .card-wrapper.primary > .wrapper-inner {
   display: flex;
   align-items: center;
 }
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-list .list-card.primary .list-time .time > span {
-  font-size: calc(14 / var(--vw) * var(--multiplier));
-}
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-list .list-card.primary .list-text .title {
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary .list-text .title {
   margin-bottom: 0 !important;
 }
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-list .list-card.primary .list-text .title .text-title {
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary .list-text .title .text-title {
   margin-bottom: 0 !important;
   font-weight: var(--font-weight-semibold);
   font-size: calc(16 / var(--vw) * var(--multiplier));
   color: var(--color-white);
 }
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-list .list-card.primary .list-lesson .lesson > span {
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary .list-lesson .lesson > span {
   display: inline-block;
   font-size: calc(16 / var(--vw) * var(--multiplier));
   color: var(--color-white);
 }
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-list .list-card.primary .list-lesson .lesson > span:before {
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary .list-lesson .lesson > span:before {
   padding-left: calc(10 / var(--vw) * var(--multiplier)) !important;
   padding-right: calc(10 / var(--vw) * var(--multiplier)) !important;
   content: "|";
 }
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-list .list-card.primary .list-status .status > span {
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary .list-status .status > span {
   padding-top: calc(5 / var(--vw) * var(--multiplier)) !important;
   padding-bottom: calc(5 / var(--vw) * var(--multiplier)) !important;
   padding-left: calc(10 / var(--vw) * var(--multiplier)) !important;
@@ -10746,28 +10762,136 @@ svg {
   font-size: calc(14 / var(--vw) * var(--multiplier));
   border-radius: calc(3.5 / var(--vw) * var(--multiplier));
 }
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-list .list-card.primary .list-status .status > span.complete {
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary .list-status .status > span.complete {
   color: #065509;
   background: #D3FFC8;
 }
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-list .list-card.primary .list-status .status > span.confirm {
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary .list-status .status > span.confirm {
   color: #1D0075;
   background: #C8E0FF;
 }
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-list .list-card.primary .list-status .status > span.unconfirm {
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary .list-status .status > span.unconfirm {
   color: #750000;
   background: #FFC8C8;
 }
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-list .list-card.primary .list-status .status > span.visible {
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary .list-status .status > span.visible {
   color: #065509;
   background: #D3FFC8;
 }
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-list .list-card.primary .list-icon {
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary .list-icon {
   margin-left: calc(20 / var(--vw) * var(--multiplier)) !important;
   width: calc(25 / var(--vw) * var(--multiplier));
 }
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .content-list .list-card.primary .list-icon .icon svg {
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary .list-icon .icon svg {
   fill: var(--color-black);
+}
+@media (max-width: 991.98px) {
+  .wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .col-content-outer .col-content-inner:nth-child(1) {
+    position: relative;
+    width: 100%;
+    min-height: 1%;
+    padding: 0 calc(15 / var(--vw) * var(--multiplier));
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding-right: calc(15 / var(--vw) * var(--multiplier)) !important;
+    margin-bottom: calc(10 / var(--vw) * var(--multiplier)) !important;
+  }
+  .wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .col-content-outer .col-content-inner:nth-child(2) {
+    position: relative;
+    width: 100%;
+    min-height: 1%;
+    padding: 0 calc(15 / var(--vw) * var(--multiplier));
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .wizard .class-schedule-list.primary .class-schedule-list-content .content-date .date > span > span.number {
+    margin-right: calc(10 / var(--vw) * var(--multiplier)) !important;
+  }
+  .wizard .class-schedule-list.primary .class-schedule-list-content .content-date .date > span > span.caption > span {
+    max-width: calc(200 / var(--vw) * var(--multiplier));
+  }
+  .wizard .class-schedule-list.primary .class-schedule-list-content .content-list .col-list-outer .col-list-inner:nth-child(1) {
+    max-width: 16.5%;
+  }
+  .wizard .class-schedule-list.primary .class-schedule-list-content .content-list .col-list-outer .col-list-inner:nth-child(2) {
+    max-width: 83.5%;
+  }
+  .wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary {
+    padding: calc(11.5 / var(--vw) * var(--multiplier)) calc(27.5 / var(--vw) * var(--multiplier));
+  }
+  .wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary .list-text .title .text-title {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    -webkit-line-clamp: 1;
+    max-width: calc(200 / var(--vw) * var(--multiplier));
+  }
+}
+@media (max-width: 767.98px) {
+  .wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary > .wrapper-inner {
+    padding: calc(15 / var(--vw) * var(--multiplier)) !important;
+    padding-left: calc(10 / var(--vw) * var(--multiplier)) !important;
+  }
+  .wizard .class-schedule-list.primary .class-schedule-list-content .content-date {
+    margin-left: calc(10 / var(--vw) * var(--multiplier)) !important;
+  }
+  .wizard .class-schedule-list.primary .class-schedule-list-content .content-list .col-list-outer .col-list-inner:nth-child(1) {
+    max-width: 100% !important;
+  }
+  .wizard .class-schedule-list.primary .class-schedule-list-content .content-list .col-list-outer .col-list-inner:nth-child(2) {
+    max-width: 100% !important;
+  }
+  .wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-time {
+    display: none;
+  }
+  .wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary {
+    position: relative;
+    padding-top: calc(15 / var(--vw) * var(--multiplier)) !important;
+    padding-bottom: calc(15 / var(--vw) * var(--multiplier)) !important;
+    padding-left: calc(20 / var(--vw) * var(--multiplier)) !important;
+    padding-right: calc(20 / var(--vw) * var(--multiplier)) !important;
+    border-radius: calc(10 / var(--vw) * var(--multiplier));
+  }
+  .wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary .card-wrapper.primary {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary .card-wrapper.primary > .wrapper-inner {
+    align-items: flex-start;
+    margin-bottom: calc(10 / var(--vw) * var(--multiplier)) !important;
+    flex-direction: column;
+  }
+  .wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary .card-wrapper.primary > .wrapper-inner:last-child {
+    margin-bottom: 0 !important;
+  }
+  .wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary .list-text {
+    order: 2;
+  }
+  .wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary .list-text .title .text-title {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    -webkit-line-clamp: 1;
+    max-width: calc(265 / var(--vw) * var(--multiplier));
+  }
+  .wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary .list-lesson {
+    order: 1;
+  }
+  .wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary .list-lesson .lesson > span:before {
+    display: none;
+  }
+  .wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary .list-icon {
+    position: absolute;
+    margin-left: 0 !important;
+    top: calc(10 / var(--vw) * var(--multiplier));
+    right: calc(10 / var(--vw) * var(--multiplier));
+  }
 }
 
 /*# sourceMappingURL=css-master.css.map */
