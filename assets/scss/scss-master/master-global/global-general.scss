@@ -57,7 +57,7 @@
     // Font - Weight
 
     --font-weight-title                                         : 900;
-    --font-weight-subtitle                                      : 900;
+    --font-weight-subtitle                                      : 400;
     --font-weight-description                                   : 400;
     --font-weight-date                                          : 400;
     --font-weight-caption                                       : 900;
@@ -84,7 +84,7 @@
 
     --font-size-general                                         : 16;
     --font-size-title                                           : 75;
-    --font-size-subtitle                                        : 24;
+    --font-size-subtitle                                        : 16;
     --font-size-description                                     : 18;
     --font-size-date                                            : 16;
     --font-size-caption                                         : 16;
@@ -312,52 +312,39 @@ svg {
     label {
         @include position-relative;
 
-        @include text-transform-uppercase;
-
-        z-index                 : 20;
-
-        padding                 : calc(8.5 / var(--vw) * var(--multiplier)) calc(20 / var(--vw) * var(--multiplier));
-
-        font-family             : var(--font-family-primary);
-        font-weight             : var(--font-weight-black);
+        font-family             : var(--font-family-general);
+        font-weight             : var(--font-weight-semibold);
         font-size               : calc(14 / var(--vw) * var(--multiplier));
 
         line-height             : 1.25;
 
         color                   : var(--color-black);
 
-        background              : var(--color-white);
-
-        border                  : calc(3 / var(--vw) * var(--multiplier)) solid var(--color-black);
-        border-radius           : 50em;
-
         > em {
             font-style          : normal;
 
             color               : #ff0000;
         }
-
-        > span {
-            color               : rgba($color-black, 0.65);
-        }
     }
 
     .form-input {
         .form-control {
+            @include height-auto;
+
             @include p-3;
 
             resize              : none;
 
             font-family         : var(--font-family-general);
             font-weight         : var(--font-weight-regular);
-            font-size           : calc(16 / var(--vw) * var(--multiplier));
+            font-size           : calc(15 / var(--vw) * var(--multiplier));
 
             color               : var(--color-black);
 
             background          : var(--color-white);
 
-            border              : calc(3 / var(--vw) * var(--multiplier)) solid var(--color-black);
-            border-radius       : 0;
+            border              : calc(1 / var(--vw) * var(--multiplier)) solid rgba($color-black, 0.25);
+            border-radius       : calc(6.5 / var(--vw) * var(--multiplier));
 
             box-shadow          : none;
 
@@ -370,61 +357,29 @@ svg {
     }
 
     .form-option {
-        .select2 {
-            @include position-relative;
+        .form-control {
+            @include height-auto;
 
-            @include p-3;
+            @include p-2;
 
             font-family         : var(--font-family-general);
             font-weight         : var(--font-weight-regular);
-            font-size           : calc(16 / var(--vw) * var(--multiplier));
+            font-size           : calc(15 / var(--vw) * var(--multiplier));
 
             color               : var(--color-black);
 
             background          : var(--color-white);
 
-            border              : calc(3 / var(--vw) * var(--multiplier)) solid var(--color-black);
-            border-radius       : 0;
+            border              : calc(1 / var(--vw) * var(--multiplier)) solid rgba($color-black, 0.25);
+            border-radius       : calc(4.5 / var(--vw) * var(--multiplier));
 
             box-shadow          : none;
-
-            .select2-selection {
-                @include height-100;
-
-                background          : transparent;
-
-                border              : none;
-                border-radius       : 0;
-
-                .select2-selection__rendered {
-                    @include px-0;
-
-                    line-height         : unset;
-
-                    color               : var(--color-black);
-
-                    .flag-text {
-                        @include ml-3;
-                    }
-                }
-
-                .select2-selection__arrow {
-                    top                     : 55%;
-                    right                   : calc(15 / var(--vw) * var(--multiplier));
-
-                    transform               : translateY(-50%);
-
-                    > b {
-                        border-color        : var(--color-black) transparent transparent transparent;
-                    }
-                }
-            }
         }
+    }
 
-        .form-control {
-            &::placeholder {
-                opacity     : 0.65;
-            }
+    .form-radio {
+        .form-radio-label {
+            font-weight         : var(--font-weight-regular);
         }
     }
 }
@@ -502,13 +457,11 @@ svg {
     @include mb-4;
 
     .text-subtitle {
-        @include text-transform-uppercase;
-
         font-family             : var(--font-family-subtitle);
         font-weight             : var(--font-weight-subtitle);                       
         font-size               : calc(var(--font-size-subtitle) / var(--vw) * var(--multiplier));
 
-        line-height             : 1.35;
+        line-height             : 1.5;
 
         color                   : var(--color-black);
     }
@@ -536,6 +489,18 @@ svg {
 
             letter-spacing      : calc(0.5 / var(--vw) * var(--multiplier));
         }
+    }
+}
+
+// Date
+
+.date {
+    > span {
+        font-family             : var(--font-family-date);
+        font-weight             : var(--font-weight-date);
+        font-size               : calc(var(--font-size-date) / var(--vw) * var(--multiplier));
+
+        line-height             : 1.25;        
     }
 }
 

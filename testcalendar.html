@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>FullCalendar - Hide Days with Checkbox Restriction</title>
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.css" rel="stylesheet" />
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+    }
+    #controls {
+      margin-bottom: 15px;
+    }
+    #controls label {
+      margin-right: 10px;
+    }
+    #calendar {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="controls">
+    <label><input type="checkbox" class="day-toggle" value="0" checked /> Sun</label>
+    <label><input type="checkbox" class="day-toggle" value="1" checked /> Mon</label>
+    <label><input type="checkbox" class="day-toggle" value="2" checked /> Tue</label>
+    <label><input type="checkbox" class="day-toggle" value="3" checked /> Wed</label>
+    <label><input type="checkbox" class="day-toggle" value="4" checked /> Thu</label>
+    <label><input type="checkbox" class="day-toggle" value="5" checked /> Fri</label>
+    <label><input type="checkbox" class="day-toggle" value="6" checked /> Sat</label>
+  </div>
+
+  <div id="calendar"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
+  <script>
+    const { Calendar } = FullCalendar;
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const calendarEl = document.getElementById('calendar');
+
+      const calendar = new Calendar(calendarEl, {
+        initialView: 'dayGridMonth',
+        hiddenDays: [],
+        events: [
+          { title: 'Example Event', start: new Date().toISOString().split('T')[0] }
+        ]
+      });
+
+      calendar.render();
+
+      const updateHiddenDays = () => {
+        const hidden = [];
+        document.querySelectorAll('.day-toggle').forEach(cb => {
+          if (!cb.checked) {
+            hidden.push(parseInt(cb.value));
+          }
+        });
+        calendar.setOption('hiddenDays', hidden);
+      };
+
+      document.querySelectorAll('.day-toggle').forEach(cb => {
+        cb.addEventListener('change', function () {
+          const checkedBoxes = Array.from(document.querySelectorAll('.day-toggle')).filter(c => c.checked);
+
+          // Prevent unchecking last checkbox
+          if (checkedBoxes.length === 0) {
+            this.checked = true; // revert uncheck
+            alert("You must keep at least one day selected.");
+            return;
+          }
+
+          updateHiddenDays();
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>

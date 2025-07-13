@@ -152,7 +152,7 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownCalendarOption">
                             <div class="dropdown-item">
-                                <a class="dropdown-link" href="#">
+                                <a class="dropdown-link" href="javascript:void(0);" data-toggle="modal" data-target="#modalControlHourPrimary">
                                     <span class="wrapper">
                                         <span class="icon">
                                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -168,7 +168,7 @@
                                 </a>
                             </div>
                             <div class="dropdown-item">
-                                <a class="dropdown-link" href="#">
+                                <a class="dropdown-link" href="javascript:void(0);" data-toggle="modal" data-target="#modalHistoryPrimary">
                                     <span class="wrapper">
                                         <span class="icon">
                                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -191,7 +191,7 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-block btn-nav primary" href="javascript:void(0);">
+                        <a class="btn btn-block btn-nav primary" href="javascript:void(0);" data-toggle="modal" data-target="#modalClassInformationPrimary">
                             <span class="wrapper">
                                 <span class="text">
                                     Incluir aula
@@ -202,6 +202,403 @@
                 </ul>
             </div>
         </nav>
+
+        <!-- Modal - Control Hour - Primary -->
+
+        <div class="modal modal-control-hour primary fade" id="modalControlHourPrimary" tabindex="-1" aria-labelledby="modalControlHourPrimaryLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="body-table">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <span>
+                                                    Controle de Horas
+                                                </span>
+                                            </th>
+                                            <th>
+                                                <span class="duration">
+                                                    Duração da aula
+                                                </span>
+                                            </th>
+                                            <th>
+                                                <span class="workload">
+                                                    Carga Horária Total
+                                                </span>
+                                            </th>
+                                            <th>
+                                                <span class="schedule">
+                                                    Aulas Planejadas x Agendadas
+                                                </span>
+                                            </th>
+                                            <th>
+                                                
+                                            </th>
+                                            <th>
+                                                <span>
+                                                    <button type="button" class="btn btn-block btn-header" data-dismiss="modal">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                                                            <path
+                                                                d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
+                                                        </svg>
+                                                    </button>
+                                                </span>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <span class="title">
+                                                    Arte e Educação
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <span>
+                                                    1h
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <span>
+                                                    60h
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <span>
+                                                    42/60
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <span class="button">
+                                                    <button type="button" class="btn btn-block btn-table">
+                                                        Agrupar
+                                                    </button>
+                                                </span>
+                                            </td>
+                                            <td>
+                                                
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span class="title">
+                                                    Matemática
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <span>
+                                                    1:30h
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <span>
+                                                    132h
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <span>
+                                                    55/87
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <span class="button">
+                                                    <button type="button" class="btn btn-block btn-table">
+                                                        Agrupar
+                                                    </button>
+                                                </span>
+                                            </td>
+                                            <td>
+                                                
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span class="title">
+                                                    Introdução ao Direito Constitucional e Direito Administrativo
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <span>
+                                                    1h
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <span>
+                                                    42h
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <span>
+                                                    3/12
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <span class="button">
+                                                    <button type="button" class="btn btn-block btn-table">
+                                                        Agrupar
+                                                    </button>
+                                                </span>
+                                            </td>
+                                            <td>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal - Class Information - Primary -->
+
+        <div class="modal modal-class-information primary fade" id="modalClassInformationPrimary" tabindex="-1" aria-labelledby="modalClassInformationPrimaryLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="header-text">
+                            <div class="title">
+                                <h3 class="text-title">
+                                    Inclusão de Aula
+                                </h3>
+                            </div>
+                        </div>
+                        <div class="header-button">
+                            <div class="button">
+                                <button type="button" class="btn btn-block btn-header" data-dismiss="modal">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                                        <path
+                                            d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="body-form">
+                            <div class="row">
+                                <div class="col-form-outer">
+                                    <div class="row">
+                                        <div class="col-form-inner">
+                                            <div class="form-group">
+                                                <div class="form-label">
+                                                    <label>
+                                                        Disciplina <em>*</em>
+                                                    </label>
+                                                </div>
+                                                <div class="form-option">
+                                                    <select class="form-control" required>
+                                                        <option selected>
+                                                            Biologia Orgânica
+                                                        </option>
+                                                        <option>
+                                                            Option 1
+                                                        </option>
+                                                        <option>
+                                                            Option 2
+                                                        </option>
+                                                        <option>
+                                                            Option 3
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="form-label">
+                                                    <label>
+                                                        Professor <em>*</em>
+                                                    </label>
+                                                </div>
+                                                <div class="form-option">
+                                                    <select class="form-control" required>
+                                                        <option selected>
+                                                            Benedict Cumberbatch
+                                                        </option>
+                                                        <option>
+                                                            Option 1
+                                                        </option>
+                                                        <option>
+                                                            Option 2
+                                                        </option>
+                                                        <option>
+                                                            Option 3
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="form-label">
+                                                    <label>
+                                                        Item de Horário
+                                                    </label>
+                                                </div>
+                                                <div class="form-option">
+                                                    <select class="form-control">
+                                                        <option selected>
+                                                            Biologia Orgânica
+                                                        </option>
+                                                        <option>
+                                                            Option 1
+                                                        </option>
+                                                        <option>
+                                                            Option 2
+                                                        </option>
+                                                        <option>
+                                                            Option 3
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="form-label">
+                                                    <label>
+                                                        Sala
+                                                    </label>
+                                                </div>
+                                                <div class="form-option">
+                                                    <select class="form-control">
+                                                        <option selected>
+                                                            Biologia Orgânica
+                                                        </option>
+                                                        <option>
+                                                            Option 1
+                                                        </option>
+                                                        <option>
+                                                            Option 2
+                                                        </option>
+                                                        <option>
+                                                            Option 3
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="form-label">
+                                                    <label>
+                                                        Status
+                                                    </label>
+                                                </div>
+                                                <div class="form-radio">
+                                                    <input class="form-radio-input" type="radio" name="radioCreateClass-Status" id="radioCreateClass-Status-1" value="radioCreateClass-Status-1" checked />
+                                                    <label class="form-radio-label" for="radioCreateClass-Status-1">
+                                                        Não Confirmada
+                                                    </label>
+                                                </div>
+                                                <div class="form-radio">
+                                                    <input class="form-radio-input" type="radio" name="radioCreateClass-Status" id="radioCreateClass-Status-2" value="radioCreateClass-Status-2" />
+                                                    <label class="form-radio-label" for="radioCreateClass-Status-2">
+                                                        Não Confirmada
+                                                    </label>
+                                                </div>
+                                                <div class="form-radio">
+                                                    <input class="form-radio-input" type="radio" name="radioCreateClass-Status" id="radioCreateClass-Status-3" value="radioCreateClass-Status-3" />
+                                                    <label class="form-radio-label" for="radioCreateClass-Status-3">
+                                                        Visível para alunos
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal - Modal History - Primary -->
+
+        <div class="modal modal-side modal-right modal-history primary fade" id="modalHistoryPrimary" tabindex="-1" aria-labelledby="modalHistoryPrimaryLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="header-text">
+                            <div class="title">
+                                <h3 class="text-title">
+                                    Histórico
+                                </h3>
+                            </div>
+                        </div>
+                        <div class="header-button">
+                            <div class="button">
+                                <button type="button" class="btn btn-block btn-header" data-dismiss="modal">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                                        <path
+                                            d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="body-list">
+                            <ul>
+                                <li>
+                                    <div class="list-wrapper primary">
+                                        <div class="list-date">
+                                            <div class="date">
+                                                <span>
+                                                    9 de jan. 2025, 17:09
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="list-text">
+                                            <div class="subtitle">
+                                                <h4 class="text-subtitle">
+                                                    <b>Laura Policarpo</b> editou o <b>status</b> da aula para <b>“Visível para alunos”</b>
+                                                </h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="list-wrapper primary">
+                                        <div class="list-date">
+                                            <div class="date">
+                                                <span>
+                                                    2 de jan. 2025, 09:54
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="list-text">
+                                            <div class="subtitle">
+                                                <h4 class="text-subtitle">
+                                                    <b>Gisele Prata</b> alterou a <b>data</b> da aula de Matemática de <b>22/02/2025</b> para <b>25/02/2025</b>
+                                                </h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="list-wrapper primary">
+                                        <div class="list-date">
+                                            <div class="date">
+                                                <span>
+                                                    1 de jan. 2025, 17:09
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="list-text">
+                                            <div class="subtitle">
+                                                <h4 class="text-subtitle">
+                                                    <b>Benedict Cumberbatch</b> editou o <b>status</b> da aula para <b>“Não Confirmada”</b>
+                                                </h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div class="page">
 

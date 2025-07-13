@@ -9343,7 +9343,7 @@ a.text-dark:hover, a.text-dark:focus {
   --font-family-textprice: "Inter";
   --font-family-sellprice: "Inter";
   --font-weight-title: 900;
-  --font-weight-subtitle: 900;
+  --font-weight-subtitle: 400;
   --font-weight-description: 400;
   --font-weight-date: 400;
   --font-weight-caption: 900;
@@ -9366,7 +9366,7 @@ a.text-dark:hover, a.text-dark:focus {
   --font-weight-heavy: 900;
   --font-size-general: 16;
   --font-size-title: 75;
-  --font-size-subtitle: 24;
+  --font-size-subtitle: 16;
   --font-size-description: 18;
   --font-size-date: 16;
   --font-size-caption: 16;
@@ -9527,78 +9527,47 @@ svg {
 
 .form-group label {
   position: relative;
-  text-transform: uppercase;
-  z-index: 20;
-  padding: calc(8.5 / var(--vw) * var(--multiplier)) calc(20 / var(--vw) * var(--multiplier));
-  font-family: var(--font-family-primary);
-  font-weight: var(--font-weight-black);
+  font-family: var(--font-family-general);
+  font-weight: var(--font-weight-semibold);
   font-size: calc(14 / var(--vw) * var(--multiplier));
   line-height: 1.25;
   color: var(--color-black);
-  background: var(--color-white);
-  border: calc(3 / var(--vw) * var(--multiplier)) solid var(--color-black);
-  border-radius: 50em;
 }
 .form-group label > em {
   font-style: normal;
   color: #ff0000;
 }
-.form-group label > span {
-  color: rgba(23, 26, 33, 0.65);
-}
 .form-group .form-input .form-control {
+  height: auto !important;
   padding: calc(15 / var(--vw) * var(--multiplier)) !important;
   resize: none;
   font-family: var(--font-family-general);
   font-weight: var(--font-weight-regular);
-  font-size: calc(16 / var(--vw) * var(--multiplier));
+  font-size: calc(15 / var(--vw) * var(--multiplier));
   color: var(--color-black);
   background: var(--color-white);
-  border: calc(3 / var(--vw) * var(--multiplier)) solid var(--color-black);
-  border-radius: 0;
+  border: calc(1 / var(--vw) * var(--multiplier)) solid rgba(23, 26, 33, 0.25);
+  border-radius: calc(6.5 / var(--vw) * var(--multiplier));
   box-shadow: none;
 }
 .form-group .form-input .form-control::placeholder {
   opacity: 0.65;
   color: var(--color-black);
 }
-.form-group .form-option .select2 {
-  position: relative;
-  padding: calc(15 / var(--vw) * var(--multiplier)) !important;
+.form-group .form-option .form-control {
+  height: auto !important;
+  padding: calc(10 / var(--vw) * var(--multiplier)) !important;
   font-family: var(--font-family-general);
   font-weight: var(--font-weight-regular);
-  font-size: calc(16 / var(--vw) * var(--multiplier));
+  font-size: calc(15 / var(--vw) * var(--multiplier));
   color: var(--color-black);
   background: var(--color-white);
-  border: calc(3 / var(--vw) * var(--multiplier)) solid var(--color-black);
-  border-radius: 0;
+  border: calc(1 / var(--vw) * var(--multiplier)) solid rgba(23, 26, 33, 0.25);
+  border-radius: calc(4.5 / var(--vw) * var(--multiplier));
   box-shadow: none;
 }
-.form-group .form-option .select2 .select2-selection {
-  height: 100% !important;
-  background: transparent;
-  border: none;
-  border-radius: 0;
-}
-.form-group .form-option .select2 .select2-selection .select2-selection__rendered {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  line-height: unset;
-  color: var(--color-black);
-}
-.form-group .form-option .select2 .select2-selection .select2-selection__rendered .flag-text {
-  margin-left: calc(15 / var(--vw) * var(--multiplier)) !important;
-}
-.form-group .form-option .select2 .select2-selection .select2-selection__arrow {
-  top: 55%;
-  right: calc(15 / var(--vw) * var(--multiplier));
-  transform: translateY(-50%);
-}
-.form-group .form-option .select2 .select2-selection .select2-selection__arrow > b {
-  border-color: var(--color-black) transparent transparent transparent;
-}
-.form-group .form-option .form-control::placeholder {
-  opacity: 0.65;
+.form-group .form-radio .form-radio-label {
+  font-weight: var(--font-weight-regular);
 }
 
 .select2-dropdown {
@@ -9650,11 +9619,10 @@ svg {
   margin-bottom: calc(20 / var(--vw) * var(--multiplier)) !important;
 }
 .subtitle .text-subtitle {
-  text-transform: uppercase;
   font-family: var(--font-family-subtitle);
   font-weight: var(--font-weight-subtitle);
   font-size: calc(var(--font-size-subtitle) / var(--vw) * var(--multiplier));
-  line-height: 1.35;
+  line-height: 1.5;
   color: var(--color-black);
 }
 
@@ -9672,6 +9640,13 @@ svg {
   font-family: var(--font-family-primary);
   font-weight: var(--font-weight-black);
   letter-spacing: calc(0.5 / var(--vw) * var(--multiplier));
+}
+
+.date > span {
+  font-family: var(--font-family-date);
+  font-weight: var(--font-weight-date);
+  font-size: calc(var(--font-size-date) / var(--vw) * var(--multiplier));
+  line-height: 1.25;
 }
 
 .number > span {
@@ -10543,6 +10518,196 @@ svg {
   .navbar.primary .navbar-nav.primary .nav-item {
     margin-right: calc(10 / var(--vw) * var(--multiplier)) !important;
   }
+}
+
+.modal .modal-content {
+  overflow: hidden;
+  border: none;
+  border-radius: calc(10 / var(--vw) * var(--multiplier));
+  box-shadow: 0px 1.5px 12.5px 3.5px rgba(23, 26, 33, 0.1);
+}
+.modal .modal-content .modal-header {
+  align-items: center;
+  padding-top: calc(15 / var(--vw) * var(--multiplier)) !important;
+  padding-bottom: calc(15 / var(--vw) * var(--multiplier)) !important;
+  padding-left: calc(20 / var(--vw) * var(--multiplier)) !important;
+  padding-right: calc(20 / var(--vw) * var(--multiplier)) !important;
+  border-bottom: calc(1 / var(--vw) * var(--multiplier)) solid var(--color-grey-light);
+}
+.modal .modal-content .modal-header .header-text .title {
+  margin-bottom: 0 !important;
+}
+.modal .modal-content .modal-header .header-text .title .text-title {
+  margin-bottom: 0 !important;
+  font-weight: var(--font-weight-bold);
+  font-size: calc(18 / var(--vw) * var(--multiplier));
+}
+.modal .modal-content .modal-header .header-button .button > button {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  background: unset;
+}
+.modal .modal-content .modal-header .header-button .button > button svg {
+  fill: var(--color-grey);
+}
+.modal.modal-side {
+  opacity: 1;
+}
+.modal.modal-side.modal-right.show .modal-dialog {
+  transform: translate(0, 0);
+}
+.modal.modal-side.modal-right .modal-dialog {
+  left: unset;
+  right: 0;
+  transform: translate(100%, 0);
+}
+.modal.modal-side .modal-dialog {
+  position: fixed;
+  height: 100% !important;
+  margin: 0 !important;
+  opacity: 1;
+}
+.modal.modal-side .modal-dialog .modal-content {
+  height: 100% !important;
+  border: none;
+  border-radius: 0;
+}
+.modal.modal-control-hour.primary .modal-dialog {
+  max-width: calc(1000 / var(--vw) * var(--multiplier));
+}
+.modal.modal-control-hour.primary .modal-content .modal-body {
+  padding: 0 !important;
+}
+.modal.modal-control-hour.primary .modal-content .modal-body .body-table table {
+  margin-bottom: 0 !important;
+}
+.modal.modal-control-hour.primary .modal-content .modal-body .body-table table thead tr th {
+  padding: calc(15 / var(--vw) * var(--multiplier)) !important;
+  vertical-align: middle;
+  font-size: calc(14 / var(--vw) * var(--multiplier));
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-white);
+  background: var(--color-primary);
+}
+.modal.modal-control-hour.primary .modal-content .modal-body .body-table table thead tr th:first-child {
+  padding-left: calc(20 / var(--vw) * var(--multiplier)) !important;
+}
+.modal.modal-control-hour.primary .modal-content .modal-body .body-table table thead tr th:first-child > span {
+  font-size: calc(18 / var(--vw) * var(--multiplier));
+}
+.modal.modal-control-hour.primary .modal-content .modal-body .body-table table thead tr th:last-child {
+  padding-left: calc(5 / var(--vw) * var(--multiplier)) !important;
+  padding-right: calc(5 / var(--vw) * var(--multiplier)) !important;
+}
+.modal.modal-control-hour.primary .modal-content .modal-body .body-table table thead tr th > span {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  -webkit-line-clamp: 1;
+  max-width: calc(250 / var(--vw) * var(--multiplier));
+}
+.modal.modal-control-hour.primary .modal-content .modal-body .body-table table thead tr th svg {
+  fill: var(--color-white);
+}
+.modal.modal-control-hour.primary .modal-content .modal-body .body-table table tbody tr td {
+  padding: calc(15 / var(--vw) * var(--multiplier)) !important;
+  vertical-align: middle;
+  font-size: calc(14 / var(--vw) * var(--multiplier));
+}
+.modal.modal-control-hour.primary .modal-content .modal-body .body-table table tbody tr td:first-child {
+  padding-left: calc(20 / var(--vw) * var(--multiplier)) !important;
+}
+.modal.modal-control-hour.primary .modal-content .modal-body .body-table table tbody tr td:last-child {
+  padding-left: calc(5 / var(--vw) * var(--multiplier)) !important;
+  padding-right: calc(5 / var(--vw) * var(--multiplier)) !important;
+}
+.modal.modal-control-hour.primary .modal-content .modal-body .body-table table tbody tr td > span {
+  display: block;
+  text-align: center;
+}
+.modal.modal-control-hour.primary .modal-content .modal-body .body-table table tbody tr td > span.title {
+  text-align: left;
+  margin-bottom: 0 !important;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  -webkit-line-clamp: 1;
+  max-width: calc(200 / var(--vw) * var(--multiplier));
+  font-weight: var(--font-weight-bold);
+}
+.modal.modal-control-hour.primary .modal-content .modal-body .body-table table tbody tr td > span.button > button {
+  padding-top: calc(10 / var(--vw) * var(--multiplier)) !important;
+  padding-bottom: calc(10 / var(--vw) * var(--multiplier)) !important;
+  padding-left: calc(15 / var(--vw) * var(--multiplier)) !important;
+  padding-right: calc(15 / var(--vw) * var(--multiplier)) !important;
+  font-weight: var(--font-weight-semibold);
+  font-size: calc(14 / var(--vw) * var(--multiplier));
+  border-radius: calc(6.5 / var(--vw) * var(--multiplier));
+  color: var(--color-primary);
+  background: rgba(31, 47, 190, 0.075);
+}
+.modal.modal-control-hour.primary .modal-content .modal-body .body-table table tbody tr td > span.button > button:hover {
+  background: rgba(31, 47, 190, 0.15);
+}
+@media (max-width: 991.98px) {
+  .modal.modal-control-hour.primary .modal-dialog {
+    max-width: calc(600 / var(--vw) * var(--multiplier));
+  }
+}
+.modal.modal-class-information.primary .modal-dialog {
+  max-width: calc(780 / var(--vw) * var(--multiplier));
+}
+.modal.modal-class-information.primary .modal-content .modal-body {
+  padding: calc(20 / var(--vw) * var(--multiplier)) !important;
+}
+.modal.modal-class-information.primary .modal-content .modal-body .body-form .col-form-outer {
+  position: relative;
+  width: 100%;
+  min-height: 1%;
+  padding: 0 calc(15 / var(--vw) * var(--multiplier));
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 100%;
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+.modal.modal-class-information.primary .modal-content .modal-body .body-form .col-form-outer .col-form-inner {
+  position: relative;
+  width: 100%;
+  min-height: 1%;
+  padding: 0 calc(15 / var(--vw) * var(--multiplier));
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 50%;
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+.modal.modal-class-information.primary .modal-content .modal-body .body-form .form-group {
+  margin-bottom: calc(15 / var(--vw) * var(--multiplier)) !important;
+}
+.modal.modal-class-information.primary .modal-content .modal-body .body-form .form-group:last-child {
+  margin-bottom: 0 !important;
+}
+.modal.modal-history.primary .modal-content .modal-body {
+  padding-left: calc(20 / var(--vw) * var(--multiplier)) !important;
+  padding-right: calc(20 / var(--vw) * var(--multiplier)) !important;
+  padding-top: calc(25 / var(--vw) * var(--multiplier));
+}
+.modal.modal-history.primary .modal-content .modal-body .body-list > ul {
+  padding-left: 0 !important;
+  list-style: none;
+}
+.modal.modal-history.primary .modal-content .modal-body .body-list > ul > li {
+  margin-bottom: calc(35 / var(--vw) * var(--multiplier)) !important;
+}
+.modal.modal-history.primary .modal-content .modal-body .body-list > ul > li:last-child {
+  margin-bottom: 0 !important;
+}
+.modal.modal-history.primary .modal-content .modal-body .body-list .list-date {
+  margin-bottom: calc(5 / var(--vw) * var(--multiplier)) !important;
+}
+.modal.modal-history.primary .modal-content .modal-body .body-list .list-date .date > span {
+  color: rgba(23, 26, 33, 0.5);
 }
 
 .wizard {
