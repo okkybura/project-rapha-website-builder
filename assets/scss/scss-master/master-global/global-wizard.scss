@@ -2037,6 +2037,67 @@
                             .fc-view-harness {
                                 height                                      : calc(100vh - calc(110 / var(--vw) * var(--multiplier))) !important;
                             }
+
+                            .fc-listWeek-view  {
+                                .fc-list-day {
+                                    &.fc-day-today {
+                                        .fc-list-day-cushion {
+                                            .day-number {
+                                                color               : var(--color-white);
+
+                                                background          : var(--color-primary);
+                                            }
+                                        }
+                                    }
+
+                                    .fc-list-day-cushion {
+                                        background                  : var(--color-white);
+                                        > div {
+                                            @include display-flex;
+
+                                            @include align-items-center;
+                                        }
+
+                                        .day-text {
+                                            @include order-2;
+
+                                            font-weight             : var(--font-weight-regular);
+
+                                            color                   : var(--color-grey);
+                                        }
+
+                                        .day-number {
+                                            @include order-1;
+
+                                            @include display-inline-flex;
+
+                                            @include align-items-center;
+
+                                            @include text-decoration-none;
+
+                                            @include mr-3;
+
+                                            justify-content         : center;
+
+                                            flex-shrink             : 0;
+
+                                            width                   : calc(35 / var(--vw) * var(--multiplier));
+                                            height                  : calc(35 / var(--vw) * var(--multiplier));
+                                            
+                                            font-weight             : var(--font-weight-semibold);
+                                            font-size               : calc(17.5 / var(--vw) * var(--multiplier));
+
+                                            color                   : var(--color-black);
+
+                                            border-radius           : 100%;  
+                                        }
+                                    }
+                                }
+
+                                .fc-list-event-graphic {
+                                    @include display-none;
+                                }
+                            }
                         }
                     }
                 }

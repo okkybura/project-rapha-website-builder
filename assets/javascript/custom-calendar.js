@@ -1,6 +1,6 @@
 ﻿
 const { Calendar } = FullCalendar;
-const isMobile = window.innerWidth < 768;
+const isMobile = window.innerWidth < 800;
 
 const urlParams = new URLSearchParams(window.location.search);
 const viewParam = urlParams.get('view');
@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const calendarEl = document.getElementById('calendar');
 
     const calendar = new Calendar(calendarEl, {
-        initialView: viewParam === 'week' ? 'timeGridWeek' : 'dayGridMonth',
+        initialView: isMobile ? 'listWeek' : (viewParam === 'week' ? 'timeGridWeek' : 'dayGridMonth'),
         allDaySlot: viewParam === 'week' ? false : true,
 
         hiddenDays: [],
