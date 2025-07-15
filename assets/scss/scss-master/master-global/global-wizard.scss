@@ -96,6 +96,29 @@
     }
 }
 
+// Content
+
+.content {
+    
+    &.content-aulas {
+
+        // Navbar
+
+        .navbar {
+
+            // Primary
+
+            &.primary {
+                .navbar-time {
+                    .time-caption {
+                        width                       : calc(250 / var(--vw) * var(--multiplier));
+                    }
+                }
+            }
+        }
+    }
+}
+
 // Page
 
 .page {
@@ -103,6 +126,26 @@
         @include position-relative;
         
         z-index             : 20;
+
+        &.page-mes {
+
+            // Wizard
+
+            .wizard {
+                .section-wrapper {
+
+                    // Primary
+
+                    &.primary {
+                        > div {
+                            > .wrapper-inner {
+                                @include height-100;
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -127,7 +170,7 @@
 
             @include p-0;
 
-            max-width           : calc(400 / var(--vw) * var(--multiplier));;
+            max-width           : calc(400 / var(--vw) * var(--multiplier));
 
             font-weight         : var(--font-weight-bold);
 
@@ -135,6 +178,37 @@
             
             &:hover {
                 color           : var(--color-primary); 
+            }
+        }
+        
+        .navbar-toggler {
+            @include p-0;
+
+            font-size           : unset;
+
+            background          : unset;
+
+            border              : unset;
+
+            > span {
+                &.icon {
+                    @include display-inline-flex;
+
+                    @include align-items-center;
+
+                    justify-content             : center;
+
+                    width                       : calc(35 / var(--vw) * var(--multiplier));
+                    height                      : calc(35 / var(--vw) * var(--multiplier));
+
+                    background                  : var(--color-primary);
+
+                    border-radius               : calc(4.5 / var(--vw) * var(--multiplier));
+                    
+                    svg {
+                        stroke                  : var(--color-white);
+                    }
+                }
             }
         }
 
@@ -148,8 +222,12 @@
             }
 
             .time-caption {
+                width                       : calc(165 / var(--vw) * var(--multiplier));
+
                 .caption {
                     > span {
+                        @include text-transform-capitalize;
+
                         font-weight         : var(--font-weight-bold);
 
                         color               : var(--color-black);     
@@ -187,6 +265,110 @@
                                 }
                             }
                         }
+                    }
+                }
+            }
+        }
+
+        .navbar-form {
+            @include mr-3;
+
+            .form-group {
+                @include display-flex;
+
+                @include align-items-center;
+
+                @include mb-0;
+
+                .group-wrapper {
+
+                    // Primary
+
+                    &.primary {
+                        @include display-flex;
+
+                        @include align-items-center;
+
+                        > div {
+                            @include mr-1;
+
+                            &:last-child {
+                                @include mr-0;
+                            }
+                        }
+                    }
+                }
+
+                .form-label {
+                    @include mr-3;
+                    
+                    label {
+                        @include mb-0;
+
+                        font-size               : calc(16 / var(--vw) * var(--multiplier));
+                    }
+                }
+
+                .form-check {
+                    @include position-relative;
+
+                    @include p-0;
+                    @include m-0;
+
+                    cursor                      : pointer;
+
+                    &:last-child {
+                        @include mr-0;
+                    }
+
+                    input {
+                        @include position-absolute;
+
+                        @include width-100;
+                        @include height-100;
+
+                        cursor                  : pointer;
+
+                        z-index                 : 10;
+
+                        opacity                 : 0;
+
+                        top                     : 0;
+                        left                    : 0;
+                    }
+
+                    input:checked ~ label {
+                        color                   : var(--color-white);
+
+                        background              : var(--color-primary);
+
+                        border                  : calc(1 / var(--vw) * var(--multiplier)) solid rgba($color-primary, 1);
+                    }
+
+                    label {
+                        @include display-inline-flex;
+
+                        @include align-items-center;
+
+                        @include m-0;
+
+                        justify-content         : center;
+
+                        flex-shrink             : 0;
+
+                        width                   : calc(35 / var(--vw) * var(--multiplier));
+                        height                  : calc(35 / var(--vw) * var(--multiplier));
+                        
+                        font-weight             : var(--font-weight-semibold);
+                        font-size               : calc(16 / var(--vw) * var(--multiplier));
+
+                        color                   : var(--color-black);
+
+                        background              : var(--color-white);
+
+                        border                  : calc(1 / var(--vw) * var(--multiplier)) solid rgba($color-grey, 0.5);
+
+                        border-radius           : 100%;  
                     }
                 }
             }
@@ -236,6 +418,9 @@
             }
 
             .dropdown-menu {
+                left                            : unset;
+                right                           : 0;
+                
                 border                          : none;
                 border-radius                   : calc(6.5 / var(--vw) * var(--multiplier));
 
@@ -324,20 +509,19 @@
         // Navbar Nav
 
         .navbar-nav {
-
+            @include align-items-center;
+            
             // Primary
 
             &.primary {
-                @include align-items-center;
-                
                 @include ml-auto;
+            }
 
-                .nav-item {
-                    @include mr-3;
+            .nav-item {
+                @include mr-3;
 
-                    &:last-child {
-                        @include mr-0;
-                    }
+                &:last-child {
+                    @include mr-0;
                 }
             }
         }
@@ -347,7 +531,7 @@
             .navbar-text {
                 @include ellipsis-single;
 
-                max-width           : calc(200 / var(--vw) * var(--multiplier));;
+                max-width           : calc(500 / var(--vw) * var(--multiplier));
             }
 
             .navbar-time {
@@ -359,13 +543,77 @@
             // Navbar Nav
 
             .navbar-nav {
+                .nav-item {
+                    @include mr-2;
+                }
 
                 // Primary
 
                 &.primary {
+                    @include pt-3;
+                    @include mb-3;
+
+                    flex-direction          : row;
+
+                    justify-content         : space-between;
+                }
+
+                // Secondary
+
+                &.secondary {
+                    flex-direction          : row; 
+
                     .nav-item {
-                        @include mr-2;
+                        &:nth-child(2) {
+                            @include mx-auto;
+                        }
                     }
+
+                    .dropdown-menu {
+                        @include position-absolute;
+
+                        left                : 0;
+                        right               : unset; 
+                    }
+                }
+            }
+        }
+
+        @include media-breakpoint-down(sm) {
+
+            .navbar-text {
+                max-width           : calc(250 / var(--vw) * var(--multiplier));
+            }
+
+            .navbar-time {
+                @include mb-3;
+            }
+
+            .navbar-form {
+                @include text-align-center;
+
+                @include mb-3;
+                @include mr-0;
+
+                .form-group {
+                    @include display-block;
+
+                    .form-label {
+                        @include mb-1;
+                    }
+                }
+            }
+
+            // Navbar Nav
+
+            .navbar-nav {
+
+                // Primary
+
+                &.primary {
+                    flex-direction          : column;
+
+                    justify-content         : center;
                 }
             }
         }
@@ -440,6 +688,8 @@
             }
 
             .modal-dialog {
+                max-width       : calc(400 / var(--vw) * var(--multiplier));
+
                 left            : unset;
                 right           : 0;
 
@@ -495,7 +745,7 @@
 
                                         vertical-align          : middle;
                                         
-                                        font-size               : calc(14 / var(--vw) * var(--multiplier));
+                                        font-size               : calc(15 / var(--vw) * var(--multiplier));
                                         font-weight             : var(--font-weight-semibold);
                                         color                   : var(--color-white);
 
@@ -533,7 +783,7 @@
 
                                         vertical-align          : middle;
 
-                                        font-size               : calc(14 / var(--vw) * var(--multiplier));
+                                        font-size               : calc(15 / var(--vw) * var(--multiplier));
 
                                         &:first-child {
                                             @include pl-4;
@@ -566,7 +816,7 @@
                                                     @include px-3;
 
                                                     font-weight     : var(--font-weight-semibold);
-                                                    font-size       : calc(14 / var(--vw) * var(--multiplier));
+                                                    font-size       : calc(15 / var(--vw) * var(--multiplier));
 
                                                     border-radius   : calc(6.5 / var(--vw) * var(--multiplier));
 
@@ -587,7 +837,6 @@
                     }
                 }
             }
-
 
             @include media-breakpoint-down(md) {
 
@@ -707,7 +956,7 @@
 
                                         font-family             : var(--font-family-general);
                                         font-weight             : var(--font-weight-semibold);
-                                        font-size               : calc(14 / var(--vw) * var(--multiplier));
+                                        font-size               : calc(15 / var(--vw) * var(--multiplier));
 
                                         line-height             : 1.25;
 
@@ -725,7 +974,7 @@
 
                                         font-family             : var(--font-family-general);
                                         font-weight             : var(--font-weight-regular);
-                                        font-size               : calc(14 / var(--vw) * var(--multiplier));
+                                        font-size               : calc(15 / var(--vw) * var(--multiplier));
 
                                         line-height             : 1.5;
 
@@ -909,6 +1158,11 @@
                             .content-table {
                                 @include mt-3;
 
+                                svg {
+                                    width                               : calc(25 / var(--vw) * var(--multiplier)); 
+                                    height                              : calc(25 / var(--vw) * var(--multiplier)); 
+                                }
+
                                 table {
                                     @include mb-0;
 
@@ -920,7 +1174,7 @@
                                                 vertical-align          : middle;
 
                                                 font-weight             : var(--font-weight-semibold);
-                                                font-size               : calc(14 / var(--vw) * var(--multiplier)); 
+                                                font-size               : calc(15 / var(--vw) * var(--multiplier)); 
 
                                                 color                   : var(--color-grey);
 
@@ -1081,7 +1335,7 @@
         &.primary {
 
             .modal-dialog {
-                max-width                       : calc(780 / var(--vw) * var(--multiplier));
+                max-width                       : calc(825 / var(--vw) * var(--multiplier));
             }
 
             .modal-content {
@@ -1109,6 +1363,18 @@
 
                                     border              : unset;
                                 }
+
+                                .col-group-outer {
+                                    @include col-12;
+
+                                    .col-group-inner {
+                                        @include col-6;
+
+                                        .form-date {
+                                            @include width-100;
+                                        }
+                                    }
+                                }
                             }
                         }
 
@@ -1134,6 +1400,67 @@
 
                                     .form-time {
                                         @include width-100;
+                                    }
+                                }
+
+                                // Secondary
+
+                                &.secondary {
+                                    @include display-flex;
+
+                                    @include align-items-center;
+
+                                    .form-check {
+                                        @include p-0;
+                                        @include mr-1;
+
+                                        &:last-child {
+                                            @include mr-0;
+                                        }
+                                        
+                                        input {
+                                            @include position-absolute;
+
+                                            @include width-100;
+                                            @include height-100;
+
+                                            cursor                  : pointer;
+
+                                            z-index                 : 10;
+
+                                            opacity                 : 0;
+
+                                            top                     : 0;
+                                            left                    : 0;
+                                        }
+
+                                        input:checked ~ label {
+                                            color                   : var(--color-white);
+
+                                            background              : var(--color-primary);
+                                        }
+
+                                        label {
+                                            @include display-inline-block;
+
+                                            @include align-items-center;
+
+                                            @include p-2;
+                                            @include m-0;
+
+                                            justify-content         : center;
+
+                                            flex-shrink             : 0;
+
+                                            font-weight             : var(--font-weight-semibold);
+                                            font-size               : calc(14 / var(--vw) * var(--multiplier));
+
+                                            color                   : var(--color-black);
+
+                                            background              : var(--color-grey-super-light);
+
+                                            border-radius           : calc(4.5 / var(--vw) * var(--multiplier));
+                                        }
                                     }
                                 }
                             }
@@ -1282,7 +1609,6 @@
                     }
                 }
             }
-
         }
     }
 }
@@ -1308,7 +1634,7 @@
                     @include overflow-y-auto;
                     @include overflow-x-hidden;
 
-                    height                      : calc(100vh - 150px);
+                    height                      : calc(100vh - calc(150 / var(--vw) * var(--multiplier)));
 
                     background                  : var(--color-white);
 
@@ -1321,7 +1647,7 @@
 
                 > div {
                     > .wrapper-inner {
-                        height                  : calc(100vh - 105px);
+                        height                  : calc(100vh - calc(125 / var(--vw) * var(--multiplier)));
                     }
                 }    
             }
@@ -1330,7 +1656,7 @@
 
                 > div {
                     > .wrapper-inner {
-                        height                  : calc(100vh - 155px);
+                        height                  : calc(100vh - calc(110 / var(--vw) * var(--multiplier)));
                     }
                 }    
             }
@@ -1338,6 +1664,385 @@
     }
 
     // ----- Main ----- //
+
+    // Class Schedule Calendar
+
+    .class-schedule-calendar {
+
+        // Primary
+
+        &.primary {
+
+            // Card
+
+            .fc-event-card {
+
+                // Primary
+
+                &.primary {
+                    @include position-relative;
+
+                    @include width-100;
+
+                    @include p-2;
+
+                    border-radius                       : calc(4.5 / var(--vw) * var(--multiplier));
+
+                    transition                          : 0.4s ease;
+
+                    // Card 1
+
+                    &.card-1 {
+                        background                      : var(--color-primary); 
+
+                        .fc-event-attachment {
+                            svg {
+                                fill                    : var(--color-white);
+                            }
+                        }
+
+                        &:hover {
+                            background                  : darken($color-primary, 10%);
+                        }
+                    }
+
+                    // Card 2
+
+                    &.card-2 {
+                        background                      : var(--color-secondary); 
+
+                        .fc-event-attachment {
+                            svg {
+                                fill                    : var(--color-white);
+                            }
+                        }
+
+                        &:hover {
+                            background                  : darken($color-secondary, 10%);
+                        }
+                    }
+
+                    // Card 3
+
+                    &.card-3 {
+                        background                      : var(--color-tertiary); 
+
+                        .fc-event-attachment {
+                            svg {
+                                fill                    : var(--color-white);
+                            }
+                        }
+
+                        &:hover {
+                            background                  : darken($color-tertiary, 10%);
+                        }
+                    }
+
+                    // Card 4
+
+                    &.card-4 {
+                        background                      : var(--color-quarter); 
+
+                        .fc-event-time {
+                            color                       : var(--color-black);
+                        }
+
+                        .fc-event-title {
+                            color                       : var(--color-black);
+                        }
+
+                        .fc-event-lesson {
+                            color                       : var(--color-black);
+                        }
+
+                        &:hover {
+                            background                  : darken($color-quarter, 10%);
+                        }
+                    }
+
+                    > a {
+                        @include position-absolute;
+
+                        @include width-100;
+                        @include height-100;
+
+                        z-index                 : 10;
+
+                        top                     : 0;
+                        left                    : 0;
+                    }
+
+                    .fc-event-lesson {
+                        @include mb-1;
+
+                        font-weight             : var(--font-weight-regular);
+                        font-size               : calc(14 / var(--vw) * var(--multiplier));
+
+                        color                   : rgba($color-white, 0.85);
+                    }
+
+                    .fc-event-time {
+                        font-weight             : var(--font-weight-semibold);
+                        font-size               : calc(14 / var(--vw) * var(--multiplier));
+
+                        color                   : var(--color-white);
+                    }
+
+                    .fc-event-title {
+                        @include ellipsis-single;
+
+                        font-weight             : var(--font-weight-medium);
+                        font-size               : calc(16 / var(--vw) * var(--multiplier));
+
+                        color                   : var(--color-white);
+                    }
+
+                    .fc-event-status {
+                        @include display-inline-block;
+
+                        @include width-auto;
+
+                        @include p-1;
+                        @include mt-1;
+
+                        @include text-transform-uppercase;
+
+                        font-weight             : var(--font-weight-semibold);
+                        font-size               : calc(12 / var(--vw) * var(--multiplier));
+
+                        border-radius           : calc(3.5 / var(--vw) * var(--multiplier));
+
+                        // Complete
+
+                        &.complete {
+                            color               : #065509;
+
+                            background          : #D3FFC8;
+                        }
+
+                        // Confirm
+
+                        &.confirm {
+                            color               : #1D0075;
+
+                            background          : #C8E0FF;
+                        }
+
+                        // Unconfirm
+
+                        &.unconfirm {
+                            color               : #750000;
+
+                            background          : #FFC8C8;
+                        }
+
+                        // Visible
+
+                        &.visible {
+                            color               : #065509;
+
+                            background          : #D3FFC8;
+                        }
+                    }
+
+                    .fc-event-attachment {
+                        @include position-absolute;
+
+                        top                             : calc(10 / var(--vw) * var(--multiplier));
+                        right                           : calc(10 / var(--vw) * var(--multiplier));
+
+                        svg {
+                            fill                        : var(--color-black);
+                        }
+                    }
+                }
+            }
+
+            // Content
+
+            .class-schedule-calendar-content {
+                .content-calendar {
+                    #calendar {
+                        &.calendar-week {
+                            .fc-scrollgrid {
+                                > tbody {
+                                    .fc-scroller {
+                                        @include height-auto;
+                                    }
+                                }
+                            }
+
+                            .fc-timegrid-slot {
+                                height                                  : calc(63.5 / var(--vw) * var(--multiplier));
+                            }
+
+                            .fc-v-event {
+                                background                              : unset;
+
+                                border                                  : unset;
+                            }
+
+                            .fc-timegrid-cols {
+                                .fc-day {
+                                    &.fc-day-today {
+                                        background          : unset;
+                                    }
+                                }
+                            }
+
+                            .fc-col-header-cell {
+                                &.fc-day-today {
+                                    .day-number {
+                                        color               : var(--color-white);
+
+                                        background          : var(--color-primary);
+                                    }
+                                }
+
+                                .day-text {
+                                    font-weight             : var(--font-weight-regular);
+
+                                    color                   : var(--color-grey);
+                                }
+
+                                .day-number {
+                                    @include display-inline-flex;
+
+                                    @include align-items-center;
+
+                                    @include text-decoration-none;
+
+                                    @include mt-1;
+
+                                    justify-content         : center;
+
+                                    flex-shrink             : 0;
+
+                                    width                   : calc(35 / var(--vw) * var(--multiplier));
+                                    height                  : calc(35 / var(--vw) * var(--multiplier));
+                                    
+                                    font-weight             : var(--font-weight-semibold);
+                                    font-size               : calc(17.5 / var(--vw) * var(--multiplier));
+
+                                    color                   : var(--color-black);
+
+                                    border-radius           : 100%;  
+                                }
+                            }
+                        }
+
+                        .fc-view-harness {
+                            height                                      : calc(100vh - calc(145 / var(--vw) * var(--multiplier))) !important;
+                        }
+
+                        .fc-scrollgrid {
+                            border                                      : unset;
+
+                            > thead {
+                                .fc-scroller {
+                                    overflow                            : hidden !important; 
+                                }
+                            }
+
+                            > tbody {
+                                .fc-scroller {
+                                    height                              : calc(100vh - calc(175 / var(--vw) * var(--multiplier))) !important;
+                                }
+                            }
+                        }
+
+                        .fc-col-header  {
+                            thead {
+                                tr {
+                                    th {
+                                        a {
+                                            @include text-transform-capitalize;
+                                            @include text-decoration-none;
+
+                                            font-weight                 : var(--font-weight-regular);
+
+                                            color                       : var(--color-grey);
+                                        }
+                                    }
+                                }
+                            }     
+                        }
+
+                        .fc-scrollgrid-sync-table {
+                            tbody {
+                                tr {
+                                    td {
+                                        &.fc-day {
+                                            height                          : calc(225 / var(--vw) * var(--multiplier));
+
+                                            &.fc-day-other {
+                                                background-color            : var(--color-grey-super-light);
+                                            }
+
+                                            &.fc-day-today {
+                                                background                  : var(--color-white);
+
+                                                .fc-daygrid-day-top {
+                                                    > a {
+                                                        color               : var(--color-white);
+
+                                                        background          : var(--color-primary); 
+                                                    }
+                                                }
+                                            }
+
+                                            .fc-daygrid-day-top {
+                                                justify-content             : center;
+
+                                                > a {
+                                                    @include display-inline-flex;
+
+                                                    @include align-items-center;
+
+                                                    @include text-decoration-none;
+
+                                                    @include mt-1;
+
+                                                    justify-content         : center;
+
+                                                    flex-shrink             : 0;
+
+                                                    width                   : calc(35 / var(--vw) * var(--multiplier));
+                                                    height                  : calc(35 / var(--vw) * var(--multiplier));
+                                                    
+                                                    font-weight             : var(--font-weight-semibold);
+                                                    font-size               : calc(17.5 / var(--vw) * var(--multiplier));
+
+                                                    color                   : var(--color-black);
+
+                                                    border-radius           : 100%;  
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            @include media-breakpoint-down(md) {
+
+                // Content
+
+                .class-schedule-calendar-content {
+                    .content-calendar {
+                        #calendar {
+                            .fc-view-harness {
+                                height                                      : calc(100vh - calc(110 / var(--vw) * var(--multiplier))) !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 
     // Class Schedule List
 
@@ -1502,14 +2207,30 @@
                         // Primary
 
                         &.primary {
+                            @include position-relative;
+
                             padding                             : calc(11.5 / var(--vw) * var(--multiplier)) calc(27.5 / var(--vw) * var(--multiplier));
 
                             border-radius                       : 50em;
+
+                            transition                          : 0.4s ease;
 
                             // Card 1
 
                             &.card-1 {
                                 background                      : var(--color-primary); 
+
+                                .list-icon {
+                                    .icon {
+                                        svg {
+                                            fill                : var(--color-white);
+                                        }
+                                    }
+                                }
+
+                                &:hover {
+                                    background                  : darken($color-primary, 10%);
+                                }
                             }
 
                             // Card 2
@@ -1524,6 +2245,10 @@
                                         }
                                     }
                                 }
+
+                                &:hover {
+                                    background                  : darken($color-secondary, 10%);
+                                }
                             }
 
                             // Card 3
@@ -1537,6 +2262,10 @@
                                             fill                : var(--color-white);
                                         }
                                     }
+                                }
+
+                                &:hover {
+                                    background                  : darken($color-tertiary, 10%);
                                 }
                             }
 
@@ -1560,6 +2289,10 @@
                                         }
                                     }
                                 }
+
+                                &:hover {
+                                    background                  : darken($color-quarter, 10%);
+                                }
                             }
 
                             .card-wrapper {
@@ -1577,6 +2310,18 @@
                                         @include display-flex;
 
                                         @include align-items-center;
+                                    }
+
+                                    a {
+                                        @include position-absolute;
+
+                                        @include width-100;
+                                        @include height-100;
+
+                                        z-index                 : 10;
+
+                                        top                     : 0;
+                                        left                    : 0; 
                                     }
                                 }
                             }

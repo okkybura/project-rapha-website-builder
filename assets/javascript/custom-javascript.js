@@ -218,52 +218,20 @@ $('.carousel-triple').flickity({
     wrapAround: true,
 });
 
-/* -------------------- File Uploader Setting -------------------- */
+/* -------------------- Other Setting -------------------- */
 
-document.addEventListener("DOMContentLoaded", function () {
-    if (window.File && window.FileList && window.FileReader) {
-        const fileInput = document.getElementById("files");
+document.addEventListener('DOMContentLoaded', function () {
+    function updateVisibility() {
+        const isRecurring = document.getElementById('radioCreateClass-Frequency-2').checked;
 
-        fileInput.addEventListener("change", function (e) {
-            const files = e.target.files;
-
-            for (let i = 0; i < files.length; i++) {
-                const f = files[i];
-                const reader = new FileReader();
-
-                reader.onload = function (e) {
-                    const span = document.createElement("span");
-                    span.className = "preview";
-
-                    const img = document.createElement("img");
-                    img.className = "imageThumb";
-                    img.src = e.target.result;
-                    img.title = f.name;
-
-                    const btn = document.createElement("span");
-                    btn.className = "remove";
-                    btn.textContent = "Remove image";
-
-                    btn.addEventListener("click", function () {
-                        span.remove();
-                        if (document.querySelectorAll(".box-preview .preview").length === 0) {
-                            document.querySelector(".box-placeholder").classList.remove("hidden");
-                        }
-                    });
-
-                    span.appendChild(img);
-                    span.appendChild(btn);
-
-                    document.querySelector(".box-preview").appendChild(span);
-                    document.querySelector(".box-placeholder").classList.add("hidden");
-                };
-
-                reader.readAsDataURL(f);
-            }
-            fileInput.value = "";
-        });
+        document.getElementById('dvDateRange-Calendar').style.display = isRecurring ? 'block' : 'none';
+        document.getElementById('dvDateRange-Day').style.display = isRecurring ? 'block' : 'none';
+        document.getElementById('dvDateSingle-Calendar').style.display = isRecurring ? 'none' : 'block';
     }
-    else {
-        alert("Your browser doesn't support the File API");
-    }
+
+    document.querySelectorAll('input[name="radioCreateClass-Frequency"]').forEach(radio => {
+        radio.addEventListener('change', updateVisibility);
+    });
+
+    updateVisibility();
 });

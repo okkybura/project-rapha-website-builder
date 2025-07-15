@@ -10369,9 +10369,16 @@ svg {
   }
 }
 
+.content.content-aulas .navbar.primary .navbar-time .time-caption {
+  width: calc(250 / var(--vw) * var(--multiplier));
+}
+
 .page .page-content {
   position: relative;
   z-index: 20;
+}
+.page .page-content.page-mes .wizard .section-wrapper.primary > div > .wrapper-inner {
+  height: 100% !important;
 }
 
 .navbar.primary {
@@ -10398,6 +10405,24 @@ svg {
 .navbar.primary .navbar-text:hover {
   color: var(--color-primary);
 }
+.navbar.primary .navbar-toggler {
+  padding: 0 !important;
+  font-size: unset;
+  background: unset;
+  border: unset;
+}
+.navbar.primary .navbar-toggler > span.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(35 / var(--vw) * var(--multiplier));
+  height: calc(35 / var(--vw) * var(--multiplier));
+  background: var(--color-primary);
+  border-radius: calc(4.5 / var(--vw) * var(--multiplier));
+}
+.navbar.primary .navbar-toggler > span.icon svg {
+  stroke: var(--color-white);
+}
 .navbar.primary .navbar-time {
   display: flex;
   align-items: center;
@@ -10405,7 +10430,11 @@ svg {
 .navbar.primary .navbar-time > div {
   margin-right: calc(20 / var(--vw) * var(--multiplier)) !important;
 }
+.navbar.primary .navbar-time .time-caption {
+  width: calc(165 / var(--vw) * var(--multiplier));
+}
 .navbar.primary .navbar-time .time-caption .caption > span {
+  text-transform: capitalize;
   font-weight: var(--font-weight-bold);
   color: var(--color-black);
 }
@@ -10428,6 +10457,70 @@ svg {
 }
 .navbar.primary .navbar-time .time-button .button > button:hover svg path {
   fill: var(--color-primary);
+}
+.navbar.primary .navbar-form {
+  margin-right: calc(15 / var(--vw) * var(--multiplier)) !important;
+}
+.navbar.primary .navbar-form .form-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0 !important;
+}
+.navbar.primary .navbar-form .form-group .group-wrapper.primary {
+  display: flex;
+  align-items: center;
+}
+.navbar.primary .navbar-form .form-group .group-wrapper.primary > div {
+  margin-right: calc(5 / var(--vw) * var(--multiplier)) !important;
+}
+.navbar.primary .navbar-form .form-group .group-wrapper.primary > div:last-child {
+  margin-right: 0 !important;
+}
+.navbar.primary .navbar-form .form-group .form-label {
+  margin-right: calc(15 / var(--vw) * var(--multiplier)) !important;
+}
+.navbar.primary .navbar-form .form-group .form-label label {
+  margin-bottom: 0 !important;
+  font-size: calc(16 / var(--vw) * var(--multiplier));
+}
+.navbar.primary .navbar-form .form-group .form-check {
+  position: relative;
+  padding: 0 !important;
+  margin: 0 !important;
+  cursor: pointer;
+}
+.navbar.primary .navbar-form .form-group .form-check:last-child {
+  margin-right: 0 !important;
+}
+.navbar.primary .navbar-form .form-group .form-check input {
+  position: absolute;
+  width: 100% !important;
+  height: 100% !important;
+  cursor: pointer;
+  z-index: 10;
+  opacity: 0;
+  top: 0;
+  left: 0;
+}
+.navbar.primary .navbar-form .form-group .form-check input:checked ~ label {
+  color: var(--color-white);
+  background: var(--color-primary);
+  border: calc(1 / var(--vw) * var(--multiplier)) solid #1f2fbe;
+}
+.navbar.primary .navbar-form .form-group .form-check label {
+  display: inline-flex;
+  align-items: center;
+  margin: 0 !important;
+  justify-content: center;
+  flex-shrink: 0;
+  width: calc(35 / var(--vw) * var(--multiplier));
+  height: calc(35 / var(--vw) * var(--multiplier));
+  font-weight: var(--font-weight-semibold);
+  font-size: calc(16 / var(--vw) * var(--multiplier));
+  color: var(--color-black);
+  background: var(--color-white);
+  border: calc(1 / var(--vw) * var(--multiplier)) solid rgba(59, 63, 72, 0.5);
+  border-radius: 100%;
 }
 .navbar.primary .dropdown .nav-link {
   padding: calc(12.5 / var(--vw) * var(--multiplier)) calc(15 / var(--vw) * var(--multiplier));
@@ -10454,6 +10547,8 @@ svg {
   background: rgba(31, 47, 190, 0.15);
 }
 .navbar.primary .dropdown .dropdown-menu {
+  left: unset;
+  right: 0;
   border: none;
   border-radius: calc(6.5 / var(--vw) * var(--multiplier));
   box-shadow: 0px 1.5px 12.5px 3.5px rgba(23, 26, 33, 0.1);
@@ -10504,14 +10599,16 @@ svg {
 .navbar.primary .btn-nav.primary:hover {
   background: rgb(20.2692307692, 30.7307692308, 124.2307692308);
 }
-.navbar.primary .navbar-nav.primary {
+.navbar.primary .navbar-nav {
   align-items: center;
+}
+.navbar.primary .navbar-nav.primary {
   margin-left: auto !important;
 }
-.navbar.primary .navbar-nav.primary .nav-item {
+.navbar.primary .navbar-nav .nav-item {
   margin-right: calc(15 / var(--vw) * var(--multiplier)) !important;
 }
-.navbar.primary .navbar-nav.primary .nav-item:last-child {
+.navbar.primary .navbar-nav .nav-item:last-child {
   margin-right: 0 !important;
 }
 @media (max-width: 991.98px) {
@@ -10521,13 +10618,54 @@ svg {
     text-overflow: ellipsis;
     white-space: nowrap;
     -webkit-line-clamp: 1;
-    max-width: calc(200 / var(--vw) * var(--multiplier));
+    max-width: calc(500 / var(--vw) * var(--multiplier));
   }
   .navbar.primary .navbar-time > div {
     margin-right: calc(15 / var(--vw) * var(--multiplier)) !important;
   }
-  .navbar.primary .navbar-nav.primary .nav-item {
+  .navbar.primary .navbar-nav .nav-item {
     margin-right: calc(10 / var(--vw) * var(--multiplier)) !important;
+  }
+  .navbar.primary .navbar-nav.primary {
+    padding-top: calc(15 / var(--vw) * var(--multiplier)) !important;
+    margin-bottom: calc(15 / var(--vw) * var(--multiplier)) !important;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .navbar.primary .navbar-nav.secondary {
+    flex-direction: row;
+  }
+  .navbar.primary .navbar-nav.secondary .nav-item:nth-child(2) {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .navbar.primary .navbar-nav.secondary .dropdown-menu {
+    position: absolute;
+    left: 0;
+    right: unset;
+  }
+}
+@media (max-width: 767.98px) {
+  .navbar.primary .navbar-text {
+    max-width: calc(250 / var(--vw) * var(--multiplier));
+  }
+  .navbar.primary .navbar-time {
+    margin-bottom: calc(15 / var(--vw) * var(--multiplier)) !important;
+  }
+  .navbar.primary .navbar-form {
+    text-align: center;
+    margin-bottom: calc(15 / var(--vw) * var(--multiplier)) !important;
+    margin-right: 0 !important;
+  }
+  .navbar.primary .navbar-form .form-group {
+    display: block;
+  }
+  .navbar.primary .navbar-form .form-group .form-label {
+    margin-bottom: calc(5 / var(--vw) * var(--multiplier)) !important;
+  }
+  .navbar.primary .navbar-nav.primary {
+    flex-direction: column;
+    justify-content: center;
   }
 }
 
@@ -10568,6 +10706,7 @@ svg {
   transform: translate(0, 0);
 }
 .modal.modal-side.modal-right .modal-dialog {
+  max-width: calc(400 / var(--vw) * var(--multiplier));
   left: unset;
   right: 0;
   transform: translate(100%, 0);
@@ -10595,7 +10734,7 @@ svg {
 .modal.modal-control-hour.primary .modal-content .modal-body .body-table table thead tr th {
   padding: calc(15 / var(--vw) * var(--multiplier)) !important;
   vertical-align: middle;
-  font-size: calc(14 / var(--vw) * var(--multiplier));
+  font-size: calc(15 / var(--vw) * var(--multiplier));
   font-weight: var(--font-weight-semibold);
   color: var(--color-white);
   background: var(--color-primary);
@@ -10624,7 +10763,7 @@ svg {
 .modal.modal-control-hour.primary .modal-content .modal-body .body-table table tbody tr td {
   padding: calc(15 / var(--vw) * var(--multiplier)) !important;
   vertical-align: middle;
-  font-size: calc(14 / var(--vw) * var(--multiplier));
+  font-size: calc(15 / var(--vw) * var(--multiplier));
 }
 .modal.modal-control-hour.primary .modal-content .modal-body .body-table table tbody tr td:first-child {
   padding-left: calc(20 / var(--vw) * var(--multiplier)) !important;
@@ -10654,7 +10793,7 @@ svg {
   padding-left: calc(15 / var(--vw) * var(--multiplier)) !important;
   padding-right: calc(15 / var(--vw) * var(--multiplier)) !important;
   font-weight: var(--font-weight-semibold);
-  font-size: calc(14 / var(--vw) * var(--multiplier));
+  font-size: calc(15 / var(--vw) * var(--multiplier));
   border-radius: calc(6.5 / var(--vw) * var(--multiplier));
   color: var(--color-primary);
   background: rgba(31, 47, 190, 0.075);
@@ -10755,7 +10894,7 @@ svg {
   display: inline-block;
   font-family: var(--font-family-general);
   font-weight: var(--font-weight-semibold);
-  font-size: calc(14 / var(--vw) * var(--multiplier));
+  font-size: calc(15 / var(--vw) * var(--multiplier));
   line-height: 1.25;
   color: var(--color-black);
 }
@@ -10769,7 +10908,7 @@ svg {
   -webkit-line-clamp: 3;
   font-family: var(--font-family-general);
   font-weight: var(--font-weight-regular);
-  font-size: calc(14 / var(--vw) * var(--multiplier));
+  font-size: calc(15 / var(--vw) * var(--multiplier));
   line-height: 1.5;
   color: var(--color-black);
 }
@@ -10903,6 +11042,10 @@ svg {
 .modal.modal-class-detail.primary .modal-content .modal-body .body-tab .tab-content .content-table {
   margin-top: calc(15 / var(--vw) * var(--multiplier)) !important;
 }
+.modal.modal-class-detail.primary .modal-content .modal-body .body-tab .tab-content .content-table svg {
+  width: calc(25 / var(--vw) * var(--multiplier));
+  height: calc(25 / var(--vw) * var(--multiplier));
+}
 .modal.modal-class-detail.primary .modal-content .modal-body .body-tab .tab-content .content-table table {
   margin-bottom: 0 !important;
   border: none;
@@ -10910,7 +11053,7 @@ svg {
 .modal.modal-class-detail.primary .modal-content .modal-body .body-tab .tab-content .content-table table thead tr th {
   vertical-align: middle;
   font-weight: var(--font-weight-semibold);
-  font-size: calc(14 / var(--vw) * var(--multiplier));
+  font-size: calc(15 / var(--vw) * var(--multiplier));
   color: var(--color-grey);
   border-top: none;
   border-bottom: calc(1 / var(--vw) * var(--multiplier)) solid var(--color-grey-light);
@@ -11012,7 +11155,7 @@ svg {
   }
 }
 .modal.modal-class-information.primary .modal-dialog {
-  max-width: calc(780 / var(--vw) * var(--multiplier));
+  max-width: calc(825 / var(--vw) * var(--multiplier));
 }
 .modal.modal-class-information.primary .modal-content .modal-body {
   padding: calc(20 / var(--vw) * var(--multiplier)) !important;
@@ -11045,6 +11188,29 @@ svg {
   padding-left: calc(35 / var(--vw) * var(--multiplier)) !important;
   border: unset;
 }
+.modal.modal-class-information.primary .modal-content .modal-body .body-form .col-form-outer .col-form-inner .col-group-outer {
+  position: relative;
+  width: 100%;
+  min-height: 1%;
+  padding: 0 calc(15 / var(--vw) * var(--multiplier));
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 100%;
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+.modal.modal-class-information.primary .modal-content .modal-body .body-form .col-form-outer .col-form-inner .col-group-outer .col-group-inner {
+  position: relative;
+  width: 100%;
+  min-height: 1%;
+  padding: 0 calc(15 / var(--vw) * var(--multiplier));
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 50%;
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+.modal.modal-class-information.primary .modal-content .modal-body .body-form .col-form-outer .col-form-inner .col-group-outer .col-group-inner .form-date {
+  width: 100% !important;
+}
 .modal.modal-class-information.primary .modal-content .modal-body .body-form .form-group {
   margin-bottom: calc(15 / var(--vw) * var(--multiplier)) !important;
 }
@@ -11061,6 +11227,44 @@ svg {
 }
 .modal.modal-class-information.primary .modal-content .modal-body .body-form .form-group .group-wrapper.primary .form-time {
   width: 100% !important;
+}
+.modal.modal-class-information.primary .modal-content .modal-body .body-form .form-group .group-wrapper.secondary {
+  display: flex;
+  align-items: center;
+}
+.modal.modal-class-information.primary .modal-content .modal-body .body-form .form-group .group-wrapper.secondary .form-check {
+  padding: 0 !important;
+  margin-right: calc(5 / var(--vw) * var(--multiplier)) !important;
+}
+.modal.modal-class-information.primary .modal-content .modal-body .body-form .form-group .group-wrapper.secondary .form-check:last-child {
+  margin-right: 0 !important;
+}
+.modal.modal-class-information.primary .modal-content .modal-body .body-form .form-group .group-wrapper.secondary .form-check input {
+  position: absolute;
+  width: 100% !important;
+  height: 100% !important;
+  cursor: pointer;
+  z-index: 10;
+  opacity: 0;
+  top: 0;
+  left: 0;
+}
+.modal.modal-class-information.primary .modal-content .modal-body .body-form .form-group .group-wrapper.secondary .form-check input:checked ~ label {
+  color: var(--color-white);
+  background: var(--color-primary);
+}
+.modal.modal-class-information.primary .modal-content .modal-body .body-form .form-group .group-wrapper.secondary .form-check label {
+  display: inline-block;
+  align-items: center;
+  padding: calc(10 / var(--vw) * var(--multiplier)) !important;
+  margin: 0 !important;
+  justify-content: center;
+  flex-shrink: 0;
+  font-weight: var(--font-weight-semibold);
+  font-size: calc(14 / var(--vw) * var(--multiplier));
+  color: var(--color-black);
+  background: var(--color-grey-super-light);
+  border-radius: calc(4.5 / var(--vw) * var(--multiplier));
 }
 .modal.modal-class-information.primary .modal-content .modal-body .body-form .form-group .form-date {
   width: 43.75%;
@@ -11153,19 +11357,219 @@ svg {
 .wizard .section-wrapper.primary > div > .wrapper-inner {
   overflow-y: auto;
   overflow-x: hidden;
-  height: calc(100vh - 150px);
+  height: calc(100vh - 150 / var(--vw) * var(--multiplier));
   background: var(--color-white);
   border: calc(1 / var(--vw) * var(--multiplier)) solid var(--color-grey-light);
   border-radius: calc(6.5 / var(--vw) * var(--multiplier));
 }
 @media (max-width: 991.98px) {
   .wizard .section-wrapper.primary > div > .wrapper-inner {
-    height: calc(100vh - 105px);
+    height: calc(100vh - 125 / var(--vw) * var(--multiplier));
   }
 }
 @media (max-width: 767.98px) {
   .wizard .section-wrapper.primary > div > .wrapper-inner {
-    height: calc(100vh - 155px);
+    height: calc(100vh - 110 / var(--vw) * var(--multiplier));
+  }
+}
+.wizard .class-schedule-calendar.primary .fc-event-card.primary {
+  position: relative;
+  width: 100% !important;
+  padding: calc(10 / var(--vw) * var(--multiplier)) !important;
+  border-radius: calc(4.5 / var(--vw) * var(--multiplier));
+  transition: 0.4s ease;
+}
+.wizard .class-schedule-calendar.primary .fc-event-card.primary.card-1 {
+  background: var(--color-primary);
+}
+.wizard .class-schedule-calendar.primary .fc-event-card.primary.card-1 .fc-event-attachment svg {
+  fill: var(--color-white);
+}
+.wizard .class-schedule-calendar.primary .fc-event-card.primary.card-1:hover {
+  background: rgb(23.8461538462, 36.1538461538, 146.1538461538);
+}
+.wizard .class-schedule-calendar.primary .fc-event-card.primary.card-2 {
+  background: var(--color-secondary);
+}
+.wizard .class-schedule-calendar.primary .fc-event-card.primary.card-2 .fc-event-attachment svg {
+  fill: var(--color-white);
+}
+.wizard .class-schedule-calendar.primary .fc-event-card.primary.card-2:hover {
+  background: rgb(42.0566801619, 99.983805668, 153.9433198381);
+}
+.wizard .class-schedule-calendar.primary .fc-event-card.primary.card-3 {
+  background: var(--color-tertiary);
+}
+.wizard .class-schedule-calendar.primary .fc-event-card.primary.card-3 .fc-event-attachment svg {
+  fill: var(--color-white);
+}
+.wizard .class-schedule-calendar.primary .fc-event-card.primary.card-3:hover {
+  background: rgb(49.1983805668, 42.0566801619, 153.9433198381);
+}
+.wizard .class-schedule-calendar.primary .fc-event-card.primary.card-4 {
+  background: var(--color-quarter);
+}
+.wizard .class-schedule-calendar.primary .fc-event-card.primary.card-4 .fc-event-time {
+  color: var(--color-black);
+}
+.wizard .class-schedule-calendar.primary .fc-event-card.primary.card-4 .fc-event-title {
+  color: var(--color-black);
+}
+.wizard .class-schedule-calendar.primary .fc-event-card.primary.card-4 .fc-event-lesson {
+  color: var(--color-black);
+}
+.wizard .class-schedule-calendar.primary .fc-event-card.primary.card-4:hover {
+  background: rgb(178.24, 214.6, 230.76);
+}
+.wizard .class-schedule-calendar.primary .fc-event-card.primary > a {
+  position: absolute;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 10;
+  top: 0;
+  left: 0;
+}
+.wizard .class-schedule-calendar.primary .fc-event-card.primary .fc-event-lesson {
+  margin-bottom: calc(5 / var(--vw) * var(--multiplier)) !important;
+  font-weight: var(--font-weight-regular);
+  font-size: calc(14 / var(--vw) * var(--multiplier));
+  color: rgba(255, 255, 255, 0.85);
+}
+.wizard .class-schedule-calendar.primary .fc-event-card.primary .fc-event-time {
+  font-weight: var(--font-weight-semibold);
+  font-size: calc(14 / var(--vw) * var(--multiplier));
+  color: var(--color-white);
+}
+.wizard .class-schedule-calendar.primary .fc-event-card.primary .fc-event-title {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  -webkit-line-clamp: 1;
+  font-weight: var(--font-weight-medium);
+  font-size: calc(16 / var(--vw) * var(--multiplier));
+  color: var(--color-white);
+}
+.wizard .class-schedule-calendar.primary .fc-event-card.primary .fc-event-status {
+  display: inline-block;
+  width: auto !important;
+  padding: calc(5 / var(--vw) * var(--multiplier)) !important;
+  margin-top: calc(5 / var(--vw) * var(--multiplier)) !important;
+  text-transform: uppercase;
+  font-weight: var(--font-weight-semibold);
+  font-size: calc(12 / var(--vw) * var(--multiplier));
+  border-radius: calc(3.5 / var(--vw) * var(--multiplier));
+}
+.wizard .class-schedule-calendar.primary .fc-event-card.primary .fc-event-status.complete {
+  color: #065509;
+  background: #D3FFC8;
+}
+.wizard .class-schedule-calendar.primary .fc-event-card.primary .fc-event-status.confirm {
+  color: #1D0075;
+  background: #C8E0FF;
+}
+.wizard .class-schedule-calendar.primary .fc-event-card.primary .fc-event-status.unconfirm {
+  color: #750000;
+  background: #FFC8C8;
+}
+.wizard .class-schedule-calendar.primary .fc-event-card.primary .fc-event-status.visible {
+  color: #065509;
+  background: #D3FFC8;
+}
+.wizard .class-schedule-calendar.primary .fc-event-card.primary .fc-event-attachment {
+  position: absolute;
+  top: calc(10 / var(--vw) * var(--multiplier));
+  right: calc(10 / var(--vw) * var(--multiplier));
+}
+.wizard .class-schedule-calendar.primary .fc-event-card.primary .fc-event-attachment svg {
+  fill: var(--color-black);
+}
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-week .fc-scrollgrid > tbody .fc-scroller {
+  height: auto !important;
+}
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-week .fc-timegrid-slot {
+  height: calc(63.5 / var(--vw) * var(--multiplier));
+}
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-week .fc-v-event {
+  background: unset;
+  border: unset;
+}
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-week .fc-timegrid-cols .fc-day.fc-day-today {
+  background: unset;
+}
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-week .fc-col-header-cell.fc-day-today .day-number {
+  color: var(--color-white);
+  background: var(--color-primary);
+}
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-week .fc-col-header-cell .day-text {
+  font-weight: var(--font-weight-regular);
+  color: var(--color-grey);
+}
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-week .fc-col-header-cell .day-number {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  margin-top: calc(5 / var(--vw) * var(--multiplier)) !important;
+  justify-content: center;
+  flex-shrink: 0;
+  width: calc(35 / var(--vw) * var(--multiplier));
+  height: calc(35 / var(--vw) * var(--multiplier));
+  font-weight: var(--font-weight-semibold);
+  font-size: calc(17.5 / var(--vw) * var(--multiplier));
+  color: var(--color-black);
+  border-radius: 100%;
+}
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar .fc-view-harness {
+  height: calc(100vh - 145 / var(--vw) * var(--multiplier)) !important;
+}
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar .fc-scrollgrid {
+  border: unset;
+}
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar .fc-scrollgrid > thead .fc-scroller {
+  overflow: hidden !important;
+}
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar .fc-scrollgrid > tbody .fc-scroller {
+  height: calc(100vh - 175 / var(--vw) * var(--multiplier)) !important;
+}
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar .fc-col-header thead tr th a {
+  text-transform: capitalize;
+  text-decoration: none;
+  font-weight: var(--font-weight-regular);
+  color: var(--color-grey);
+}
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar .fc-scrollgrid-sync-table tbody tr td.fc-day {
+  height: calc(225 / var(--vw) * var(--multiplier));
+}
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar .fc-scrollgrid-sync-table tbody tr td.fc-day.fc-day-other {
+  background-color: var(--color-grey-super-light);
+}
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar .fc-scrollgrid-sync-table tbody tr td.fc-day.fc-day-today {
+  background: var(--color-white);
+}
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar .fc-scrollgrid-sync-table tbody tr td.fc-day.fc-day-today .fc-daygrid-day-top > a {
+  color: var(--color-white);
+  background: var(--color-primary);
+}
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar .fc-scrollgrid-sync-table tbody tr td.fc-day .fc-daygrid-day-top {
+  justify-content: center;
+}
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar .fc-scrollgrid-sync-table tbody tr td.fc-day .fc-daygrid-day-top > a {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  margin-top: calc(5 / var(--vw) * var(--multiplier)) !important;
+  justify-content: center;
+  flex-shrink: 0;
+  width: calc(35 / var(--vw) * var(--multiplier));
+  height: calc(35 / var(--vw) * var(--multiplier));
+  font-weight: var(--font-weight-semibold);
+  font-size: calc(17.5 / var(--vw) * var(--multiplier));
+  color: var(--color-black);
+  border-radius: 100%;
+}
+@media (max-width: 991.98px) {
+  .wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar .fc-view-harness {
+    height: calc(100vh - 110 / var(--vw) * var(--multiplier)) !important;
   }
 }
 .wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary > .wrapper-inner {
@@ -11295,11 +11699,19 @@ svg {
   font-size: calc(14 / var(--vw) * var(--multiplier));
 }
 .wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary {
+  position: relative;
   padding: calc(11.5 / var(--vw) * var(--multiplier)) calc(27.5 / var(--vw) * var(--multiplier));
   border-radius: 50em;
+  transition: 0.4s ease;
 }
 .wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary.card-1 {
   background: var(--color-primary);
+}
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary.card-1 .list-icon .icon svg {
+  fill: var(--color-white);
+}
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary.card-1:hover {
+  background: rgb(23.8461538462, 36.1538461538, 146.1538461538);
 }
 .wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary.card-2 {
   background: var(--color-secondary);
@@ -11307,11 +11719,17 @@ svg {
 .wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary.card-2 .list-icon .icon svg {
   fill: var(--color-white);
 }
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary.card-2:hover {
+  background: rgb(42.0566801619, 99.983805668, 153.9433198381);
+}
 .wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary.card-3 {
   background: var(--color-tertiary);
 }
 .wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary.card-3 .list-icon .icon svg {
   fill: var(--color-white);
+}
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary.card-3:hover {
+  background: rgb(49.1983805668, 42.0566801619, 153.9433198381);
 }
 .wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary.card-4 {
   background: var(--color-quarter);
@@ -11322,6 +11740,9 @@ svg {
 .wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary.card-4 .list-lesson .lesson > span {
   color: var(--color-black);
 }
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary.card-4:hover {
+  background: rgb(178.24, 214.6, 230.76);
+}
 .wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary .card-wrapper.primary {
   display: flex;
   align-items: center;
@@ -11330,6 +11751,14 @@ svg {
 .wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary .card-wrapper.primary > .wrapper-inner {
   display: flex;
   align-items: center;
+}
+.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary .card-wrapper.primary a {
+  position: absolute;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 10;
+  top: 0;
+  left: 0;
 }
 .wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary .list-text .title {
   margin-bottom: 0 !important;
