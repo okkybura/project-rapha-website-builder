@@ -1145,11 +1145,11 @@
                                         @include col-6;
 
                                         &:nth-child(3) {
-                                            @include col-5;
+                                            @include col-3;
                                         }
 
                                         &:nth-child(4) {
-                                            @include col-7;
+                                            @include col-9;
                                         }
                                     }
                                 }
@@ -1682,9 +1682,14 @@
                 &.primary {
                     @include position-relative;
 
+                    @include display-flex;
+
                     @include width-100;
+                    @include height-100;
 
                     @include p-2;
+
+                    flex-direction                      : column;
 
                     border-radius                       : calc(4.5 / var(--vw) * var(--multiplier));
 
@@ -1773,6 +1778,8 @@
                     }
 
                     .fc-event-lesson {
+                        @include ellipsis-single;
+
                         @include mb-1;
 
                         font-weight             : var(--font-weight-regular);
@@ -1782,6 +1789,10 @@
                     }
 
                     .fc-event-time {
+                        @include mt-auto;
+
+                        @include ellipsis-single;
+
                         font-weight             : var(--font-weight-semibold);
                         font-size               : calc(14 / var(--vw) * var(--multiplier));
 
@@ -1801,6 +1812,8 @@
                         @include display-inline-block;
 
                         @include width-auto;
+
+                        @include ellipsis-single;
 
                         @include p-1;
                         @include mt-1;
@@ -1853,6 +1866,79 @@
 
                         svg {
                             fill                        : var(--color-black);
+                        }
+                    }
+                }
+            }
+
+            // Header
+
+            .class-schedule-calendar-header {
+                @include display-none;
+
+                .header-time {
+                    @include display-flex;
+
+                    @include align-items-center;
+
+                    @include pt-4;
+                    @include pb-5;
+
+                    justify-content                 : center;
+
+                    > div {
+                        @include mr-4;
+                    }
+
+                    .time-caption {
+                        @include text-align-center;
+
+                        @include mx-auto;
+
+                        width                       : calc(165 / var(--vw) * var(--multiplier));
+
+                        .caption {
+                            > span {
+                                @include text-transform-capitalize;
+
+                                font-weight         : var(--font-weight-bold);
+
+                                color               : var(--color-black);     
+                            }
+                        }
+                    }
+
+                    .time-button {
+                        @include display-flex;
+
+                        @include align-items-center;
+                        
+                        .button {
+                            @include mr-1;
+
+                            &:last-child {
+                                @include mr-0;
+                            }
+
+                            > button {
+                                background          : transparent;
+
+                                border              : none;
+
+                                svg {
+                                    path {
+                                        fill        : var(--color-black);
+                                    }
+                                }
+
+                                &:hover {
+                                    svg {
+                                        path {
+                                            fill    : var(--color-primary);
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
                 }
@@ -1927,6 +2013,56 @@
                                     color                   : var(--color-black);
 
                                     border-radius           : 100%;  
+                                }
+
+                                .day-sign {
+                                    @include display-flex;
+
+                                    @include align-items-center;
+
+                                    justify-content             : center;
+
+
+
+                                    > span {
+                                        @include display-inline-flex;
+
+                                        @include align-items-center;
+
+                                        justify-content         : center;
+
+                                        width                   : calc(7.5 / var(--vw) * var(--multiplier));
+                                        height                  : calc(7.5 / var(--vw) * var(--multiplier));
+                                        
+                                        margin                  : 0 calc(2.5 / var(--vw) * var(--multiplier));
+
+                                        background              : var(--color-black);
+                                        border-radius           : 100%;
+
+                                        // Card 1
+
+                                        &.card-1 {
+                                            background          : var(--color-primary); 
+                                        }
+
+                                        // Card 2
+
+                                        &.card-2 {
+                                            background          : var(--color-secondary);  
+                                        }
+
+                                        // Card 3
+
+                                        &.card-3 {
+                                            background          : var(--color-tertiary); 
+                                        }
+
+                                        // Card 4
+
+                                        &.card-4 {
+                                            background          : var(--color-quarter); 
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -2029,6 +2165,25 @@
 
             @include media-breakpoint-down(md) {
 
+                // Card
+
+                .fc-event-card {
+
+                    // Primary
+
+                    &.primary {
+                        .fc-event-attachment {
+                            @include display-none;
+                        }
+                    }
+                }
+
+                // Header
+
+                .class-schedule-calendar-header {
+                    @include display-block;
+                }
+
                 // Content
 
                 .class-schedule-calendar-content {
@@ -2096,6 +2251,87 @@
 
                                 .fc-list-event-graphic {
                                     @include display-none;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            @include media-breakpoint-down(sm) {
+
+                // Card
+
+                .fc-event-card {
+
+                    // Primary
+
+                    &.primary {
+                        @include p-1;
+
+                        > div:not(.fc-event-title) {
+                            @include display-none;
+                        }
+
+                        .fc-event-title {
+                            @include mt-auto;
+
+                            @include ellipsis-double;
+
+                            font-size                           : calc(14 / var(--vw) * var(--multiplier));
+                        }
+                    }
+                }
+
+                // Content
+
+                .class-schedule-calendar-content {
+                    .content-calendar {
+                        #calendar {
+                            &.calendar-week {
+                                .fc-timegrid-slot {
+                                    .fc-timegrid-slot-label-cushion {
+                                        @include px-1;
+
+                                        font-size               : calc(12 / var(--vw) * var(--multiplier));
+                                    }
+                                }
+
+                                .fc-col-header-cell {
+                                    &.fc-day-today {
+                                        .day-number {
+                                            color               : var(--color-black);
+
+                                            background          : rgba($color-primary, 0.05);
+                                        }
+                                    }
+
+                                    .day-number {
+                                        font-size               : calc(16 / var(--vw) * var(--multiplier));
+                                    }
+                                }
+                            }
+
+                            .fc-scrollgrid-sync-table {
+                                tbody {
+                                    tr {
+                                        td {
+                                            &.fc-day {
+                                                height                          : calc(140 / var(--vw) * var(--multiplier));
+
+                                                .fc-daygrid-day-top {
+                                                    justify-content             : center;
+
+                                                    > a {
+                                                        width                   : calc(30 / var(--vw) * var(--multiplier));
+                                                        height                  : calc(30 / var(--vw) * var(--multiplier));
+
+                                                        font-size               : calc(15 / var(--vw) * var(--multiplier));
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }

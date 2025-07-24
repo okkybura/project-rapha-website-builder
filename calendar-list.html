@@ -1545,9 +1545,307 @@
     <script src="assets/javascript/custom-javascript.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/list.global.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/core@6.1.8/locales/pt.js"></script>
 
-    <script src="assets/javascript/custom-calendar.js"></script>
+    <script>
+
+        const { Calendar } = FullCalendar;
+        const isMobile = window.innerWidth < 800;
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const viewParam = urlParams.get('view');
+
+        const renderedDates = new Set();
+    
+        document.addEventListener('DOMContentLoaded', function () {
+            const calendarEl = document.getElementById('calendar');
+
+            const classesName = {
+                1: 'card-1',
+                2: 'card-2',
+                3: 'card-3',
+                4: 'card-4',
+            };
+            const classesText = {
+                1: 'Arte e Educação',
+                2: 'Introdução ao Direito Cons',
+                3: '',
+                4: 'Matemática',
+            };
+
+            const statusText = {
+                1: 'Não Confirmada',
+                2: 'Professor Confirmado',
+                3: 'Visível para alunos'
+            };
+
+            const statusClass = {
+                1: 'unconfirm',
+                2: 'confirm',
+                3: 'visible'
+            };
+
+            const calendar = new Calendar(calendarEl, {
+                initialView: viewParam === 'week' ? 'timeGridWeek' : 'listYear',
+                allDaySlot: viewParam === 'week' ? false : false,
+
+                hiddenDays: [],
+                headerToolbar: false,
+                locale: 'pt',
+                slotLabelFormat: {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    hour12: false
+                },
+
+                dayHeaderContent: function (arg) {
+                    let month = arg.date.toLocaleDateString('pt', { month: 'long' });
+                    month = month.charAt(0).toUpperCase() + month.slice(1);
+
+                    return {
+                        html: `
+                        <div style="text-align:center;">
+                            <div class="month-text">${month}</div>
+                        </div>`
+                    };
+                },
+
+                eventDidMount: function (info) {
+                    const eventStart = info.event.start;
+
+                    const dayNumber = eventStart.getDate();
+                    const monthName = eventStart.toLocaleDateString('pt', { month: 'long' });
+                    const weekdayName = eventStart.toLocaleDateString('pt', { weekday: 'long' });
+                    const capitalizedWeekday = weekdayName.charAt(0).toUpperCase() + weekdayName.slice(1);
+
+                    const isToday = (() => {
+                        const today = new Date();
+                        return (
+                            eventStart.getDate() === today.getDate() &&
+                            eventStart.getMonth() === today.getMonth() &&
+                            eventStart.getFullYear() === today.getFullYear()
+                        );
+                    })();
+
+                    const dateKey = eventStart.toISOString().split('T')[0];
+                    const alreadyRendered = renderedDates.has(dateKey);
+
+                    if (!alreadyRendered) {
+                        renderedDates.add(dateKey);
+                    }
+
+                    const dateClass = `date${isToday ? ' active' : ''}`;
+                    const dateStyle = 'text-align:center; min-width:80px;';
+
+                    let dateContent = '';
+
+                    if (!alreadyRendered) {
+                        dateContent = `
+                            <span>
+                            <span class="number" style="font-weight:bold; font-size:1.2em;">${dayNumber}</span>
+                            <span class="caption" style="display:block; font-size:0.85em; color:#666;">
+                                <span>de ${monthName}</span>
+                                <span> | </span>
+                                <span>${capitalizedWeekday}</span>
+                            </span>
+                            </span>
+                        `;
+                    }
+
+                    const dateHtml = `
+                        <div class="${dateClass}" style="${dateStyle}">
+                            ${dateContent}
+                        </div>
+                    `;
+
+                    const timeText = info.event.allDay
+                    ? 'Dia inteiro'
+                    : formatTimeRange(info.event.start, info.event.end);
+
+                    const customHtml = `
+                        <td style="display: flex; align-items: center; gap: 10px;">
+                            ${dateHtml}
+                            <div class="list-time">
+                            <div class="time" style="font-size:0.9em; color:#333;">
+                                <span>${timeText}</span>
+                            </div>
+                            </div>
+                        </td>
+                    `;
+
+                    const defaultTimeCell = info.el.querySelector('.fc-list-event-time');
+                    if (defaultTimeCell) defaultTimeCell.style.display = 'none';
+
+                    info.el.insertAdjacentHTML('afterbegin', customHtml);
+                },
+
+                eventContent: function (arg) {
+                    const event = arg.event;
+                    const { status, attachment, lesson } = event.extendedProps;
+
+                    const formatTime = date =>
+                        new Date(date).toLocaleTimeString([], {
+                            hour: '2-digit',
+                            minute: '2-digit',
+                            hour12: false
+                        });
+
+                    const startTime = formatTime(event.start);
+                    const endTime = formatTime(event.end);
+
+                    const attachmentIcon = `
+                        <svg viewBox='0 0 448 512' xmlns='http://www.w3.org/2000/svg' width="16" height="16" fill="currentColor">
+                        <path d='M364.2 83.8c-24.4-24.4-64-24.4-88.4 0l-184 184c-42.1 42.1-42.1 110.3 0 152.4s110.3 42.1 152.4 0l152-152c10.9-10.9 28.7-10.9 39.6 0s10.9 28.7 0 39.6l-152 152c-64 64-167.6 64-231.6 0s-64-167.6 0-231.6l184-184c46.3-46.3 121.3-46.3 167.6 0s46.3 121.3 0 167.6l-176 176c-28.6 28.6-75 28.6-103.6 0s-28.6-75 0-103.6l144-144c10.9-10.9 28.7-10.9 39.6 0s10.9 28.7 0 39.6l-144 144c-6.7 6.7-6.7 17.7 0 24.4s17.7 6.7 24.4 0l176-176c24.4-24.4 24.4-64 0-88.4z'/>
+                        </svg>
+                    `;
+
+                    const wrapper = document.createElement('div');
+                    wrapper.classList.add('fc-event-card');
+                    wrapper.classList.add('primary');
+                    wrapper.classList.add(classesName[event.extendedProps.classes] || '');
+
+                    wrapper.innerHTML = `
+                                <a href="javascript:void(0);" data-toggle="modal" data-target="#modalClassDetailPrimary"></a>
+                                <div class="fc-event-lesson">${lesson || ''}</div>
+                                <div class="fc-event-time">${startTime} - ${endTime}</div>
+                                <div class="fc-event-title">${classesText[event.extendedProps.classes] || ''}</div>
+                                <div class="fc-event-status ${statusClass[status] || ''}">${statusText[status] || ''}</div>
+                                <div class="fc-event-attachment">${attachment ? attachmentIcon : ''}</div>
+                            `;
+
+                    return { domNodes: [wrapper] };
+                },
+
+                viewDidMount: function (arg) {
+                    const calendarEl = document.getElementById('calendar');
+                    calendarEl.classList.remove('calendar-week');
+
+                    if (arg.view.type === 'timeGridWeek') {
+                        calendarEl.classList.add('calendar-week');
+                    }
+                },
+
+                // Data
+
+                events: [
+                    {
+                        classes: 2,
+                        start: '2025-07-23T10:30:00',
+                        end: '2025-07-23T11:30:00',
+                        lesson: 'Aula 7 de 10',
+                        status: 3,
+                        attachment: true
+                    },
+                    {
+                        classes: 2,
+                        start: '2025-07-23T11:30:00',
+                        end: '2025-07-23T12:30:00',
+                        lesson: 'Aula 7 de 10',
+                        status: 3,
+                        attachment: true
+                    },
+                    {
+                        classes: 4,
+                        start: '2025-07-25T12:30:00',
+                        end: '2025-07-25T14:30:00',
+                        lesson: 'Aula 13 de 24',
+                        status: 1,
+                        attachment: true
+                    },
+                    {
+                        classes: 1,
+                        start: '2025-09-24T10:30:00',
+                        end: '2025-09-24T11:30:00',
+                        lesson: 'Aula 7 de 10',
+                        status: 2,
+                        attachment: false
+                    },
+                ],
+            });
+
+            // Time - Caption
+
+            const updateCaption = () => {
+                const currentDate = calendar.getDate();
+                const monthName = currentDate.toLocaleString('pt-PT', { month: 'long' });
+                const year = currentDate.getFullYear();
+
+                document.querySelectorAll('.txtTimeCaption span').forEach(el => {
+                    el.textContent = `${monthName} de ${year}`;
+                });
+            };
+
+            updateCaption();
+            calendar.on('datesSet', updateCaption);
+
+            // Time - Button
+
+            const leftBtn = document.querySelectorAll('.btnTimePrev');
+            const rightBtn = document.querySelectorAll('.btnTimeNext');
+
+            leftBtn.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    calendar.prev();
+                });
+            });
+
+            rightBtn.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    calendar.next();
+                });
+            });
+
+            // Time - Hide
+
+            const updateHiddenDays = () => {
+                const hidden = [];
+                document.querySelectorAll('.day-toggle').forEach(cb => {
+                    if (!cb.checked) {
+                        hidden.push(parseInt(cb.value));
+                    }
+                });
+                calendar.setOption('hiddenDays', hidden);
+            };
+
+            document.querySelectorAll('.day-toggle').forEach(cb => {
+                cb.addEventListener('change', function () {
+                    const checkedBoxes = Array.from(document.querySelectorAll('.day-toggle')).filter(c => c.checked);
+                    if (checkedBoxes.length === 0) {
+                        this.checked = true;
+                        alert("You must keep at least one day selected.");
+                        return;
+                    }
+
+                    updateHiddenDays();
+                });
+            });
+
+            // Function
+
+            function capitalizeFirstLetter(str) {
+                return str.charAt(0).toUpperCase() + str.slice(1);
+            };
+
+            function formatTimeRange(start, end) {
+                const startTime = start.toLocaleTimeString('pt', {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    hour12: false
+                });
+
+                const endTime = end
+                    ? end.toLocaleTimeString('pt', {
+                        hour: '2-digit',
+                        minute: '2-digit',
+                        hour12: false
+                    })
+                    : '';
+
+                return endTime ? `${startTime} - ${endTime}` : startTime;
+            };
+
+            calendar.render();
+        });
+    </script>
 </body>
 </html>

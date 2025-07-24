@@ -8,8 +8,33 @@ const viewParam = urlParams.get('view');
 document.addEventListener('DOMContentLoaded', function () {
     const calendarEl = document.getElementById('calendar');
 
+    const classesName = {
+        1: 'card-1',
+        2: 'card-2',
+        3: 'card-3',
+        4: 'card-4',
+    };
+    const classesText = {
+        1: 'Arte e Educação',
+        2: 'Introdução ao Direito Cons',
+        3: '',
+        4: 'Matemática',
+    };
+
+    const statusText = {
+        1: 'Não Confirmada',
+        2: 'Professor Confirmado',
+        3: 'Visível para alunos'
+    };
+
+    const statusClass = {
+        1: 'unconfirm',
+        2: 'confirm',
+        3: 'visible'
+    };
+
     const calendar = new Calendar(calendarEl, {
-        initialView: isMobile ? 'listWeek' : (viewParam === 'week' ? 'timeGridWeek' : 'dayGridMonth'),
+        initialView: viewParam === 'week' ? 'timeGridWeek' : 'dayGridMonth',
         allDaySlot: viewParam === 'week' ? false : true,
 
         hiddenDays: [],
@@ -22,18 +47,49 @@ document.addEventListener('DOMContentLoaded', function () {
         },
 
         dayHeaderContent: function (arg) {
-            const weekday = arg.date.toLocaleDateString('pt', { weekday: 'long' });
+            
+            let weekday
             const dayNumber = arg.date.getDate();
+            const eventsOnThisDay = calendar.getEvents().filter(event =>
+                event.start.toDateString() === arg.date.toDateString()
+            );
+
+            const spans = eventsOnThisDay.map(event => {
+                const className = classesName[event.extendedProps.classes] || '';
+                return `<span class="${className}"></span>`;
+            }).join('');
+
+            if (isMobile) {
+                weekday = arg.date.toLocaleDateString('pt', { weekday: 'short' });
+            }
+
+            else {
+                weekday = arg.date.toLocaleDateString('pt', { weekday: 'long' });
+            }
 
             if (viewParam === 'week') {
-                return {
-                    html: `
-                    <div style="text-align:center;">
-                        <div class="day-text">${weekday}</div>
-                        <div class="day-number">${dayNumber}</div>
-                    </div>`
-                };
-            } else {
+                if (isMobile) {
+                    return {
+                        html: `
+                        <div style="text-align:center;">
+                            <div class="day-text">${weekday}</div>
+                            <div class="day-number">${dayNumber}</div>
+                            <div class="day-sign">${spans}</div>
+                        </div>`
+                    };
+                }
+                else {
+                    return {
+                        html: `
+                        <div style="text-align:center;">
+                            <div class="day-text">${weekday}</div>
+                            <div class="day-number">${dayNumber}</div>
+                        </div>`
+                    };
+                }
+            }
+            
+            else {
                 return {
                     html: `
                     <div style="text-align:center;">
@@ -48,24 +104,24 @@ document.addEventListener('DOMContentLoaded', function () {
         events: [
             {
                 classes: 2,
-                start: '2025-07-13T10:30:00',
-                end: '2025-07-13T11:30:00',
+                start: '2025-07-23T10:30:00',
+                end: '2025-07-23T11:30:00',
                 lesson: 'Aula 7 de 10',
                 status: 3,
                 attachment: true
             },
             {
                 classes: 1,
-                start: '2025-07-15T10:30:00',
-                end: '2025-07-15T11:30:00',
+                start: '2025-07-24T10:30:00',
+                end: '2025-07-24T11:30:00',
                 lesson: 'Aula 7 de 10',
                 status: 2,
                 attachment: false
             },
             {
                 classes: 4,
-                start: '2025-07-15T12:30:00',
-                end: '2025-07-15T13:30:00',
+                start: '2025-07-24T12:30:00',
+                end: '2025-07-24T14:30:00',
                 lesson: 'Aula 13 de 24',
                 status: 1,
                 attachment: true
@@ -85,32 +141,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
             const startTime = formatTime(event.start);
             const endTime = formatTime(event.end);
-
-            const classesName = {
-                1: 'card-1',
-                2: 'card-2',
-                3: 'card-3',
-                4: 'card-4',
-            };
-
-            const classesText = {
-                1: 'Arte e Educação',
-                2: 'Introdução ao Direito Cons',
-                3: '',
-                4: 'Matemática',
-            };
-
-            const statusText = {
-                1: 'Não Confirmada',
-                2: 'Professor Confirmado',
-                3: 'Visível para alunos'
-            };
-
-            const statusClass = {
-                1: 'unconfirm',
-                2: 'confirm',
-                3: 'visible'
-            };
 
             const attachmentIcon = `
                 <svg viewBox='0 0 448 512' xmlns='http://www.w3.org/2000/svg' width="16" height="16" fill="currentColor">
@@ -152,7 +182,9 @@ document.addEventListener('DOMContentLoaded', function () {
         const monthName = currentDate.toLocaleString('pt-PT', { month: 'long' });
         const year = currentDate.getFullYear();
 
-        document.querySelector('#txtTimeCaption span').textContent = `${monthName} de ${year}`;
+        document.querySelectorAll('.txtTimeCaption span').forEach(el => {
+            el.textContent = `${monthName} de ${year}`;
+        });
     };
 
     updateCaption();
@@ -160,15 +192,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Time - Button
 
-    const leftBtn = document.getElementById('btnTimePrev');
-    const rightBtn = document.getElementById('btnTimeNext');
+    const leftBtn = document.querySelectorAll('.btnTimePrev');
+    const rightBtn = document.querySelectorAll('.btnTimeNext');
 
-    leftBtn.addEventListener('click', () => {
-        calendar.prev();
+    leftBtn.forEach(btn => {
+        btn.addEventListener('click', () => {
+            calendar.prev();
+        });
     });
 
-    rightBtn.addEventListener('click', () => {
-        calendar.next();
+    rightBtn.forEach(btn => {
+        btn.addEventListener('click', () => {
+            calendar.next();
+        });
     });
 
     // Time - Hide

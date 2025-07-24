@@ -11025,9 +11025,9 @@ svg {
   min-height: 1%;
   padding: 0 calc(15 / var(--vw) * var(--multiplier));
   -webkit-box-flex: 0;
-  -ms-flex: 0 0 41.66667%;
-  flex: 0 0 41.66667%;
-  max-width: 41.66667%;
+  -ms-flex: 0 0 25%;
+  flex: 0 0 25%;
+  max-width: 25%;
 }
 .modal.modal-class-detail.primary .modal-content .modal-body .body-tab .tab-content .content-form .col-form-outer .col-form-inner:nth-child(4) {
   position: relative;
@@ -11035,9 +11035,9 @@ svg {
   min-height: 1%;
   padding: 0 calc(15 / var(--vw) * var(--multiplier));
   -webkit-box-flex: 0;
-  -ms-flex: 0 0 58.33333%;
-  flex: 0 0 58.33333%;
-  max-width: 58.33333%;
+  -ms-flex: 0 0 75%;
+  flex: 0 0 75%;
+  max-width: 75%;
 }
 .modal.modal-class-detail.primary .modal-content .modal-body .body-tab .tab-content .content-table {
   margin-top: calc(15 / var(--vw) * var(--multiplier)) !important;
@@ -11374,8 +11374,11 @@ svg {
 }
 .wizard .class-schedule-calendar.primary .fc-event-card.primary {
   position: relative;
+  display: flex;
   width: 100% !important;
+  height: 100% !important;
   padding: calc(10 / var(--vw) * var(--multiplier)) !important;
+  flex-direction: column;
   border-radius: calc(4.5 / var(--vw) * var(--multiplier));
   transition: 0.4s ease;
 }
@@ -11430,12 +11433,23 @@ svg {
   left: 0;
 }
 .wizard .class-schedule-calendar.primary .fc-event-card.primary .fc-event-lesson {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  -webkit-line-clamp: 1;
   margin-bottom: calc(5 / var(--vw) * var(--multiplier)) !important;
   font-weight: var(--font-weight-regular);
   font-size: calc(14 / var(--vw) * var(--multiplier));
   color: rgba(255, 255, 255, 0.85);
 }
 .wizard .class-schedule-calendar.primary .fc-event-card.primary .fc-event-time {
+  margin-top: auto !important;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  -webkit-line-clamp: 1;
   font-weight: var(--font-weight-semibold);
   font-size: calc(14 / var(--vw) * var(--multiplier));
   color: var(--color-white);
@@ -11453,6 +11467,11 @@ svg {
 .wizard .class-schedule-calendar.primary .fc-event-card.primary .fc-event-status {
   display: inline-block;
   width: auto !important;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  -webkit-line-clamp: 1;
   padding: calc(5 / var(--vw) * var(--multiplier)) !important;
   margin-top: calc(5 / var(--vw) * var(--multiplier)) !important;
   text-transform: uppercase;
@@ -11483,6 +11502,50 @@ svg {
 }
 .wizard .class-schedule-calendar.primary .fc-event-card.primary .fc-event-attachment svg {
   fill: var(--color-black);
+}
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-header {
+  display: none;
+}
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-header .header-time {
+  display: flex;
+  align-items: center;
+  padding-top: calc(20 / var(--vw) * var(--multiplier)) !important;
+  padding-bottom: calc(35 / var(--vw) * var(--multiplier)) !important;
+  justify-content: center;
+}
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-header .header-time > div {
+  margin-right: calc(20 / var(--vw) * var(--multiplier)) !important;
+}
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-header .header-time .time-caption {
+  text-align: center;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: calc(165 / var(--vw) * var(--multiplier));
+}
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-header .header-time .time-caption .caption > span {
+  text-transform: capitalize;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-black);
+}
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-header .header-time .time-button {
+  display: flex;
+  align-items: center;
+}
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-header .header-time .time-button .button {
+  margin-right: calc(5 / var(--vw) * var(--multiplier)) !important;
+}
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-header .header-time .time-button .button:last-child {
+  margin-right: 0 !important;
+}
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-header .header-time .time-button .button > button {
+  background: transparent;
+  border: none;
+}
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-header .header-time .time-button .button > button svg path {
+  fill: var(--color-black);
+}
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-header .header-time .time-button .button > button:hover svg path {
+  fill: var(--color-primary);
 }
 .wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-week .fc-scrollgrid > tbody .fc-scroller {
   height: auto !important;
@@ -11518,6 +11581,33 @@ svg {
   font-size: calc(17.5 / var(--vw) * var(--multiplier));
   color: var(--color-black);
   border-radius: 100%;
+}
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-week .fc-col-header-cell .day-sign {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-week .fc-col-header-cell .day-sign > span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(7.5 / var(--vw) * var(--multiplier));
+  height: calc(7.5 / var(--vw) * var(--multiplier));
+  margin: 0 calc(2.5 / var(--vw) * var(--multiplier));
+  background: var(--color-black);
+  border-radius: 100%;
+}
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-week .fc-col-header-cell .day-sign > span.card-1 {
+  background: var(--color-primary);
+}
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-week .fc-col-header-cell .day-sign > span.card-2 {
+  background: var(--color-secondary);
+}
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-week .fc-col-header-cell .day-sign > span.card-3 {
+  background: var(--color-tertiary);
+}
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-week .fc-col-header-cell .day-sign > span.card-4 {
+  background: var(--color-quarter);
 }
 .wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar .fc-view-harness {
   height: calc(100vh - 145 / var(--vw) * var(--multiplier)) !important;
@@ -11568,6 +11658,12 @@ svg {
   border-radius: 100%;
 }
 @media (max-width: 991.98px) {
+  .wizard .class-schedule-calendar.primary .fc-event-card.primary .fc-event-attachment {
+    display: none;
+  }
+  .wizard .class-schedule-calendar.primary .class-schedule-calendar-header {
+    display: block;
+  }
   .wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar .fc-view-harness {
     height: calc(100vh - 110 / var(--vw) * var(--multiplier)) !important;
   }
@@ -11604,6 +11700,47 @@ svg {
   }
   .wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar .fc-listWeek-view .fc-list-event-graphic {
     display: none;
+  }
+}
+@media (max-width: 767.98px) {
+  .wizard .class-schedule-calendar.primary .fc-event-card.primary {
+    padding: calc(5 / var(--vw) * var(--multiplier)) !important;
+  }
+  .wizard .class-schedule-calendar.primary .fc-event-card.primary > div:not(.fc-event-title) {
+    display: none;
+  }
+  .wizard .class-schedule-calendar.primary .fc-event-card.primary .fc-event-title {
+    margin-top: auto !important;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+    -webkit-line-clamp: 2;
+    font-size: calc(14 / var(--vw) * var(--multiplier));
+  }
+  .wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-week .fc-timegrid-slot .fc-timegrid-slot-label-cushion {
+    padding-left: calc(5 / var(--vw) * var(--multiplier)) !important;
+    padding-right: calc(5 / var(--vw) * var(--multiplier)) !important;
+    font-size: calc(12 / var(--vw) * var(--multiplier));
+  }
+  .wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-week .fc-col-header-cell.fc-day-today .day-number {
+    color: var(--color-black);
+    background: rgba(31, 47, 190, 0.05);
+  }
+  .wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-week .fc-col-header-cell .day-number {
+    font-size: calc(16 / var(--vw) * var(--multiplier));
+  }
+  .wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar .fc-scrollgrid-sync-table tbody tr td.fc-day {
+    height: calc(140 / var(--vw) * var(--multiplier));
+  }
+  .wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar .fc-scrollgrid-sync-table tbody tr td.fc-day .fc-daygrid-day-top {
+    justify-content: center;
+  }
+  .wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar .fc-scrollgrid-sync-table tbody tr td.fc-day .fc-daygrid-day-top > a {
+    width: calc(30 / var(--vw) * var(--multiplier));
+    height: calc(30 / var(--vw) * var(--multiplier));
+    font-size: calc(15 / var(--vw) * var(--multiplier));
   }
 }
 .wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary > .wrapper-inner {
