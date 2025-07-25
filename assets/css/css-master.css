@@ -10382,10 +10382,12 @@ svg {
 }
 
 .navbar.primary {
+  position: relative;
   padding-top: calc(15 / var(--vw) * var(--multiplier)) !important;
   padding-bottom: calc(15 / var(--vw) * var(--multiplier)) !important;
   padding-left: calc(20 / var(--vw) * var(--multiplier)) !important;
   padding-right: calc(20 / var(--vw) * var(--multiplier)) !important;
+  z-index: 1040;
   background: var(--color-white);
   border-bottom: calc(1 / var(--vw) * var(--multiplier)) solid var(--color-grey-light);
 }
@@ -10407,6 +10409,7 @@ svg {
 }
 .navbar.primary .navbar-toggler {
   padding: 0 !important;
+  margin-left: calc(-10 / var(--vw) * var(--multiplier)) !important;
   font-size: unset;
   background: unset;
   border: unset;
@@ -10415,13 +10418,13 @@ svg {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: calc(35 / var(--vw) * var(--multiplier));
-  height: calc(35 / var(--vw) * var(--multiplier));
-  background: var(--color-primary);
+  width: calc(30 / var(--vw) * var(--multiplier));
+  height: calc(30 / var(--vw) * var(--multiplier));
+  background: var(--color-white);
   border-radius: calc(4.5 / var(--vw) * var(--multiplier));
 }
 .navbar.primary .navbar-toggler > span.icon svg {
-  stroke: var(--color-white);
+  stroke: var(--color-primary);
 }
 .navbar.primary .navbar-time {
   display: flex;
@@ -10431,7 +10434,7 @@ svg {
   margin-right: calc(20 / var(--vw) * var(--multiplier)) !important;
 }
 .navbar.primary .navbar-time .time-caption {
-  width: calc(165 / var(--vw) * var(--multiplier));
+  width: calc(210 / var(--vw) * var(--multiplier));
 }
 .navbar.primary .navbar-time .time-caption .caption > span {
   text-transform: capitalize;
@@ -10557,6 +10560,33 @@ svg {
   padding: 0 !important;
   background: transparent;
 }
+.navbar.primary .dropdown .dropdown-menu .dropdown-item .dropdown-form {
+  padding-top: calc(10 / var(--vw) * var(--multiplier)) !important;
+  padding-bottom: calc(10 / var(--vw) * var(--multiplier)) !important;
+  padding-left: calc(20 / var(--vw) * var(--multiplier)) !important;
+  padding-right: calc(20 / var(--vw) * var(--multiplier)) !important;
+}
+.navbar.primary .dropdown .dropdown-menu .dropdown-item .dropdown-form .form-group .form-switch .custom-switch {
+  padding-left: 0 !important;
+}
+.navbar.primary .dropdown .dropdown-menu .dropdown-item .dropdown-form .form-group .form-switch .custom-switch .custom-control-label {
+  font-weight: var(--font-weight-semibold);
+  font-size: calc(16 / var(--vw) * var(--multiplier));
+}
+.navbar.primary .dropdown .dropdown-menu .dropdown-item .dropdown-form .form-group .form-switch .custom-switch .custom-control-label:before {
+  left: unset;
+  right: calc(-55 / var(--vw) * var(--multiplier));
+}
+.navbar.primary .dropdown .dropdown-menu .dropdown-item .dropdown-form .form-group .form-switch .custom-switch .custom-control-label:after {
+  left: unset;
+  right: calc(-42.5 / var(--vw) * var(--multiplier) + 2px);
+}
+.navbar.primary .dropdown .dropdown-menu .dropdown-item .dropdown-form .form-group .form-switch .custom-switch .custom-control-label > span {
+  display: inline-block;
+  white-space: normal;
+  max-width: calc(100 / var(--vw) * var(--multiplier));
+  transform: translateY(calc(-5 / var(--vw) * var(--multiplier)));
+}
 .navbar.primary .dropdown .dropdown-menu .dropdown-item .dropdown-link {
   display: block;
   text-decoration: none;
@@ -10612,16 +10642,23 @@ svg {
   margin-right: 0 !important;
 }
 @media (max-width: 991.98px) {
+  .navbar.primary {
+    justify-content: unset;
+  }
   .navbar.primary .navbar-text {
+    margin-left: calc(10 / var(--vw) * var(--multiplier)) !important;
     display: block;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     -webkit-line-clamp: 1;
-    max-width: calc(500 / var(--vw) * var(--multiplier));
+    max-width: calc(600 / var(--vw) * var(--multiplier));
   }
   .navbar.primary .navbar-time > div {
     margin-right: calc(15 / var(--vw) * var(--multiplier)) !important;
+  }
+  .navbar.primary .navbar-nav {
+    display: none;
   }
   .navbar.primary .navbar-nav .nav-item {
     margin-right: calc(10 / var(--vw) * var(--multiplier)) !important;
@@ -10647,7 +10684,7 @@ svg {
 }
 @media (max-width: 767.98px) {
   .navbar.primary .navbar-text {
-    max-width: calc(250 / var(--vw) * var(--multiplier));
+    max-width: calc(300 / var(--vw) * var(--multiplier));
   }
   .navbar.primary .navbar-time {
     margin-bottom: calc(15 / var(--vw) * var(--multiplier)) !important;
@@ -10667,6 +10704,174 @@ svg {
     flex-direction: column;
     justify-content: center;
   }
+}
+
+.sidebar.primary {
+  position: fixed;
+  z-index: 1020;
+  top: 57.25px;
+  left: -100%;
+  width: calc(310 / var(--vw) * var(--multiplier));
+  height: calc(100vh - 57.25px);
+  background: var(--color-white);
+  border-right: calc(1 / var(--vw) * var(--multiplier)) solid var(--color-grey-light);
+  transition: 0.5s ease;
+}
+.sidebar.primary.active {
+  left: 0;
+}
+.sidebar.primary .sidebar-content {
+  background: var(--color-grey-super-light);
+}
+.sidebar.primary .sidebar-content .content-wrapper.primary > .wrapper-inner {
+  padding: calc(15 / var(--vw) * var(--multiplier)) !important;
+  margin-bottom: calc(10 / var(--vw) * var(--multiplier)) !important;
+  background: var(--color-white);
+}
+.sidebar.primary .sidebar-content .content-wrapper.primary > .wrapper-inner:last-child {
+  margin-bottom: 0 !important;
+}
+.sidebar.primary .sidebar-content .content-text .title {
+  margin-bottom: calc(5 / var(--vw) * var(--multiplier)) !important;
+}
+.sidebar.primary .sidebar-content .content-text .title .text-title {
+  font-weight: var(--font-weight-semibold);
+  font-size: calc(16 / var(--vw) * var(--multiplier));
+}
+.sidebar.primary .sidebar-content .content-link .link .link-content {
+  display: block;
+  text-decoration: none;
+  padding-top: calc(10 / var(--vw) * var(--multiplier)) !important;
+  padding-bottom: calc(10 / var(--vw) * var(--multiplier)) !important;
+  padding-left: calc(15 / var(--vw) * var(--multiplier)) !important;
+  padding-right: calc(15 / var(--vw) * var(--multiplier)) !important;
+  font-size: calc(16 / var(--vw) * var(--multiplier));
+  color: var(--color-grey);
+  border-radius: calc(5 / var(--vw) * var(--multiplier));
+}
+.sidebar.primary .sidebar-content .content-link .link .link-content > span.wrapper {
+  display: flex;
+  align-items: center;
+}
+.sidebar.primary .sidebar-content .content-link .link .link-content > span > span {
+  display: inline-block;
+}
+.sidebar.primary .sidebar-content .content-link .link .link-content > span > span.icon {
+  margin-right: calc(20 / var(--vw) * var(--multiplier)) !important;
+}
+.sidebar.primary .sidebar-content .content-link .link .link-content:hover {
+  color: var(--color-primary);
+  background: rgba(31, 47, 190, 0.1);
+}
+.sidebar.primary .sidebar-content .content-link .link .link-content:hover > span > span.icon svg path {
+  stroke: var(--color-primary);
+}
+.sidebar.primary .sidebar-content .content-form .form-group {
+  margin-top: calc(10 / var(--vw) * var(--multiplier)) !important;
+}
+.sidebar.primary .sidebar-content .content-form .form-group .group-wrapper.primary {
+  display: flex;
+  align-items: center;
+}
+.sidebar.primary .sidebar-content .content-form .form-group .group-wrapper.primary > div {
+  margin-right: calc(5 / var(--vw) * var(--multiplier)) !important;
+}
+.sidebar.primary .sidebar-content .content-form .form-group .group-wrapper.primary > div:last-child {
+  margin-right: 0 !important;
+}
+.sidebar.primary .sidebar-content .content-form .form-group .form-label {
+  margin-right: calc(15 / var(--vw) * var(--multiplier)) !important;
+}
+.sidebar.primary .sidebar-content .content-form .form-group .form-label label {
+  margin-bottom: 0 !important;
+  font-size: calc(16 / var(--vw) * var(--multiplier));
+}
+.sidebar.primary .sidebar-content .content-form .form-group .form-check {
+  position: relative;
+  padding: 0 !important;
+  margin: 0 !important;
+  cursor: pointer;
+}
+.sidebar.primary .sidebar-content .content-form .form-group .form-check:last-child {
+  margin-right: 0 !important;
+}
+.sidebar.primary .sidebar-content .content-form .form-group .form-check input {
+  position: absolute;
+  width: 100% !important;
+  height: 100% !important;
+  cursor: pointer;
+  z-index: 10;
+  opacity: 0;
+  top: 0;
+  left: 0;
+}
+.sidebar.primary .sidebar-content .content-form .form-group .form-check input:checked ~ label {
+  color: var(--color-white);
+  background: var(--color-primary);
+  border: calc(1 / var(--vw) * var(--multiplier)) solid #1f2fbe;
+}
+.sidebar.primary .sidebar-content .content-form .form-group .form-check label {
+  display: inline-flex;
+  align-items: center;
+  margin: 0 !important;
+  justify-content: center;
+  flex-shrink: 0;
+  width: calc(35 / var(--vw) * var(--multiplier));
+  height: calc(35 / var(--vw) * var(--multiplier));
+  font-weight: var(--font-weight-semibold);
+  font-size: calc(16 / var(--vw) * var(--multiplier));
+  color: var(--color-black);
+  background: var(--color-white);
+  border: calc(1 / var(--vw) * var(--multiplier)) solid rgba(59, 63, 72, 0.5);
+  border-radius: 100%;
+}
+.sidebar.primary .sidebar-content .content-form .form-group .form-switch .custom-switch {
+  padding-left: 0 !important;
+}
+.sidebar.primary .sidebar-content .content-form .form-group .form-switch .custom-switch .custom-control-label {
+  font-weight: var(--font-weight-semibold);
+  font-size: calc(16 / var(--vw) * var(--multiplier));
+}
+.sidebar.primary .sidebar-content .content-form .form-group .form-switch .custom-switch .custom-control-label:before {
+  left: unset;
+  right: calc(-45 / var(--vw) * var(--multiplier));
+}
+.sidebar.primary .sidebar-content .content-form .form-group .form-switch .custom-switch .custom-control-label:after {
+  left: unset;
+  right: calc(-32.5 / var(--vw) * var(--multiplier) + 2px);
+}
+.sidebar.primary .sidebar-content .content-form .form-group .form-switch .custom-switch .custom-control-label > span {
+  display: inline-block;
+  transform: translateY(calc(3.5 / var(--vw) * var(--multiplier)));
+}
+@media (max-width: 991.98px) {
+  .sidebar.primary {
+    top: 52.19px;
+    height: calc(100vh - 52.19px);
+  }
+}
+@media (max-width: 767.98px) {
+  .sidebar.primary {
+    top: 57.25px;
+    height: calc(100vh - 57.25px);
+  }
+}
+
+.sidebar-overlay {
+  position: fixed;
+  width: 100% !important;
+  height: 100% !important;
+  pointer-events: none;
+  z-index: 1000;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  background: rgba(23, 26, 33, 0.125);
+  transition: 0.5s ease;
+}
+.sidebar-overlay.active {
+  pointer-events: auto;
+  opacity: 1;
 }
 
 .modal .modal-content {
@@ -11105,6 +11310,26 @@ svg {
   background: rgb(20.2692307692, 30.7307692308, 124.2307692308);
 }
 @media (max-width: 767.98px) {
+  .modal.modal-class-detail.primary .modal-dialog {
+    margin: 0 !important;
+  }
+  .modal.modal-class-detail.primary .modal-content {
+    overflow-y: scroll;
+    height: 100vh;
+    border-radius: 0;
+  }
+  .modal.modal-class-detail.primary .modal-content .modal-body .body-tab {
+    height: 100% !important;
+  }
+  .modal.modal-class-detail.primary .modal-content .modal-body .body-tab .tab-content {
+    height: 100% !important;
+  }
+  .modal.modal-class-detail.primary .modal-content .modal-body .body-tab .tab-content .tab-pane {
+    height: 100% !important;
+  }
+  .modal.modal-class-detail.primary .modal-content .modal-body .body-tab .tab-content .tab-pane > .row {
+    height: 100% !important;
+  }
   .modal.modal-class-detail.primary .modal-content .modal-body .body-tab .tab-content .col-content-outer .col-content-inner {
     position: relative;
     width: 100%;
@@ -11144,6 +11369,9 @@ svg {
     -ms-flex: 0 0 100%;
     flex: 0 0 100%;
     max-width: 100%;
+  }
+  .modal.modal-class-detail.primary .modal-content .modal-body .body-tab .tab-content .content-dropdown {
+    margin-top: auto !important;
   }
   .modal.modal-class-detail.primary .modal-content .modal-body .body-tab .tab-content .content-table table tbody tr td > span.title {
     display: block;
@@ -11297,6 +11525,14 @@ svg {
   background: rgb(20.2692307692, 30.7307692308, 124.2307692308);
 }
 @media (max-width: 767.98px) {
+  .modal.modal-class-information.primary .modal-dialog {
+    margin: 0 !important;
+  }
+  .modal.modal-class-information.primary .modal-content {
+    overflow-y: scroll;
+    height: 100vh;
+    border-radius: 0;
+  }
   .modal.modal-class-information.primary .modal-content .modal-body .body-form .col-form-outer .col-form-inner {
     position: relative;
     width: 100%;
@@ -11325,6 +11561,12 @@ svg {
     justify-content: center;
   }
 }
+.modal.modal-history.primary .modal-content .modal-header {
+  justify-content: unset;
+}
+.modal.modal-history.primary .modal-content .modal-header .header-button {
+  margin-right: calc(15 / var(--vw) * var(--multiplier)) !important;
+}
 .modal.modal-history.primary .modal-content .modal-body {
   padding-left: calc(20 / var(--vw) * var(--multiplier)) !important;
   padding-right: calc(20 / var(--vw) * var(--multiplier)) !important;
@@ -11341,10 +11583,36 @@ svg {
   margin-bottom: 0 !important;
 }
 .modal.modal-history.primary .modal-content .modal-body .body-list .list-date {
-  margin-bottom: calc(5 / var(--vw) * var(--multiplier)) !important;
+  margin-bottom: calc(15 / var(--vw) * var(--multiplier)) !important;
 }
 .modal.modal-history.primary .modal-content .modal-body .body-list .list-date .date > span {
+  font-weight: var(--font-weight-semibold);
+  font-size: calc(18 / var(--vw) * var(--multiplier));
+}
+.modal.modal-history.primary .modal-content .modal-body .body-list .list-text .text-list > ul {
+  padding-left: 0 !important;
+  list-style: none;
+}
+.modal.modal-history.primary .modal-content .modal-body .body-list .list-text .text-list > ul > li {
+  display: flex;
+  align-items: center;
+  margin-bottom: calc(10 / var(--vw) * var(--multiplier)) !important;
+}
+.modal.modal-history.primary .modal-content .modal-body .body-list .list-text .text-list > ul > li:last-child {
+  margin-bottom: 0 !important;
+}
+.modal.modal-history.primary .modal-content .modal-body .body-list .list-text .text-list > ul > li .hour {
+  flex-shrink: 0;
+  width: calc(60 / var(--vw) * var(--multiplier));
+}
+.modal.modal-history.primary .modal-content .modal-body .body-list .list-text .text-list > ul > li .hour > span {
   color: rgba(23, 26, 33, 0.5);
+}
+.modal.modal-history.primary .modal-content .modal-body .body-list .list-text .text-list > ul > li .subtitle {
+  margin-bottom: 0 !important;
+}
+.modal.modal-history.primary .modal-content .modal-body .body-list .list-text .text-list > ul > li .subtitle .text-subtitle {
+  margin-bottom: 0 !important;
 }
 
 .wizard {
@@ -11374,11 +11642,9 @@ svg {
 }
 .wizard .class-schedule-calendar.primary .fc-event-card.primary {
   position: relative;
-  display: flex;
   width: 100% !important;
   height: 100% !important;
   padding: calc(10 / var(--vw) * var(--multiplier)) !important;
-  flex-direction: column;
   border-radius: calc(4.5 / var(--vw) * var(--multiplier));
   transition: 0.4s ease;
 }
@@ -11465,16 +11731,16 @@ svg {
   color: var(--color-white);
 }
 .wizard .class-schedule-calendar.primary .fc-event-card.primary .fc-event-status {
-  display: inline-block;
-  width: auto !important;
+  text-align: center;
+  padding: calc(5 / var(--vw) * var(--multiplier)) !important;
+  margin-top: calc(5 / var(--vw) * var(--multiplier)) !important;
+  text-transform: uppercase;
   display: block;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   -webkit-line-clamp: 1;
-  padding: calc(5 / var(--vw) * var(--multiplier)) !important;
-  margin-top: calc(5 / var(--vw) * var(--multiplier)) !important;
-  text-transform: uppercase;
+  max-width: calc(145 / var(--vw) * var(--multiplier)) !important;
   font-weight: var(--font-weight-semibold);
   font-size: calc(12 / var(--vw) * var(--multiplier));
   border-radius: calc(3.5 / var(--vw) * var(--multiplier));
@@ -11503,6 +11769,120 @@ svg {
 .wizard .class-schedule-calendar.primary .fc-event-card.primary .fc-event-attachment svg {
   fill: var(--color-black);
 }
+.wizard .class-schedule-calendar.primary .fc-event-card.secondary {
+  position: relative;
+  padding: calc(11.5 / var(--vw) * var(--multiplier)) calc(27.5 / var(--vw) * var(--multiplier));
+  border-radius: 50em;
+  transition: 0.4s ease;
+}
+.wizard .class-schedule-calendar.primary .fc-event-card.secondary.card-1 {
+  background: var(--color-primary);
+}
+.wizard .class-schedule-calendar.primary .fc-event-card.secondary.card-1 .list-icon .icon svg {
+  fill: var(--color-white);
+}
+.wizard .class-schedule-calendar.primary .fc-event-card.secondary.card-1:hover {
+  background: rgb(23.8461538462, 36.1538461538, 146.1538461538);
+}
+.wizard .class-schedule-calendar.primary .fc-event-card.secondary.card-2 {
+  background: var(--color-secondary);
+}
+.wizard .class-schedule-calendar.primary .fc-event-card.secondary.card-2 .list-icon .icon svg {
+  fill: var(--color-white);
+}
+.wizard .class-schedule-calendar.primary .fc-event-card.secondary.card-2:hover {
+  background: rgb(42.0566801619, 99.983805668, 153.9433198381);
+}
+.wizard .class-schedule-calendar.primary .fc-event-card.secondary.card-3 {
+  background: var(--color-tertiary);
+}
+.wizard .class-schedule-calendar.primary .fc-event-card.secondary.card-3 .list-icon .icon svg {
+  fill: var(--color-white);
+}
+.wizard .class-schedule-calendar.primary .fc-event-card.secondary.card-3:hover {
+  background: rgb(49.1983805668, 42.0566801619, 153.9433198381);
+}
+.wizard .class-schedule-calendar.primary .fc-event-card.secondary.card-4 {
+  background: var(--color-quarter);
+}
+.wizard .class-schedule-calendar.primary .fc-event-card.secondary.card-4 .list-text .title .text-title {
+  color: var(--color-black);
+}
+.wizard .class-schedule-calendar.primary .fc-event-card.secondary.card-4 .list-lesson .lesson > span {
+  color: var(--color-black);
+}
+.wizard .class-schedule-calendar.primary .fc-event-card.secondary.card-4:hover {
+  background: rgb(178.24, 214.6, 230.76);
+}
+.wizard .class-schedule-calendar.primary .fc-event-card.secondary .card-wrapper.primary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.wizard .class-schedule-calendar.primary .fc-event-card.secondary .card-wrapper.primary > .wrapper-inner {
+  display: flex;
+  align-items: center;
+}
+.wizard .class-schedule-calendar.primary .fc-event-card.secondary .card-wrapper.primary a {
+  position: absolute;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 10;
+  top: 0;
+  left: 0;
+}
+.wizard .class-schedule-calendar.primary .fc-event-card.secondary .list-text .title {
+  margin-bottom: 0 !important;
+}
+.wizard .class-schedule-calendar.primary .fc-event-card.secondary .list-text .title .text-title {
+  margin-bottom: 0 !important;
+  font-weight: var(--font-weight-semibold);
+  font-size: calc(16 / var(--vw) * var(--multiplier));
+  color: var(--color-white);
+}
+.wizard .class-schedule-calendar.primary .fc-event-card.secondary .list-lesson .lesson > span {
+  display: inline-block;
+  font-size: calc(16 / var(--vw) * var(--multiplier));
+  color: var(--color-white);
+}
+.wizard .class-schedule-calendar.primary .fc-event-card.secondary .list-lesson .lesson > span:before {
+  padding-left: calc(10 / var(--vw) * var(--multiplier)) !important;
+  padding-right: calc(10 / var(--vw) * var(--multiplier)) !important;
+  content: "|";
+}
+.wizard .class-schedule-calendar.primary .fc-event-card.secondary .list-status .status > span {
+  padding-top: calc(5 / var(--vw) * var(--multiplier)) !important;
+  padding-bottom: calc(5 / var(--vw) * var(--multiplier)) !important;
+  padding-left: calc(10 / var(--vw) * var(--multiplier)) !important;
+  padding-right: calc(10 / var(--vw) * var(--multiplier)) !important;
+  text-transform: uppercase;
+  font-weight: var(--font-weight-semibold);
+  font-size: calc(14 / var(--vw) * var(--multiplier));
+  border-radius: calc(3.5 / var(--vw) * var(--multiplier));
+}
+.wizard .class-schedule-calendar.primary .fc-event-card.secondary .list-status .status > span.complete {
+  color: #065509;
+  background: #D3FFC8;
+}
+.wizard .class-schedule-calendar.primary .fc-event-card.secondary .list-status .status > span.confirm {
+  color: #1D0075;
+  background: #C8E0FF;
+}
+.wizard .class-schedule-calendar.primary .fc-event-card.secondary .list-status .status > span.unconfirm {
+  color: #750000;
+  background: #FFC8C8;
+}
+.wizard .class-schedule-calendar.primary .fc-event-card.secondary .list-status .status > span.visible {
+  color: #065509;
+  background: #D3FFC8;
+}
+.wizard .class-schedule-calendar.primary .fc-event-card.secondary .list-icon {
+  margin-left: calc(20 / var(--vw) * var(--multiplier)) !important;
+  width: calc(25 / var(--vw) * var(--multiplier));
+}
+.wizard .class-schedule-calendar.primary .fc-event-card.secondary .list-icon .icon svg {
+  fill: var(--color-black);
+}
 .wizard .class-schedule-calendar.primary .class-schedule-calendar-header {
   display: none;
 }
@@ -11510,7 +11890,7 @@ svg {
   display: flex;
   align-items: center;
   padding-top: calc(20 / var(--vw) * var(--multiplier)) !important;
-  padding-bottom: calc(35 / var(--vw) * var(--multiplier)) !important;
+  padding-bottom: calc(20 / var(--vw) * var(--multiplier)) !important;
   justify-content: center;
 }
 .wizard .class-schedule-calendar.primary .class-schedule-calendar-header .header-time > div {
@@ -11520,7 +11900,7 @@ svg {
   text-align: center;
   margin-left: auto !important;
   margin-right: auto !important;
-  width: calc(165 / var(--vw) * var(--multiplier));
+  width: calc(210 / var(--vw) * var(--multiplier));
 }
 .wizard .class-schedule-calendar.primary .class-schedule-calendar-header .header-time .time-caption .caption > span {
   text-transform: capitalize;
@@ -11547,28 +11927,32 @@ svg {
 .wizard .class-schedule-calendar.primary .class-schedule-calendar-header .header-time .time-button .button > button:hover svg path {
   fill: var(--color-primary);
 }
-.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-week .fc-scrollgrid > tbody .fc-scroller {
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-week .fc-timeGridWeek-view .fc-event-card.primary {
+  display: flex;
+  flex-direction: column;
+}
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-week .fc-timeGridWeek-view .fc-scrollgrid > tbody .fc-scroller {
   height: auto !important;
 }
-.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-week .fc-timegrid-slot {
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-week .fc-timeGridWeek-view .fc-timegrid-slot {
   height: calc(63.5 / var(--vw) * var(--multiplier));
 }
-.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-week .fc-v-event {
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-week .fc-timeGridWeek-view .fc-v-event {
   background: unset;
   border: unset;
 }
-.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-week .fc-timegrid-cols .fc-day.fc-day-today {
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-week .fc-timeGridWeek-view .fc-timegrid-cols .fc-day.fc-day-today {
   background: unset;
 }
-.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-week .fc-col-header-cell.fc-day-today .day-number {
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-week .fc-timeGridWeek-view .fc-col-header-cell.fc-day-today .day-number {
   color: var(--color-white);
   background: var(--color-primary);
 }
-.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-week .fc-col-header-cell .day-text {
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-week .fc-timeGridWeek-view .fc-col-header-cell .day-text {
   font-weight: var(--font-weight-regular);
   color: var(--color-grey);
 }
-.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-week .fc-col-header-cell .day-number {
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-week .fc-timeGridWeek-view .fc-col-header-cell .day-number {
   display: inline-flex;
   align-items: center;
   text-decoration: none;
@@ -11582,12 +11966,13 @@ svg {
   color: var(--color-black);
   border-radius: 100%;
 }
-.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-week .fc-col-header-cell .day-sign {
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-week .fc-timeGridWeek-view .fc-col-header-cell .day-sign {
   display: flex;
   align-items: center;
+  margin-top: calc(5 / var(--vw) * var(--multiplier)) !important;
   justify-content: center;
 }
-.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-week .fc-col-header-cell .day-sign > span {
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-week .fc-timeGridWeek-view .fc-col-header-cell .day-sign > span {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -11597,17 +11982,98 @@ svg {
   background: var(--color-black);
   border-radius: 100%;
 }
-.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-week .fc-col-header-cell .day-sign > span.card-1 {
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-week .fc-timeGridWeek-view .fc-col-header-cell .day-sign > span.card-1 {
   background: var(--color-primary);
 }
-.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-week .fc-col-header-cell .day-sign > span.card-2 {
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-week .fc-timeGridWeek-view .fc-col-header-cell .day-sign > span.card-2 {
   background: var(--color-secondary);
 }
-.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-week .fc-col-header-cell .day-sign > span.card-3 {
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-week .fc-timeGridWeek-view .fc-col-header-cell .day-sign > span.card-3 {
   background: var(--color-tertiary);
 }
-.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-week .fc-col-header-cell .day-sign > span.card-4 {
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-week .fc-timeGridWeek-view .fc-col-header-cell .day-sign > span.card-4 {
   background: var(--color-quarter);
+}
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-list .fc-listYear-view .fc-list-table > tbody {
+  display: block;
+}
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-list .fc-listYear-view .fc-list-table > tbody .fc-list-day {
+  display: none;
+}
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-list .fc-listYear-view .fc-list-table > tbody .fc-event {
+  border-bottom: calc(1 / var(--vw) * var(--multiplier)) solid rgba(231, 231, 232, 0.5);
+}
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-list .fc-listYear-view .fc-list-table > tbody .fc-event > td {
+  background: var(--color-white);
+  border: unset;
+}
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-list .fc-listYear-view .fc-list-table > tbody .fc-event > td.fc-event-time {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  justify-content: flex-end;
+  width: calc(450 / var(--vw) * var(--multiplier));
+  height: calc(65 / var(--vw) * var(--multiplier));
+}
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-list .fc-listYear-view .fc-list-table > tbody .fc-event > td.fc-event-time .event-time {
+  display: flex;
+  align-items: center;
+  width: 100% !important;
+  justify-content: space-between;
+}
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-list .fc-listYear-view .fc-list-table > tbody .fc-event > td.fc-event-time .event-time .time-date.active > span > span.number {
+  color: var(--color-white);
+  background: var(--color-primary);
+}
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-list .fc-listYear-view .fc-list-table > tbody .fc-event > td.fc-event-time .event-time .time-date > span {
+  display: flex;
+  align-items: center;
+}
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-list .fc-listYear-view .fc-list-table > tbody .fc-event > td.fc-event-time .event-time .time-date > span > span {
+  display: inline-block;
+}
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-list .fc-listYear-view .fc-list-table > tbody .fc-event > td.fc-event-time .event-time .time-date > span > span.number {
+  display: inline-flex;
+  align-items: center;
+  margin-right: calc(15 / var(--vw) * var(--multiplier)) !important;
+  justify-content: center;
+  flex-shrink: 0;
+  width: calc(45 / var(--vw) * var(--multiplier));
+  height: calc(45 / var(--vw) * var(--multiplier));
+  font-weight: var(--font-weight-semibold);
+  font-size: calc(22.5 / var(--vw) * var(--multiplier));
+  border-radius: 100%;
+}
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-list .fc-listYear-view .fc-list-table > tbody .fc-event > td.fc-event-time .event-time .time-date > span > span.caption {
+  transform: translateY(calc(5 / var(--vw) * var(--multiplier)));
+}
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-list .fc-listYear-view .fc-list-table > tbody .fc-event > td.fc-event-time .event-time .time-date > span > span.caption > span {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  -webkit-line-clamp: 1;
+  display: inline-block;
+  max-width: calc(125 / var(--vw) * var(--multiplier));
+}
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-list .fc-listYear-view .fc-list-table > tbody .fc-event > td.fc-event-time .event-time .time-date > span > span.caption > span:nth-child(1) {
+  font-weight: var(--font-weight-semibold);
+}
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-list .fc-listYear-view .fc-list-table > tbody .fc-event > td.fc-event-time .event-time .time-date > span > span.caption > span:nth-child(2) {
+  padding-left: calc(5 / var(--vw) * var(--multiplier)) !important;
+  padding-right: calc(5 / var(--vw) * var(--multiplier)) !important;
+}
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-list .fc-listYear-view .fc-list-table > tbody .fc-event > td.fc-event-time .event-time .time-hour .hour > span {
+  font-size: calc(15 / var(--vw) * var(--multiplier));
+}
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-list .fc-listYear-view .fc-list-table > tbody .fc-event > td.fc-list-event-time {
+  display: none;
+}
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-list .fc-listYear-view .fc-list-table > tbody .fc-event > td.fc-list-event-graphic {
+  display: none;
+}
+.wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-list .fc-listYear-view .fc-list-table > tbody .fc-event > td.fc-list-event-title {
+  width: 100% !important;
 }
 .wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar .fc-view-harness {
   height: calc(100vh - 145 / var(--vw) * var(--multiplier)) !important;
@@ -11664,42 +12130,23 @@ svg {
   .wizard .class-schedule-calendar.primary .class-schedule-calendar-header {
     display: block;
   }
+  .wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-list .fc-event-card.primary {
+    display: block;
+  }
+  .wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-list .fc-event-card.primary .fc-event-status {
+    max-width: 100% !important;
+    padding-left: calc(10 / var(--vw) * var(--multiplier)) !important;
+    padding-right: calc(10 / var(--vw) * var(--multiplier)) !important;
+    display: inline-block !important;
+  }
+  .wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-list .fc-event-card.primary .fc-event-attachment {
+    display: block;
+  }
+  .wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-list .fc-listYear-view .fc-list-table > tbody .fc-event > td.fc-event-time {
+    width: calc(400 / var(--vw) * var(--multiplier));
+  }
   .wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar .fc-view-harness {
-    height: calc(100vh - 110 / var(--vw) * var(--multiplier)) !important;
-  }
-  .wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar .fc-listWeek-view .fc-list-day.fc-day-today .fc-list-day-cushion .day-number {
-    color: var(--color-white);
-    background: var(--color-primary);
-  }
-  .wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar .fc-listWeek-view .fc-list-day .fc-list-day-cushion {
-    background: var(--color-white);
-  }
-  .wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar .fc-listWeek-view .fc-list-day .fc-list-day-cushion > div {
-    display: flex;
-    align-items: center;
-  }
-  .wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar .fc-listWeek-view .fc-list-day .fc-list-day-cushion .day-text {
-    order: 2;
-    font-weight: var(--font-weight-regular);
-    color: var(--color-grey);
-  }
-  .wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar .fc-listWeek-view .fc-list-day .fc-list-day-cushion .day-number {
-    order: 1;
-    display: inline-flex;
-    align-items: center;
-    text-decoration: none;
-    margin-right: calc(15 / var(--vw) * var(--multiplier)) !important;
-    justify-content: center;
-    flex-shrink: 0;
-    width: calc(35 / var(--vw) * var(--multiplier));
-    height: calc(35 / var(--vw) * var(--multiplier));
-    font-weight: var(--font-weight-semibold);
-    font-size: calc(17.5 / var(--vw) * var(--multiplier));
-    color: var(--color-black);
-    border-radius: 100%;
-  }
-  .wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar .fc-listWeek-view .fc-list-event-graphic {
-    display: none;
+    height: calc(100vh - 170 / var(--vw) * var(--multiplier)) !important;
   }
 }
 @media (max-width: 767.98px) {
@@ -11719,17 +12166,80 @@ svg {
     -webkit-line-clamp: 2;
     font-size: calc(14 / var(--vw) * var(--multiplier));
   }
-  .wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-week .fc-timegrid-slot .fc-timegrid-slot-label-cushion {
+  .wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-week .fc-timeGridWeek-view .fc-timegrid-slot .fc-timegrid-slot-label-cushion {
     padding-left: calc(5 / var(--vw) * var(--multiplier)) !important;
     padding-right: calc(5 / var(--vw) * var(--multiplier)) !important;
     font-size: calc(12 / var(--vw) * var(--multiplier));
   }
-  .wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-week .fc-col-header-cell.fc-day-today .day-number {
+  .wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-week .fc-timeGridWeek-view .fc-col-header-cell.fc-day-today .day-number {
     color: var(--color-black);
     background: rgba(31, 47, 190, 0.05);
   }
-  .wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-week .fc-col-header-cell .day-number {
+  .wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-week .fc-timeGridWeek-view .fc-col-header-cell .day-number {
     font-size: calc(16 / var(--vw) * var(--multiplier));
+  }
+  .wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-list .fc-event-card.primary {
+    display: block;
+    padding: calc(10 / var(--vw) * var(--multiplier)) !important;
+  }
+  .wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-list .fc-event-card.primary > div:not(.fc-event-title) {
+    display: block;
+  }
+  .wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-list .fc-listYear-view .fc-list-table > tbody .fc-list-day {
+    display: block;
+  }
+  .wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-list .fc-listYear-view .fc-list-table > tbody .fc-list-day > th {
+    display: block;
+    border: none;
+  }
+  .wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-list .fc-listYear-view .fc-list-table > tbody .fc-list-day .fc-list-day-cushion {
+    padding: 0 !important;
+    background: var(--color-white);
+  }
+  .wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-list .fc-listYear-view .fc-list-table > tbody .fc-list-day .fc-list-day-cushion .month-text {
+    padding-top: calc(15 / var(--vw) * var(--multiplier)) !important;
+    padding-bottom: calc(10 / var(--vw) * var(--multiplier)) !important;
+    font-weight: var(--font-weight-bold);
+    font-size: calc(20 / var(--vw) * var(--multiplier));
+  }
+  .wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-list .fc-listYear-view .fc-list-table > tbody .fc-event > td.fc-event-time {
+    text-align: center;
+    height: 100% !important;
+    width: calc(70 / var(--vw) * var(--multiplier));
+  }
+  .wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-list .fc-listYear-view .fc-list-table > tbody .fc-event > td.fc-event-time .event-time {
+    justify-content: center;
+  }
+  .wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-list .fc-listYear-view .fc-list-table > tbody .fc-event > td.fc-event-time .event-time .time-date > span {
+    flex-direction: column;
+  }
+  .wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-list .fc-listYear-view .fc-list-table > tbody .fc-event > td.fc-event-time .event-time .time-date > span > span.number {
+    margin-bottom: calc(5 / var(--vw) * var(--multiplier)) !important;
+    margin-right: 0 !important;
+    width: calc(40 / var(--vw) * var(--multiplier));
+    height: calc(40 / var(--vw) * var(--multiplier));
+    font-size: calc(20 / var(--vw) * var(--multiplier));
+  }
+  .wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-list .fc-listYear-view .fc-list-table > tbody .fc-event > td.fc-event-time .event-time .time-date > span > span.caption {
+    transform: unset;
+  }
+  .wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-list .fc-listYear-view .fc-list-table > tbody .fc-event > td.fc-event-time .event-time .time-date > span > span.caption > span {
+    max-width: calc(70 / var(--vw) * var(--multiplier));
+  }
+  .wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-list .fc-listYear-view .fc-list-table > tbody .fc-event > td.fc-event-time .event-time .time-date > span > span.caption > span:not(:last-child) {
+    display: none;
+  }
+  .wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-list .fc-listYear-view .fc-list-table > tbody .fc-event > td.fc-event-time .event-time .time-hour {
+    display: none;
+  }
+  .wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-list .fc-listYear-view .fc-list-table > tbody .fc-event > td.fc-list-event-time {
+    display: none;
+  }
+  .wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-list .fc-listYear-view .fc-list-table > tbody .fc-event > td.fc-list-event-graphic {
+    display: none;
+  }
+  .wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar.calendar-list .fc-listYear-view .fc-list-table > tbody .fc-event > td.fc-list-event-title {
+    width: 100% !important;
   }
   .wizard .class-schedule-calendar.primary .class-schedule-calendar-content .content-calendar #calendar .fc-scrollgrid-sync-table tbody tr td.fc-day {
     height: calc(140 / var(--vw) * var(--multiplier));
@@ -11741,354 +12251,6 @@ svg {
     width: calc(30 / var(--vw) * var(--multiplier));
     height: calc(30 / var(--vw) * var(--multiplier));
     font-size: calc(15 / var(--vw) * var(--multiplier));
-  }
-}
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary > .wrapper-inner {
-  padding: calc(20 / var(--vw) * var(--multiplier)) !important;
-  border-bottom: calc(1 / var(--vw) * var(--multiplier)) solid rgba(231, 231, 232, 0.5);
-}
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary > .wrapper-inner:last-child {
-  border-bottom: none;
-}
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .col-content-outer {
-  position: relative;
-  width: 100%;
-  min-height: 1%;
-  padding: 0 calc(15 / var(--vw) * var(--multiplier));
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 100%;
-  flex: 0 0 100%;
-  max-width: 100%;
-}
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .col-content-outer > .row {
-  align-items: baseline;
-}
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .col-content-outer .col-content-inner:nth-child(1) {
-  position: relative;
-  width: 100%;
-  min-height: 1%;
-  padding: 0 calc(15 / var(--vw) * var(--multiplier));
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 16.66667%;
-  flex: 0 0 16.66667%;
-  max-width: 16.66667%;
-  padding-right: 0 !important;
-}
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .col-content-outer .col-content-inner:nth-child(2) {
-  position: relative;
-  width: 100%;
-  min-height: 1%;
-  padding: 0 calc(15 / var(--vw) * var(--multiplier));
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 83.33333%;
-  flex: 0 0 83.33333%;
-  max-width: 83.33333%;
-}
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-date .date.active > span > span.number {
-  color: var(--color-white);
-  background: var(--color-primary);
-}
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-date .date > span {
-  display: flex;
-  align-items: center;
-}
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-date .date > span > span {
-  display: inline-block;
-}
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-date .date > span > span.number {
-  display: inline-flex;
-  align-items: center;
-  margin-right: calc(15 / var(--vw) * var(--multiplier)) !important;
-  justify-content: center;
-  flex-shrink: 0;
-  width: calc(40 / var(--vw) * var(--multiplier));
-  height: calc(40 / var(--vw) * var(--multiplier));
-  font-weight: var(--font-weight-semibold);
-  font-size: calc(25 / var(--vw) * var(--multiplier));
-  border-radius: 100%;
-}
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-date .date > span > span.caption {
-  transform: translateY(calc(5 / var(--vw) * var(--multiplier)));
-}
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-date .date > span > span.caption > span {
-  display: block;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  -webkit-line-clamp: 1;
-  display: inline-block;
-  max-width: calc(80 / var(--vw) * var(--multiplier));
-}
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-date .date > span > span.caption > span:nth-child(1) {
-  font-weight: var(--font-weight-semibold);
-}
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-date .date > span > span.caption > span:nth-child(2) {
-  padding-left: calc(5 / var(--vw) * var(--multiplier)) !important;
-  padding-right: calc(5 / var(--vw) * var(--multiplier)) !important;
-}
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .col-list-outer {
-  position: relative;
-  width: 100%;
-  min-height: 1%;
-  padding: 0 calc(15 / var(--vw) * var(--multiplier));
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 100%;
-  flex: 0 0 100%;
-  max-width: 100%;
-}
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .col-list-outer > .row {
-  align-items: center;
-}
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .col-list-outer .col-list-inner {
-  position: relative;
-  width: 100%;
-  min-height: 1%;
-  padding: 0 calc(15 / var(--vw) * var(--multiplier));
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 100%;
-  flex: 0 0 100%;
-  max-width: 100%;
-}
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .col-list-outer .col-list-inner:nth-child(1) {
-  max-width: 12%;
-}
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .col-list-outer .col-list-inner:nth-child(2) {
-  max-width: 88%;
-}
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-list > ul {
-  padding-left: calc(15 / var(--vw) * var(--multiplier)) !important;
-  margin-bottom: 0 !important;
-  list-style: none;
-}
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-list > ul > li {
-  margin-bottom: calc(10 / var(--vw) * var(--multiplier)) !important;
-}
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-list > ul > li:last-child {
-  margin-bottom: 0 !important;
-}
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-time .time > span {
-  font-size: calc(14 / var(--vw) * var(--multiplier));
-}
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary {
-  position: relative;
-  padding: calc(11.5 / var(--vw) * var(--multiplier)) calc(27.5 / var(--vw) * var(--multiplier));
-  border-radius: 50em;
-  transition: 0.4s ease;
-}
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary.card-1 {
-  background: var(--color-primary);
-}
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary.card-1 .list-icon .icon svg {
-  fill: var(--color-white);
-}
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary.card-1:hover {
-  background: rgb(23.8461538462, 36.1538461538, 146.1538461538);
-}
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary.card-2 {
-  background: var(--color-secondary);
-}
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary.card-2 .list-icon .icon svg {
-  fill: var(--color-white);
-}
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary.card-2:hover {
-  background: rgb(42.0566801619, 99.983805668, 153.9433198381);
-}
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary.card-3 {
-  background: var(--color-tertiary);
-}
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary.card-3 .list-icon .icon svg {
-  fill: var(--color-white);
-}
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary.card-3:hover {
-  background: rgb(49.1983805668, 42.0566801619, 153.9433198381);
-}
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary.card-4 {
-  background: var(--color-quarter);
-}
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary.card-4 .list-text .title .text-title {
-  color: var(--color-black);
-}
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary.card-4 .list-lesson .lesson > span {
-  color: var(--color-black);
-}
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary.card-4:hover {
-  background: rgb(178.24, 214.6, 230.76);
-}
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary .card-wrapper.primary {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary .card-wrapper.primary > .wrapper-inner {
-  display: flex;
-  align-items: center;
-}
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary .card-wrapper.primary a {
-  position: absolute;
-  width: 100% !important;
-  height: 100% !important;
-  z-index: 10;
-  top: 0;
-  left: 0;
-}
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary .list-text .title {
-  margin-bottom: 0 !important;
-}
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary .list-text .title .text-title {
-  margin-bottom: 0 !important;
-  font-weight: var(--font-weight-semibold);
-  font-size: calc(16 / var(--vw) * var(--multiplier));
-  color: var(--color-white);
-}
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary .list-lesson .lesson > span {
-  display: inline-block;
-  font-size: calc(16 / var(--vw) * var(--multiplier));
-  color: var(--color-white);
-}
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary .list-lesson .lesson > span:before {
-  padding-left: calc(10 / var(--vw) * var(--multiplier)) !important;
-  padding-right: calc(10 / var(--vw) * var(--multiplier)) !important;
-  content: "|";
-}
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary .list-status .status > span {
-  padding-top: calc(5 / var(--vw) * var(--multiplier)) !important;
-  padding-bottom: calc(5 / var(--vw) * var(--multiplier)) !important;
-  padding-left: calc(10 / var(--vw) * var(--multiplier)) !important;
-  padding-right: calc(10 / var(--vw) * var(--multiplier)) !important;
-  text-transform: uppercase;
-  font-weight: var(--font-weight-semibold);
-  font-size: calc(14 / var(--vw) * var(--multiplier));
-  border-radius: calc(3.5 / var(--vw) * var(--multiplier));
-}
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary .list-status .status > span.complete {
-  color: #065509;
-  background: #D3FFC8;
-}
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary .list-status .status > span.confirm {
-  color: #1D0075;
-  background: #C8E0FF;
-}
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary .list-status .status > span.unconfirm {
-  color: #750000;
-  background: #FFC8C8;
-}
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary .list-status .status > span.visible {
-  color: #065509;
-  background: #D3FFC8;
-}
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary .list-icon {
-  margin-left: calc(20 / var(--vw) * var(--multiplier)) !important;
-  width: calc(25 / var(--vw) * var(--multiplier));
-}
-.wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary .list-icon .icon svg {
-  fill: var(--color-black);
-}
-@media (max-width: 991.98px) {
-  .wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .col-content-outer .col-content-inner:nth-child(1) {
-    position: relative;
-    width: 100%;
-    min-height: 1%;
-    padding: 0 calc(15 / var(--vw) * var(--multiplier));
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 100%;
-    flex: 0 0 100%;
-    max-width: 100%;
-    padding-right: calc(15 / var(--vw) * var(--multiplier)) !important;
-    margin-bottom: calc(10 / var(--vw) * var(--multiplier)) !important;
-  }
-  .wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary .col-content-outer .col-content-inner:nth-child(2) {
-    position: relative;
-    width: 100%;
-    min-height: 1%;
-    padding: 0 calc(15 / var(--vw) * var(--multiplier));
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 100%;
-    flex: 0 0 100%;
-    max-width: 100%;
-  }
-  .wizard .class-schedule-list.primary .class-schedule-list-content .content-date .date > span > span.number {
-    margin-right: calc(10 / var(--vw) * var(--multiplier)) !important;
-  }
-  .wizard .class-schedule-list.primary .class-schedule-list-content .content-date .date > span > span.caption > span {
-    max-width: calc(200 / var(--vw) * var(--multiplier));
-  }
-  .wizard .class-schedule-list.primary .class-schedule-list-content .content-list .col-list-outer .col-list-inner:nth-child(1) {
-    max-width: 16.5%;
-  }
-  .wizard .class-schedule-list.primary .class-schedule-list-content .content-list .col-list-outer .col-list-inner:nth-child(2) {
-    max-width: 83.5%;
-  }
-  .wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary {
-    padding: calc(11.5 / var(--vw) * var(--multiplier)) calc(27.5 / var(--vw) * var(--multiplier));
-  }
-  .wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary .list-text .title .text-title {
-    display: block;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    -webkit-line-clamp: 1;
-    max-width: calc(200 / var(--vw) * var(--multiplier));
-  }
-}
-@media (max-width: 767.98px) {
-  .wizard .class-schedule-list.primary .class-schedule-list-content .content-wrapper.primary > .wrapper-inner {
-    padding: calc(15 / var(--vw) * var(--multiplier)) !important;
-    padding-left: calc(10 / var(--vw) * var(--multiplier)) !important;
-  }
-  .wizard .class-schedule-list.primary .class-schedule-list-content .content-date {
-    margin-left: calc(10 / var(--vw) * var(--multiplier)) !important;
-  }
-  .wizard .class-schedule-list.primary .class-schedule-list-content .content-list .col-list-outer .col-list-inner:nth-child(1) {
-    max-width: 100% !important;
-  }
-  .wizard .class-schedule-list.primary .class-schedule-list-content .content-list .col-list-outer .col-list-inner:nth-child(2) {
-    max-width: 100% !important;
-  }
-  .wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-time {
-    display: none;
-  }
-  .wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary {
-    position: relative;
-    padding-top: calc(15 / var(--vw) * var(--multiplier)) !important;
-    padding-bottom: calc(15 / var(--vw) * var(--multiplier)) !important;
-    padding-left: calc(20 / var(--vw) * var(--multiplier)) !important;
-    padding-right: calc(20 / var(--vw) * var(--multiplier)) !important;
-    border-radius: calc(10 / var(--vw) * var(--multiplier));
-  }
-  .wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary .card-wrapper.primary {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-  .wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary .card-wrapper.primary > .wrapper-inner {
-    align-items: flex-start;
-    margin-bottom: calc(10 / var(--vw) * var(--multiplier)) !important;
-    flex-direction: column;
-  }
-  .wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary .card-wrapper.primary > .wrapper-inner:last-child {
-    margin-bottom: 0 !important;
-  }
-  .wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary .list-text {
-    order: 2;
-  }
-  .wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary .list-text .title .text-title {
-    display: block;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    -webkit-line-clamp: 1;
-    max-width: calc(265 / var(--vw) * var(--multiplier));
-  }
-  .wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary .list-lesson {
-    order: 1;
-  }
-  .wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary .list-lesson .lesson > span:before {
-    display: none;
-  }
-  .wizard .class-schedule-list.primary .class-schedule-list-content .content-list .list-card.primary .list-icon {
-    position: absolute;
-    margin-left: 0 !important;
-    top: calc(10 / var(--vw) * var(--multiplier));
-    right: calc(10 / var(--vw) * var(--multiplier));
   }
 }
 

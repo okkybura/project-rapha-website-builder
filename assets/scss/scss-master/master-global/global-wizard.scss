@@ -156,8 +156,12 @@
     // Primary
 
     &.primary {
+        @include position-relative;
+
         @include py-3;
         @include px-4;
+
+        z-index                 : 1040;
 
         background              : var(--color-white);
 
@@ -183,6 +187,7 @@
         
         .navbar-toggler {
             @include p-0;
+            @include ml-minus-2;
 
             font-size           : unset;
 
@@ -198,15 +203,15 @@
 
                     justify-content             : center;
 
-                    width                       : calc(35 / var(--vw) * var(--multiplier));
-                    height                      : calc(35 / var(--vw) * var(--multiplier));
+                    width                       : calc(30 / var(--vw) * var(--multiplier));
+                    height                      : calc(30 / var(--vw) * var(--multiplier));
 
-                    background                  : var(--color-primary);
+                    background                  : var(--color-white);
 
                     border-radius               : calc(4.5 / var(--vw) * var(--multiplier));
                     
                     svg {
-                        stroke                  : var(--color-white);
+                        stroke                  : var(--color-primary);
                     }
                 }
             }
@@ -222,7 +227,7 @@
             }
 
             .time-caption {
-                width                       : calc(165 / var(--vw) * var(--multiplier));
+                width                       : calc(210 / var(--vw) * var(--multiplier));
 
                 .caption {
                     > span {
@@ -431,6 +436,44 @@
 
                     background                 : transparent;
 
+                    .dropdown-form {
+                        @include py-2;
+                        @include px-4;
+
+                        .form-group {
+                            .form-switch {
+                                .custom-switch {
+                                    @include pl-0;
+
+                                    .custom-control-label {
+                                        font-weight         : var(--font-weight-semibold);
+                                        font-size           : calc(16 / var(--vw) * var(--multiplier));
+
+                                        &:before {
+                                            left            : unset;
+                                            right           : calc(-55 / var(--vw) * var(--multiplier)); 
+                                        }
+
+                                        &:after {
+                                            left            : unset;
+                                            right           : calc(calc(-42.5 / var(--vw) * var(--multiplier)) + 2px);
+                                        }
+
+                                        > span {
+                                            @include display-inline-block;
+
+                                            white-space     : normal;
+
+                                            max-width       : calc(100 / var(--vw) * var(--multiplier));
+
+                                            transform       : translateY(calc(-5 / var(--vw) * var(--multiplier)));
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
                     .dropdown-link {
                         @include display-block;
 
@@ -528,10 +571,14 @@
 
         @include media-breakpoint-down(md) {
 
+            justify-content         : unset;
+
             .navbar-text {
+                @include ml-2;
+
                 @include ellipsis-single;
 
-                max-width           : calc(500 / var(--vw) * var(--multiplier));
+                max-width           : calc(600 / var(--vw) * var(--multiplier));
             }
 
             .navbar-time {
@@ -543,6 +590,8 @@
             // Navbar Nav
 
             .navbar-nav {
+                @include display-none;
+
                 .nav-item {
                     @include mr-2;
                 }
@@ -582,7 +631,7 @@
         @include media-breakpoint-down(sm) {
 
             .navbar-text {
-                max-width           : calc(250 / var(--vw) * var(--multiplier));
+                max-width           : calc(300 / var(--vw) * var(--multiplier));
             }
 
             .navbar-time {
@@ -617,6 +666,288 @@
                 }
             }
         }
+    }
+}
+
+// Sidebar
+
+.sidebar {
+
+    // Primary
+
+    &.primary {
+        @include position-fixed;
+
+        z-index             : 1020;
+
+        top                 : 57.25px;
+        left                : -100%;
+
+        width               : calc(310 / var(--vw) * var(--multiplier));
+        height              : calc(100vh - 57.25px);
+
+        background          : var(--color-white);
+
+        border-right        : calc(1 / var(--vw) * var(--multiplier)) solid var(--color-grey-light);
+
+        transition          : 0.5s ease;
+
+        &.active {
+            left            : 0;
+        }
+        
+        // Content
+
+        .sidebar-content {
+            background      : var(--color-grey-super-light);
+
+            .content-wrapper {
+
+                // Primary
+
+                &.primary {
+                    > .wrapper-inner {
+                        @include p-3;
+                        @include mb-2;
+
+                        background      : var(--color-white);
+
+                        &:last-child {
+                            @include mb-0;
+                        }
+                    }
+                }
+            }
+
+            .content-text {
+                .title {
+                    @include mb-1;
+
+                    .text-title {
+                        font-weight     : var(--font-weight-semibold);
+                        font-size       : calc(16 / var(--vw) * var(--multiplier));
+                    }
+                }
+            }
+
+            .content-link {
+                .link {
+                    .link-content {
+                        @include display-block;
+
+                        @include text-decoration-none;
+
+                        @include py-2;
+                        @include px-3;
+
+                        font-size               : calc(16 / var(--vw) * var(--multiplier));
+
+                        color                   : var(--color-grey);
+
+                        border-radius           : calc(5 / var(--vw) * var(--multiplier));
+
+                        > span {
+                            &.wrapper {
+                                @include display-flex;
+
+                                @include align-items-center;
+                            }
+
+                            > span {
+                                @include display-inline-block;
+
+                                &.icon {
+                                    @include mr-4;
+                                }
+                            }
+                        }
+                        
+                        &:hover {
+                            color                               : var(--color-primary);
+
+                            background                          : rgba($color-primary, 0.10);
+
+                            > span {
+                                > span {
+                                    &.icon {
+                                        svg {
+                                            path {
+                                                stroke          : var(--color-primary);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .content-form {
+                .form-group {
+                    @include mt-2;
+                    
+                    .group-wrapper {
+
+                        // Primary
+
+                        &.primary {
+                            @include display-flex;
+
+                            @include align-items-center;
+
+                            > div {
+                                @include mr-1;
+
+                                &:last-child {
+                                    @include mr-0;
+                                }
+                            }
+                        }
+                    }
+
+                    .form-label {
+                        @include mr-3;
+                        
+                        label {
+                            @include mb-0;
+
+                            font-size               : calc(16 / var(--vw) * var(--multiplier));
+                        }
+                    }
+
+                    .form-check {
+                        @include position-relative;
+
+                        @include p-0;
+                        @include m-0;
+
+                        cursor                      : pointer;
+
+                        &:last-child {
+                            @include mr-0;
+                        }
+
+                        input {
+                            @include position-absolute;
+
+                            @include width-100;
+                            @include height-100;
+
+                            cursor                  : pointer;
+
+                            z-index                 : 10;
+
+                            opacity                 : 0;
+
+                            top                     : 0;
+                            left                    : 0;
+                        }
+
+                        input:checked ~ label {
+                            color                   : var(--color-white);
+
+                            background              : var(--color-primary);
+
+                            border                  : calc(1 / var(--vw) * var(--multiplier)) solid rgba($color-primary, 1);
+                        }
+
+                        label {
+                            @include display-inline-flex;
+
+                            @include align-items-center;
+
+                            @include m-0;
+
+                            justify-content         : center;
+
+                            flex-shrink             : 0;
+
+                            width                   : calc(35 / var(--vw) * var(--multiplier));
+                            height                  : calc(35 / var(--vw) * var(--multiplier));
+                            
+                            font-weight             : var(--font-weight-semibold);
+                            font-size               : calc(16 / var(--vw) * var(--multiplier));
+
+                            color                   : var(--color-black);
+
+                            background              : var(--color-white);
+
+                            border                  : calc(1 / var(--vw) * var(--multiplier)) solid rgba($color-grey, 0.5);
+
+                            border-radius           : 100%;  
+                        }
+                    }
+
+                    .form-switch {
+                        .custom-switch {
+                            @include pl-0;
+
+                            .custom-control-label {
+                                font-weight         : var(--font-weight-semibold);
+                                font-size           : calc(16 / var(--vw) * var(--multiplier));
+
+                                &:before {
+                                    left            : unset;
+                                    right           : calc(-45 / var(--vw) * var(--multiplier)); 
+                                }
+
+                                &:after {
+                                    left            : unset;
+                                    right           : calc(calc(-32.5 / var(--vw) * var(--multiplier)) + 2px);
+                                }
+
+                                > span {
+                                    @include display-inline-block;
+
+                                    transform       : translateY(calc(3.5 / var(--vw) * var(--multiplier)));
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        @include media-breakpoint-down(md) {
+
+            top            : 52.19px;
+
+            height         : calc(100vh - 52.19px);
+        }
+
+        @include media-breakpoint-down(sm) {
+
+            top            : 57.25px;
+
+            height         : calc(100vh - 57.25px);
+        }
+    }
+}
+
+.sidebar-overlay {
+    @include position-fixed;
+
+    @include width-100;
+    @include height-100;
+
+    pointer-events      : none; 
+
+    z-index             : 1000;
+
+    opacity             : 0;
+
+    top                 : 0;
+    left                : 0;
+
+    background          : rgba($color-black, 0.125);
+
+    transition          : 0.5s ease;
+
+    &.active {
+        pointer-events  : auto; 
+
+        opacity         : 1;
     }
 }
 
@@ -1269,16 +1600,37 @@
                     }
                 }
             }
-
+            
             @include media-breakpoint-down(sm) {
 
+                .modal-dialog {
+                    @include m-0;
+                }
+
                 .modal-content {
+                    @include overflow-y-scroll;
+
+                    height                      : 100vh;
+
+                    border-radius               : 0;
 
                     // Body
 
                     .modal-body {
                         .body-tab {
+                            @include height-100;
+
                             .tab-content {
+                                @include height-100;
+
+                                .tab-pane {
+                                    @include height-100;
+
+                                    > .row {
+                                        @include height-100;
+                                    }
+                                }
+
                                 .col-content-outer {
                                     .col-content-inner {
                                         @include col-12;
@@ -1299,6 +1651,10 @@
                                             }
                                         }
                                     }
+                                }
+
+                                .content-dropdown {
+                                    @include mt-auto;
                                 }
 
                                 .content-table {
@@ -1522,7 +1878,16 @@
 
             @include media-breakpoint-down(sm) {
 
+                .modal-dialog {
+                    @include m-0;
+                }
+
                 .modal-content {
+                    @include overflow-y-scroll;
+
+                    height                      : 100vh;
+
+                    border-radius               : 0;
 
                     // Body
                     
@@ -1575,6 +1940,16 @@
 
             .modal-content {
 
+                // Header
+
+                .modal-header {
+                    justify-content                 : unset;
+
+                    .header-button {
+                        @include mr-3;
+                    }
+                }
+
                 // Body
 
                 .modal-body {
@@ -1598,11 +1973,52 @@
                         }
 
                         .list-date {
-                            @include mb-1;
+                            @include mb-3;
 
                             .date {
                                 > span {
-                                    color           : rgba($color-black, 0.5);
+                                    font-weight     : var(--font-weight-semibold);
+                                    font-size       : calc(18 / var(--vw) * var(--multiplier));
+                                }
+                            }
+                        }
+
+                        .list-text {
+                            .text-list {
+                                > ul {
+                                    @include pl-0;
+
+                                    list-style      : none;
+
+                                    > li {
+                                        @include display-flex;
+
+                                        @include align-items-center;
+
+                                        @include mb-2;
+
+                                        &:last-child {
+                                            @include mb-0;
+                                        }
+
+                                        .hour {
+                                            flex-shrink         : 0;
+
+                                            width               : calc(60 / var(--vw) * var(--multiplier));
+
+                                            > span {
+                                                color           : rgba($color-black, 0.5);
+                                            }
+                                        }
+
+                                        .subtitle {
+                                            @include mb-0;
+                                            
+                                            .text-subtitle {
+                                                @include mb-0;
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -1682,14 +2098,10 @@
                 &.primary {
                     @include position-relative;
 
-                    @include display-flex;
-
                     @include width-100;
                     @include height-100;
 
                     @include p-2;
-
-                    flex-direction                      : column;
 
                     border-radius                       : calc(4.5 / var(--vw) * var(--multiplier));
 
@@ -1809,16 +2221,16 @@
                     }
 
                     .fc-event-status {
-                        @include display-inline-block;
-
-                        @include width-auto;
-
-                        @include ellipsis-single;
+                        @include text-align-center;
 
                         @include p-1;
                         @include mt-1;
 
                         @include text-transform-uppercase;
+
+                        @include ellipsis-single;
+
+                        max-width               : calc(145 / var(--vw) * var(--multiplier)) !important;
 
                         font-weight             : var(--font-weight-semibold);
                         font-size               : calc(12 / var(--vw) * var(--multiplier));
@@ -1869,6 +2281,222 @@
                         }
                     }
                 }
+
+                // Secondary
+
+                &.secondary {
+                    @include position-relative;
+
+                    padding                             : calc(11.5 / var(--vw) * var(--multiplier)) calc(27.5 / var(--vw) * var(--multiplier));
+
+                    border-radius                       : 50em;
+
+                    transition                          : 0.4s ease;
+
+                    // Card 1
+
+                    &.card-1 {
+                        background                      : var(--color-primary); 
+
+                        .list-icon {
+                            .icon {
+                                svg {
+                                    fill                : var(--color-white);
+                                }
+                            }
+                        }
+
+                        &:hover {
+                            background                  : darken($color-primary, 10%);
+                        }
+                    }
+
+                    // Card 2
+
+                    &.card-2 {
+                        background                      : var(--color-secondary); 
+
+                        .list-icon {
+                            .icon {
+                                svg {
+                                    fill                : var(--color-white);
+                                }
+                            }
+                        }
+
+                        &:hover {
+                            background                  : darken($color-secondary, 10%);
+                        }
+                    }
+
+                    // Card 3
+
+                    &.card-3 {
+                        background                      : var(--color-tertiary); 
+
+                        .list-icon {
+                            .icon {
+                                svg {
+                                    fill                : var(--color-white);
+                                }
+                            }
+                        }
+
+                        &:hover {
+                            background                  : darken($color-tertiary, 10%);
+                        }
+                    }
+
+                    // Card 4
+
+                    &.card-4 {
+                        background                      : var(--color-quarter); 
+
+                        .list-text {
+                            .title {
+                                .text-title {
+                                    color               : var(--color-black);
+                                }
+                            }
+                        }
+
+                        .list-lesson {
+                            .lesson {
+                                > span {
+                                    color               : var(--color-black);
+                                }
+                            }
+                        }
+
+                        &:hover {
+                            background                  : darken($color-quarter, 10%);
+                        }
+                    }
+
+                    .card-wrapper {
+
+                        // Primary
+
+                        &.primary {
+                            @include display-flex;
+
+                            @include align-items-center;
+
+                            justify-content             : space-between;
+
+                            > .wrapper-inner {
+                                @include display-flex;
+
+                                @include align-items-center;
+                            }
+
+                            a {
+                                @include position-absolute;
+
+                                @include width-100;
+                                @include height-100;
+
+                                z-index                 : 10;
+
+                                top                     : 0;
+                                left                    : 0; 
+                            }
+                        }
+                    }
+
+                    .list-text {
+                        .title {
+                            @include mb-0;
+
+                            .text-title {
+                                @include mb-0;
+
+                                font-weight             : var(--font-weight-semibold);
+                                font-size               : calc(16 / var(--vw) * var(--multiplier));
+
+                                color                   : var(--color-white);
+                            }
+                        }
+                    }
+
+                    .list-lesson {
+                        .lesson {
+                            > span {
+                                @include display-inline-block;
+
+                                font-size               : calc(16 / var(--vw) * var(--multiplier));
+
+                                color                   : var(--color-white);
+
+                                &:before {
+                                    @include px-2;
+
+                                    content             : '|';
+                                }
+                            }
+                        }
+                    }
+
+                    .list-status {
+                        .status {
+                            > span {
+                                @include py-1;
+                                @include px-2;
+
+                                @include text-transform-uppercase;
+
+                                font-weight             : var(--font-weight-semibold);
+                                font-size               : calc(14 / var(--vw) * var(--multiplier));
+
+                                border-radius           : calc(3.5 / var(--vw) * var(--multiplier));
+
+                                // Complete
+
+                                &.complete {
+                                    color               : #065509;
+
+                                    background          : #D3FFC8;
+                                }
+
+                                // Confirm
+
+                                &.confirm {
+                                    color               : #1D0075;
+
+                                    background          : #C8E0FF;
+                                }
+
+                                // Unconfirm
+
+                                &.unconfirm {
+                                    color               : #750000;
+
+                                    background          : #FFC8C8;
+                                }
+
+                                // Visible
+
+                                &.visible {
+                                    color               : #065509;
+
+                                    background          : #D3FFC8;
+                                }
+                            }
+                        }
+                    }
+
+                    .list-icon {
+                        @include ml-4;
+
+                        width                           : calc(25 / var(--vw) * var(--multiplier));
+
+                        .icon {
+                            svg {
+                                fill                    : var(--color-black);
+                            }
+                        }
+                    }
+                }
             }
 
             // Header
@@ -1881,8 +2509,7 @@
 
                     @include align-items-center;
 
-                    @include pt-4;
-                    @include pb-5;
+                    @include py-4;
 
                     justify-content                 : center;
 
@@ -1895,7 +2522,7 @@
 
                         @include mx-auto;
 
-                        width                       : calc(165 / var(--vw) * var(--multiplier));
+                        width                       : calc(210 / var(--vw) * var(--multiplier));
 
                         .caption {
                             > span {
@@ -1950,117 +2577,270 @@
                 .content-calendar {
                     #calendar {
                         &.calendar-week {
-                            .fc-scrollgrid {
-                                > tbody {
-                                    .fc-scroller {
-                                        @include height-auto;
+
+                            // Grid Week
+
+                            .fc-timeGridWeek-view {   
+
+                                // Card
+
+                                .fc-event-card {
+
+                                    // Primary
+
+                                    &.primary {
+                                        @include display-flex;
+
+                                        flex-direction          : column;
                                     }
                                 }
-                            }
+                                
+                                .fc-scrollgrid {
+                                    > tbody {
+                                        .fc-scroller {
+                                            @include height-auto;
+                                        }
+                                    }
+                                }
 
-                            .fc-timegrid-slot {
-                                height                                  : calc(63.5 / var(--vw) * var(--multiplier));
-                            }
+                                .fc-timegrid-slot {
+                                    height                                  : calc(63.5 / var(--vw) * var(--multiplier));
+                                }
 
-                            .fc-v-event {
-                                background                              : unset;
+                                .fc-v-event {
+                                    background                              : unset;
 
-                                border                                  : unset;
-                            }
+                                    border                                  : unset;
+                                }
 
-                            .fc-timegrid-cols {
-                                .fc-day {
+                                .fc-timegrid-cols {
+                                    .fc-day {
+                                        &.fc-day-today {
+                                            background          : unset;
+                                        }
+                                    }
+                                }
+
+                                .fc-col-header-cell {
                                     &.fc-day-today {
-                                        background          : unset;
-                                    }
-                                }
-                            }
+                                        .day-number {
+                                            color               : var(--color-white);
 
-                            .fc-col-header-cell {
-                                &.fc-day-today {
+                                            background          : var(--color-primary);
+                                        }
+                                    }
+
+                                    .day-text {
+                                        font-weight             : var(--font-weight-regular);
+
+                                        color                   : var(--color-grey);
+                                    }
+
                                     .day-number {
-                                        color               : var(--color-white);
-
-                                        background          : var(--color-primary);
-                                    }
-                                }
-
-                                .day-text {
-                                    font-weight             : var(--font-weight-regular);
-
-                                    color                   : var(--color-grey);
-                                }
-
-                                .day-number {
-                                    @include display-inline-flex;
-
-                                    @include align-items-center;
-
-                                    @include text-decoration-none;
-
-                                    @include mt-1;
-
-                                    justify-content         : center;
-
-                                    flex-shrink             : 0;
-
-                                    width                   : calc(35 / var(--vw) * var(--multiplier));
-                                    height                  : calc(35 / var(--vw) * var(--multiplier));
-                                    
-                                    font-weight             : var(--font-weight-semibold);
-                                    font-size               : calc(17.5 / var(--vw) * var(--multiplier));
-
-                                    color                   : var(--color-black);
-
-                                    border-radius           : 100%;  
-                                }
-
-                                .day-sign {
-                                    @include display-flex;
-
-                                    @include align-items-center;
-
-                                    justify-content             : center;
-
-
-
-                                    > span {
                                         @include display-inline-flex;
 
                                         @include align-items-center;
 
+                                        @include text-decoration-none;
+
+                                        @include mt-1;
+
                                         justify-content         : center;
 
-                                        width                   : calc(7.5 / var(--vw) * var(--multiplier));
-                                        height                  : calc(7.5 / var(--vw) * var(--multiplier));
+                                        flex-shrink             : 0;
+
+                                        width                   : calc(35 / var(--vw) * var(--multiplier));
+                                        height                  : calc(35 / var(--vw) * var(--multiplier));
                                         
-                                        margin                  : 0 calc(2.5 / var(--vw) * var(--multiplier));
+                                        font-weight             : var(--font-weight-semibold);
+                                        font-size               : calc(17.5 / var(--vw) * var(--multiplier));
 
-                                        background              : var(--color-black);
-                                        border-radius           : 100%;
+                                        color                   : var(--color-black);
 
-                                        // Card 1
+                                        border-radius           : 100%;  
+                                    }
 
-                                        &.card-1 {
-                                            background          : var(--color-primary); 
+                                    .day-sign {
+                                        @include display-flex;
+
+                                        @include align-items-center;
+
+                                        @include mt-1;
+
+                                        justify-content             : center;
+
+                                        > span {
+                                            @include display-inline-flex;
+
+                                            @include align-items-center;
+
+                                            justify-content         : center;
+
+                                            width                   : calc(7.5 / var(--vw) * var(--multiplier));
+                                            height                  : calc(7.5 / var(--vw) * var(--multiplier));
+                                            
+                                            margin                  : 0 calc(2.5 / var(--vw) * var(--multiplier));
+
+                                            background              : var(--color-black);
+                                            border-radius           : 100%;
+
+                                            // Card 1
+
+                                            &.card-1 {
+                                                background          : var(--color-primary); 
+                                            }
+
+                                            // Card 2
+
+                                            &.card-2 {
+                                                background          : var(--color-secondary);  
+                                            }
+
+                                            // Card 3
+
+                                            &.card-3 {
+                                                background          : var(--color-tertiary); 
+                                            }
+
+                                            // Card 4
+
+                                            &.card-4 {
+                                                background          : var(--color-quarter); 
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        &.calendar-list {
+
+                            // List Year
+
+                            .fc-listYear-view {
+                                .fc-list-table  {
+                                    > tbody {
+                                        @include display-block;
+
+                                        .fc-list-day {
+                                            @include display-none;
                                         }
 
-                                        // Card 2
+                                        .fc-event {
+                                            border-bottom                   : calc(1 / var(--vw) * var(--multiplier)) solid rgba($color-grey-light, 0.5);
 
-                                        &.card-2 {
-                                            background          : var(--color-secondary);  
-                                        }
+                                            > td {
+                                                background                  : var(--color-white);
 
-                                        // Card 3
+                                                border                      : unset;
 
-                                        &.card-3 {
-                                            background          : var(--color-tertiary); 
-                                        }
+                                                &.fc-event-time {
+                                                    @include display-flex;
 
-                                        // Card 4
+                                                    @include align-items-center;
 
-                                        &.card-4 {
-                                            background          : var(--color-quarter); 
+                                                    flex-shrink             : 0;
+
+                                                    justify-content         : flex-end;
+
+                                                    width                   : calc(450 / var(--vw) * var(--multiplier));
+                                                    height                  : calc(65 / var(--vw) * var(--multiplier));
+
+                                                    .event-time {
+                                                        @include display-flex;
+
+                                                        @include align-items-center;
+
+                                                        @include width-100;
+
+                                                        justify-content         : space-between;
+
+                                                        .time-date {
+                                                            &.active {
+                                                                > span {
+                                                                    > span {
+                                                                        &.number {
+                                                                            color               : var(--color-white);
+
+                                                                            background          : var(--color-primary);
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+
+                                                            > span {
+                                                                @include display-flex;
+
+                                                                @include align-items-center;
+
+                                                                > span {
+                                                                    @include display-inline-block;
+
+                                                                    &.number {
+                                                                        @include display-inline-flex;
+
+                                                                        @include align-items-center;
+
+                                                                        @include mr-3;
+
+                                                                        justify-content         : center;
+
+                                                                        flex-shrink             : 0;
+
+                                                                        width                   : calc(45 / var(--vw) * var(--multiplier));
+                                                                        height                  : calc(45 / var(--vw) * var(--multiplier));
+                                                                        
+                                                                        font-weight             : var(--font-weight-semibold);
+                                                                        font-size               : calc(22.5 / var(--vw) * var(--multiplier));
+
+                                                                        border-radius           : 100%;
+                                                                    }
+
+                                                                    &.caption {
+                                                                        transform               : translateY(calc(5 / var(--vw) * var(--multiplier)));
+
+                                                                        > span {                                                
+                                                                            @include ellipsis-single;
+
+                                                                            @include display-inline-block;
+
+                                                                            max-width                   : calc(125 / var(--vw) * var(--multiplier));
+
+                                                                            &:nth-child(1) {
+                                                                                font-weight             : var(--font-weight-semibold);
+                                                                            }
+                                                                            
+                                                                            &:nth-child(2) {
+                                                                                @include px-1;
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+
+                                                        .time-hour {
+                                                            .hour {
+                                                                > span {
+                                                                    font-size               : calc(15 / var(--vw) * var(--multiplier));
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+
+                                                &.fc-list-event-time {
+                                                    @include display-none;
+                                                }
+
+                                                &.fc-list-event-graphic {
+                                                    @include display-none;
+                                                }
+
+                                                &.fc-list-event-title {
+                                                    @include width-100;
+                                                }
+                                            }
                                         }
                                     }
                                 }
@@ -2189,69 +2969,50 @@
                 .class-schedule-calendar-content {
                     .content-calendar {
                         #calendar {
-                            .fc-view-harness {
-                                height                                      : calc(100vh - calc(110 / var(--vw) * var(--multiplier))) !important;
-                            }
+                            &.calendar-list {
 
-                            .fc-listWeek-view  {
-                                .fc-list-day {
-                                    &.fc-day-today {
-                                        .fc-list-day-cushion {
-                                            .day-number {
-                                                color               : var(--color-white);
+                                // Card
 
-                                                background          : var(--color-primary);
+                                .fc-event-card {
+
+                                    // Primary
+
+                                    &.primary {
+                                        @include display-block;
+
+                                        .fc-event-status {
+                                            @include max-width-100;
+
+                                            @include px-2;
+
+                                            display             : inline-block !important;
+                                        }
+
+                                        .fc-event-attachment {
+                                            @include display-block;
+                                        }
+                                    }
+                                }
+
+                                // List Year
+
+                                .fc-listYear-view {
+                                    .fc-list-table  {
+                                        > tbody {
+                                            .fc-event {
+                                                > td {
+                                                    &.fc-event-time {
+                                                        width                   : calc(400 / var(--vw) * var(--multiplier));
+                                                    }
+                                                }
                                             }
                                         }
                                     }
-
-                                    .fc-list-day-cushion {
-                                        background                  : var(--color-white);
-                                        > div {
-                                            @include display-flex;
-
-                                            @include align-items-center;
-                                        }
-
-                                        .day-text {
-                                            @include order-2;
-
-                                            font-weight             : var(--font-weight-regular);
-
-                                            color                   : var(--color-grey);
-                                        }
-
-                                        .day-number {
-                                            @include order-1;
-
-                                            @include display-inline-flex;
-
-                                            @include align-items-center;
-
-                                            @include text-decoration-none;
-
-                                            @include mr-3;
-
-                                            justify-content         : center;
-
-                                            flex-shrink             : 0;
-
-                                            width                   : calc(35 / var(--vw) * var(--multiplier));
-                                            height                  : calc(35 / var(--vw) * var(--multiplier));
-                                            
-                                            font-weight             : var(--font-weight-semibold);
-                                            font-size               : calc(17.5 / var(--vw) * var(--multiplier));
-
-                                            color                   : var(--color-black);
-
-                                            border-radius           : 100%;  
-                                        }
-                                    }
                                 }
+                            }
 
-                                .fc-list-event-graphic {
-                                    @include display-none;
-                                }
+                            .fc-view-harness {
+                                height                                      : calc(100vh - calc(170 / var(--vw) * var(--multiplier))) !important;
                             }
                         }
                     }
@@ -2287,27 +3048,147 @@
 
                 .class-schedule-calendar-content {
                     .content-calendar {
-                        #calendar {
+                        #calendar {      
                             &.calendar-week {
-                                .fc-timegrid-slot {
-                                    .fc-timegrid-slot-label-cushion {
-                                        @include px-1;
 
-                                        font-size               : calc(12 / var(--vw) * var(--multiplier));
-                                    }
-                                }
+                                // Grid Week
 
-                                .fc-col-header-cell {
-                                    &.fc-day-today {
-                                        .day-number {
-                                            color               : var(--color-black);
+                                .fc-timeGridWeek-view {
+                                    .fc-timegrid-slot {
+                                        .fc-timegrid-slot-label-cushion {
+                                            @include px-1;
 
-                                            background          : rgba($color-primary, 0.05);
+                                            font-size               : calc(12 / var(--vw) * var(--multiplier));
                                         }
                                     }
 
-                                    .day-number {
-                                        font-size               : calc(16 / var(--vw) * var(--multiplier));
+                                    .fc-col-header-cell {
+                                        &.fc-day-today {
+                                            .day-number {
+                                                color               : var(--color-black);
+
+                                                background          : rgba($color-primary, 0.05);
+                                            }
+                                        }
+
+                                        .day-number {
+                                            font-size               : calc(16 / var(--vw) * var(--multiplier));
+                                        }
+                                    }
+                                }
+                            }
+
+                            &.calendar-list {
+
+                                // Card
+
+                                .fc-event-card {
+
+                                    // Primary
+
+                                    &.primary {
+                                        @include display-block;
+
+                                        @include p-2;
+
+                                        > div:not(.fc-event-title) {
+                                            @include display-block;
+                                        }
+                                    }
+                                }
+
+                                // List Year
+
+                                .fc-listYear-view {
+                                    .fc-list-table  {
+                                        > tbody {
+                                            .fc-list-day {
+                                                @include display-block;
+
+                                                > th {
+                                                    @include display-block;
+
+                                                    border              : none;
+                                                }
+
+                                                .fc-list-day-cushion {
+                                                    @include p-0;
+
+                                                    background          : var(--color-white); 
+
+                                                    .month-text {
+                                                        @include pt-3;
+                                                        @include pb-2;
+
+                                                        font-weight         : var(--font-weight-bold);
+
+                                                        font-size           : calc(20 / var(--vw) * var(--multiplier));
+                                                    }
+                                                }
+                                            }
+
+                                            .fc-event {
+                                                > td {
+                                                    &.fc-event-time {
+                                                        @include text-align-center;
+
+                                                        @include height-100;
+
+                                                        width                   : calc(70 / var(--vw) * var(--multiplier));
+
+                                                        .event-time {
+                                                            justify-content     : center;
+
+                                                            .time-date {
+                                                                > span {
+                                                                    flex-direction                  : column;
+
+                                                                    > span {
+                                                                        &.number {
+                                                                            @include mb-1;
+                                                                            @include mr-0;
+
+                                                                            width                   : calc(40 / var(--vw) * var(--multiplier));
+                                                                            height                  : calc(40 / var(--vw) * var(--multiplier));
+
+                                                                            font-size               : calc(20 / var(--vw) * var(--multiplier));
+                                                                        }
+
+                                                                        &.caption {
+                                                                            transform               : unset;
+                                                                            
+                                                                            > span {                                                
+                                                                                max-width                   : calc(70 / var(--vw) * var(--multiplier));
+
+                                                                                &:not(:last-child) {
+                                                                                    @include display-none;
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+
+                                                            .time-hour {
+                                                                @include display-none;
+                                                            }
+                                                        }
+                                                    }
+
+                                                    &.fc-list-event-time {
+                                                        @include display-none;
+                                                    }
+
+                                                    &.fc-list-event-graphic {
+                                                        @include display-none;
+                                                    }
+
+                                                    &.fc-list-event-title {
+                                                        @include width-100;
+                                                    }
+                                                }
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -2332,578 +3213,6 @@
                                             }
                                         }
                                     }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    // Class Schedule List
-
-    .class-schedule-list {
-
-        // Primary
-
-        &.primary {
-            
-            // Content
-
-            .class-schedule-list-content {
-                .content-wrapper {
-
-                    // Primary
-
-                    &.primary {
-                        > .wrapper-inner {
-                            @include p-4;
-
-                            border-bottom           : calc(1 / var(--vw) * var(--multiplier)) solid rgba($color-grey-light, 0.5);
-
-                            &:last-child {
-                                border-bottom       : none; 
-                            }
-                        }
-
-                        .col-content-outer {
-                            @include col-12;
-
-                            > .row {
-                                @include align-items-baseline;
-                            }
-
-                            .col-content-inner {
-                                &:nth-child(1) {
-                                    @include col-2;
-
-                                    @include pr-0;
-                                }
-
-                                &:nth-child(2) {
-                                    @include col-10;
-                                }
-                            }
-                        }
-                    }
-                }
-
-                .content-date {
-                    .date {
-                        &.active {
-                            > span {
-                                > span {
-                                    &.number {
-                                        color               : var(--color-white);
-
-                                        background          : var(--color-primary);
-                                    }
-                                }
-                            }
-                        }
-
-                        > span {
-                            @include display-flex;
-
-                            @include align-items-center;
-
-                            > span {
-                                @include display-inline-block;
-
-                                &.number {
-                                    @include display-inline-flex;
-
-                                    @include align-items-center;
-
-                                    @include mr-3;
-
-                                    justify-content         : center;
-
-                                    flex-shrink             : 0;
-
-                                    width                   : calc(40 / var(--vw) * var(--multiplier));
-                                    height                  : calc(40 / var(--vw) * var(--multiplier));
-                                    
-                                    font-weight             : var(--font-weight-semibold);
-                                    font-size               : calc(25 / var(--vw) * var(--multiplier));
-
-                                    border-radius           : 100%;
-                                }
-
-                                &.caption {
-                                    transform               : translateY(calc(5 / var(--vw) * var(--multiplier)));
-
-                                    > span {                                                
-                                        @include ellipsis-single;
-
-                                        @include display-inline-block;
-
-                                        max-width                   : calc(80 / var(--vw) * var(--multiplier));
-
-                                        &:nth-child(1) {
-                                            font-weight             : var(--font-weight-semibold);
-                                        }
-                                        
-                                        &:nth-child(2) {
-                                            @include px-1;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-
-                .content-list {
-                    .col-list-outer {
-                        @include col-12;
-
-                        > .row {
-                            @include align-items-center;
-                        }
-
-                        .col-list-inner {
-                            @include col-12;
-
-                            &:nth-child(1) {
-                                max-width           : 12%;
-                            }
-
-                            &:nth-child(2) {
-                                max-width           : 88%;
-                            }
-                        }
-                    }
-
-                    > ul {
-                        @include pl-3;
-                        @include mb-0;
-
-                        list-style          : none;
-
-                        > li {
-                            @include mb-2;
-
-                            &:last-child {
-                                @include mb-0;
-                            }
-                        }
-                    }
-
-                    .list-time {
-                        .time {
-                            > span {
-                                font-size               : calc(14 / var(--vw) * var(--multiplier));
-                            }
-                        }
-                    }
-
-                    .list-card {
-
-                        // Primary
-
-                        &.primary {
-                            @include position-relative;
-
-                            padding                             : calc(11.5 / var(--vw) * var(--multiplier)) calc(27.5 / var(--vw) * var(--multiplier));
-
-                            border-radius                       : 50em;
-
-                            transition                          : 0.4s ease;
-
-                            // Card 1
-
-                            &.card-1 {
-                                background                      : var(--color-primary); 
-
-                                .list-icon {
-                                    .icon {
-                                        svg {
-                                            fill                : var(--color-white);
-                                        }
-                                    }
-                                }
-
-                                &:hover {
-                                    background                  : darken($color-primary, 10%);
-                                }
-                            }
-
-                            // Card 2
-
-                            &.card-2 {
-                                background                      : var(--color-secondary); 
-
-                                .list-icon {
-                                    .icon {
-                                        svg {
-                                            fill                : var(--color-white);
-                                        }
-                                    }
-                                }
-
-                                &:hover {
-                                    background                  : darken($color-secondary, 10%);
-                                }
-                            }
-
-                            // Card 3
-
-                            &.card-3 {
-                                background                      : var(--color-tertiary); 
-
-                                .list-icon {
-                                    .icon {
-                                        svg {
-                                            fill                : var(--color-white);
-                                        }
-                                    }
-                                }
-
-                                &:hover {
-                                    background                  : darken($color-tertiary, 10%);
-                                }
-                            }
-
-                            // Card 4
-
-                            &.card-4 {
-                                background                      : var(--color-quarter); 
-
-                                .list-text {
-                                    .title {
-                                        .text-title {
-                                            color               : var(--color-black);
-                                        }
-                                    }
-                                }
-
-                                .list-lesson {
-                                    .lesson {
-                                        > span {
-                                            color               : var(--color-black);
-                                        }
-                                    }
-                                }
-
-                                &:hover {
-                                    background                  : darken($color-quarter, 10%);
-                                }
-                            }
-
-                            .card-wrapper {
-
-                                // Primary
-
-                                &.primary {
-                                    @include display-flex;
-
-                                    @include align-items-center;
-
-                                    justify-content             : space-between;
-
-                                    > .wrapper-inner {
-                                        @include display-flex;
-
-                                        @include align-items-center;
-                                    }
-
-                                    a {
-                                        @include position-absolute;
-
-                                        @include width-100;
-                                        @include height-100;
-
-                                        z-index                 : 10;
-
-                                        top                     : 0;
-                                        left                    : 0; 
-                                    }
-                                }
-                            }
-
-                            .list-text {
-                                .title {
-                                    @include mb-0;
-
-                                    .text-title {
-                                        @include mb-0;
-
-                                        font-weight             : var(--font-weight-semibold);
-                                        font-size               : calc(16 / var(--vw) * var(--multiplier));
-
-                                        color                   : var(--color-white);
-                                    }
-                                }
-                            }
-
-                            .list-lesson {
-                                .lesson {
-                                    > span {
-                                        @include display-inline-block;
-
-                                        font-size               : calc(16 / var(--vw) * var(--multiplier));
-
-                                        color                   : var(--color-white);
-
-                                        &:before {
-                                            @include px-2;
-
-                                            content             : '|';
-                                        }
-                                    }
-                                }
-                            }
-
-                            .list-status {
-                                .status {
-                                    > span {
-                                        @include py-1;
-                                        @include px-2;
-
-                                        @include text-transform-uppercase;
-
-                                        font-weight             : var(--font-weight-semibold);
-                                        font-size               : calc(14 / var(--vw) * var(--multiplier));
-
-                                        border-radius           : calc(3.5 / var(--vw) * var(--multiplier));
-
-                                        // Complete
-
-                                        &.complete {
-                                            color               : #065509;
-
-                                            background          : #D3FFC8;
-                                        }
-
-                                        // Confirm
-
-                                        &.confirm {
-                                            color               : #1D0075;
-
-                                            background          : #C8E0FF;
-                                        }
-
-                                        // Unconfirm
-
-                                        &.unconfirm {
-                                            color               : #750000;
-
-                                            background          : #FFC8C8;
-                                        }
-
-                                        // Visible
-
-                                        &.visible {
-                                            color               : #065509;
-
-                                            background          : #D3FFC8;
-                                        }
-                                    }
-                                }
-                            }
-
-                            .list-icon {
-                                @include ml-4;
-
-                                width                           : calc(25 / var(--vw) * var(--multiplier));
-
-                                .icon {
-                                    svg {
-                                        fill                    : var(--color-black);
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-
-            @include media-breakpoint-down(md) {
-
-                // Content
-
-                .class-schedule-list-content {
-                    .content-wrapper {
-
-                        // Primary
-
-                        &.primary {
-                            .col-content-outer {
-                                .col-content-inner {
-                                    &:nth-child(1) {
-                                        @include col-12;
-
-                                        @include pr-3;
-                                        @include mb-2;
-                                    }
-
-                                    &:nth-child(2) {
-                                        @include col-12;
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-                    .content-date {
-                        .date {
-                            > span {
-                                > span {
-                                    &.number {
-                                        @include mr-2;
-                                    }
-
-                                    &.caption {
-                                        > span {                                                
-                                            max-width                   : calc(200 / var(--vw) * var(--multiplier));
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-                    .content-list {
-                        .col-list-outer {
-                            .col-list-inner {
-                                &:nth-child(1) {
-                                    max-width           : 16.5%;
-                                }
-
-                                &:nth-child(2) {
-                                    max-width           : 83.5%;
-                                }
-                            }
-                        }
-
-                        .list-card {
-
-                            // Primary
-
-                            &.primary {
-                                padding                             : calc(11.5 / var(--vw) * var(--multiplier)) calc(27.5 / var(--vw) * var(--multiplier));
-
-                                .list-text {
-                                    .title {
-                                        .text-title {
-                                            @include ellipsis-single;
-
-                                            max-width               : calc(200 / var(--vw) * var(--multiplier));
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-
-            @include media-breakpoint-down(sm) {
-
-                // Content
-
-                .class-schedule-list-content {
-                    .content-wrapper {
-
-                        // Primary
-
-                        &.primary {
-                            > .wrapper-inner {
-                                @include p-3;
-                                @include pl-2;
-                            }
-                        }
-                    }
-
-                    .content-date {
-                        @include ml-2;
-                    } 
-
-                    .content-list {
-                        .col-list-outer {
-                            .col-list-inner {
-                                &:nth-child(1) {
-                                    @include max-width-100;
-                                }
-
-                                &:nth-child(2) {
-                                    @include max-width-100;
-                                }
-                            }
-                        }
-
-                        .list-time {
-                            @include display-none;
-                        }
-
-                        .list-card {
-
-                            // Primary
-
-                            &.primary {
-                                @include position-relative;
-
-                                @include py-3;
-                                @include px-4;
-
-                                border-radius                       : calc(10 / var(--vw) * var(--multiplier));
-
-                                .card-wrapper {
-
-                                    // Primary
-
-                                    &.primary {
-                                        @include align-items-flex-start;
-
-                                        flex-direction              : column;
-
-                                        > .wrapper-inner {
-                                            @include align-items-flex-start;
-
-                                            @include mb-2;
-
-                                            flex-direction          : column;
-
-                                            &:last-child {
-                                                @include mb-0;
-                                            }
-                                        }
-                                    }
-                                }
-
-                                .list-text {
-                                    @include order-2;
-
-                                    .title {
-                                        .text-title {
-                                            @include ellipsis-single;
-
-                                            max-width               : calc(265 / var(--vw) * var(--multiplier));
-                                        }
-                                    }
-                                }
-
-                                .list-lesson {
-                                    @include order-1;
-
-                                    .lesson {
-                                        > span {
-                                            &:before {
-                                                @include display-none;
-                                            }
-                                        }
-                                    }
-                                }
-
-                                .list-icon {
-                                    @include position-absolute;
-                                    
-                                    @include ml-0;
-
-                                    top                         : calc(10 / var(--vw) * var(--multiplier));
-                                    right                       : calc(10 / var(--vw) * var(--multiplier));
                                 }
                             }
                         }

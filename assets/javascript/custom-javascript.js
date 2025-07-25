@@ -19,6 +19,23 @@ window.addEventListener('wheel', function (e) {
 //    }
 //});
 
+/* -------------------- Navbar Setting -------------------- */
+
+$(window).scroll(function () {
+    $(".navbar").toggleClass("scroll", $(this).scrollTop() > 1)
+    $("#scroll-top").toggleClass("scroll", $(this).scrollTop() > 1)
+});
+
+document.querySelector('.navbar-toggler').addEventListener('click', function () {
+    document.querySelector('.sidebar.primary').classList.toggle('active');
+    document.querySelector('.sidebar-overlay').classList.toggle('active');
+});
+
+document.querySelector('.sidebar-overlay').addEventListener('click', function () {
+    document.querySelector('.sidebar.primary').classList.toggle('active');
+    document.querySelector('.sidebar-overlay').classList.toggle('active');
+});
+
 /* -------------------- Cursor Setting -------------------- */
 
 const cursorDefault = new MouseFollower({
@@ -166,13 +183,6 @@ document.addEventListener("DOMContentLoaded", () => {
     //                 `;
     //     }
     // });
-});
-
-/* -------------------- Navbar Setting -------------------- */
-
-$(window).scroll(function () {
-    $(".navbar").toggleClass("scroll", $(this).scrollTop() > 1)
-    $("#scroll-top").toggleClass("scroll", $(this).scrollTop() > 1)
 });
 
 /* -------------------- Compare Image Viewer Setting -------------------- */
