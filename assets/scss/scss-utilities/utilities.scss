@@ -12,8 +12,8 @@ $color-quinary                                                  : #1F2FBE;
 
 $color-white                                                    : #FFFFFF;
 $color-black                                                    : #171A21;
-$color-grey-super-light                                         : #FAFAFA;
-$color-grey-light                                               : #E7E7E8;
+$color-grey-super-light                                         : #E4E7EA;
+$color-grey-light                                               : #8B8B8B;
 $color-grey                                                     : #3B3F48;
 
 // =============================================================================
@@ -443,6 +443,74 @@ $grid-breakpoints: ( xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px ) !defau
     flex-wrap           : wrap;
 
     margin              : 0rem -1rem 0rem -1rem;
+}
+
+// -------------------- Font Weight -------------------- //
+
+@mixin font-black() {
+    font-weight         : var(--font-weight-black);
+}
+
+@mixin font-extrabold() {
+    font-weight         : var(--font-weight-extrabold);
+}
+
+@mixin font-bold() {
+    font-weight         : var(--font-weight-bold);
+}
+
+@mixin font-semibold() {
+    font-weight         : var(--font-weight-semibold);
+}
+
+@mixin font-medium() {
+    font-weight         : var(--font-weight-medium);
+}
+
+@mixin font-regular() {
+    font-weight         : var(--font-weight-regular);
+}
+
+@mixin font-light() {
+    font-weight         : var(--font-weight-light);
+}
+
+// -------------------- Font Size -------------------- //
+
+@mixin h1() {
+    font-size           : var(--font-size-h1);
+}
+
+@mixin h2() {
+    font-size           : var(--font-size-h2);
+}
+
+@mixin h3() {
+    font-size           : var(--font-size-h3);
+}
+
+@mixin h4() {
+    font-size           : var(--font-size-h4);
+}
+
+@mixin h5() {
+    font-size           : var(--font-size-h5);
+}
+
+@mixin h6() {
+    font-size           : var(--font-size-h6);
+}
+
+@mixin p() {
+    font-size           : var(--font-size-p);
+}
+
+@mixin small() {
+    font-size           : var(--font-size-small);
+}
+
+@mixin smallest() {
+    font-size           : var(--font-size-smallest);
 }
 
 // -------------------- Decoration -------------------- //
@@ -1568,7 +1636,6 @@ $grid-breakpoints: ( xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px ) !defau
 @mixin mb-minus-5() {
     margin-bottom: calc(-35 / var(--vw) * var(--multiplier)) !important;
 }
-
 
 // -------------------- Margin X Axis -------------------- //
 

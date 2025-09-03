@@ -25,8 +25,8 @@
 
     --color-white                                               : #FFFFFF;
     --color-black                                               : #171A21;
-    --color-grey-super-light                                    : #FAFAFA;
-    --color-grey-light                                          : #E7E7E8;
+    --color-grey-super-light                                    : #E4E7EA;
+    --color-grey-light                                          : #8B8B8B;
     --color-grey                                                : #3B3F48;
 
     // Transition
@@ -172,7 +172,7 @@ body {
 
     color                       : var(--color-black);
 
-    background                  : var(--color-grey-super-light);
+    background                  : var(--color-white);
 
     &.icv__body {
         overflow                : auto !important;
@@ -456,61 +456,6 @@ svg {
 }
 
 // Text
-
-.title {
-    @include mb-4;
-
-    .text-title {
-        font-family             : var(--font-family-title);
-        font-weight             : var(--font-weight-title);                  
-        font-size               : calc(var(--font-size-title) / var(--vw) * var(--multiplier));
-
-        line-height             : 1.5;
-
-        letter-spacing          : calc(var(--letter-spacing-title) / var(--vw) * var(--multiplier));
-
-        color                   : inherit;
-    }
-}
-
-.subtitle {
-    @include mb-4;
-
-    .text-subtitle {
-        font-family             : var(--font-family-subtitle);
-        font-weight             : var(--font-weight-subtitle);                       
-        font-size               : calc(var(--font-size-subtitle) / var(--vw) * var(--multiplier));
-
-        line-height             : 1.5;
-
-        color                   : var(--color-black);
-    }
-}
-
-.desc {
-    .text-description {
-        font-family             : var(--font-family-description);
-        font-weight             : var(--font-weight-description);                     
-        font-size               : calc(var(--font-size-description) / var(--vw) * var(--multiplier));
-
-        line-height             : 1.65;
-
-        letter-spacing          : calc(var(--letter-spacing-description) / var(--vw) * var(--multiplier));
-
-        color                   : var(--color-black);
-
-        > b {
-            @include text-transform-uppercase;
-
-            @include text-decoration-underline;
-
-            font-family         : var(--font-family-primary);
-            font-weight         : var(--font-weight-black);
-
-            letter-spacing      : calc(0.5 / var(--vw) * var(--multiplier));
-        }
-    }
-}
 
 // Date
 
