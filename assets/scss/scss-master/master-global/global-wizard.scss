@@ -121,14 +121,14 @@
     // Primary
 
     &.primary {
-        width               : 25%;
+        width               : 27.5%;
 
         // Header
 
         .sidebar-header {
             @include text-align-center;
 
-            @include p-2;
+            @include p-3;
 
             background      : var(--color-primary);
 
@@ -149,9 +149,11 @@
         // Content
 
         .sidebar-content {
+            @include overflow-y-auto;
+
             @include p-4;
 
-            height                      : calc(100vh - 39px);
+            height                      : calc(100vh - 43.14px);
 
             background                  : var(--color-grey-super-light);
             
@@ -200,6 +202,8 @@
                                 .list-text {
                                     .title {
                                         h3 {
+                                            @include mb-2;
+
                                             @include font-semibold;
                                             @include p;
 
@@ -233,6 +237,16 @@
                     }
                 }
             }
+        }
+
+        @include media-breakpoint-down(md) {
+            
+            width           : 45%;
+        }
+
+        @include media-breakpoint-down(sm) {
+            
+            @include width-100;
         }
     }
 }

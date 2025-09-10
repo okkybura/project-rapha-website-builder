@@ -4,14 +4,14 @@
 
 // Color
 
-$color-primary                                                  : #1F2FBE; 
-$color-secondary                                                : #357EC2; 
-$color-tertiary                                                 : #3E35C2; 
-$color-quarter                                                  : #D9EBF3; 
-$color-quinary                                                  : #1F2FBE; 
+$color-primary                                                  : #061D6D; 
+$color-secondary                                                : #061D6D; 
+$color-tertiary                                                 : #061D6D; 
+$color-quarter                                                  : #061D6D; 
+$color-quinary                                                  : #061D6D; 
 
 $color-white                                                    : #FFFFFF;
-$color-black                                                    : #171A21;
+$color-black                                                    : #282828;
 $color-grey-super-light                                         : #E4E7EA;
 $color-grey-light                                               : #8B8B8B;
 $color-grey                                                     : #3B3F48;
@@ -478,39 +478,39 @@ $grid-breakpoints: ( xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px ) !defau
 // -------------------- Font Size -------------------- //
 
 @mixin h1() {
-    font-size           : var(--font-size-h1);
+    font-size           : calc(var(--font-size-h1) / var(--vw) * var(--multiplier));
 }
 
 @mixin h2() {
-    font-size           : var(--font-size-h2);
+    font-size           : calc(var(--font-size-h2) / var(--vw) * var(--multiplier));
 }
 
 @mixin h3() {
-    font-size           : var(--font-size-h3);
+    font-size           : calc(var(--font-size-h3) / var(--vw) * var(--multiplier));
 }
 
 @mixin h4() {
-    font-size           : var(--font-size-h4);
+    font-size           : calc(var(--font-size-h4) / var(--vw) * var(--multiplier));
 }
 
 @mixin h5() {
-    font-size           : var(--font-size-h5);
+    font-size           : calc(var(--font-size-h5) / var(--vw) * var(--multiplier));
 }
 
 @mixin h6() {
-    font-size           : var(--font-size-h6);
+    font-size           : calc(var(--font-size-h6) / var(--vw) * var(--multiplier));
 }
 
 @mixin p() {
-    font-size           : var(--font-size-p);
+    font-size           : calc(var(--font-size-p) / var(--vw) * var(--multiplier));
 }
 
 @mixin small() {
-    font-size           : var(--font-size-small);
+    font-size           : calc(var(--font-size-small) / var(--vw) * var(--multiplier));
 }
 
 @mixin smallest() {
-    font-size           : var(--font-size-smallest);
+    font-size           : calc(var(--font-size-smallest) / var(--vw) * var(--multiplier));
 }
 
 // -------------------- Decoration -------------------- //

@@ -17,14 +17,14 @@
 
     // Color
 
-    --color-primary                                             : #1F2FBE;
-    --color-secondary                                           : #357EC2;
-    --color-tertiary                                            : #3E35C2;
-    --color-quarter                                             : #D9EBF3;
-    --color-quinary                                             : #1F2FBE;
+    --color-primary                                             : #061D6D;
+    --color-secondary                                           : #061D6D;
+    --color-tertiary                                            : #061D6D;
+    --color-quarter                                             : #061D6D;
+    --color-quinary                                             : #061D6D;
 
     --color-white                                               : #FFFFFF;
-    --color-black                                               : #171A21;
+    --color-black                                               : #282828;
     --color-grey-super-light                                    : #E4E7EA;
     --color-grey-light                                          : #8B8B8B;
     --color-grey                                                : #3B3F48;
@@ -228,8 +228,8 @@ a, button {
 }
 
 svg {
-    width                       : calc(16.5 / var(--vw) * var(--multiplier));
-    height                      : calc(16.5 / var(--vw) * var(--multiplier));
+    width                       : calc(27.5 / var(--vw) * var(--multiplier));
+    height                      : calc(27.5 / var(--vw) * var(--multiplier));
 }
 
 // Cursor

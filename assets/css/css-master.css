@@ -9314,13 +9314,13 @@ a.text-dark:hover, a.text-dark:focus {
 :root {
   --vw: 1550;
   --multiplier: 100vw;
-  --color-primary: #1F2FBE;
-  --color-secondary: #357EC2;
-  --color-tertiary: #3E35C2;
-  --color-quarter: #D9EBF3;
-  --color-quinary: #1F2FBE;
+  --color-primary: #061D6D;
+  --color-secondary: #061D6D;
+  --color-tertiary: #061D6D;
+  --color-quarter: #061D6D;
+  --color-quinary: #061D6D;
   --color-white: #FFFFFF;
-  --color-black: #171A21;
+  --color-black: #282828;
   --color-grey-super-light: #E4E7EA;
   --color-grey-light: #8B8B8B;
   --color-grey: #3B3F48;
@@ -9472,8 +9472,8 @@ a ::before, a ::after, button ::before, button ::after {
 }
 
 svg {
-  width: calc(16.5 / var(--vw) * var(--multiplier));
-  height: calc(16.5 / var(--vw) * var(--multiplier));
+  width: calc(27.5 / var(--vw) * var(--multiplier));
+  height: calc(27.5 / var(--vw) * var(--multiplier));
 }
 
 .mf-cursor {
@@ -9554,7 +9554,7 @@ svg {
   font-size: calc(15 / var(--vw) * var(--multiplier));
   color: var(--color-black);
   background: var(--color-white);
-  border: calc(1 / var(--vw) * var(--multiplier)) solid rgba(23, 26, 33, 0.25);
+  border: calc(1 / var(--vw) * var(--multiplier)) solid rgba(40, 40, 40, 0.25);
   border-radius: calc(4.5 / var(--vw) * var(--multiplier));
   box-shadow: none;
 }
@@ -9570,7 +9570,7 @@ svg {
   font-size: calc(15 / var(--vw) * var(--multiplier));
   color: var(--color-black);
   background: var(--color-white);
-  border: calc(1 / var(--vw) * var(--multiplier)) solid rgba(23, 26, 33, 0.25);
+  border: calc(1 / var(--vw) * var(--multiplier)) solid rgba(40, 40, 40, 0.25);
   border-radius: calc(4.5 / var(--vw) * var(--multiplier));
   box-shadow: none;
 }
@@ -9996,13 +9996,13 @@ svg {
   z-index: 20;
 }
 .link-default > span.wrapper > span.text > span:nth-child(1) {
-  color: rgba(23, 26, 33, 0.85);
+  color: rgba(40, 40, 40, 0.85);
 }
 .link-default > span.wrapper > span.text > span:nth-child(2) {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  color: #1f2fbe;
+  color: #061d6d;
 }
 .link-default > span.wrapper > span.text > span:nth-child(2) > span {
   transform: translateY(100%);
@@ -10336,22 +10336,23 @@ svg {
 }
 
 .sidebar.primary {
-  width: 25%;
+  width: 27.5%;
 }
 .sidebar.primary .sidebar-header {
   text-align: center;
-  padding: calc(10 / var(--vw) * var(--multiplier)) !important;
+  padding: calc(15 / var(--vw) * var(--multiplier)) !important;
   background: var(--color-primary);
 }
 .sidebar.primary .sidebar-header .header-text .title h2 {
   margin-bottom: 0 !important;
   font-weight: var(--font-weight-semibold);
-  font-size: var(--font-size-h6);
+  font-size: calc(var(--font-size-h6) / var(--vw) * var(--multiplier));
   color: var(--color-white);
 }
 .sidebar.primary .sidebar-content {
+  overflow-y: auto;
   padding: calc(20 / var(--vw) * var(--multiplier)) !important;
-  height: calc(100vh - 39px);
+  height: calc(100vh - 43.14px);
   background: var(--color-grey-super-light);
 }
 .sidebar.primary .sidebar-content .content-list > ul {
@@ -10382,18 +10383,29 @@ svg {
   margin-bottom: calc(15 / var(--vw) * var(--multiplier)) !important;
 }
 .sidebar.primary .sidebar-content .content-list > ul > li .list-wrapper.primary .list-text .title h3 {
+  margin-bottom: calc(10 / var(--vw) * var(--multiplier)) !important;
   font-weight: var(--font-weight-semibold);
-  font-size: var(--font-size-p);
+  font-size: calc(var(--font-size-p) / var(--vw) * var(--multiplier));
   color: var(--color-black);
   transition: 0.3s ease;
 }
 .sidebar.primary .sidebar-content .content-list > ul > li .list-wrapper.primary .list-text .desc p {
   font-weight: var(--font-weight-regular);
-  font-size: var(--font-size-p);
+  font-size: calc(var(--font-size-p) / var(--vw) * var(--multiplier));
   color: var(--color-grey-light);
 }
 .sidebar.primary .sidebar-content .content-list > ul > li .list-wrapper.primary:hover .list-text .title h3 {
   color: var(--color-primary);
+}
+@media (max-width: 991.98px) {
+  .sidebar.primary {
+    width: 45%;
+  }
+}
+@media (max-width: 767.98px) {
+  .sidebar.primary {
+    width: 100% !important;
+  }
 }
 
 .sidebar-overlay {
@@ -10405,7 +10417,7 @@ svg {
   opacity: 0;
   top: 0;
   left: 0;
-  background: rgba(23, 26, 33, 0.125);
+  background: rgba(40, 40, 40, 0.125);
   transition: 0.5s ease;
 }
 .sidebar-overlay.active {
