@@ -114,6 +114,70 @@
 
 // Navbar
 
+.navbar {
+
+    // Priamry
+
+    &.primary {
+        @include display-none;
+
+        background          : var(--color-primary);
+
+        .navbar-wrapper {
+
+            // Primary
+
+            &.primary {
+                @include display-flex;
+
+                @include align-items-center;
+            }
+        }
+
+        .navbar-icon {
+            @include mr-3;
+
+            a {
+                @include display-inline-flex;
+
+                @include align-items-center;
+                
+                justify-content     : center;
+
+                width               : calc(30 / var(--vw) * var(--multiplier));
+                height              : calc(30 / var(--vw) * var(--multiplier));
+                
+                background          : var(--color-white);
+
+                border-radius       : calc(5 / var(--vw) * var(--multiplier));
+
+                > svg {
+                    width           : calc(20 / var(--vw) * var(--multiplier));
+                    height          : calc(20 / var(--vw) * var(--multiplier));
+
+                    fill            : var(--color-primary);
+                }
+            }
+        }
+
+        .navbar-brand {
+            font-size           : unset;
+
+            > a {
+                @include font-semibold;
+                @include p;
+                
+                color           : var(--color-white);
+            }
+        }
+
+        @include media-breakpoint-down(md) {
+            
+            @include display-block;
+        }
+    }
+}
+
 // Sidebar
 
 .sidebar {
@@ -177,11 +241,15 @@
                             &.primary {
                                 @include position-relative;
 
-                                @include p-4;
+                                padding             : calc(30 / var(--vw) * var(--multiplier)) calc(25 / var(--vw) * var(--multiplier));
 
                                 background          : var(--color-white);
 
                                 border-radius       : calc(7.5 / var(--vw) * var(--multiplier));
+
+                                > .wrapper-inner {
+                                    width           : 85%;
+                                }
 
                                 .list-anchor {
                                     @include position-absolute;
@@ -195,26 +263,56 @@
                                     left            : 0; 
                                 }
 
+                                .list-button {
+                                    @include position-absolute;
+
+                                    z-index         : 5;
+
+                                    top             : 50%;
+                                    right           : calc(25 / var(--vw) * var(--multiplier));;
+                                    
+                                    transform       : translateY(-50%);
+                                }
+
                                 .list-icon {
-                                    @include mb-3;
+                                    @include mb-4;
                                 }
 
                                 .list-text {
                                     .title {
+                                        @include mb-2;
+
                                         h3 {
+                                            @include display-flex;
+
+                                            @include align-items-center;
+
                                             @include mb-2;
 
                                             @include font-semibold;
                                             @include p;
 
-                                            color           : var(--color-black);
+                                            justify-content     : space-between;
 
-                                            transition      : 0.3s ease; 
+                                            color               : var(--color-black);
+
+                                            transition          : 0.3s ease; 
+
+                                            > span {
+                                                &.icon {
+                                                    svg {
+                                                        width           : calc(17.5 / var(--vw) * var(--multiplier));
+                                                        height          : calc(17.5 / var(--vw) * var(--multiplier));
+                                                    }
+                                                }
+                                            }
                                         }
                                     }
 
                                     .desc {
                                         p {
+                                            @include mb-0;
+
                                             @include font-regular;
                                             @include p;
 
@@ -241,7 +339,18 @@
 
         @include media-breakpoint-down(md) {
             
+            @include position-fixed;
+
             width           : 45%;
+
+            top             : 0; 
+            left            : -100%; 
+
+            transition      : 0.4s ease;
+
+            &.active {
+                left        : 0; 
+            }
         }
 
         @include media-breakpoint-down(sm) {
