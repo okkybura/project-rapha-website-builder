@@ -109,6 +109,29 @@
         @include position-relative;
         
         z-index             : 20;
+
+        .page-wrapper {
+
+            // Primary
+
+            &.primary {
+                @include display-flex;
+
+                > section, > div {
+                    flex-shrink         : 0;
+                }
+
+                > section {
+                    width               : 27.5%;
+                }
+
+                > .wrapper-inner {
+                    @include p-4;
+
+                    width               : 72.5%;
+                }
+            }
+        }
     }
 }
 
@@ -120,6 +143,8 @@
 
     &.primary {
         @include display-none;
+
+        height              : calc(50 / var(--vw) * var(--multiplier));
 
         background          : var(--color-primary);
 
@@ -185,18 +210,25 @@
     // Primary
 
     &.primary {
-        width               : 27.5%;
 
         // Header
 
         .sidebar-header {
+            @include display-flex;
+
+            @include align-items-center;
+
             @include text-align-center;
 
             @include p-3;
 
+            height          : calc(50 / var(--vw) * var(--multiplier));
+
             background      : var(--color-primary);
 
             .header-text {
+                @include mx-auto;
+
                 .title {
                     h2 {
                         @include mb-0;
@@ -205,6 +237,22 @@
                         @include h6;
 
                         color           : var(--color-white);
+                    }
+                }
+            }
+
+            .header-button {
+                @include display-none;
+
+                @include ml-auto;
+
+                .button {
+                    .btn-header {
+                        @include p-0;
+
+                        svg {
+                            fill        : var(--color-white);
+                        }
                     }
                 }
             }
@@ -350,6 +398,172 @@
 
             &.active {
                 left        : 0; 
+            }
+            
+            // Header
+
+            .sidebar-header {
+                .header-text {
+                    @include ml-0;
+                }
+
+                .header-button {
+                    @include display-block;
+                }
+            }
+        }
+
+        @include media-breakpoint-down(sm) {
+            
+            @include width-100;
+        }
+    }
+
+    // Secondary
+
+    &.secondary {
+
+        // Header
+
+        .sidebar-header {
+            @include display-flex;
+
+            @include align-items-center;
+
+            @include text-align-center;
+
+            @include p-3;
+
+            height          : calc(50 / var(--vw) * var(--multiplier));
+
+            background      : var(--color-primary);
+
+            .header-icon {
+                @include mr-3;
+            }
+
+            .header-text {
+                .title {
+                    h2 {
+                        @include mb-0;
+
+                        @include font-semibold;
+                        @include h6;
+
+                        color           : var(--color-white);
+                    }
+                }
+            }
+
+            .header-button {
+                @include display-none;
+
+                @include ml-auto;
+
+                .button {
+                    .btn-header {
+                        @include p-0;
+
+                        svg {
+                            fill        : var(--color-white);
+                        }
+                    }
+                }
+            }
+        }
+
+        // Content
+
+        .sidebar-content {
+            @include overflow-y-auto;
+
+            height                      : calc(100vh - 43.14px);
+
+            background                  : var(--color-grey-super-light);
+            
+            .content-link {
+                .link {
+                    .link-content {
+                        @include display-flex;
+
+                        @include align-items-center;
+
+                        @include width-100;
+
+                        @include p-4;
+
+                        @include font-semibold;
+                        @include p;
+
+                        @include text-decoration-none;
+
+                        color               : var(--color-black);
+
+                        background          : var(--color-white);
+
+                        border-left         : calc(7.5 / var(--vw) * var(--multiplier)) solid transparent;
+
+                        > span {
+                            @include display-flex;
+                            
+                            @include align-items-center;
+
+                            @include width-100;
+
+                            justify-content         : space-between; 
+
+                            > span {
+                                &.text {
+                                    @include display-flex;
+
+                                    @include align-items-center;
+
+                                    > span {
+                                        &:first-child {
+                                            @include mr-3;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        &.active {
+                            border-left             : calc(7.5 / var(--vw) * var(--multiplier)) solid var(--color-secondary);
+                        }
+
+                        &:hover {
+                            background              : var(--color-quinary);
+                        }
+                    }
+                }
+            }
+        }
+
+        @include media-breakpoint-down(md) {
+            
+            @include position-fixed;
+
+            width           : 45%;
+
+            top             : 0; 
+            left            : -100%; 
+
+            transition      : 0.4s ease;
+
+            &.active {
+                left        : 0; 
+            }
+            
+            // Header
+
+            .sidebar-header {
+                .header-text {
+                    @include ml-0;
+                }
+                
+                .header-button {
+                    @include display-block;
+                }
             }
         }
 
