@@ -206,7 +206,8 @@
 // Sidebar
 
 .sidebar {
-
+    z-index             : 1040;
+    
     // Primary
 
     &.primary {

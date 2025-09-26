@@ -391,7 +391,7 @@ svg {
 
             box-shadow          : none;
 
-            &::disabled {
+            &:disabled {
                 @include display-none;
             }
         }

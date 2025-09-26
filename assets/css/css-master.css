@@ -9574,7 +9574,7 @@ svg {
   border-radius: calc(4.5 / var(--vw) * var(--multiplier));
   box-shadow: none;
 }
-.form-group .form-option .form-control::disabled {
+.form-group .form-option .form-control:disabled {
   display: none;
 }
 .form-group .form-radio .form-radio-label {
@@ -10388,6 +10388,9 @@ svg {
   }
 }
 
+.sidebar {
+  z-index: 1040;
+}
 .sidebar.primary .sidebar-header {
   display: flex;
   align-items: center;
