@@ -64,7 +64,7 @@
     --font-weight-number                                        : 900;
     --font-weight-tag                                           : 900;
     --font-weight-link                                          : 500;
-    --font-weight-button                                        : 900;
+    --font-weight-button                                        : 700;
     --font-weight-textprice                                     : 900;
     --font-weight-sellprice                                     : 900;
 
@@ -91,24 +91,24 @@
     --font-size-number                                          : 42.5;
     --font-size-tag                                             : 20;
     --font-size-link                                            : 14;
-    --font-size-button                                          : 16;
+    --font-size-button                                          : 15;
     --font-size-icon                                            : 12;
     --font-size-textprice                                       : 20;
     --font-size-sellprice                                       : 55;
 
-    --font-size-display1                                        : 60px;
-    --font-size-display2                                        : 60px;
-    --font-size-display3                                        : 60px;
-    --font-size-display4                                        : 60px;
-    --font-size-h1                                              : 48px;
-    --font-size-h2                                              : 32px;
-    --font-size-h3                                              : 28px;
-    --font-size-h4                                              : 24px;
-    --font-size-h5                                              : 20px;
-    --font-size-h6                                              : 16px;
-    --font-size-p                                               : 14px;
-    --font-size-small                                           : 12px;
-    --font-size-smallest                                        : 10px;
+    --font-size-display1                                        : 60;
+    --font-size-display2                                        : 60;
+    --font-size-display3                                        : 60;
+    --font-size-display4                                        : 60;
+    --font-size-h1                                              : 48;
+    --font-size-h2                                              : 32;
+    --font-size-h3                                              : 28;
+    --font-size-h4                                              : 24;
+    --font-size-h5                                              : 20;
+    --font-size-h6                                              : 15;
+    --font-size-p                                               : 14;
+    --font-size-small                                           : 12;
+    --font-size-smallest                                        : 10;
 
     // Letter Spacing
 
@@ -312,6 +312,8 @@ svg {
     label {
         @include position-relative;
 
+        @include mb-2;
+
         font-family             : var(--font-family-general);
         font-weight             : var(--font-weight-semibold);
         font-size               : calc(14 / var(--vw) * var(--multiplier));
@@ -324,6 +326,15 @@ svg {
             font-style          : normal;
 
             color               : #ff0000;
+        }
+        
+        > i {
+            @include ml-1;
+
+            svg {
+                width           : calc(14.5 / var(--vw) * var(--multiplier));
+                height          : calc(14.5 / var(--vw) * var(--multiplier));
+            }
         }
     }
 
@@ -344,6 +355,96 @@ svg {
     }
 
     .form-date, .form-input, .form-time {
+        &.input-group {
+            @include position-relative;
+
+            @include display-flex;
+
+            @include align-items-center;
+
+            @include p-2;
+
+            background          : var(--color-white);
+
+            border              : calc(1 / var(--vw) * var(--multiplier)) solid rgba($color-black, 0.25);
+            border-radius       : calc(4.5 / var(--vw) * var(--multiplier));
+
+            .form-control {
+                @include p-0;
+
+                background          : transparent;
+
+                border              : unset;
+                border-radius       : unset;
+            }
+
+            > a {
+                @include position-absolute;
+                
+                @include display-inline-flex;
+
+                @include align-items-center;
+
+                justify-content         : center;
+
+                width                   : calc(32.5 / var(--vw) * var(--multiplier));
+                height                  : calc(32.5 / var(--vw) * var(--multiplier));
+
+                top                     : 50%;
+                right                   : calc(5 / var(--vw) * var(--multiplier));
+                
+                transform               : translateY(-50%);
+
+                background              : var(--color-quinary);
+
+                border-radius           : calc(4.5 / var(--vw) * var(--multiplier));
+
+                svg {
+                    width               : calc(15 / var(--vw) * var(--multiplier));
+                    height              : calc(15 / var(--vw) * var(--multiplier));
+                }
+
+                &:hover {
+                    background          : var(--color-primary);
+
+                    svg {
+                        path {
+                            stroke      : var(--color-white);
+                        }
+                    }
+                }
+            }
+        }
+
+        .form-control {
+            @include height-auto;
+
+            @include p-2;
+
+            resize              : none;
+
+            font-family         : var(--font-family-general);
+            font-weight         : var(--font-weight-regular);
+            font-size           : calc(15 / var(--vw) * var(--multiplier));
+
+            color               : var(--color-black);
+
+            background          : var(--color-white);
+
+            border              : calc(1 / var(--vw) * var(--multiplier)) solid rgba($color-black, 0.25);
+            border-radius       : calc(4.5 / var(--vw) * var(--multiplier));
+
+            box-shadow          : none;
+
+            &::placeholder {
+                opacity         : 0.65;
+
+                color           : var(--color-black);
+            }
+        }
+    }
+
+    .form-textarea {
         .form-control {
             @include height-auto;
 
@@ -400,6 +501,46 @@ svg {
     .form-radio {
         .form-radio-label {
             font-weight         : var(--font-weight-regular);
+        }
+    }
+
+    .form-switch {
+        .custom-switch {
+            .custom-control-input:checked ~ .custom-control-label {
+                &:before {
+                    background          : var(--color-primary);
+                }
+
+                &:after {
+                    transform           : translateX(1.60rem);
+                }
+            }
+
+            .custom-control-label {
+                @include my-2;
+                
+                &:before {
+                    width               : calc(45 / var(--vw) * var(--multiplier));
+                    height              : calc(22.5 / var(--vw) * var(--multiplier));
+
+                    border-radius       : 50em;
+                }
+
+                &:after {
+                    width               : calc(15 / var(--vw) * var(--multiplier));
+                    height              : calc(15 / var(--vw) * var(--multiplier));
+
+                    top                 : calc(7 / var(--vw) * var(--multiplier));
+                    left                : calc(-2.25rem + 5px);
+
+                    border-radius       : 100%;
+                }
+            }
+        }
+
+        .custom-switch-label {
+            @include my-3;
+            @include ml-4;
         }
     }
 }
@@ -801,6 +942,303 @@ svg {
     }
 }
 
+.btn-general {
+    @include position-relative;
+
+    @include display-inline-block;
+
+    @include p-0;
+
+    font-family                 : var(--font-family-button);
+    font-weight                 : var(--font-weight-button);
+    font-size                   : calc(var(--font-size-button) / var(--vw) * var(--multiplier));
+
+    border-radius               : calc(0 / var(--vw) * var(--multiplier));
+
+    &:before, &:after {
+        border-radius           : calc(4.5 / var(--vw) * var(--multiplier));
+    }
+
+    *:before, *:after {
+        border-radius           : calc(4.5 / var(--vw) * var(--multiplier));
+    }
+
+    > span {
+        @include display-flex;
+
+        @include align-items-center;
+
+        @include py-2;
+        @include px-5;
+
+        justify-content         : center;
+
+        > span {
+            @include position-relative;
+
+            &.icon {
+                @include display-inline-flex;
+
+                @include align-items-center;
+
+                @include mx-2;
+
+                justify-content         : center;
+
+                width                   : 1.65rem;
+
+                > span {
+                    @include position-relative;
+
+                    @include display-inline-flex;
+
+                    @include overflow-hidden;
+
+                    > i {
+                        &:nth-child(2) {
+                            @include position-absolute;
+
+                            left            : -105%;
+                        }
+                    }
+                }
+            }
+
+            &.text {
+                @include display-block;
+
+                @include overflow-hidden;
+
+                > span {
+                    @include display-block;      
+                    
+                    &:nth-child(2) {
+                        @include position-absolute;
+
+                        top                         : 100%;
+                    }                  
+
+                    > span {
+                        @include display-inline-block;
+
+                        white-space                 : pre;
+
+                        @for $i from 1 through 25 {
+                            &:nth-child(#{$i}) {
+                                transition-delay    : #{($i - 1) * 0.005}s;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &:hover {
+        > span {
+            > span {
+                &.icon { 
+                    > span {
+                        > i {
+                            &:nth-child(1) {
+                                transform               : translateX(100%);
+                            }
+
+                            &:nth-child(2) {
+                                left                    : 0;
+                            }
+                        }
+                    }
+                }
+
+                &.text {
+                    > span {
+                        &:nth-child(1) {
+                            > span {
+                                transform                   : translateY(-100%);
+                            }
+                        }
+
+                        &:nth-child(2) {
+                            > span {
+                                transform                   : translateY(-100%);
+                            }
+                        }
+
+                        > span {
+                            @for $i from 1 through 25 {
+                                &:nth-child(#{$i}) {
+                                    transition-delay        : #{($i - 1) * 0.0125}s;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // Solid
+
+    &.btn-solid {
+        background              : none;
+
+        border                  : none;
+
+        > span {
+            &:before, &:after {
+                @include position-absolute;
+
+                @include width-100;
+                @include height-100;
+
+                content                 : '';
+
+                top                     : 0;
+                left                    : 0;
+
+                transform               : scale(1);
+            }
+        }
+
+        &:hover {
+            > span {
+                &:before, &:after {
+                    transform       : scale(0.95);
+                }
+            }
+        }
+
+        // Primary
+
+        &.primary {
+            color                       : var(--color-white);
+
+            > span {
+                &:before {
+                    background          : var(--color-primary);
+
+                    border              : calc(1 / var(--vw) * var(--multiplier)) solid var(--color-primary);
+                }
+            }
+
+            &:hover {
+                > span {
+                    &:before {
+                        background          : darken($color-primary, 5%);
+
+                        border              : calc(1 / var(--vw) * var(--multiplier)) solid darken($color-primary, 5%);;
+                    }
+                }
+            }
+        }
+
+        // Secondary
+
+        &.secondary {
+            color                       : var(--color-white);
+
+            > span {
+                &:before {
+                    background          : var(--color-secondary);
+
+                    border              : calc(1 / var(--vw) * var(--multiplier)) solid var(--color-secondary);
+                }
+            }
+
+            &:hover {
+                > span {
+                    &:before {
+                        background          : darken($color-secondary, 5%);
+
+                        border              : calc(1 / var(--vw) * var(--multiplier)) solid darken($color-secondary, 5%);;
+                    }
+                }
+            }
+        }
+    }
+
+    // Outline
+
+    &.btn-outline {
+        background              : none;
+
+        border                  : none;
+
+        > span {
+            &:before, &:after {
+                @include position-absolute;
+
+                @include width-100;
+                @include height-100;
+
+                content                 : '';
+
+                top                     : 0;
+                left                    : 0;
+
+                transform               : scale(1);
+            }
+        }
+
+        &:hover {
+            > span {
+                &:before, &:after {
+                    transform       : scale(0.95);
+                }
+            }
+        }
+
+        // Primary
+
+        &.primary {
+            color                       : var(--color-primary);
+
+            > span {
+                &:before {
+                    background          : var(--color-white);
+
+                    border              : calc(1 / var(--vw) * var(--multiplier)) solid var(--color-primary);
+                }
+            }
+
+            &:hover {
+                color                   : darken($color-primary, 5%);
+
+                > span {
+                    &:before {
+                        border              : calc(1 / var(--vw) * var(--multiplier)) solid darken($color-primary, 5%);;
+                    }
+                }
+            }
+        }
+
+        // Secondary
+
+        &.secondary {
+            color                       : var(--color-white);
+
+            > span {
+                &:before {
+                    background          : var(--color-white);
+
+                    border              : calc(1 / var(--vw) * var(--multiplier)) solid var(--color-secondary);
+                }
+            }
+
+            &:hover {
+                color                   : darken($color-secondary, 5%);
+
+                > span {
+                    &:before {
+                        border              : calc(1 / var(--vw) * var(--multiplier)) solid darken($color-secondary, 5%);;
+                    }
+                }
+            }
+        }
+    }
+}
+
 // Link
 
 .link-default {
@@ -981,6 +1419,31 @@ svg {
         @include py-4;
     }
 
+    // Form
+
+    .form-group {
+        .form-switch {
+            .custom-switch {
+                .custom-control-input:checked ~ .custom-control-label {
+                    &:after {
+                        transform           : translateX(1rem);
+                    }
+                }
+
+                .custom-control-label {
+                    &:after {
+                        top                 : calc(8 / var(--vw) * var(--multiplier));
+                    }
+                }
+            }
+
+            .custom-switch-label {
+                @include mt-4;
+                @include ml-1;
+            }
+        }
+    }
+
     // Text
 
     .title {
@@ -1017,6 +1480,31 @@ svg {
 }
 
 @include media-breakpoint-down(sm) {
+
+    // Form
+
+    .form-group {
+        .form-switch {
+            .custom-switch {
+                .custom-control-input:checked ~ .custom-control-label {
+                    &:after {
+                        transform           : translateX(1.1rem);
+                    }
+                }
+
+                .custom-control-label {
+                    &:after {
+                        top                 : calc(7 / var(--vw) * var(--multiplier));
+                    }
+                }
+            }
+
+            .custom-switch-label {
+                @include mt-3;
+                @include ml-2;
+            }
+        }
+    }
 
     // Text
 

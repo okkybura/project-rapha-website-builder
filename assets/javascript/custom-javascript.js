@@ -21,20 +21,20 @@ window.addEventListener('wheel', function (e) {
 
 /* -------------------- Navbar Setting -------------------- */
 
-$(window).scroll(function () {
-    $(".navbar").toggleClass("scroll", $(this).scrollTop() > 1)
-    $("#scroll-top").toggleClass("scroll", $(this).scrollTop() > 1)
-});
+// $(window).scroll(function () {
+//     $(".navbar").toggleClass("scroll", $(this).scrollTop() > 1)
+//     $("#scroll-top").toggleClass("scroll", $(this).scrollTop() > 1)
+// });
 
-document.querySelector('.navbar-toggler').addEventListener('click', function () {
-    document.querySelector('.sidebar.primary').classList.toggle('active');
-    document.querySelector('.sidebar-overlay').classList.toggle('active');
-});
+// document.querySelector('.navbar-toggler').addEventListener('click', function () {
+//     document.querySelector('.sidebar.primary').classList.toggle('active');
+//     document.querySelector('.sidebar-overlay').classList.toggle('active');
+// });
 
-document.querySelector('.sidebar-overlay').addEventListener('click', function () {
-    document.querySelector('.sidebar.primary').classList.toggle('active');
-    document.querySelector('.sidebar-overlay').classList.toggle('active');
-});
+// document.querySelector('.sidebar-overlay').addEventListener('click', function () {
+//     document.querySelector('.sidebar.primary').classList.toggle('active');
+//     document.querySelector('.sidebar-overlay').classList.toggle('active');
+// });
 
 /* -------------------- Cursor Setting -------------------- */
 
@@ -165,24 +165,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Splitting Text - Button
 
-    // document.querySelectorAll('.btn').forEach(btn => {
+    document.querySelectorAll('.btn').forEach(btn => {
 
-    //     const textSpan = btn.querySelector('.text');
+        const textSpan = btn.querySelector('.text');
 
-    //     if (textSpan) {
-    //         const text = textSpan.textContent.trim();
-    //         let charSpans = '';
+        if (textSpan) {
+            const text = textSpan.textContent.trim();
+            let charSpans = '';
 
-    //         text.split('').forEach(char => {
-    //             charSpans += `<span>${char}</span>`;
-    //         });
+            text.split('').forEach(char => {
+                charSpans += `<span>${char}</span>`;
+            });
 
-    //         textSpan.innerHTML = `
-    //                     <span>${charSpans}</span>
-    //                     <span>${charSpans}</span>
-    //                 `;
-    //     }
-    // });
+            textSpan.innerHTML = `
+                        <span>${charSpans}</span>
+                        <span>${charSpans}</span>
+                    `;
+        }
+    });
 });
 
 /* -------------------- Compare Image Viewer Setting -------------------- */
@@ -230,18 +230,18 @@ $('.carousel-triple').flickity({
 
 /* -------------------- Other Setting -------------------- */
 
-document.addEventListener('DOMContentLoaded', function () {
-    function updateVisibility() {
-        const isRecurring = document.getElementById('radioCreateClass-Frequency-2').checked;
+// document.addEventListener('DOMContentLoaded', function () {
+//     function updateVisibility() {
+//         const isRecurring = document.getElementById('radioCreateClass-Frequency-2').checked;
 
-        document.getElementById('dvDateRange-Calendar').style.display = isRecurring ? 'block' : 'none';
-        document.getElementById('dvDateRange-Day').style.display = isRecurring ? 'block' : 'none';
-        document.getElementById('dvDateSingle-Calendar').style.display = isRecurring ? 'none' : 'block';
-    }
+//         document.getElementById('dvDateRange-Calendar').style.display = isRecurring ? 'block' : 'none';
+//         document.getElementById('dvDateRange-Day').style.display = isRecurring ? 'block' : 'none';
+//         document.getElementById('dvDateSingle-Calendar').style.display = isRecurring ? 'none' : 'block';
+//     }
 
-    document.querySelectorAll('input[name="radioCreateClass-Frequency"]').forEach(radio => {
-        radio.addEventListener('change', updateVisibility);
-    });
+//     document.querySelectorAll('input[name="radioCreateClass-Frequency"]').forEach(radio => {
+//         radio.addEventListener('change', updateVisibility);
+//     });
 
-    updateVisibility();
-});
+//     updateVisibility();
+// });
