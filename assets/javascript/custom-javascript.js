@@ -36,6 +36,24 @@ window.addEventListener('wheel', function (e) {
 //     document.querySelector('.sidebar-overlay').classList.toggle('active');
 // });
 
+/* -------------------- Toggle Setting -------------------- */
+
+$(document).ready(function () {
+    $('#btnNavbarPrimaryToggle').click(function (e) {
+        e.preventDefault();
+        $('.sidebar').toggleClass('active');
+    });
+
+    $('#btnSidebarPrimaryToggle').click(function (e) {
+        e.preventDefault();
+        $('.sidebar').toggleClass('active');
+    });
+
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+});
+
 /* -------------------- Cursor Setting -------------------- */
 
 const cursorDefault = new MouseFollower({

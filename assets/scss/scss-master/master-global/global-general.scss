@@ -499,8 +499,75 @@ svg {
     }
 
     .form-radio {
-        .form-radio-label {
-            font-weight         : var(--font-weight-regular);
+
+        // Primary
+
+        &.primary {
+            @include position-relative;
+
+            .form-radio-input:checked ~ .form-radio-label {
+                background          : var(--color-quinary);
+
+                border              : calc(1 / var(--vw) * var(--multiplier)) solid var(--color-secondary);
+
+                > span {
+                    &.description {
+                        color       : var(--color-black);
+                    }
+                }
+            }
+
+            .form-radio-input {
+                @include position-absolute;
+
+                z-index             : 10;
+
+                top                 : calc(20 / var(--vw) * var(--multiplier));
+                left                : calc(20 / var(--vw) * var(--multiplier));
+            }
+
+            .form-radio-label {
+                @include position-relative;
+
+                @include width-100;
+
+                @include py-3;
+                @include px-4;
+
+                cursor              : pointer;
+
+                border              : calc(1 / var(--vw) * var(--multiplier)) solid var(--color-grey-super-light);
+                border-radius       : calc(4.5 / var(--vw) * var(--multiplier));
+
+                transition          : 0.4s ease;
+
+                > span {
+                    @include display-block;
+
+                    &.title {
+                        @include position-absolute;
+
+                        @include h6;
+                        
+                        top                 : calc(15.5 / var(--vw) * var(--multiplier));
+                        left                : calc(42.5 / var(--vw) * var(--multiplier));
+                        
+                        font-weight         : var(--font-weight-bold);
+                    }
+
+                    &.description {
+                        @include mt-5;
+
+                        @include p;
+
+                        font-weight         : var(--font-weight-regular);
+
+                        line-height         : 1.35;
+
+                        color               : var(--color-grey-light);
+                    }
+                }
+            }
         }
     }
 
@@ -541,6 +608,70 @@ svg {
         .custom-switch-label {
             @include my-3;
             @include ml-4;
+        }
+    }
+
+    .form-code {
+        @include display-flex;
+
+        @include align-items-center;
+
+        main {
+            @include width-100;
+
+            @include m-0;
+
+            pre {
+                @include mb-0;
+            }
+
+            figure {
+                background-color        : var(--color-white);
+
+                border                  : calc(1 / var(--vw) * var(--multiplier)) solid var(--color-grey-super-light);
+
+                .numbers {
+                    box-shadow              : none;
+
+                    > span {
+                        background-color    : var(--color-white);
+                    }
+                }
+
+                code {
+                    color                   : var(--color-black);
+
+                    background-color        : var(--color-white);
+
+                    border                  : none;
+
+                    box-shadow              : none;
+
+                    .hljs-selector-tag {
+                        color           : #9C3EA5;
+                    }
+
+                    .hljs-comment {
+                        color           : #9D9FA3;
+                    }
+
+                    .hljs-keyword {
+                        color           : #9C3EA5;
+                    }
+
+                    .hljs-literal {
+                        color           : #9C3EA5;
+                    }
+
+                    .hljs-string {
+                        color           : #3734CF;
+                    }
+
+                    .hljs-title {
+                        color           : #9C3EA5;
+                    }
+                }
+            }
         }
     }
 }

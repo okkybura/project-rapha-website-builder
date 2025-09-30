@@ -7,6 +7,7 @@
  */
 @import "../../../node_modules/flickity/css/flickity.css";
 @import "../../../node_modules/select2/dist/css/select2.css";
+@import "../../../assets/css/vendor/code-snippet.css";
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
@@ -9640,8 +9641,50 @@ svg {
 .form-group .form-option .form-control:disabled {
   display: none;
 }
-.form-group .form-radio .form-radio-label {
+.form-group .form-radio.primary {
+  position: relative;
+}
+.form-group .form-radio.primary .form-radio-input:checked ~ .form-radio-label {
+  background: var(--color-quinary);
+  border: calc(1 / var(--vw) * var(--multiplier)) solid var(--color-secondary);
+}
+.form-group .form-radio.primary .form-radio-input:checked ~ .form-radio-label > span.description {
+  color: var(--color-black);
+}
+.form-group .form-radio.primary .form-radio-input {
+  position: absolute;
+  z-index: 10;
+  top: calc(20 / var(--vw) * var(--multiplier));
+  left: calc(20 / var(--vw) * var(--multiplier));
+}
+.form-group .form-radio.primary .form-radio-label {
+  position: relative;
+  width: 100% !important;
+  padding-top: calc(15 / var(--vw) * var(--multiplier)) !important;
+  padding-bottom: calc(15 / var(--vw) * var(--multiplier)) !important;
+  padding-left: calc(20 / var(--vw) * var(--multiplier)) !important;
+  padding-right: calc(20 / var(--vw) * var(--multiplier)) !important;
+  cursor: pointer;
+  border: calc(1 / var(--vw) * var(--multiplier)) solid var(--color-grey-super-light);
+  border-radius: calc(4.5 / var(--vw) * var(--multiplier));
+  transition: 0.4s ease;
+}
+.form-group .form-radio.primary .form-radio-label > span {
+  display: block;
+}
+.form-group .form-radio.primary .form-radio-label > span.title {
+  position: absolute;
+  font-size: calc(var(--font-size-h6) / var(--vw) * var(--multiplier));
+  top: calc(15.5 / var(--vw) * var(--multiplier));
+  left: calc(42.5 / var(--vw) * var(--multiplier));
+  font-weight: var(--font-weight-bold);
+}
+.form-group .form-radio.primary .form-radio-label > span.description {
+  margin-top: calc(35 / var(--vw) * var(--multiplier)) !important;
+  font-size: calc(var(--font-size-p) / var(--vw) * var(--multiplier));
   font-weight: var(--font-weight-regular);
+  line-height: 1.35;
+  color: var(--color-grey-light);
 }
 .form-group .form-switch .custom-switch .custom-control-input:checked ~ .custom-control-label:before {
   background: var(--color-primary);
@@ -9669,6 +9712,51 @@ svg {
   margin-top: calc(15 / var(--vw) * var(--multiplier)) !important;
   margin-bottom: calc(15 / var(--vw) * var(--multiplier)) !important;
   margin-left: calc(20 / var(--vw) * var(--multiplier)) !important;
+}
+.form-group .form-code {
+  display: flex;
+  align-items: center;
+}
+.form-group .form-code main {
+  width: 100% !important;
+  margin: 0 !important;
+}
+.form-group .form-code main pre {
+  margin-bottom: 0 !important;
+}
+.form-group .form-code main figure {
+  background-color: var(--color-white);
+  border: calc(1 / var(--vw) * var(--multiplier)) solid var(--color-grey-super-light);
+}
+.form-group .form-code main figure .numbers {
+  box-shadow: none;
+}
+.form-group .form-code main figure .numbers > span {
+  background-color: var(--color-white);
+}
+.form-group .form-code main figure code {
+  color: var(--color-black);
+  background-color: var(--color-white);
+  border: none;
+  box-shadow: none;
+}
+.form-group .form-code main figure code .hljs-selector-tag {
+  color: #9C3EA5;
+}
+.form-group .form-code main figure code .hljs-comment {
+  color: #9D9FA3;
+}
+.form-group .form-code main figure code .hljs-keyword {
+  color: #9C3EA5;
+}
+.form-group .form-code main figure code .hljs-literal {
+  color: #9C3EA5;
+}
+.form-group .form-code main figure code .hljs-string {
+  color: #3734CF;
+}
+.form-group .form-code main figure code .hljs-title {
+  color: #9C3EA5;
 }
 
 .select2-dropdown {
