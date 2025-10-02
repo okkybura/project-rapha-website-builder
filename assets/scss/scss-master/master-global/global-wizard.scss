@@ -806,6 +806,243 @@
                 }
             }
         }
+        
+        &.table-list {
+
+            // Primary
+
+            &.primary {
+
+                // Header
+
+                .table-list-header {
+                    @include mb-3;
+
+                    .header-wrapper {
+
+                        // Primary
+
+                        &.primary {
+                            @include display-flex;
+
+                            @include align-items-center;
+
+                            justify-content             : space-between;
+                        }
+                    }
+
+                    .header-text {
+                        .title {
+                            .text-title {
+                                @include mb-0;
+
+                                @include font-bold;
+                                @include h5;
+
+                                color                   : var(--color-black);
+                            }
+                        }
+                    }
+
+                    .header-button {
+                        .button {
+                            .btn-header {
+                                > span {
+                                    &.wrapper {
+                                        @include pl-3;
+                                        @include pr-4;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                // Content
+
+                .table-list-content {
+                    .content-table {
+                        table {
+                            border              : calc(1 / var(--vw) * var(--multiplier)) solid var(--color-grey-super-light);
+                            border-radius       : calc(4.5 / var(--vw) * var(--multiplier));
+                            
+                            thead {
+                                tr {
+                                    th {
+                                        @include px-4;
+
+                                        vertical-align      : middle;
+
+                                        background-color    : rgba($color-grey-super-light, 30%);
+
+                                        border              : unset;
+
+                                        &:first-child {
+                                            border-top-left-radius      : calc(4.5 / var(--vw) * var(--multiplier));
+                                        }
+
+                                        &:last-child {
+                                            border-top-right-radius     : calc(4.5 / var(--vw) * var(--multiplier));
+                                        }
+
+                                        > span {
+                                            @include display-flex;
+                                            
+                                            @include align-items-center;
+                                            
+                                            @include font-medium;
+                                            @include p;
+
+                                            color           : var(--color-grey);
+
+                                            > a {
+                                                @include display-inline-block;
+
+                                                @include ml-2;
+
+                                                svg {
+                                                    width           : calc(20 / var(--vw) * var(--multiplier));
+                                                    height          : calc(20 / var(--vw) * var(--multiplier));
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            tbody {
+                                tr {
+                                    td {
+                                        @include px-4;
+
+                                        vertical-align      : middle;
+
+                                        > span {
+                                            &.wrapper {
+                                                @include display-flex;
+
+                                                @include align-items-center;
+
+                                                justify-content         : flex-end;
+                                            }
+                                        }
+
+                                        span {
+                                            @include font-medium;
+                                            @include p;
+
+                                            &.button {
+                                                > a {
+                                                    > span {
+                                                        &.wrapper {
+                                                            @include px-4;
+                                                            @include pl-2;
+                                                        }
+                                                    }
+                                                }
+                                            }
+
+                                            &.icon {
+                                                @include display-flex;
+
+                                                @include align-items-center;
+
+                                                @include mr-4;
+
+                                                > a {
+                                                    @include display-inline-block;
+
+                                                    @include mr-3;
+
+                                                    &:last-child {
+                                                        @include mr-0;
+                                                    }
+
+                                                    svg {
+                                                        width           : calc(20 / var(--vw) * var(--multiplier));
+                                                        height          : calc(20 / var(--vw) * var(--multiplier));
+                                                    }
+                                                }
+                                            }
+
+                                            &.name {
+                                                @include display-inline-block;
+
+                                                @include font-semibold;
+
+                                                width                   : calc(200 / var(--vw) * var(--multiplier));
+
+                                                color                   : var(--color-grey);
+                                            }
+
+                                            &.status {
+                                                @include display-inline-block;
+
+                                                @include py-1;
+                                                @include px-2;
+
+                                                @include small;
+
+                                                @include text-transform-uppercase;
+
+                                                color               : var(--color-grey);
+
+                                                border-radius       : calc(2.5 / var(--vw) * var(--multiplier));
+                                                
+                                                &.active {
+                                                    color           : var(--color-secondary);
+
+                                                    background      : var(--color-quinary);
+                                                }
+
+                                                &.inactive {
+                                                    color           : var(--color-grey-light);
+
+                                                    background      : rgba($color-grey-super-light, 50%);
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                @include media-breakpoint-down(sm) {
+
+                    // Header
+
+                    .table-list-header {
+                        @include mb-4;
+                        
+                        .header-wrapper {
+
+                            // Primary
+
+                            &.primary {
+                                @include display-block;
+
+                                @include text-align-center;
+                            }
+                        }
+
+                        .header-text {
+                            @include mb-2;
+                        }
+
+                        .header-button {
+                            .button {
+                                .btn-header {
+                                    @include display-inline-block;
+
+                                    @include width-auto;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 
