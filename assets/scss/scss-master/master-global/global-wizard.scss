@@ -579,6 +579,208 @@
         }
     }
 
+    // Tertiary
+
+    &.tertiary {
+
+        // Header
+
+        .sidebar-header {
+            @include display-flex;
+
+            @include align-items-center;
+
+            @include text-align-center;
+
+            @include p-3;
+
+            height          : calc(50 / var(--vw) * var(--multiplier));
+
+            background      : var(--color-primary);
+
+            .header-icon {
+                @include mr-3;
+            }
+
+            .header-text {
+                .title {
+                    h2 {
+                        @include mb-0;
+
+                        @include font-semibold;
+                        @include h6;
+
+                        color           : var(--color-white);
+                    }
+                }
+            }
+
+            .header-button {
+                @include display-none;
+
+                @include ml-auto;
+
+                .button {
+                    .btn-header {
+                        @include p-0;
+
+                        svg {
+                            fill        : var(--color-white);
+                        }
+                    }
+                }
+            }
+        }
+
+        // Content
+
+        .sidebar-content {
+            @include overflow-y-auto;
+
+            @include p-4;
+
+            height                      : calc(100vh - 43.14px);
+
+            background                  : var(--color-grey-super-light);
+
+            .content-link {
+                @include mb-4;
+            }
+
+            .content-button {
+                @include text-align-center;
+
+                .button {
+                    .btn-content {
+                        @include display-inline-block;
+
+                        @include width-auto;
+
+                        > span {
+                            @include pl-2;
+                            @include pr-4;
+                        }
+                    }
+                }
+            }
+            
+            .content-list {
+                > ul {
+                    @include pl-0;
+
+                    list-style          : none; 
+
+                    > li {
+                        @include mb-3;
+
+                        &:last-child {
+                            @include mb-0;
+                        }
+                        
+                        .list-wrapper {
+
+                            // Primary
+
+                            &.primary {
+                                @include position-relative;
+
+                                padding             : calc(30 / var(--vw) * var(--multiplier)) calc(25 / var(--vw) * var(--multiplier));
+
+                                background          : var(--color-white);
+
+                                border-radius       : calc(7.5 / var(--vw) * var(--multiplier));
+
+                                > .wrapper-inner {
+                                    width           : 85%;
+                                }
+
+                                .list-anchor {
+                                    @include position-absolute;
+                                    
+                                    @include width-100;
+                                    @include height-100;
+
+                                    z-index         : 10;
+
+                                    top             : 0;
+                                    left            : 0; 
+                                }
+
+                                .list-button {
+                                    @include position-absolute;
+
+                                    z-index         : 5;
+
+                                    top             : 50%;
+                                    right           : calc(25 / var(--vw) * var(--multiplier));;
+                                    
+                                    transform       : translateY(-50%);
+                                }
+
+                                .list-icon {
+                                    @include mb-4;
+                                }
+
+                                .list-text {
+                                    .title {
+                                        @include mb-2;
+
+                                        h3 {
+                                            @include display-flex;
+
+                                            @include align-items-center;
+
+                                            @include mb-2;
+
+                                            @include font-semibold;
+                                            @include p;
+
+                                            justify-content     : space-between;
+
+                                            color               : var(--color-black);
+
+                                            transition          : 0.3s ease; 
+
+                                            > span {
+                                                &.icon {
+                                                    svg {
+                                                        width           : calc(17.5 / var(--vw) * var(--multiplier));
+                                                        height          : calc(17.5 / var(--vw) * var(--multiplier));
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    .desc {
+                                        p {
+                                            @include mb-0;
+
+                                            @include font-regular;
+                                            @include p;
+
+                                            color           : var(--color-grey-light);
+                                        }
+                                    }
+                                }
+
+                                &:hover {
+                                    .list-text {
+                                        .title {
+                                            h3 {
+                                                color       : var(--color-primary);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     @include media-breakpoint-down(md) {
 
         position        : fixed !important;
