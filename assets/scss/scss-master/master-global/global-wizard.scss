@@ -645,6 +645,115 @@
 
             .content-link {
                 @include mb-4;
+
+                .link {
+                    @include mb-2;
+
+                    &:last-child {
+                        @include mb-0;
+                    }
+                    
+                    .link-content {
+                        @include position-relative;
+
+                        @include display-block;
+
+                        @include text-decoration-none;
+
+                        @include p-4;
+
+                        background          : var(--color-white);
+
+                        border-radius       : calc(7.5 / var(--vw) * var(--multiplier));
+
+                        > span {
+                            &.wrapper {
+                                @include display-flex;
+
+                                @include align-items-center;
+
+                                justify-content         : space-between;
+                            }
+
+                            > span {
+                                @include display-inline-block;
+
+                                flex-shrink             : 0;
+
+                                &:last-child {
+                                    @include display-flex;
+
+                                    @include align-items-center;
+                                }
+
+                                > span {
+                                    @include display-block;
+
+                                    @include p;
+                                    
+                                    transition              : 0.3s ease;
+
+                                    &.icon {
+                                        svg {
+                                            width           : calc(17.5 / var(--vw) * var(--multiplier));
+                                            height          : calc(17.5 / var(--vw) * var(--multiplier));
+                                        }
+                                    }
+
+                                    &.status {
+                                        @include display-inline-block;
+
+                                        @include py-1;
+                                        @include px-3;
+                                        @include mr-3;
+
+                                        @include font-medium;
+
+                                        border-radius       : calc(4.5 / var(--vw) * var(--multiplier));
+
+                                        &.published {
+                                            color           : #396C39;
+                                            
+                                            background      : #E1F9D8; 
+                                        }
+
+                                        &.sketch {
+                                            color           : #76562A;
+                                            
+                                            background      : #F9F1D8;  
+                                        }
+                                    }
+
+                                    &.title {
+                                        @include font-bold;
+
+                                        @include ellipsis-single;
+
+                                        color               : var(--color-black);
+                                    }
+
+                                    &.url {
+                                        @include ellipsis-single;
+
+                                        color               : var(--color-grey-light);
+                                    }
+                                }
+                            }
+                        }
+
+                        &:hover {
+                            > span {
+                                > span {
+                                    > span {
+                                        &.title {
+                                            color           : var(--color-secondary);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
 
             .content-button {
@@ -657,121 +766,691 @@
                         @include width-auto;
 
                         > span {
-                            @include pl-2;
-                            @include pr-4;
+                            @include px-4;
+
+                            > span {
+                                &.icon {
+                                    @include ml-0;
+                                }
+                            }
                         }
                     }
                 }
             }
-            
-            .content-list {
-                > ul {
-                    @include pl-0;
+        }
+    }
 
-                    list-style          : none; 
+    // Quarter
 
-                    > li {
-                        @include mb-3;
+    &.quarter {
 
-                        &:last-child {
-                            @include mb-0;
+        // Header
+
+        .sidebar-header {
+            @include display-flex;
+
+            @include align-items-center;
+
+            @include text-align-center;
+
+            @include p-3;
+
+            height          : calc(50 / var(--vw) * var(--multiplier));
+
+            background      : var(--color-primary);
+
+            .header-icon {
+                @include mr-3;
+            }
+
+            .header-text {
+                .title {
+                    h2 {
+                        @include mb-0;
+
+                        @include font-semibold;
+                        @include h6;
+
+                        color           : var(--color-white);
+                    }
+                }
+            }
+
+            .header-anchor {
+                @include ml-auto;
+                @include mr-2;
+
+                .anchor {
+                    > a {
+                        svg {
+                            width           : calc(22.5 / var(--vw) * var(--multiplier));
+                            height          : calc(22.5 / var(--vw) * var(--multiplier));
                         }
-                        
-                        .list-wrapper {
+                    }
+                }
+            }
 
-                            // Primary
+            .header-button {
+                @include display-none;
 
-                            &.primary {
-                                @include position-relative;
+                .button {
+                    .btn-header {
+                        @include p-0;
 
-                                padding             : calc(30 / var(--vw) * var(--multiplier)) calc(25 / var(--vw) * var(--multiplier));
+                        svg {
+                            fill        : var(--color-white);
+                        }
+                    }
+                }
+            }
+        }
 
-                                background          : var(--color-white);
+        // Content
 
-                                border-radius       : calc(7.5 / var(--vw) * var(--multiplier));
+        .sidebar-content {
+            @include overflow-y-auto;
 
-                                > .wrapper-inner {
-                                    width           : 85%;
-                                }
+            height                      : calc(100vh - 140.23px);
 
-                                .list-anchor {
-                                    @include position-absolute;
-                                    
-                                    @include width-100;
-                                    @include height-100;
+            .content-wrapper {
 
-                                    z-index         : 10;
+                // Primary
 
-                                    top             : 0;
-                                    left            : 0; 
-                                }
+                &.primary {
+                    @include height-100;
 
-                                .list-button {
-                                    @include position-absolute;
+                    > div {
+                        @include height-100;
+                    }
 
-                                    z-index         : 5;
+                    // Content Page Structure
 
-                                    top             : 50%;
-                                    right           : calc(25 / var(--vw) * var(--multiplier));;
-                                    
-                                    transform       : translateY(-50%);
-                                }
+                    .content-page-structure {
+                        @include p-4;
 
-                                .list-icon {
-                                    @include mb-4;
-                                }
+                        background                  : var(--color-grey-super-light);
 
-                                .list-text {
-                                    .title {
-                                        @include mb-2;
+                        .content-list {
+                            > ul {
+                                @include pl-0;
 
-                                        h3 {
+                                list-style          : none;
+
+                                > li {
+                                    @include mb-2;
+
+                                    &:last-child {
+                                        @include mb-0;
+                                    }
+
+                                    .list-wrapper {
+
+                                        // Primary
+
+                                        &.primary {
+                                            @include position-relative;
+
                                             @include display-flex;
 
                                             @include align-items-center;
 
-                                            @include mb-2;
-
-                                            @include font-semibold;
-                                            @include p;
+                                            @include p-3;
 
                                             justify-content     : space-between;
 
-                                            color               : var(--color-black);
+                                            background          : var(--color-white);
 
-                                            transition          : 0.3s ease; 
+                                            border-radius       : calc(7.5 / var(--vw) * var(--multiplier));
+
+                                            > .wrapper-inner {
+                                                @include display-flex;
+
+                                                @include align-items-center;
+
+                                                > div {
+                                                    @include mr-2;
+
+                                                    &:last-child {
+                                                        @include mr-0;
+                                                    }
+                                                }
+                                            }
+
+                                            .list-detail {
+                                                @include display-flex;
+
+                                                @include align-items-center;
+
+                                                > span {
+                                                    &.icon {
+                                                        @include mr-2;
+
+                                                        svg {
+                                                            width           : calc(60 / var(--vw) * var(--multiplier));
+                                                            height          : calc(40 / var(--vw) * var(--multiplier));
+                                                        }
+                                                    }
+
+                                                    &.text {
+                                                        @include font-bold;
+                                                        @include h6;
+
+                                                        color               : var(--color-black);
+                                                    }
+                                                }
+                                            }
+
+                                            .list-icon {
+                                                .dropdown {
+                                                    .dropdown-menu {
+                                                        .dropdown-item {
+                                                            .dropdown-link {
+                                                                @include font-regular;
+                                                                @include p;
+
+                                                                @include text-decoration-none;
+
+                                                                color       : var(--color-black);
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        .content-link {
+                            @include mb-4;
+
+                            .link {
+                                @include mb-2;
+
+                                &:last-child {
+                                    @include mb-0;
+                                }
+                                
+                                .link-content {
+                                    @include position-relative;
+
+                                    @include display-block;
+
+                                    @include text-decoration-none;
+
+                                    @include p-4;
+
+                                    background          : var(--color-white);
+
+                                    border-radius       : calc(7.5 / var(--vw) * var(--multiplier));
+
+                                    > span {
+                                        &.wrapper {
+                                            @include display-flex;
+
+                                            @include align-items-center;
+
+                                            justify-content         : space-between;
+                                        }
+
+                                        > span {
+                                            @include display-inline-block;
+
+                                            flex-shrink             : 0;
+
+                                            &:last-child {
+                                                @include display-flex;
+
+                                                @include align-items-center;
+                                            }
 
                                             > span {
+                                                @include display-block;
+
+                                                @include p;
+                                                
+                                                transition              : 0.3s ease;
+
                                                 &.icon {
                                                     svg {
                                                         width           : calc(17.5 / var(--vw) * var(--multiplier));
                                                         height          : calc(17.5 / var(--vw) * var(--multiplier));
                                                     }
                                                 }
+
+                                                &.status {
+                                                    @include display-inline-block;
+
+                                                    @include py-1;
+                                                    @include px-3;
+                                                    @include mr-3;
+
+                                                    @include font-medium;
+
+                                                    border-radius       : calc(4.5 / var(--vw) * var(--multiplier));
+
+                                                    &.published {
+                                                        color           : #396C39;
+                                                        
+                                                        background      : #E1F9D8; 
+                                                    }
+
+                                                    &.sketch {
+                                                        color           : #76562A;
+                                                        
+                                                        background      : #F9F1D8;  
+                                                    }
+                                                }
+
+                                                &.title {
+                                                    @include font-bold;
+
+                                                    @include ellipsis-single;
+
+                                                    color               : var(--color-black);
+                                                }
+
+                                                &.url {
+                                                    @include ellipsis-single;
+                                                    
+                                                    color               : var(--color-grey-light);
+                                                }
                                             }
                                         }
                                     }
 
-                                    .desc {
-                                        p {
-                                            @include mb-0;
-
-                                            @include font-regular;
-                                            @include p;
-
-                                            color           : var(--color-grey-light);
+                                    &:hover {
+                                        > span {
+                                            > span {
+                                                > span {
+                                                    &.title {
+                                                        color           : var(--color-secondary);
+                                                    }
+                                                }
+                                            }
                                         }
                                     }
                                 }
+                            }
+                        }
 
-                                &:hover {
-                                    .list-text {
-                                        .title {
-                                            h3 {
-                                                color       : var(--color-primary);
+                        .content-button {
+                            @include text-align-center;
+
+                            .button {
+                                .btn-content {
+                                    @include display-inline-block;
+
+                                    @include width-auto;
+
+                                    > span {
+                                        @include px-4;
+
+                                        > span {
+                                            &.icon {
+                                                @include ml-0;
                                             }
                                         }
                                     }
+                                }
+                            }
+                        }
+                    }
+
+                    // Content Page Config
+
+                    .content-page-config {
+                        @include p-4;
+                    }
+                }
+            }
+        }
+
+        // Footer
+
+        .sidebar-footer {
+            @include p-2;
+
+            border-top          : calc(1 / var(--vw) * var(--multiplier)) solid var(--color-grey-super-light);
+
+            .footer-wrapper {
+
+                // Primary
+
+                &.primary {
+                    @include display-flex;
+
+                    @include align-items-center;
+
+                    justify-content         : space-between;
+
+                    > .wrapper-inner {
+                        @include display-flex;
+
+                        @include align-items-center;
+
+                        > div {
+                            @include mr-4;
+
+                            &:last-child {
+                                @include mr-0;
+                            }
+                        }
+                    }
+                }
+            }
+
+            svg {
+                width           : calc(22.5 / var(--vw) * var(--multiplier));
+                height          : calc(22.5 / var(--vw) * var(--multiplier));
+            }
+
+            .footer-form {
+                @include display-flex;
+
+                @include align-items-center;
+
+                .form-group {
+                    @include display-flex;
+
+                    @include align-items-center;
+
+                    @include p-1;
+                    @include mb-0;
+                    @include mr-2;
+
+                    background              : rgba($color-black, 0.125); 
+
+                    border-radius           : calc(4.5 / var(--vw) * var(--multiplier));
+
+                    .form-radio {
+                        @include position-relative;
+
+                        @include mr-1;
+
+                        &:last-child {
+                            @include mr-0;
+                        }
+
+                        .form-radio-input {
+                            @include position-absolute;
+
+                            @include width-100;
+                            @include height-100;
+
+                            cursor                  : pointer;
+                            
+                            z-index                 : 10;
+
+                            opacity                 : 0;
+
+                            top                     : 0;
+                            left                    : 0;
+                        }
+
+                        .form-radio-input:checked ~ .form-radio-label {
+                            background              : var(--color-white);
+                        }
+
+                        .form-radio-label {
+                            @include p-1;
+                            @include mb-0;
+
+                            background              : transparent;
+
+                            border-radius           : calc(4.5 / var(--vw) * var(--multiplier));
+                        }
+                    }
+                }
+
+                .form-button {
+                    @include display-flex;
+
+                    @include align-items-center;
+                }
+            }
+
+            .footer-button {
+                .button {
+                    .btn-footer {
+                        &.disabled {
+                            color                       : var(--color-grey-light);
+
+                            > span {
+                                &:before {
+                                    background          : rgba($color-black, 0.125); 
+
+                                    border              : calc(1 / var(--vw) * var(--multiplier)) solid transparent;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        @include media-breakpoint-down(md) {
+
+            // Content
+
+            .sidebar-content {
+                height                      : calc(100vh - 98.72px);
+            }
+        }
+
+        @include media-breakpoint-down(sm) {
+
+            // Content
+
+            .sidebar-content {
+                height                      : calc(100vh - 106.07px);
+            }
+        }
+    }
+
+    // Quinary
+
+    &.quinary {
+
+        // Header
+
+        .sidebar-header {
+            @include display-flex;
+
+            @include align-items-center;
+
+            @include text-align-center;
+
+            @include p-3;
+
+            height          : calc(50 / var(--vw) * var(--multiplier));
+
+            background      : var(--color-primary);
+
+            .header-icon {
+                @include mr-3;
+            }
+
+            .header-text {
+                .title {
+                    h2 {
+                        @include mb-0;
+
+                        @include font-semibold;
+                        @include h6;
+
+                        color           : var(--color-white);
+                    }
+                }
+            }
+
+            .header-button {
+                @include display-none;
+
+                @include ml-auto;
+
+                .button {
+                    .btn-header {
+                        @include p-0;
+
+                        svg {
+                            fill        : var(--color-white);
+                        }
+                    }
+                }
+            }
+        }
+
+        // Content
+
+        .sidebar-content {
+            @include overflow-y-auto;
+
+            @include p-4;
+
+            height                      : calc(100vh - 140.23px);
+
+            background                  : var(--color-grey-super-light);
+
+            .content-button {
+                @include text-align-center;
+
+                .button {
+                    .btn-content {
+                        @include display-inline-block;
+
+                        @include width-auto;
+
+                        > span {
+                            @include px-4;
+
+                            > span {
+                                &.icon {
+                                    @include ml-0;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // Footer
+
+        .sidebar-footer {
+            @include p-2;
+
+            border-top          : calc(1 / var(--vw) * var(--multiplier)) solid var(--color-grey-super-light);
+
+            .footer-wrapper {
+
+                // Primary
+
+                &.primary {
+                    @include display-flex;
+
+                    @include align-items-center;
+
+                    justify-content         : space-between;
+
+                    > .wrapper-inner {
+                        @include display-flex;
+
+                        @include align-items-center;
+
+                        > div {
+                            @include mr-4;
+
+                            &:last-child {
+                                @include mr-0;
+                            }
+                        }
+                    }
+                }
+            }
+
+            svg {
+                width           : calc(22.5 / var(--vw) * var(--multiplier));
+                height          : calc(22.5 / var(--vw) * var(--multiplier));
+            }
+
+            .footer-form {
+                @include display-flex;
+
+                @include align-items-center;
+
+                .form-group {
+                    @include display-flex;
+
+                    @include align-items-center;
+
+                    @include p-1;
+                    @include mb-0;
+                    @include mr-2;
+
+                    background              : rgba($color-black, 0.125); 
+
+                    border-radius           : calc(4.5 / var(--vw) * var(--multiplier));
+
+                    .form-radio {
+                        @include position-relative;
+
+                        @include mr-1;
+
+                        &:last-child {
+                            @include mr-0;
+                        }
+
+                        .form-radio-input {
+                            @include position-absolute;
+
+                            @include width-100;
+                            @include height-100;
+
+                            cursor                  : pointer;
+                            
+                            z-index                 : 10;
+
+                            opacity                 : 0;
+
+                            top                     : 0;
+                            left                    : 0;
+                        }
+
+                        .form-radio-input:checked ~ .form-radio-label {
+                            background              : var(--color-white);
+                        }
+
+                        .form-radio-label {
+                            @include p-1;
+                            @include mb-0;
+
+                            background              : transparent;
+
+                            border-radius           : calc(4.5 / var(--vw) * var(--multiplier));
+                        }
+                    }
+                }
+
+                .form-button {
+                    @include display-flex;
+
+                    @include align-items-center;
+                }
+            }
+
+            .footer-button {
+                .button {
+                    .btn-footer {
+                        &.disabled {
+                            color                       : var(--color-grey-light);
+
+                            > span {
+                                &:before {
+                                    background          : rgba($color-black, 0.125); 
+
+                                    border              : calc(1 / var(--vw) * var(--multiplier)) solid transparent;
                                 }
                             }
                         }

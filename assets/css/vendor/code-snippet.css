@@ -43,6 +43,7 @@ pre * {
 }
 
 pre {
+    overflow: hidden;
     font-size: 0.8em;
 }
 
@@ -64,7 +65,7 @@ pre {
             -moz-tab-size: 4;
             -o-tab-size: 4;
             tab-size: 4;
-            overflow-x: auto;
+            overflow-x: hidden;
             box-shadow: inset 0 1px 0 1px rgba(0, 0, 0, 0.5);
         }
 
@@ -81,6 +82,7 @@ pre {
 
         pre.line-numbers {
             position: relative;
+            overflow: hidden;
         }
 
             pre.line-numbers code,
@@ -139,6 +141,7 @@ pre {
 }
 
 code.hljs {
+    overflow: hidden;
     padding-top: 10px;
 }
 /* double-up the syntax elements for cross-browser RTF-keystroke support */
