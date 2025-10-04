@@ -784,6 +784,32 @@
 
     &.quarter {
 
+        .sidebar-wrapper {
+
+            // Primary
+
+            &.primary {
+                > .wrapper-inner {
+                    &.sidebar-overlap {
+                        @include position-fixed;
+
+                        z-index             : 100;
+
+                        top                 : 0;
+                        left                : -27.5%;
+
+                        width               : 27.5%;
+
+                        transition          : 0.4s ease;
+
+                        &.active {
+                            left            : 0;
+                        }
+                    }
+                }
+            }
+        }
+
         // Header
 
         .sidebar-header {
@@ -850,7 +876,9 @@
         .sidebar-content {
             @include overflow-y-auto;
 
-            height                      : calc(100vh - 140.23px);
+            height                      : calc(100vh - calc(115 / var(--vw) * var(--multiplier)));
+
+            background                  : var(--color-grey-super-light);
 
             .content-wrapper {
 
@@ -862,456 +890,8 @@
                     > div {
                         @include height-100;
                     }
-
-                    // Content Page Structure
-
-                    .content-page-structure {
-                        @include p-4;
-
-                        background                  : var(--color-grey-super-light);
-
-                        .content-list {
-                            > ul {
-                                @include pl-0;
-
-                                list-style          : none;
-
-                                > li {
-                                    @include mb-2;
-
-                                    &:last-child {
-                                        @include mb-0;
-                                    }
-
-                                    .list-wrapper {
-
-                                        // Primary
-
-                                        &.primary {
-                                            @include position-relative;
-
-                                            @include display-flex;
-
-                                            @include align-items-center;
-
-                                            @include p-3;
-
-                                            justify-content     : space-between;
-
-                                            background          : var(--color-white);
-
-                                            border-radius       : calc(7.5 / var(--vw) * var(--multiplier));
-
-                                            > .wrapper-inner {
-                                                @include display-flex;
-
-                                                @include align-items-center;
-
-                                                > div {
-                                                    @include mr-2;
-
-                                                    &:last-child {
-                                                        @include mr-0;
-                                                    }
-                                                }
-                                            }
-
-                                            .list-detail {
-                                                @include display-flex;
-
-                                                @include align-items-center;
-
-                                                > span {
-                                                    &.icon {
-                                                        @include mr-2;
-
-                                                        svg {
-                                                            width           : calc(60 / var(--vw) * var(--multiplier));
-                                                            height          : calc(40 / var(--vw) * var(--multiplier));
-                                                        }
-                                                    }
-
-                                                    &.text {
-                                                        @include font-bold;
-                                                        @include h6;
-
-                                                        color               : var(--color-black);
-                                                    }
-                                                }
-                                            }
-
-                                            .list-icon {
-                                                .dropdown {
-                                                    .dropdown-menu {
-                                                        .dropdown-item {
-                                                            .dropdown-link {
-                                                                @include font-regular;
-                                                                @include p;
-
-                                                                @include text-decoration-none;
-
-                                                                color       : var(--color-black);
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-
-                        .content-link {
-                            @include mb-4;
-
-                            .link {
-                                @include mb-2;
-
-                                &:last-child {
-                                    @include mb-0;
-                                }
-                                
-                                .link-content {
-                                    @include position-relative;
-
-                                    @include display-block;
-
-                                    @include text-decoration-none;
-
-                                    @include p-4;
-
-                                    background          : var(--color-white);
-
-                                    border-radius       : calc(7.5 / var(--vw) * var(--multiplier));
-
-                                    > span {
-                                        &.wrapper {
-                                            @include display-flex;
-
-                                            @include align-items-center;
-
-                                            justify-content         : space-between;
-                                        }
-
-                                        > span {
-                                            @include display-inline-block;
-
-                                            flex-shrink             : 0;
-
-                                            &:last-child {
-                                                @include display-flex;
-
-                                                @include align-items-center;
-                                            }
-
-                                            > span {
-                                                @include display-block;
-
-                                                @include p;
-                                                
-                                                transition              : 0.3s ease;
-
-                                                &.icon {
-                                                    svg {
-                                                        width           : calc(17.5 / var(--vw) * var(--multiplier));
-                                                        height          : calc(17.5 / var(--vw) * var(--multiplier));
-                                                    }
-                                                }
-
-                                                &.status {
-                                                    @include display-inline-block;
-
-                                                    @include py-1;
-                                                    @include px-3;
-                                                    @include mr-3;
-
-                                                    @include font-medium;
-
-                                                    border-radius       : calc(4.5 / var(--vw) * var(--multiplier));
-
-                                                    &.published {
-                                                        color           : #396C39;
-                                                        
-                                                        background      : #E1F9D8; 
-                                                    }
-
-                                                    &.sketch {
-                                                        color           : #76562A;
-                                                        
-                                                        background      : #F9F1D8;  
-                                                    }
-                                                }
-
-                                                &.title {
-                                                    @include font-bold;
-
-                                                    @include ellipsis-single;
-
-                                                    color               : var(--color-black);
-                                                }
-
-                                                &.url {
-                                                    @include ellipsis-single;
-                                                    
-                                                    color               : var(--color-grey-light);
-                                                }
-                                            }
-                                        }
-                                    }
-
-                                    &:hover {
-                                        > span {
-                                            > span {
-                                                > span {
-                                                    &.title {
-                                                        color           : var(--color-secondary);
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-
-                        .content-button {
-                            @include text-align-center;
-
-                            .button {
-                                .btn-content {
-                                    @include display-inline-block;
-
-                                    @include width-auto;
-
-                                    > span {
-                                        @include px-4;
-
-                                        > span {
-                                            &.icon {
-                                                @include ml-0;
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-                    // Content Page Config
-
-                    .content-page-config {
-                        @include p-4;
-                    }
                 }
             }
-        }
-
-        // Footer
-
-        .sidebar-footer {
-            @include p-2;
-
-            border-top          : calc(1 / var(--vw) * var(--multiplier)) solid var(--color-grey-super-light);
-
-            .footer-wrapper {
-
-                // Primary
-
-                &.primary {
-                    @include display-flex;
-
-                    @include align-items-center;
-
-                    justify-content         : space-between;
-
-                    > .wrapper-inner {
-                        @include display-flex;
-
-                        @include align-items-center;
-
-                        > div {
-                            @include mr-4;
-
-                            &:last-child {
-                                @include mr-0;
-                            }
-                        }
-                    }
-                }
-            }
-
-            svg {
-                width           : calc(22.5 / var(--vw) * var(--multiplier));
-                height          : calc(22.5 / var(--vw) * var(--multiplier));
-            }
-
-            .footer-form {
-                @include display-flex;
-
-                @include align-items-center;
-
-                .form-group {
-                    @include display-flex;
-
-                    @include align-items-center;
-
-                    @include p-1;
-                    @include mb-0;
-                    @include mr-2;
-
-                    background              : rgba($color-black, 0.125); 
-
-                    border-radius           : calc(4.5 / var(--vw) * var(--multiplier));
-
-                    .form-radio {
-                        @include position-relative;
-
-                        @include mr-1;
-
-                        &:last-child {
-                            @include mr-0;
-                        }
-
-                        .form-radio-input {
-                            @include position-absolute;
-
-                            @include width-100;
-                            @include height-100;
-
-                            cursor                  : pointer;
-                            
-                            z-index                 : 10;
-
-                            opacity                 : 0;
-
-                            top                     : 0;
-                            left                    : 0;
-                        }
-
-                        .form-radio-input:checked ~ .form-radio-label {
-                            background              : var(--color-white);
-                        }
-
-                        .form-radio-label {
-                            @include p-1;
-                            @include mb-0;
-
-                            background              : transparent;
-
-                            border-radius           : calc(4.5 / var(--vw) * var(--multiplier));
-                        }
-                    }
-                }
-
-                .form-button {
-                    @include display-flex;
-
-                    @include align-items-center;
-                }
-            }
-
-            .footer-button {
-                .button {
-                    .btn-footer {
-                        &.disabled {
-                            color                       : var(--color-grey-light);
-
-                            > span {
-                                &:before {
-                                    background          : rgba($color-black, 0.125); 
-
-                                    border              : calc(1 / var(--vw) * var(--multiplier)) solid transparent;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        @include media-breakpoint-down(md) {
-
-            // Content
-
-            .sidebar-content {
-                height                      : calc(100vh - 98.72px);
-            }
-        }
-
-        @include media-breakpoint-down(sm) {
-
-            // Content
-
-            .sidebar-content {
-                height                      : calc(100vh - 106.07px);
-            }
-        }
-    }
-
-    // Quinary
-
-    &.quinary {
-
-        // Header
-
-        .sidebar-header {
-            @include display-flex;
-
-            @include align-items-center;
-
-            @include text-align-center;
-
-            @include p-3;
-
-            height          : calc(50 / var(--vw) * var(--multiplier));
-
-            background      : var(--color-primary);
-
-            .header-icon {
-                @include mr-3;
-            }
-
-            .header-text {
-                .title {
-                    h2 {
-                        @include mb-0;
-
-                        @include font-semibold;
-                        @include h6;
-
-                        color           : var(--color-white);
-                    }
-                }
-            }
-
-            .header-button {
-                @include display-none;
-
-                @include ml-auto;
-
-                .button {
-                    .btn-header {
-                        @include p-0;
-
-                        svg {
-                            fill        : var(--color-white);
-                        }
-                    }
-                }
-            }
-        }
-
-        // Content
-
-        .sidebar-content {
-            @include overflow-y-auto;
-
-            @include p-4;
-
-            height                      : calc(100vh - 140.23px);
-
-            background                  : var(--color-grey-super-light);
 
             .content-button {
                 @include text-align-center;
@@ -1453,6 +1033,716 @@
                                     border              : calc(1 / var(--vw) * var(--multiplier)) solid transparent;
                                 }
                             }
+                        }
+                    }
+                }
+            }
+        }
+
+        // Sidebar Page
+
+        .sidebar-page {
+
+            // Content
+
+            .sidebar-content {
+
+                // Content Page Structure
+
+                .content-page-structure {
+                    @include p-4;
+
+                    background                  : var(--color-grey-super-light);
+
+                    .content-list {
+                        > ul {
+                            @include pl-0;
+
+                            list-style          : none;
+
+                            > li {
+                                @include mb-2;
+
+                                &:last-child {
+                                    @include mb-0;
+                                }
+
+                                &.active {
+                                    .list-wrapper {
+
+                                        // Primary
+
+                                        &.primary {
+                                            background      : var(--color-quinary);
+                                        }
+                                    }
+                                }
+
+                                .list-wrapper {
+
+                                    // Primary
+
+                                    &.primary {
+                                        @include position-relative;
+
+                                        @include display-flex;
+
+                                        @include align-items-center;
+
+                                        @include p-3;
+
+                                        justify-content     : space-between;
+
+                                        background          : var(--color-white);
+
+                                        border-radius       : calc(7.5 / var(--vw) * var(--multiplier));
+
+                                        transition          : 0.3s ease;
+
+                                        > .wrapper-inner {
+                                            @include display-flex;
+
+                                            @include align-items-center;
+
+                                            > div {
+                                                @include mr-2;
+
+                                                &:last-child {
+                                                    @include mr-0;
+                                                }
+                                            }
+                                        }
+
+                                        .list-detail {
+                                            @include position-relative;
+
+                                            @include display-flex;
+
+                                            @include align-items-center;
+
+                                            > a {
+                                                @include position-absolute;
+
+                                                @include width-100;
+                                                @include height-100;
+
+                                                z-index         : 10;
+
+                                                top             : 0;
+                                                left            : 0;
+                                            }
+
+                                            > span {
+                                                &.icon {
+                                                    @include mr-2;
+
+                                                    svg {
+                                                        width           : calc(60 / var(--vw) * var(--multiplier));
+                                                        height          : calc(40 / var(--vw) * var(--multiplier));
+                                                    }
+                                                }
+
+                                                &.text {
+                                                    @include font-bold;
+                                                    @include h6;
+
+                                                    color               : var(--color-black);
+
+                                                    transition          : 0.3s ease;
+                                                }
+                                            }
+
+                                            &:hover {
+                                                > span {
+                                                    &.text {
+                                                        color           : var(--color-primary);
+                                                    }
+                                                }
+                                            }
+                                        }
+
+                                        .list-icon {
+                                            .dropdown {
+                                                .dropdown-menu {
+                                                    .dropdown-item {
+                                                        @include px-3;
+
+                                                        .dropdown-link {
+                                                            @include display-block;
+
+                                                            @include font-regular;
+                                                            @include p;
+
+                                                            @include text-decoration-none;
+
+                                                            color       : var(--color-black);
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .content-link {
+                        @include mb-4;
+
+                        .link {
+                            @include mb-2;
+
+                            &:last-child {
+                                @include mb-0;
+                            }
+                            
+                            .link-content {
+                                @include position-relative;
+
+                                @include display-block;
+
+                                @include text-decoration-none;
+
+                                @include p-4;
+
+                                background          : var(--color-white);
+
+                                border-radius       : calc(7.5 / var(--vw) * var(--multiplier));
+
+                                > span {
+                                    &.wrapper {
+                                        @include display-flex;
+
+                                        @include align-items-center;
+
+                                        justify-content         : space-between;
+                                    }
+
+                                    > span {
+                                        @include display-inline-block;
+
+                                        flex-shrink             : 0;
+
+                                        &:last-child {
+                                            @include display-flex;
+
+                                            @include align-items-center;
+                                        }
+
+                                        > span {
+                                            @include display-block;
+
+                                            @include p;
+                                            
+                                            transition              : 0.3s ease;
+
+                                            &.icon {
+                                                svg {
+                                                    width           : calc(17.5 / var(--vw) * var(--multiplier));
+                                                    height          : calc(17.5 / var(--vw) * var(--multiplier));
+                                                }
+                                            }
+
+                                            &.status {
+                                                @include display-inline-block;
+
+                                                @include py-1;
+                                                @include px-3;
+                                                @include mr-3;
+
+                                                @include font-medium;
+
+                                                border-radius       : calc(4.5 / var(--vw) * var(--multiplier));
+
+                                                &.published {
+                                                    color           : #396C39;
+                                                    
+                                                    background      : #E1F9D8; 
+                                                }
+
+                                                &.sketch {
+                                                    color           : #76562A;
+                                                    
+                                                    background      : #F9F1D8;  
+                                                }
+                                            }
+
+                                            &.title {
+                                                @include font-bold;
+
+                                                @include ellipsis-single;
+
+                                                color               : var(--color-black);
+                                            }
+
+                                            &.url {
+                                                @include ellipsis-single;
+                                                
+                                                color               : var(--color-grey-light);
+                                            }
+                                        }
+                                    }
+                                }
+
+                                &:hover {
+                                    > span {
+                                        > span {
+                                            > span {
+                                                &.title {
+                                                    color           : var(--color-secondary);
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                // Content Page Config
+
+                .content-page-config {
+                    @include p-4;
+                }
+            }
+        }
+
+        // Sidebar Config
+
+        .sidebar-config {
+
+            // Content
+
+            .sidebar-content {
+                .content-tab {
+                    .tab-nav {
+                        @include position-sticky;
+
+                        position            : -webkit-sticky;
+
+                        z-index             : 10;
+
+                        top                 : 0;
+
+                        border-bottom       : calc(1 / var(--vw) * var(--multiplier)) solid var(--color-grey-super-light);
+
+                        .nav-item {
+                            @include max-width-100;
+
+                            flex-basis      : 0;
+                            flex-grow       : 1;
+
+                            .nav-link {
+                                @include display-block;
+
+                                @include text-align-center;
+
+                                @include width-100;
+
+                                @include p-3;
+
+                                @include font-bold;
+                                @include p;
+
+                                color               : rgba($color-black, 0.65);
+
+                                background          : var(--color-white);
+
+                                border-bottom       : calc(6.5 / var(--vw) * var(--multiplier)) solid transparent;
+
+                                border-radius       : 0em;
+
+                                > span {
+                                    @include display-block;
+
+                                    transition          : 0.3s ease;
+
+                                    &.icon {
+                                        svg {
+                                            width             : calc(55 / var(--vw) * var(--multiplier));
+                                            height            : calc(30 / var(--vw) * var(--multiplier));
+    
+                                            path, rect {
+                                                stroke        : rgba($color-black, 0.65);
+                                            }
+                                        }
+                                    }
+                                }
+
+                                &:hover {
+                                    background          : var(--color-quinary);
+                                }
+
+                                &.active {
+                                    color               : var(--color-primary);
+
+                                    background          : var(--color-quinary);
+
+                                    border-bottom       : calc(6.5 / var(--vw) * var(--multiplier)) solid var(--color-primary);
+
+                                    > span {
+                                        &.icon {
+                                            svg {
+                                                path, rect {
+                                                    stroke        : var(--color-primary);
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .tab-content {
+                        @include height-100;
+
+                        .tab-pane {
+                            @include height-100;
+                        }
+
+                        .content-body {
+                            @include overflow-hidden;
+
+                            @include height-100;
+
+                            @include p-4;
+
+                            background                  : var(--color-grey-super-light);
+
+                            &.body-white {
+                                background              : var(--color-white);
+                            }
+
+                            .body-wrapper {
+
+                                // Primary
+
+                                &.primary {
+                                    > .wrapper-inner {
+                                        @include position-relative;
+
+                                        @include pb-4;
+                                        @include mb-5;
+
+                                        &:after {
+                                            @include position-absolute;
+
+                                            content         : '';
+
+                                            width           : calc(100% + 9.5rem);
+                                            height          : calc(5 / var(--vw) * var(--multiplier));
+
+                                            bottom          : 0;
+                                            left            : 50%;
+
+                                            transform       : translateX(-50%);
+
+                                            background      : var(--color-grey-super-light);
+                                        }
+
+                                        &:last-child {
+                                            @include pb-0;
+                                            @include mb-0;
+
+                                            &:after {
+                                                @include display-none;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            
+                            .body-text {
+                                @include mb-3;
+
+                                .title {
+                                    .text-title {
+                                        @include font-bold;
+                                        @include h5;
+                                    }
+                                }
+                            }
+
+                            .body-list {
+                                > ul {
+                                    @include pl-0;
+
+                                    list-style          : none;
+
+                                    > li {  
+                                        @include mb-2;
+
+                                        &:last-child {
+                                            @include mb-0;
+                                        }
+
+                                        > ul {
+                                            @include pt-2;
+
+                                            list-style          : none;
+
+                                            > li {
+                                                @include mb-2;
+
+                                                &:last-child {
+                                                    @include mb-0;
+                                                }
+                                            }
+                                        }
+
+                                        .list-wrapper {
+
+                                            // Primary
+
+                                            &.primary {
+                                                @include p-3;
+
+                                                background          : var(--color-white);
+
+                                                border-radius       : calc(7.5 / var(--vw) * var(--multiplier));
+
+                                                transition          : 0.3s ease;
+
+                                                &.active {
+                                                    background      : var(--color-quinary);
+                                                }
+                                            }
+                                        }
+
+                                        .list-head {
+                                            .head-wrapper {
+
+                                                // Primary
+
+                                                &.primary {
+                                                    @include position-relative;
+
+                                                    @include display-flex;
+
+                                                    @include align-items-center;
+
+                                                    justify-content     : space-between;
+
+                                                    > .wrapper-inner {
+                                                        @include display-flex;
+
+                                                        @include align-items-center;
+
+                                                        > div {
+                                                            @include mr-2;
+
+                                                            &:last-child {
+                                                                @include mr-0;
+                                                            }
+                                                        }
+                                                    }
+
+                                                    .head-detail {
+                                                        @include position-relative;
+
+                                                        @include display-flex;
+
+                                                        @include align-items-center;
+
+                                                        > a {
+                                                            @include position-absolute;
+
+                                                            @include width-100;
+                                                            @include height-100;
+
+                                                            z-index         : 10;
+
+                                                            top             : 0;
+                                                            left            : 0;
+                                                        }
+
+                                                        > span {
+                                                            &.text {
+                                                                @include font-bold;
+                                                                @include h6;
+
+                                                                color               : var(--color-black);
+
+                                                                transition          : 0.3s ease;
+                                                            }
+                                                        }
+
+                                                        &:hover {
+                                                            > span {
+                                                                &.text {
+                                                                    color           : var(--color-primary);
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+
+                                                    .head-icon {
+                                                        line-height                 : 1;
+
+                                                        > span {
+                                                            @include display-inline-block;
+
+                                                            line-height             : 1;
+
+                                                            > a {
+                                                                opacity             : 0.5;
+
+                                                                transition          : 0.3s ease;
+
+                                                                svg {
+                                                                    width           : calc(20 / var(--vw) * var(--multiplier));
+                                                                    height          : calc(20 / var(--vw) * var(--multiplier));
+                                                                }
+
+                                                                &:hover {
+                                                                    opacity         : 1;
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+
+                                                    .head-anchor {
+                                                        > span {
+                                                            > a {
+                                                                svg {
+                                                                    @include display-inline-block;
+
+                                                                    width           : calc(20 / var(--vw) * var(--multiplier));
+                                                                    height          : calc(20 / var(--vw) * var(--multiplier));
+
+                                                                    transform       : rotate(180deg);
+
+                                                                    transition      : 0.3s ease;
+                                                                }
+
+                                                                &.collapsed {
+                                                                    svg {
+                                                                        transform       : rotate(0deg);
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+
+                                        .list-body {
+                                            @include pt-4;
+                                        }
+                                    }
+                                }
+                            }
+
+                            .body-button {
+                                @include text-align-center;
+
+                                .button {
+                                    .btn-body {
+                                        @include display-inline-block;
+
+                                        @include width-auto;
+
+                                        > span {
+                                            @include px-4;
+
+                                            > span {
+                                                &.icon {
+                                                    @include ml-0;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            // Sidebar Config Course List
+
+            &.sidebar-config-course-list {
+                
+                // Content
+
+                .sidebar-content {
+                    .content-tab {
+                        .tab-content {
+                            .content-body {
+                                .body-list {
+                                    > ul {
+                                        > li {  
+                                            .list-wrapper {
+
+                                                // Primary
+
+                                                &.primary {
+                                                    border              : calc(1 / var(--vw) * var(--multiplier)) solid rgba($color-black, 0.25);
+                                                }
+                                            }
+
+                                            .list-head {
+                                                .head-wrapper {
+
+                                                    // Primary
+
+                                                    &.primary {
+                                                        .head-detail {
+                                                            max-width       : 15.5rem;
+
+                                                            > span {
+                                                                &.text {
+                                                                    @include ellipsis-single;
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        @include media-breakpoint-down(md) {
+
+            .sidebar-wrapper {
+
+                // Primary
+
+                &.primary {
+                    > .wrapper-inner {
+                        &.sidebar-overlap {
+                            left                : -45%;
+
+                            width               : 45%;
+                        }
+                    }
+                }
+            }
+        }
+
+        @include media-breakpoint-down(sm) {
+
+            .sidebar-wrapper {
+
+                // Primary
+
+                &.primary {
+                    > .wrapper-inner {
+                        &.sidebar-overlap {
+                            left                : -100%;
+
+                            width               : 100%;
                         }
                     }
                 }

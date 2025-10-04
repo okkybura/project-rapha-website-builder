@@ -309,6 +309,205 @@ svg {
 // Form
 
 .form-group {
+
+    // Group Alignment
+
+    &.group-alignment {
+        @include display-flex;
+
+        @include align-items-center;
+
+        .group-wrapper {
+
+            // Primary
+
+            &.primary {
+                @include display-flex;
+                
+                @include align-items-center;
+
+                > .wrapper-inner {
+                    @include display-flex;
+                    
+                    @include align-items-center;    
+
+                    @include display-flex;
+
+                    @include align-items-center;
+
+                    @include p-1;
+                    @include mb-0;
+                    @include mr-2;
+
+                    background              : var(--color-white);
+
+                    border                  : calc(1 / var(--vw) * var(--multiplier)) solid rgba($color-black, 0.25);
+                    border-radius           : calc(4.5 / var(--vw) * var(--multiplier));
+
+                    &:last-child {
+                        @include mr-0;
+                    }
+                }
+            }
+        }
+
+        .form-label {
+            @include mr-2;
+
+            label {
+                @include mb-0;
+            }
+        }
+
+        .form-radio {
+            @include position-relative;
+
+            @include mr-0;
+
+            .form-radio-input {
+                @include position-absolute;
+
+                @include width-100;
+                @include height-100;
+
+                cursor                  : pointer;
+                
+                z-index                 : 10;
+
+                opacity                 : 0;
+
+                top                     : 0;
+                left                    : 0;
+            }
+
+            .form-radio-input:checked ~ .form-radio-label {
+                background              : var(--color-quinary);
+
+                svg {
+                    &.special {
+                        path {
+                            fill        : var(--color-primary);
+
+                            stroke      : transparent;
+                        }
+                    }
+
+                    path {
+                        stroke          : var(--color-primary);
+                    }
+                }                
+            }
+
+            .form-radio-label {
+                @include p-0;
+                @include mb-0;
+
+                background              : transparent;
+
+                border-radius           : calc(4.5 / var(--vw) * var(--multiplier));
+
+                transition              : 0.3s ease;
+
+                svg {
+                    width               : calc(35 / var(--vw) * var(--multiplier));
+                    height              : calc(35 / var(--vw) * var(--multiplier));
+
+                    transition          : 0.3s ease;
+
+                    path {
+                        transition      : 0.3s ease;
+                    }
+                }
+            }
+
+            &:hover {
+                .form-radio-label {
+                    background          : var(--color-quinary);
+
+                    svg {
+                        &.special {
+                            path {
+                                fill    : var(--color-primary);
+                                
+                                stroke  : transparent;
+                            }
+                        }
+
+                        path {
+                            stroke      : var(--color-primary);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // Group Flex Between
+
+    &.group-flex-between {
+        @include display-flex;
+
+        @include align-items-center;
+
+        justify-content         : space-between; 
+
+        .form-label {
+            @include mr-2;
+
+            label {
+                @include mb-0;
+            }
+        }
+
+        .form-switch {
+            .custom-switch {
+                .custom-control-label {
+                    &:before {
+                        top         : -6.5px;
+                    }
+
+                    &:after {
+                        top         : calc(calc(-0.25rem - 6.5px) + 7.5px);
+                    }
+                }
+
+                .custom-switch-label {
+                    @include m-0;
+                }
+            }
+        }
+
+        .form-color {
+            @include display-flex;
+
+            @include align-items-center;
+
+            button {
+                @include overflow-hidden;
+
+                @include p-0;
+                @include mr-2;
+
+                background          : transparent;
+
+                border              : calc(3 / var(--vw) * var(--multiplier)) solid transparent;
+                border-radius       : calc(4.5 / var(--vw) * var(--multiplier));
+
+                &:last-child {
+                    @include mr-0;
+                }
+
+                &:hover {
+                    border          : calc(3 / var(--vw) * var(--multiplier)) solid var(--color-primary);
+                }
+            }
+
+            input {
+                width               : 7.5rem;
+            }
+        }
+    }
+
     label {
         @include position-relative;
 
@@ -522,6 +721,98 @@ svg {
         }
     }
 
+    .form-check {
+
+        // Primary
+
+        &.primary {
+            @include position-relative;
+
+            @include pl-0;
+
+            .form-check-input {
+                @include position-absolute;
+
+                @include width-100;
+                @include height-100;
+
+                cursor              : pointer;
+
+                z-index             : 0;
+
+                opacity             : 0;
+
+                top                 : 0;
+                left                : 0;
+            }
+
+            .form-check-input:checked ~ .form-check-label {
+                background                  : var(--color-quinary);
+
+                border                      : calc(1 / var(--vw) * var(--multiplier)) solid rgba($color-secondary, 0.75);
+                
+                > span {
+                    &.icon {
+                        background              : var(--color-primary);
+
+                        border                  : calc(1 / var(--vw) * var(--multiplier)) solid var(--color-primary);
+                    }
+                }
+            }
+
+            .form-check-label {
+                @include display-flex;
+
+                @include align-items-center;
+
+                @include p-2;
+
+                @include font-semibold;
+                @include p;
+
+                cursor              : pointer;
+
+                color               : var(--color-black);
+
+                border              : calc(1 / var(--vw) * var(--multiplier)) solid rgba($color-black, 0.25);
+                border-radius       : calc(4.5 / var(--vw) * var(--multiplier));
+
+                transition          : 0.3s ease;
+
+                > span {
+                    &.icon {
+                        @include display-inline-flex;
+
+                        @include align-items-center;
+
+                        @include mr-2;
+
+                        justify-content         : center;
+
+                        width                   : calc(22.5 / var(--vw) * var(--multiplier));
+                        height                  : calc(22.5 / var(--vw) * var(--multiplier));
+
+                        background              : var(--color-white);
+
+                        border                  : calc(1 / var(--vw) * var(--multiplier)) solid rgba($color-black, 0.25);
+                        border-radius           : calc(4.5 / var(--vw) * var(--multiplier));
+
+                        svg {
+                            width               : calc(10 / var(--vw) * var(--multiplier));
+                            height              : calc(10 / var(--vw) * var(--multiplier));          
+                        }
+                    }
+                }
+
+                &:hover {
+                    background                  : var(--color-quinary);
+
+                    border                      : calc(1 / var(--vw) * var(--multiplier)) solid rgba($color-secondary, 0.75);
+                }
+            }
+        }
+    }
+
     .form-radio {
 
         // Primary
@@ -603,7 +894,7 @@ svg {
                 }
 
                 &:after {
-                    transform           : translateX(1.60rem);
+                    transform           : translateX(1rem);
                 }
             }
 
@@ -611,17 +902,17 @@ svg {
                 @include my-2;
                 
                 &:before {
-                    width               : calc(45 / var(--vw) * var(--multiplier));
-                    height              : calc(22.5 / var(--vw) * var(--multiplier));
+                    width               : 40px;
+                    height              : 20px;
 
                     border-radius       : 50em;
                 }
 
                 &:after {
-                    width               : calc(15 / var(--vw) * var(--multiplier));
-                    height              : calc(15 / var(--vw) * var(--multiplier));
+                    width               : 13px;
+                    height              : 13px;
 
-                    top                 : calc(7 / var(--vw) * var(--multiplier));
+                    top                 : 7.5px;
                     left                : calc(-2.25rem + 5px);
 
                     border-radius       : 100%;
@@ -640,24 +931,57 @@ svg {
 
         @include overflow-hidden;
 
-        height                  : calc(182.5 / var(--vw) * var(--multiplier));
+        height                  : calc(165 / var(--vw) * var(--multiplier));
 
-        border                  : calc(1 / var(--vw) * var(--multiplier)) solid rgba($color-black, 0.25);
+        border                  : calc(1 / var(--vw) * var(--multiplier)) dashed rgba($color-black, 0.25);
         border-radius           : calc(4.5 / var(--vw) * var(--multiplier));
 
         .placeholder {
-            @include display-inline-flex;
+            @include display-flex;
 
             @include align-items-center;
 
             @include width-100;
+            @include height-100;
+
+            flex-direction          : column;
 
             justify-content         : center;
 
-            height                  : calc(175 / var(--vw) * var(--multiplier));
+            > span {
+                @include display-block;
 
-            svg {
-                fill                : var(--color-grey-light);
+                &.icon {
+                    @include display-inline-flex;
+
+                    @include align-items-center;
+
+                    @include mb-2;
+
+                    justify-content         : center;
+
+                    width                   : calc(50 / var(--vw) * var(--multiplier));
+                    height                  : calc(50 / var(--vw) * var(--multiplier));
+
+                    background              : var(--color-quinary);
+
+                    border-radius           : calc(4.5 / var(--vw) * var(--multiplier));
+
+                    transition              : 0.3s ease;
+
+                    svg {
+                        path {
+                            transition      : 0.3s ease;
+                        }
+                    }
+                }
+
+                &.text {
+                    @include font-regular;
+                    @include p;
+
+                    color                   : var(--color-grey);
+                }
             }
         }
 
@@ -757,6 +1081,22 @@ svg {
 
                 .remove {
                     opacity         : 1;
+                }
+            }
+        }
+
+        &:hover {
+            .placeholder {
+                > span {
+                    &.icon {
+                        background          : var(--color-primary);
+
+                        svg {
+                            path {
+                                stroke      : var(--color-white);
+                            }
+                        }
+                    }
                 }
             }
         }
