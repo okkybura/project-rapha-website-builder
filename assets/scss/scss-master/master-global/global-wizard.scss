@@ -275,6 +275,23 @@
     z-index             : 1040 !important;
 
     border-right        : calc(1 / var(--vw) * var(--multiplier)) solid var(--color-grey-super-light);
+
+    &.sidebar-overlap {
+        @include position-fixed;
+
+        z-index             : 100;
+
+        top                 : 0;
+        left                : -27.5%;
+
+        width               : 27.5%;
+
+        transition          : 0.4s ease;
+
+        &.active {
+            left            : 0;
+        }
+    }
     
     // Primary
 
@@ -790,7 +807,7 @@
 
             &.primary {
                 > .wrapper-inner {
-                    &.sidebar-overlap {
+                    &.sidebar-overlap-inner {
                         @include position-fixed;
 
                         z-index             : 100;
@@ -921,6 +938,8 @@
         .sidebar-footer {
             @include p-2;
 
+            background          : var(--color-white);
+
             border-top          : calc(1 / var(--vw) * var(--multiplier)) solid var(--color-grey-super-light);
 
             .footer-wrapper {
@@ -1046,6 +1065,36 @@
             // Content
 
             .sidebar-content {
+                @include pb-4;
+
+                .content-wrapper {
+
+                    // Primary
+
+                    &.primary {
+                        @include height-auto;
+
+                        > div {
+                            &.content-overlap {
+                                @include position-fixed;
+
+                                z-index             : 100;
+
+                                top                 : 61.92px;
+                                left                : -27.5%;
+
+                                width               : 27.5%;
+                                height              : calc(100vh - 140.28px) !important;
+
+                                transition          : 0.4s ease;
+
+                                &.active {
+                                    left            : 0;
+                                }
+                            }
+                        }
+                    }
+                }
 
                 // Content Page Structure
 
@@ -1074,6 +1123,21 @@
 
                                         &.primary {
                                             background      : var(--color-quinary);
+                                        }
+                                    }
+                                }
+
+                                &.not-sortable {
+                                    .list-wrapper {
+
+                                        // Primary
+
+                                        &.primary {
+                                            .list-trigger {
+                                                > span {
+                                                    opacity     : 0.35;
+                                                }
+                                            }
                                         }
                                     }
                                 }
@@ -1305,6 +1369,11 @@
 
                 .content-page-config {
                     @include p-4;
+
+                    background                      : var(--color-white);
+
+                    border-bottom                   : calc(1 / var(--vw) * var(--multiplier)) solid var(--color-grey-super-light);
+                    border-right                    : calc(1 / var(--vw) * var(--multiplier)) solid var(--color-grey-super-light);
                 }
             }
         }
@@ -1404,18 +1473,6 @@
                         }
 
                         .content-body {
-                            @include overflow-hidden;
-
-                            @include height-100;
-
-                            @include p-4;
-
-                            background                  : var(--color-grey-super-light);
-
-                            &.body-white {
-                                background              : var(--color-white);
-                            }
-
                             .body-wrapper {
 
                                 // Primary
@@ -1454,206 +1511,268 @@
                                     }
                                 }
                             }
-                            
-                            .body-text {
-                                @include mb-3;
+                        }
+                    }
+                }
 
-                                .title {
-                                    .text-title {
-                                        @include font-bold;
-                                        @include h5;
-                                    }
-                                }
+                .content-message {
+                    @include display-flex;
+
+                    @include align-items-center;
+
+                    @include p-4;
+
+                    background          : #F3EBCB;
+
+                    .message-icon {
+                        @include mr-4;
+
+                        .icon {
+                            svg {
+                                width           : calc(40 / var(--vw) * var(--multiplier));
+                                height          : calc(40 / var(--vw) * var(--multiplier));
                             }
+                        }
+                    }
 
-                            .body-list {
+                    .message-text {
+                        .title {
+                            .text-title {
+                                @include font-bold;
+                                @include h6;
+
+                                color           : var(--color-black);
+                            }
+                        }
+
+                        .desc {
+                            .text-description {
+                                @include mb-0;
+
+                                @include font-regular;
+                                @include p;
+
+                                color           : var(--color-grey-light);
+                            }
+                        }
+                    }
+                }
+
+                .content-body {
+                    @include overflow-y-auto;
+                    @include overflow-x-hidden;
+
+                    @include p-4;
+
+                    background                  : var(--color-grey-super-light);
+
+                    &.body-white {
+                        background              : var(--color-white);
+                    }
+
+                    .body-text {
+                        @include mb-3;
+
+                        .title {
+                            .text-title {
+                                @include font-bold;
+                                @include h5;
+                            }
+                        }
+                    }
+
+                    .body-list {
+                        > ul {
+                            @include pl-0;
+
+                            list-style          : none;
+
+                            > li {  
+                                @include mb-2;
+
+                                &:last-child {
+                                    @include mb-0;
+                                }
+
                                 > ul {
-                                    @include pl-0;
+                                    @include pt-2;
 
                                     list-style          : none;
 
-                                    > li {  
+                                    > li {
                                         @include mb-2;
 
                                         &:last-child {
                                             @include mb-0;
                                         }
+                                    }
+                                }
 
-                                        > ul {
-                                            @include pt-2;
+                                .list-wrapper {
 
-                                            list-style          : none;
+                                    // Primary
 
-                                            > li {
-                                                @include mb-2;
+                                    &.primary {
+                                        @include p-3;
 
-                                                &:last-child {
-                                                    @include mb-0;
-                                                }
-                                            }
-                                        }
+                                        background          : var(--color-white);
 
-                                        .list-wrapper {
+                                        border-radius       : calc(7.5 / var(--vw) * var(--multiplier));
 
-                                            // Primary
+                                        transition          : 0.3s ease;
 
-                                            &.primary {
-                                                @include p-3;
-
-                                                background          : var(--color-white);
-
-                                                border-radius       : calc(7.5 / var(--vw) * var(--multiplier));
-
-                                                transition          : 0.3s ease;
-
-                                                &.active {
-                                                    background      : var(--color-quinary);
-                                                }
-                                            }
-                                        }
-
-                                        .list-head {
-                                            .head-wrapper {
-
-                                                // Primary
-
-                                                &.primary {
-                                                    @include position-relative;
-
-                                                    @include display-flex;
-
-                                                    @include align-items-center;
-
-                                                    justify-content     : space-between;
-
-                                                    > .wrapper-inner {
-                                                        @include display-flex;
-
-                                                        @include align-items-center;
-
-                                                        > div {
-                                                            @include mr-2;
-
-                                                            &:last-child {
-                                                                @include mr-0;
-                                                            }
-                                                        }
-                                                    }
-
-                                                    .head-detail {
-                                                        @include position-relative;
-
-                                                        @include display-flex;
-
-                                                        @include align-items-center;
-
-                                                        > a {
-                                                            @include position-absolute;
-
-                                                            @include width-100;
-                                                            @include height-100;
-
-                                                            z-index         : 10;
-
-                                                            top             : 0;
-                                                            left            : 0;
-                                                        }
-
-                                                        > span {
-                                                            &.text {
-                                                                @include font-bold;
-                                                                @include h6;
-
-                                                                color               : var(--color-black);
-
-                                                                transition          : 0.3s ease;
-                                                            }
-                                                        }
-
-                                                        &:hover {
-                                                            > span {
-                                                                &.text {
-                                                                    color           : var(--color-primary);
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-
-                                                    .head-icon {
-                                                        line-height                 : 1;
-
-                                                        > span {
-                                                            @include display-inline-block;
-
-                                                            line-height             : 1;
-
-                                                            > a {
-                                                                opacity             : 0.5;
-
-                                                                transition          : 0.3s ease;
-
-                                                                svg {
-                                                                    width           : calc(20 / var(--vw) * var(--multiplier));
-                                                                    height          : calc(20 / var(--vw) * var(--multiplier));
-                                                                }
-
-                                                                &:hover {
-                                                                    opacity         : 1;
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-
-                                                    .head-anchor {
-                                                        > span {
-                                                            > a {
-                                                                svg {
-                                                                    @include display-inline-block;
-
-                                                                    width           : calc(20 / var(--vw) * var(--multiplier));
-                                                                    height          : calc(20 / var(--vw) * var(--multiplier));
-
-                                                                    transform       : rotate(180deg);
-
-                                                                    transition      : 0.3s ease;
-                                                                }
-
-                                                                &.collapsed {
-                                                                    svg {
-                                                                        transform       : rotate(0deg);
-                                                                    }
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-
-                                        .list-body {
-                                            @include pt-4;
+                                        &.active {
+                                            background      : var(--color-quinary);
                                         }
                                     }
                                 }
-                            }
 
-                            .body-button {
-                                @include text-align-center;
+                                .list-head {
+                                    .head-wrapper {
 
-                                .button {
-                                    .btn-body {
-                                        @include display-inline-block;
+                                        // Primary
 
-                                        @include width-auto;
+                                        &.primary {
+                                            @include position-relative;
 
-                                        > span {
-                                            @include px-4;
+                                            @include display-flex;
 
-                                            > span {
-                                                &.icon {
-                                                    @include ml-0;
+                                            @include align-items-center;
+
+                                            justify-content     : space-between;
+
+                                            > .wrapper-inner {
+                                                @include display-flex;
+
+                                                @include align-items-center;
+
+                                                > div {
+                                                    @include mr-2;
+
+                                                    &:last-child {
+                                                        @include mr-0;
+                                                    }
                                                 }
                                             }
+
+                                            .head-detail {
+                                                @include position-relative;
+
+                                                @include display-flex;
+
+                                                @include align-items-center;
+
+                                                > a {
+                                                    @include position-absolute;
+
+                                                    @include width-100;
+                                                    @include height-100;
+
+                                                    z-index         : 10;
+
+                                                    top             : 0;
+                                                    left            : 0;
+                                                }
+
+                                                > span {
+                                                    &.text {
+                                                        @include font-bold;
+                                                        @include h6;
+
+                                                        color               : var(--color-black);
+
+                                                        transition          : 0.3s ease;
+                                                    }
+                                                }
+
+                                                &:hover {
+                                                    > span {
+                                                        &.text {
+                                                            color           : var(--color-primary);
+                                                        }
+                                                    }
+                                                }
+                                            }
+
+                                            .head-icon {
+                                                line-height                 : 1;
+
+                                                > span {
+                                                    @include display-inline-block;
+
+                                                    line-height             : 1;
+
+                                                    > a {
+                                                        opacity             : 0.5;
+
+                                                        transition          : 0.3s ease;
+
+                                                        svg {
+                                                            width           : calc(20 / var(--vw) * var(--multiplier));
+                                                            height          : calc(20 / var(--vw) * var(--multiplier));
+                                                        }
+
+                                                        &:hover {
+                                                            opacity         : 1;
+                                                        }
+                                                    }
+                                                }
+                                            }
+
+                                            .head-anchor {
+                                                > span {
+                                                    > a {
+                                                        svg {
+                                                            @include display-inline-block;
+
+                                                            width           : calc(20 / var(--vw) * var(--multiplier));
+                                                            height          : calc(20 / var(--vw) * var(--multiplier));
+
+                                                            transform       : rotate(180deg);
+
+                                                            transition      : 0.3s ease;
+                                                        }
+
+                                                        &.collapsed {
+                                                            svg {
+                                                                transform       : rotate(0deg);
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+
+                                .list-body {
+                                    @include pt-4;
+                                }
+                            }
+                        }
+                    }
+
+                    .body-form {
+                        .col-form-outer {
+                            padding             : 0 calc(17.5 / var(--vw) * var(--multiplier));
+                        }
+                    }
+
+                    .body-button {
+                        @include text-align-center;
+
+                        .button {
+                            .btn-body {
+                                @include display-inline-block;
+
+                                @include width-auto;
+
+                                > span {
+                                    @include px-4;
+
+                                    > span {
+                                        &.icon {
+                                            @include ml-0;
                                         }
                                     }
                                 }
@@ -1711,6 +1830,26 @@
                     }
                 }
             }
+
+            // Sidebar Config Topic With Icon
+
+            &.sidebar-config-topic-with-icon {
+
+                // Content
+
+                .sidebar-content {
+                    .content-wrapper {
+
+                        // Primary
+
+                        &.primary {
+                            > div {
+                                @include height-auto;
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         @include media-breakpoint-down(md) {
@@ -1752,12 +1891,18 @@
 
     @include media-breakpoint-down(md) {
 
+        &.sidebar-overlap {
+            left                : -45%;
+
+            width               : 45%;
+        }
+
         position        : fixed !important;
 
         width           : 45% !important;
 
         top             : 0; 
-        left            : -100%; 
+        left            : -45%; 
 
         transition      : 0.4s ease;
 
@@ -1779,6 +1924,12 @@
     }
 
     @include media-breakpoint-down(sm) {
+
+        &.sidebar-overlap {
+            left                : -100%;
+
+            width               : 100%;
+        }
         
         @include width-100;
 
@@ -1977,6 +2128,8 @@
                 }
             }
         }
+
+        // Table List
         
         &.table-list {
 
