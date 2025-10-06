@@ -41,12 +41,15 @@ window.addEventListener('wheel', function (e) {
 $(document).ready(function () {
     $('#btnNavbarPrimaryToggle').click(function (e) {
         e.preventDefault();
-        $('.sidebar').toggleClass('active');
+        $('.sidebar.primary').toggleClass('active');
     });
 
-    $('#btnSidebarPrimaryToggle').click(function (e) {
+    $('.btnSidebarCloseToggle').click(function (e) {
         e.preventDefault();
-        $('.sidebar').toggleClass('active');
+        $('.sidebar').removeClass('active');
+        $('.sidebar-overlap').removeClass('active');
+        $('.sidebar-overlap-inner').removeClass('active');
+        $('.content-overlap').removeClass('active');
     });
 
     $(function () {

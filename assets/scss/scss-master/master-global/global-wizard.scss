@@ -108,8 +108,6 @@
     .page-content {
         @include position-relative;
         
-        z-index             : 20;
-
         .page-wrapper {
 
             // Primary
@@ -143,6 +141,23 @@
                             height              : calc(100vh - 75.16px);
                         }
                     }
+
+                    // Secondary
+
+                    &.secondary {
+                        > .wrapper-inner {
+                            @include overflow-auto;
+
+                            height              : 100vh;
+
+                            > ul {
+                                @include m-0;
+                                @include pl-0;
+
+                                list-style      : none;
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -169,6 +184,14 @@
                                 @include px-4;
 
                                 height              : calc(100vh - 105.5px);
+                            }
+                        }
+
+                        // Secondary
+
+                        &.secondary {
+                            > .wrapper-inner {
+                                height              : calc(100vh - 42.66px);
                             }
                         }
                     }
@@ -257,6 +280,8 @@
             > a {
                 @include font-semibold;
                 @include p;
+
+                @include text-decoration-none;
                 
                 color           : var(--color-white);
             }
@@ -876,6 +901,10 @@
             .header-button {
                 @include display-none;
 
+                &:last-child {
+                    @include ml-auto;
+                }
+
                 .button {
                     .btn-header {
                         @include p-0;
@@ -1062,6 +1091,14 @@
 
         .sidebar-page {
 
+            // Header
+
+            .sidebar-header {
+                .header-button {
+                    @include ml-0;
+                }
+            }
+
             // Content
 
             .sidebar-content {
@@ -1080,11 +1117,11 @@
 
                                 z-index             : 100;
 
-                                top                 : 61.92px;
+                                top                 : 43.86px;
                                 left                : -27.5%;
 
                                 width               : 27.5%;
-                                height              : calc(100vh - 140.28px) !important;
+                                height              : calc(100vh - 100.39px) !important;
 
                                 transition          : 0.4s ease;
 
@@ -1374,6 +1411,54 @@
 
                     border-bottom                   : calc(1 / var(--vw) * var(--multiplier)) solid var(--color-grey-super-light);
                     border-right                    : calc(1 / var(--vw) * var(--multiplier)) solid var(--color-grey-super-light);
+                }
+            }
+
+            @include media-breakpoint-down(md) {
+
+                // Content
+
+                .sidebar-content {
+                    .content-wrapper {
+
+                        // Primary
+
+                        &.primary {
+                            @include height-auto;
+
+                            > div {
+                                &.content-overlap {
+                                    left                : -45%;
+
+                                    width               : 45%;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            @include media-breakpoint-down(sm) {
+
+                // Content
+
+                .sidebar-content {
+                    .content-wrapper {
+
+                        // Primary
+
+                        &.primary {
+                            @include height-auto;
+
+                            > div {
+                                &.content-overlap {
+                                    left                : -100%;
+
+                                    width               : 100%;
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -1860,7 +1945,7 @@
 
                 &.primary {
                     > .wrapper-inner {
-                        &.sidebar-overlap {
+                        &.sidebar-overlap-inner {
                             left                : -45%;
 
                             width               : 45%;
@@ -1878,7 +1963,7 @@
 
                 &.primary {
                     > .wrapper-inner {
-                        &.sidebar-overlap {
+                        &.sidebar-overlap-inner {
                             left                : -100%;
 
                             width               : 100%;
@@ -1933,6 +2018,8 @@
         
         @include width-100;
 
+        left            : -100%; 
+
         border-right    : unset;
     }
 }
@@ -1964,6 +2051,434 @@
 }
 
 // Modal
+
+.modal {
+
+    // Modal Section List
+
+    &.modal-section-list {
+
+        // Primary
+
+        &.primary {
+
+            .modal-dialog {
+                max-width                   : 750px;
+            }
+
+            // Header
+
+            .modal-header {
+                .header-text {
+                    .title {
+                        .text-title {
+                            @include mb-0;
+
+                            @include font-bold;
+                            @include h5;
+
+                            color           : var(--color-black);
+                        }
+                    }
+                }
+            }
+
+            // Content
+
+            .modal-content {
+                .modal-body {
+                    @include overflow-hidden;
+
+                    @include p-0;
+
+                    .body-tab {
+                        .col-tab-outer {
+                            @include col-12;
+
+                            .col-tab-inner {
+                                &:nth-child(1) {
+                                    @include col-4;
+
+                                    @include pr-0;
+
+                                    border-right         : calc(1 / var(--vw) * var(--multiplier)) solid var(--color-grey-super-light);
+                                }
+
+                                &:nth-child(2) {
+                                    @include col-8;
+
+                                    @include pl-0;
+                                }
+                            }
+                        }
+
+                        .tab-nav {
+                            .nav-item {
+                                @include width-100;
+
+                                .nav-link {
+                                    @include display-flex;
+
+                                    @include align-items-center;
+
+                                    @include width-100;
+
+                                    @include py-3;
+                                    @include px-4;
+
+                                    @include font-medium;
+                                    @include h6;
+
+                                    @include text-decoration-none;
+
+                                    color               : var(--color-black);
+
+                                    background          : var(--color-white);
+
+                                    border-left         : calc(7.5 / var(--vw) * var(--multiplier)) solid transparent;
+                                    border-radius       : 0;
+
+                                    &.active {
+                                        color                   : var(--color-primary);
+
+                                        background              : var(--color-quinary);
+
+                                        border-left             : calc(7.5 / var(--vw) * var(--multiplier)) solid var(--color-secondary);
+                                    }
+
+                                    &:hover {
+                                        background              : var(--color-quinary);
+                                    }
+                                }
+                            }
+                        }
+
+                        .tab-content {
+                            .content-body {
+                                @include p-5;
+
+                                .body-wrapper {
+
+                                    // Primary
+
+                                    &.primary {
+                                        > .wrapper-inner {
+                                            @include mb-3;
+
+                                            &:last-child {
+                                                @include mb-0;
+                                            }
+                                        }
+
+                                        .body-image {
+                                            .image {
+                                                @include overflow-hidden;
+
+                                                border-radius       : calc(10 / var(--vw) * var(--multiplier));
+
+                                                > a {
+                                                    @include position-relative;
+
+                                                    @include display-block;
+
+                                                    &:before {
+                                                        @include position-absolute;
+
+                                                        @include width-100;
+                                                        @include height-100;
+
+                                                        content         : '';
+
+                                                        z-index         : 5;
+
+                                                        opacity         : 0;
+
+                                                        background      : rgba(0, 0, 0, 0.75);
+
+                                                        transition      : 0.3s ease;
+                                                    }
+                                                    
+                                                    > span {
+                                                        &.icon {
+                                                            @include position-absolute;
+
+                                                            @include display-inline-flex;
+
+                                                            @include align-items-center;
+
+                                                            @include mb-2;
+
+                                                            justify-content         : center;
+
+                                                            z-index                 : 10;
+
+                                                            width                   : calc(50 / var(--vw) * var(--multiplier));
+                                                            height                  : calc(50 / var(--vw) * var(--multiplier));
+
+                                                            opacity                 : 0;
+
+                                                            top                     : 50%;
+                                                            left                    : 50%;
+
+                                                            transform               : translate(-50%, -50%);
+
+                                                            background              : var(--color-white);
+
+                                                            border-radius           : calc(4.5 / var(--vw) * var(--multiplier));
+
+                                                            transition              : 0.3s ease;
+
+                                                            svg {
+                                                                path {
+                                                                    transition      : 0.3s ease;
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+
+                                                    &:hover {
+                                                        &:before {
+                                                            opacity                 : 1;
+                                                        }
+
+                                                        > span {
+                                                            &.icon {
+                                                                opacity             : 1;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            @include media-breakpoint-down(md) {
+
+                // Content
+
+                .modal-content {
+                    .modal-body {
+                        .body-tab {
+                            .tab-content {
+                                .content-body {
+                                    @include p-4;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            @include media-breakpoint-down(sm) {
+
+                // Content
+
+                .modal-content {
+                    .modal-body {
+                        .body-tab {
+                            .col-tab-outer {
+                                .col-tab-inner {
+                                    &:nth-child(1) {
+                                        @include col-12;
+                                    }
+
+                                    &:nth-child(2) {
+                                        @include col-12;
+
+                                        @include pl-3;
+                                    }
+                                }
+                            }
+
+                            .tab-nav {
+                                .nav {
+                                    @include display-webkit-box;
+
+                                    @include overflow-y-hidden;
+                                    @include overflow-x-auto;
+
+                                    white-space         : nowrap;
+                                    flex-wrap           : nowrap;
+                                }
+
+                                .nav-item {
+                                    @include display-inline-block;
+
+                                    @include width-auto;
+
+                                    max-width           : max-content;
+
+                                    .nav-link {
+                                        @include py-2;
+                                        @include px-5;
+
+                                        border-bottom       : calc(5 / var(--vw) * var(--multiplier)) solid transparent;
+                                        border-left         : unset;
+
+                                        &.active {
+                                            border-bottom           : calc(5 / var(--vw) * var(--multiplier)) solid var(--color-secondary);
+                                            border-left             : unset;
+                                        }
+                                    }
+                                }
+                            }
+
+                            .tab-content {
+                                .content-body {
+                                    @include p-3;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // Modal Template List
+
+    &.modal-template-list {
+
+        // Primary
+
+        &.primary {
+
+            .modal-dialog {
+                max-width                   : 950px;
+            }
+
+            // Header
+
+            .modal-header {
+                border-bottom               : unset;
+
+                .header-text {
+                    .title {
+                        .text-title {
+                            @include mb-1;
+
+                            @include font-bold;
+                            @include h5;
+
+                            color           : var(--color-black);
+                        }
+                    }
+
+                    .desc {
+                        .text-description {
+                            @include mb-0;
+
+                            @include font-regular;
+                            @include h6;
+
+                            color           : var(--color-grey-light);
+                        }
+                    }
+                }
+            }
+
+            // Body
+
+            .modal-body {
+                .col-body-outer {
+                    @include col-12;
+
+                    .col-body-inner {
+                        @include col-6;
+
+                        @include mb-4;
+                    }
+                }
+
+                .body-wrapper {
+
+                    // Primary
+
+                    &.primary {
+                        @include position-relative;
+
+                        @include overflow-hidden;
+
+                        border-radius       : calc(10 / var(--vw) * var(--multiplier));
+
+                        &:before {
+                            @include position-absolute;
+
+                            @include width-100;
+                            @include height-100;
+
+                            content         : '';
+
+                            z-index         : 5;
+
+                            opacity         : 0;
+
+                            background      : rgba(0, 0, 0, 0.75);
+
+                            transition      : 0.3s ease;
+                        }
+
+                        > .wrapper-inner {
+                            @include position-absolute;
+
+                            @include text-align-center;
+                            
+                            z-index         : 10;
+
+                            opacity         : 0;
+
+                            top             : 50%;
+                            left            : 50%;
+
+                            transform       : translate(-50%, -50%);
+
+                            transition      : 0.3s ease; 
+                        }
+
+                        .body-text {
+                            @include mb-3;
+
+                            .title {
+                                .text-title {
+                                    @include font-bold;
+                                    @include h5;
+
+                                    color           : var(--color-white);
+                                }
+                            }
+                        }
+
+                        .body-button {
+                            .button {
+                                @include mb-2;
+
+                                &:last-child {
+                                    @include mb-0;
+                                }
+                            }
+                        }
+
+                        &:hover {
+                            &:before {
+                                opacity             : 1;
+                            }
+
+                            > .wrapper-inner {
+                                opacity             : 1;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
 
 // Wizard
 
@@ -2364,6 +2879,90 @@
                             }
                         }
                     }
+                }
+            }
+        }
+    }
+
+    // Theme
+
+    .section-theme {
+    
+        &.section-edit {
+            @include position-relative;
+
+            transition          : 0.3s ease;
+
+            &:before {
+                @include position-absolute;
+
+                @include width-100;
+                @include height-100;
+
+                content         : '';
+
+                opacity         : 0;
+
+                top             : 0;
+                left            : 0;
+
+                background      : transparent;
+
+                border          : calc(2 / var(--vw) * var(--multiplier)) solid var(--color-tertiary);  
+
+                transition      : 0.3s ease;
+            }
+
+            .section-control {
+                @include position-absolute;
+
+                opacity         : 0;
+
+                top             : 0;
+                left            : 50%;
+
+                transform       : translateX(-50%);
+
+                transition      : 0.3s ease;
+
+                .control-button {
+                    @include display-flex;
+
+                    @include align-items-center;
+
+                    @include overflow-hidden;
+
+                    justify-content                 : center;
+
+                    background                      : var(--color-tertiary);
+
+                    border-bottom-left-radius       : calc(6.5 / var(--vw) * var(--multiplier));
+                    border-bottom-right-radius      : calc(6.5 / var(--vw) * var(--multiplier));
+
+                    .button {
+                        > button {
+                            @include p-1;
+
+                            background              : transparent;
+
+                            border                  : unset;
+
+                            svg {
+                                width               : calc(35 / var(--vw) * var(--multiplier));
+                                height              : calc(35 / var(--vw) * var(--multiplier));
+                            }
+                        }
+                    }
+                }
+            }
+
+            &:hover {
+                &:before {
+                    opacity         : 1;
+                }
+
+                .section-control {
+                    opacity         : 1;
                 }
             }
         }
