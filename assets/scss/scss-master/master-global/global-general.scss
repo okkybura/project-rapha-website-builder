@@ -660,6 +660,64 @@ svg {
     }
 
     .form-color {
+        .color-wrapper {
+            @include display-flex;
+
+            @include align-items-center;
+
+            @include height-auto;
+
+            @include p-1;
+            @include px-2;
+
+            resize              : none;
+
+            width               : 7.5rem;
+
+            color               : var(--color-black);
+
+            background          : var(--color-white);
+
+            border              : calc(1 / var(--vw) * var(--multiplier)) solid rgba($color-black, 0.25);
+            border-radius       : calc(4.5 / var(--vw) * var(--multiplier));
+
+            box-shadow          : none;
+
+            &.no-width {
+                @include width-auto;
+
+                justify-content     : center;
+            }
+
+            .colour-picker-field__item--text {
+                @include width-100;
+
+                @include ml-1;
+
+                font-family         : var(--font-family-general);
+                font-weight         : var(--font-weight-regular);
+                font-size           : calc(15 / var(--vw) * var(--multiplier));
+
+                outline             : none;
+
+                border              : none;
+            }
+
+            .colour-picker-field__item--picker {
+                @include p-0;
+                
+                flex-shrink         : 0;
+
+                width               : calc(30 / var(--vw) * var(--multiplier)) !important;
+                height              : calc(32.5 / var(--vw) * var(--multiplier)) !important;
+
+                background          : none;
+
+                border              : none;
+                border-radius       : calc(4.5 / var(--vw) * var(--multiplier));
+            }
+        }
+
         .form-control {
             height              : calc(42.5 / var(--vw) * var(--multiplier));
         }

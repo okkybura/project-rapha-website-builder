@@ -9741,6 +9741,43 @@ svg {
   opacity: 0.65;
   color: var(--color-black);
 }
+.form-group .form-color .color-wrapper {
+  display: flex;
+  align-items: center;
+  height: auto !important;
+  padding: calc(5 / var(--vw) * var(--multiplier)) !important;
+  padding-left: calc(10 / var(--vw) * var(--multiplier)) !important;
+  padding-right: calc(10 / var(--vw) * var(--multiplier)) !important;
+  resize: none;
+  width: 7.5rem;
+  color: var(--color-black);
+  background: var(--color-white);
+  border: calc(1 / var(--vw) * var(--multiplier)) solid rgba(40, 40, 40, 0.25);
+  border-radius: calc(4.5 / var(--vw) * var(--multiplier));
+  box-shadow: none;
+}
+.form-group .form-color .color-wrapper.no-width {
+  width: auto !important;
+  justify-content: center;
+}
+.form-group .form-color .color-wrapper .colour-picker-field__item--text {
+  width: 100% !important;
+  margin-left: calc(5 / var(--vw) * var(--multiplier)) !important;
+  font-family: var(--font-family-general);
+  font-weight: var(--font-weight-regular);
+  font-size: calc(15 / var(--vw) * var(--multiplier));
+  outline: none;
+  border: none;
+}
+.form-group .form-color .color-wrapper .colour-picker-field__item--picker {
+  padding: 0 !important;
+  flex-shrink: 0;
+  width: calc(30 / var(--vw) * var(--multiplier)) !important;
+  height: calc(32.5 / var(--vw) * var(--multiplier)) !important;
+  background: none;
+  border: none;
+  border-radius: calc(4.5 / var(--vw) * var(--multiplier));
+}
 .form-group .form-color .form-control {
   height: calc(42.5 / var(--vw) * var(--multiplier));
 }
