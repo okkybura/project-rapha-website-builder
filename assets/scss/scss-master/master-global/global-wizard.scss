@@ -2172,6 +2172,12 @@
 
 // Modal
 
+.modal-open {
+    .modal {
+        @include overflow-hidden;
+    }
+}
+
 .modal {
 
     // Modal Section List
@@ -2233,6 +2239,11 @@
                         }
 
                         .tab-nav {
+                            @include overflow-y-auto;
+                            @include overflow-x-hidden;
+
+                            height                  : calc(100vh - 15.5rem);
+                            
                             .nav-item {
                                 @include width-100;
 
@@ -2275,7 +2286,12 @@
 
                         .tab-content {
                             .content-body {
+                                @include overflow-y-auto;
+                                @include overflow-x-hidden;
+
                                 @include p-5;
+
+                                height                  : calc(100vh - 10rem);
 
                                 .body-wrapper {
 
@@ -2555,6 +2571,11 @@
             // Body
 
             .modal-body {
+                @include overflow-y-auto;
+                @include overflow-x-hidden;
+
+                height                  : calc(100vh - 12.5rem);
+
                 .col-body-outer {
                     @include col-12;
 

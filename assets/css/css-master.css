@@ -12366,6 +12366,10 @@ svg {
   opacity: 1;
 }
 
+.modal-open .modal {
+  overflow: hidden;
+}
+
 .modal.modal-section-list.primary .modal-dialog {
   max-width: 750px;
 }
@@ -12412,6 +12416,11 @@ svg {
   max-width: 66.66667%;
   padding-left: 0 !important;
 }
+.modal.modal-section-list.primary .modal-content .modal-body .body-tab .tab-nav {
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: calc(100vh - 15.5rem);
+}
 .modal.modal-section-list.primary .modal-content .modal-body .body-tab .tab-nav .nav-item {
   width: 100% !important;
 }
@@ -12440,7 +12449,10 @@ svg {
   background: var(--color-quinary);
 }
 .modal.modal-section-list.primary .modal-content .modal-body .body-tab .tab-content .content-body {
+  overflow-y: auto;
+  overflow-x: hidden;
   padding: calc(35 / var(--vw) * var(--multiplier)) !important;
+  height: calc(100vh - 10rem);
 }
 .modal.modal-section-list.primary .modal-content .modal-body .body-tab .tab-content .content-body .body-wrapper.primary > .wrapper-inner {
   margin-bottom: calc(15 / var(--vw) * var(--multiplier)) !important;
@@ -12595,6 +12607,11 @@ svg {
   font-weight: var(--font-weight-regular);
   font-size: calc(var(--font-size-h6) / var(--vw) * var(--multiplier));
   color: var(--color-grey-light);
+}
+.modal.modal-template-list.primary .modal-body {
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: calc(100vh - 12.5rem);
 }
 .modal.modal-template-list.primary .modal-body .col-body-outer {
   position: relative;
