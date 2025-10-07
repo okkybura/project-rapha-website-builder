@@ -153,6 +153,21 @@
 
                 > .wrapper-inner {
                     width               : 72.5%;
+
+                    &.full-page {
+                        @include width-100;
+
+                        .section-wrapper {
+
+                            // Primary
+
+                            &.primary {
+                                > .wrapper-inner {
+                                    height              : 100vh;
+                                }
+                            }
+                        }
+                    }
                 }
 
                 .section-wrapper {
@@ -2180,6 +2195,119 @@
 
 .modal {
 
+    // Modal Create Template
+
+    &.modal-create-template {
+
+        // Primary
+
+        &.primary {
+
+            .modal-dialog {
+                max-width               : 400px;
+            }
+      
+            // Header
+
+            .modal-header {
+                @include display-flex;
+
+                @include align-items-center;
+                
+                .header-text {
+                    .title {
+                        .text-title {
+                            @include mb-0;
+
+                            @include font-bold;
+                            @include h6;
+
+                            color           : var(--color-black);
+                        }
+                    }
+                }
+            }      
+
+            // Body
+
+            .modal-body {
+                .body-form {
+                    @include mb-3;
+
+                    .form-group {
+                        .form-color {
+                            .color-wrapper {
+                                .clr-field {
+                                    @include width-100;
+                                }
+                            }
+                        }
+
+                        .form-upload {
+                            .placeholder {
+                                @include p-3;
+
+                                .button {
+                                    @include py-1;
+                                    @include px-2;
+                                    @include mb-3;
+
+                                    @include font-semibold;
+                                    @include p;
+
+                                    color               : var(--color-primary);
+
+                                    background          : var(--color-white);
+
+                                    border              : calc(1 / var(--vw) * var(--multiplier)) solid var(--color-primary);   
+                                    border-radius       : calc(3.5 / var(--vw) * var(--multiplier));
+
+                                    transition          : 0.3s ease;
+
+                                    svg {
+                                        path {
+                                            fill            : var(--color-primary);
+
+                                            transition      : 0.3s ease;
+                                        }
+                                    }
+                                }
+                            }
+
+                            &:hover {
+                                .placeholder {
+                                    .button {
+                                        color               : var(--color-white);
+
+                                        background          : var(--color-primary);
+
+                                        svg {
+                                            path {
+                                                fill        : var(--color-white);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .body-button {
+                    @include text-align-center;
+
+                    .button {
+                        .btn-body {
+                            @include display-inline-block;
+
+                            @include width-auto;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     // Modal Section List
 
     &.modal-section-list {
@@ -3073,11 +3201,268 @@
                 }
             }
         }
+
+        // Template List
+
+        &.template-list {
+
+            // Primary
+
+            &.primary {
+                background          : var(--color-quinary);
+
+                .section-outer {
+                    .section-inner {
+                        @include p-5;
+
+                        background      : var(--color-white);
+
+                        border-radius   : calc(10 / var(--vw) * var(--multiplier));
+                    }
+                }
+
+                // Header
+
+                .template-list-header {
+                    @include mb-5;
+
+                    .header-text {
+                        .title {
+                            .text-title {
+                                @include mb-1;
+
+                                @include font-bold;
+                                @include h5;
+
+                                color           : var(--color-black);
+                            }
+                        }
+
+                        .desc {
+                            .text-description {
+                                @include mb-0;
+
+                                @include font-regular;
+                                @include h6;
+
+                                color           : var(--color-grey-light);
+                            }
+                        }
+                    }
+                }
+
+                // Content
+
+                .template-list-content {
+                    .col-content-outer {
+                        @include col-12;
+
+                        .col-content-inner {
+                            @include col-6;
+
+                            @include mb-4;
+                        }
+                    }
+
+                    .content-wrapper {
+
+                        // Primary
+
+                        &.primary {
+                            @include position-relative;
+
+                            @include overflow-hidden;
+
+                            border-radius       : calc(10 / var(--vw) * var(--multiplier));
+
+                            transition          : 0.3s ease;
+
+                            &:before {
+                                @include position-absolute;
+
+                                @include width-100;
+                                @include height-100;
+
+                                content         : '';
+
+                                z-index         : 5;
+
+                                opacity         : 0;
+
+                                background      : rgba(0, 0, 0, 0.75);
+
+                                transition      : 0.3s ease;
+                            }
+
+                            > .wrapper-inner {
+                                @include position-absolute;
+
+                                @include text-align-center;
+                                
+                                z-index         : 10;
+
+                                opacity         : 0;
+
+                                top             : 50%;
+                                left            : 50%;
+
+                                transform       : translate(-50%, -50%);
+
+                                transition      : 0.3s ease; 
+                            }
+
+                            .content-image {
+                                .image {
+                                    @include overflow-hidden;
+
+                                    img {
+                                        @include display-block;
+
+                                        transition      : 0.3s ease;
+                                    }
+                                }
+                            }
+
+                            .content-text {
+                                @include mb-3;
+
+                                .title {
+                                    .text-title {
+                                        @include font-bold;
+                                        @include h5;
+
+                                        color           : var(--color-white);
+                                    }
+                                }
+                            }
+
+                            .content-button {
+                                .button {
+                                    @include mb-2;
+
+                                    &:last-child {
+                                        @include mb-0;
+                                    }
+                                }
+                            }
+
+                            &:hover {
+                                box-shadow              : 0px 1px 15px 5px rgba($color-black, 0.25);
+
+                                &:before {
+                                    opacity             : 1;
+                                }
+
+                                > .wrapper-inner {
+                                    opacity             : 1;
+                                }
+
+                                .content-image {
+                                    .image {
+                                        img {
+                                            transform       : scale(1.025);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                // Footer
+
+                .template-list-footer {
+                    @include mb-4;
+
+                    .footer-link {
+                        .link {
+                            .link-footer {
+                                @include font-regular;
+                                @include p;
+
+                                color               : var(--color-secondary);
+
+                                svg {
+                                    path {
+                                        stroke    : var(--color-secondary);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                @include media-breakpoint-down(md) {
+                
+                    .section-outer {
+                        .section-inner {
+                            @include p-4;
+                        }
+                    }
+
+                    // Header
+
+                    .template-list-header {
+                        @include mb-4;
+                    }
+
+                    // Footer
+
+                    .template-list-footer {
+                        @include mb-3;
+                    }
+                }
+
+                @include media-breakpoint-down(sm) {
+                
+                    .section-outer {
+                        @include text-align-center;
+
+                        .section-inner {
+                            @include p-3;
+                        }
+                    }
+
+                    // Header
+
+                    .template-list-header {
+                        .header-text {
+                            .title {
+                                .text-title {
+                                    font-size       : calc(18 / var(--vw) * var(--multiplier));
+
+                                    line-height     : 1.65;
+                                }
+                            }
+
+                            .desc {
+                                .text-description {
+                                    @include p;
+                                }
+                            }
+                        }
+                    }
+
+
+                    // Content
+
+                    .template-list-content {
+                        .col-content-outer {
+                            .col-content-inner {
+                                @include col-12;
+                            }
+                        }
+                    }                    
+                }
+            }
+        }
     }
 
     // Theme
 
     .section-theme {
+
+        // Section Edit
     
         &.section-edit {
             @include position-relative;

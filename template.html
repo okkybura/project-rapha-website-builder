@@ -1,0 +1,469 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+
+    <!-- Title -->
+
+    <title>
+        Website Builder - Template
+    </title>
+
+    <!-- Meta -->
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+
+    <!------- CSS ------->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/6.11.1/css/flag-icons.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mdbassit/Coloris@latest/dist/coloris.min.css" />
+    <link rel="stylesheet" href="assets/css/css-master.min.css">
+</head>
+
+<!-- Desktop -->
+
+<body class="page-full">
+
+    <div class="content">
+
+        <!-- Navbar - Primary -->
+
+        <nav class="navbar primary">
+            <div class="navbar-wrapper primary">
+                <div class="navbar-icon">
+                    <div class="icon">
+                        <a href="#" id="btnNavbarPrimaryToggle">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-list"
+                                viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="navbar-brand">
+                    <a href="#">
+                        Website Builder
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <!--Page-->
+
+        <div class="page">
+
+            <!--Page Content-->
+
+            <div class="page-content">
+
+                <!--Wizard-->
+
+                <div class="wizard">
+
+                    <!-- Modal - Create Template - Primary -->
+
+                    <div class="modal modal-create-template primary fade" id="modalCreateTemplatePrimary" tabindex="-1" aria-labelledby="modalCreateTemplatePrimaryLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <div class="header-text">
+                                        <div class="title">
+                                            <h3 class="text-title">
+                                                Personalizando a Loja Virtual
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <div class="header-button">
+                                        <div class="button">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-x"
+                                                    viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="body-form">
+                                        <div class="form-group">
+                                            <div class="form-label">
+                                                <label>
+                                                    Nome
+                                                </label>
+                                            </div>
+                                            <div class="form-input">
+                                                <input type="text" class="form-control" placeholder="Ex: Sua empresa - Loja Virtual" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="form-label">
+                                                <label>
+                                                    Cor Principal
+                                                </label>
+                                            </div>
+                                            <div class="form-color">
+                                                <div class="color-wrapper">
+                                                    <input type="text" data-coloris value="#000000" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="form-label">
+                                                <label>
+                                                    Logotipo
+                                                </label>
+                                            </div>
+                                            <div class="form-upload">
+                                                <div class="placeholder">
+                                                    <span class="button">
+                                                        <span>
+                                                            <span>
+                                                                <svg viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                    <path
+                                                                        d="M5.32031 14.6674C5.32048 14.8033 5.37458 14.9335 5.4707 15.0297C5.56688 15.1258 5.69706 15.18 5.83301 15.1801H15.167C15.3029 15.18 15.4331 15.1258 15.5293 15.0297C15.6254 14.9335 15.6795 14.8033 15.6797 14.6674V11.1801H17.3203V14.6674C17.3201 15.2382 17.0931 15.7861 16.6895 16.1898C16.2857 16.5935 15.7379 16.8206 15.167 16.8207H5.83301C5.2621 16.8206 4.71428 16.5935 4.31055 16.1898C3.90687 15.7861 3.67985 15.2382 3.67969 14.6674V11.1801H5.32031V14.6674ZM9.98242 3.36462C10.3045 3.10176 10.7798 3.12001 11.0801 3.42029L14.4131 6.75427L14.9932 7.33337L13.833 8.49353L13.2539 7.91345L11.3203 5.97986V12.8207H9.67969V5.97986L7.74609 7.91345L7.16699 8.49353L6.00684 7.33337L6.58691 6.75427L9.91992 3.42029L9.98242 3.36462Z"
+                                                                        fill="#082A9D" />
+                                                                </svg>
+                                                            </span>
+                                                            <span>
+                                                                Selecionar arquivo
+                                                            </span>
+                                                        </span>
+                                                    </span>
+                                                    <span class="text">
+                                                        Envie uma imagem com bom
+                                                        <br />
+                                                        contraste em fundos escuros
+                                                    </span>
+                                                </div>
+                                                <input type="file" class="image-upload" name="files[]" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="body-button">
+                                        <div class="button">
+                                            <a class="btn btn-block btn-body btn-general btn-solid primary" href="#">
+                                                <span class="wrapper">
+                                                    <span class="text">
+                                                        Salvar
+                                                    </span>
+                                                </span>
+                                            </a> 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- General - Template List - Primary -->
+
+                    <section class="section section-general template-list primary">
+                        <div class="container">
+                            <div class="section-outer">
+
+                                <!-- Footer Section -->
+
+                                <div class="template-list-footer">
+                                    <div class="footer-link">
+                                        <div class="link">
+                                            <a class="link-footer" href="#">
+                                                <span class="icon">
+                                                    <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M8.5 4.93005L5.5 8L8.5 11.0699" stroke="#082070" stroke-width="1.25" stroke-linecap="square"
+                                                            stroke-linejoin="round" />
+                                                    </svg>
+                                                </span>
+                                                <span class="text">
+                                                    Voltar para lista de sites
+                                                </span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="section-inner">
+                                    
+                                    <!-- Header Section -->
+
+                                    <div class="template-list-header">
+                                        <div class="header-text">
+                                            <div class="title">
+                                                <h3 class="text-title">
+                                                    Escolha um template para sua Loja Virtual
+                                                </h3>
+                                            </div>
+                                            <div class="desc">
+                                                <p class="text-description">
+                                                    Os textos, imagens e cores poderão ser editadas posteriormente
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Content Section -->
+
+                                    <div class="template-list-content">
+                                        <div class="row">
+                                            <div class="col-content-outer">
+                                                <div class="row">
+                                                    <div class="col-content-inner">
+                                                        <div class="content-wrapper primary">
+                                                            <div class="wrapper-inner">
+                                                                <div class="content-text">
+                                                                    <div class="title">
+                                                                        <h3 class="text-title">
+                                                                            Flix
+                                                                        </h3>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="content-button">
+                                                                    <div class="button">
+                                                                        <a class="btn btn-block btn-content btn-general btn-solid quinary" href="#">
+                                                                            <span class="wrapper">
+                                                                                <span class="text">
+                                                                                    Visualizer
+                                                                                </span>
+                                                                            </span>
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="button">
+                                                                        <a class="btn btn-block btn-content btn-general btn-solid primary" href="javascript:void(0);" data-toggle="modal" data-target="#modalCreateTemplatePrimary">
+                                                                            <span class="wrapper">
+                                                                                <span class="text">
+                                                                                    Selecionar
+                                                                                </span>
+                                                                            </span>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="content-image">
+                                                                <div class="image">
+                                                                    <img src="/assets/images/root/theme/template/template-1.jpg" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-content-inner">
+                                                        <div class="content-wrapper primary">
+                                                            <div class="wrapper-inner">
+                                                                <div class="content-text">
+                                                                    <div class="title">
+                                                                        <h3 class="text-title">
+                                                                            Template 2
+                                                                        </h3>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="content-button">
+                                                                    <div class="button">
+                                                                        <a class="btn btn-block btn-body btn-general btn-solid quinary" href="#">
+                                                                            <span class="wrapper">
+                                                                                <span class="text">
+                                                                                    Visualizer
+                                                                                </span>
+                                                                            </span>
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="button">
+                                                                        <a class="btn btn-block btn-content btn-general btn-solid primary" href="javascript:void(0);" data-toggle="modal" data-target="#modalCreateTemplatePrimary">
+                                                                            <span class="wrapper">
+                                                                                <span class="text">
+                                                                                    Selecionar
+                                                                                </span>
+                                                                            </span>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="content-image">
+                                                                <div class="image">
+                                                                    <img src="/assets/images/root/theme/template/template-2.jpg" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-content-inner">
+                                                        <div class="content-wrapper primary">
+                                                            <div class="wrapper-inner">
+                                                                <div class="content-text">
+                                                                    <div class="title">
+                                                                        <h3 class="text-title">
+                                                                            Template 3
+                                                                        </h3>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="content-button">
+                                                                    <div class="button">
+                                                                        <a class="btn btn-block btn-body btn-general btn-solid quinary" href="#">
+                                                                            <span class="wrapper">
+                                                                                <span class="text">
+                                                                                    Visualizer
+                                                                                </span>
+                                                                            </span>
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="button">
+                                                                        <a class="btn btn-block btn-content btn-general btn-solid primary" href="javascript:void(0);" data-toggle="modal" data-target="#modalCreateTemplatePrimary">
+                                                                            <span class="wrapper">
+                                                                                <span class="text">
+                                                                                    Selecionar
+                                                                                </span>
+                                                                            </span>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="content-image">
+                                                                <div class="image">
+                                                                    <img src="/assets/images/root/theme/template/template-3.jpg" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-content-inner">
+                                                        <div class="content-wrapper primary">
+                                                            <div class="wrapper-inner">
+                                                                <div class="content-text">
+                                                                    <div class="title">
+                                                                        <h3 class="text-title">
+                                                                            Template 4
+                                                                        </h3>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="content-button">
+                                                                    <div class="button">
+                                                                        <a class="btn btn-block btn-body btn-general btn-solid quinary" href="#">
+                                                                            <span class="wrapper">
+                                                                                <span class="text">
+                                                                                    Visualizer
+                                                                                </span>
+                                                                            </span>
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="button">
+                                                                        <a class="btn btn-block btn-content btn-general btn-solid primary" href="javascript:void(0);" data-toggle="modal" data-target="#modalCreateTemplatePrimary">
+                                                                            <span class="wrapper">
+                                                                                <span class="text">
+                                                                                    Selecionar
+                                                                                </span>
+                                                                            </span>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="content-image">
+                                                                <div class="image">
+                                                                    <img src="/assets/images/root/theme/template/template-4.jpg" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-content-inner">
+                                                        <div class="content-wrapper primary">
+                                                            <div class="wrapper-inner">
+                                                                <div class="content-text">
+                                                                    <div class="title">
+                                                                        <h3 class="text-title">
+                                                                            Template 5
+                                                                        </h3>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="content-button">
+                                                                    <div class="button">
+                                                                        <a class="btn btn-block btn-body btn-general btn-solid quinary" href="#">
+                                                                            <span class="wrapper">
+                                                                                <span class="text">
+                                                                                    Visualizer
+                                                                                </span>
+                                                                            </span>
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="button">
+                                                                        <a class="btn btn-block btn-content btn-general btn-solid primary" href="javascript:void(0);" data-toggle="modal" data-target="#modalCreateTemplatePrimary">
+                                                                            <span class="wrapper">
+                                                                                <span class="text">
+                                                                                    Selecionar
+                                                                                </span>
+                                                                            </span>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="content-image">
+                                                                <div class="image">
+                                                                    <img src="/assets/images/root/theme/template/template-5.jpg" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-content-inner">
+                                                        <div class="content-wrapper primary">
+                                                            <div class="wrapper-inner">
+                                                                <div class="content-text">
+                                                                    <div class="title">
+                                                                        <h3 class="text-title">
+                                                                            Template 6
+                                                                        </h3>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="content-button">
+                                                                    <div class="button">
+                                                                        <a class="btn btn-block btn-body btn-general btn-solid quinary" href="#">
+                                                                            <span class="wrapper">
+                                                                                <span class="text">
+                                                                                    Visualizer
+                                                                                </span>
+                                                                            </span>
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="button">
+                                                                        <a class="btn btn-block btn-content btn-general btn-solid primary" href="javascript:void(0);" data-toggle="modal" data-target="#modalCreateTemplatePrimary">
+                                                                            <span class="wrapper">
+                                                                                <span class="text">
+                                                                                    Selecionar
+                                                                                </span>
+                                                                            </span>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="content-image">
+                                                                <div class="image">
+                                                                    <img src="/assets/images/root/theme/template/template-6.jpg" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>    
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                    </section> 
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!------- Script ------->
+
+    <script src="assets/javascript/vendor-javascript.js"></script>
+    <script src="assets/javascript/gsap.js"></script>
+
+    <script src="assets/javascript/custom-select2.js"></script>
+    <script src="assets/javascript/custom-javascript.js"></script>
+    <script src="assets/javascript/image-uploader.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/gh/mdbassit/Coloris@latest/dist/coloris.min.js"></script>
+</body>
+</html>

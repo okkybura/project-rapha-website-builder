@@ -178,6 +178,12 @@ body {
         overflow                : auto !important;
     }
 
+    // Page Full
+
+    &.page-full {
+        @include overflow-auto;
+    }
+
     // Wizard
 
     .wizard {
