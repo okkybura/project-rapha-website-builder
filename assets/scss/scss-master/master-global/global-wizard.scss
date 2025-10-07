@@ -6,6 +6,34 @@
 
 // -------------------- Master - Wizard -------------------- //
 
+// CLR
+
+.clr-picker {
+    z-index                 : 1040;
+}
+
+// Select2
+
+.select2-dropdown {
+    background          : var(--color-white);
+
+    border              : calc(1 / var(--vw) * var(--multiplier)) solid rgba($color-black, 0.25);
+    border-radius       : calc(4.5 / var(--vw) * var(--multiplier));
+    
+    .select2-results {
+        .select2-results__options {
+            .select2-results__option--highlighted, .select2-results__option--selected {
+                background          : var(--color-quinary) !important;
+            }
+
+            svg {
+                width           : calc(25 / var(--vw) * var(--multiplier));
+                height          : calc(25 / var(--vw) * var(--multiplier));
+            }
+        }
+    }
+}
+
 // Carousel
 
 .carousel-flickity {
@@ -1267,9 +1295,12 @@
                                                 .dropdown-menu {
                                                     .dropdown-item {
                                                         @include px-3;
+                                                        @include mb-1;
 
                                                         .dropdown-link {
-                                                            @include display-block;
+                                                            @include display-flex;
+
+                                                            @include align-items-center;
 
                                                             @include font-regular;
                                                             @include p;
@@ -1277,6 +1308,35 @@
                                                             @include text-decoration-none;
 
                                                             color       : var(--color-black);
+
+                                                            > span {
+                                                                &.icon {
+                                                                    @include mr-2;
+
+                                                                    svg {
+                                                                        width           : calc(20 / var(--vw) * var(--multiplier));
+                                                                        height          : calc(20 / var(--vw) * var(--multiplier));
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+
+                                                        &:hover {
+                                                            background          : var(--color-quinary);
+
+                                                            .dropdown-link {
+                                                                color           : var(--color-primary);
+
+                                                                > span {
+                                                                    &.icon {
+                                                                        svg {
+                                                                            path {
+                                                                                fill        : var(--color-primary);
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
                                                         }
                                                     }
                                                 }
@@ -1605,7 +1665,7 @@
 
                     @include align-items-center;
 
-                    @include p-4;
+                    padding             : calc(15 / var(--vw) * var(--multiplier)) calc(20 / var(--vw) * var(--multiplier));
 
                     background          : #F3EBCB;
 
@@ -1614,8 +1674,8 @@
 
                         .icon {
                             svg {
-                                width           : calc(40 / var(--vw) * var(--multiplier));
-                                height          : calc(40 / var(--vw) * var(--multiplier));
+                                width           : calc(32.5 / var(--vw) * var(--multiplier));
+                                height          : calc(32.5 / var(--vw) * var(--multiplier));
                             }
                         }
                     }
@@ -1713,6 +1773,8 @@
                                 }
 
                                 .list-head {
+                                    @include position-relative;
+
                                     .head-wrapper {
 
                                         // Primary
@@ -1780,10 +1842,16 @@
                                             }
 
                                             .head-icon {
+                                                @include position-relative;
+
+                                                z-index                     : 10;
+
                                                 line-height                 : 1;
 
                                                 > span {
                                                     @include display-inline-block;
+
+                                                    @include mr-4;
 
                                                     line-height             : 1;
 
@@ -1807,20 +1875,33 @@
                                             .head-anchor {
                                                 > span {
                                                     > a {
+                                                        @include position-absolute;
+
+                                                        @include width-100;
+                                                        @include height-100;
+
+                                                        top                 : 0;
+                                                        left                : 0;
+
                                                         svg {
+                                                            @include position-absolute;
+
                                                             @include display-inline-block;
 
                                                             width           : calc(20 / var(--vw) * var(--multiplier));
                                                             height          : calc(20 / var(--vw) * var(--multiplier));
 
-                                                            transform       : rotate(180deg);
+                                                            top             : 50%;
+                                                            right           : 0;
+
+                                                            transform       : translateY(-50%) rotate(180deg);
 
                                                             transition      : 0.3s ease;
                                                         }
 
                                                         &.collapsed {
                                                             svg {
-                                                                transform       : rotate(0deg);
+                                                                transform       : translateY(-50%) rotate(0deg);
                                                             }
                                                         }
                                                     }
@@ -1910,9 +1991,48 @@
                                         }
                                     }
                                 }
+
+                                .body-form {
+                                    .col-form-outer {
+                                        .col-form-inner {
+                                            padding         : 0 calc(12 / var(--vw) * var(--multiplier));
+
+                                            &:last-child {
+                                                @include pl-1;
+                                                @include pr-5;
+                                            }
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
+                }
+
+                @include media-breakpoint-down(sm) {
+
+                    // Content
+
+                    .sidebar-content {
+                        .content-tab {
+                            .tab-content {
+                                .content-body {
+                                    .body-form {
+                                        .col-form-outer {
+                                            .col-form-inner {
+                                                padding         : 0 calc(12 / var(--vw) * var(--multiplier));
+
+                                                &:last-child {
+                                                    @include pl-0;
+                                                    @include pr-4;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    } 
                 }
             }
 
@@ -2254,6 +2374,55 @@
                                 }
                             }
                         }
+
+                        .tab-form {
+                            @include p-3;
+
+                            .form-group {
+                                .form-input {
+                                    @include position-relative;
+
+                                    @include display-flex;
+
+                                    @include align-items-center;
+
+                                    @include p-2;
+
+                                    background          : var(--color-white);
+
+                                    border              : calc(1 / var(--vw) * var(--multiplier)) solid rgba($color-black, 0.25);
+                                    border-radius       : calc(4.5 / var(--vw) * var(--multiplier));
+
+                                    .form-control {
+                                        @include p-0;
+
+                                        background          : transparent;
+
+                                        border              : unset;
+                                        border-radius       : unset;
+                                    }
+
+                                    button {
+                                        @include p-0;
+
+                                        transform           : translateY(-1.5px);
+
+                                        background          : transparent;
+
+                                        border              : none;
+
+                                        svg {
+                                            width           : calc(20 / var(--vw) * var(--multiplier));
+                                            height          : calc(20 / var(--vw) * var(--multiplier));
+
+                                            path {
+                                                fill        : var(--color-grey-light);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -2586,7 +2755,6 @@
 
                     .content-text {
                         @include mb-4;
-                        @include mx-minus-1;
 
                         .title {
                             .text-title {
@@ -2611,6 +2779,8 @@
                         .col-form-outer {
                             .col-form-inner {
                                 @include mb-3;
+
+                                padding         : 0 calc(14 / var(--vw) * var(--multiplier));
                             }
                         }
                     }
@@ -2892,6 +3062,16 @@
             @include position-relative;
 
             transition          : 0.3s ease;
+
+            &.active {
+                &:before {
+                    opacity         : 1;
+                }
+
+                .section-control {
+                    opacity         : 1;
+                }
+            }
 
             &:before {
                 @include position-absolute;

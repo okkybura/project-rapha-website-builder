@@ -269,27 +269,13 @@ $('.carousel-triple').flickity({
 
 /* -------------------- Color Picker Setting -------------------- */
 
-document.querySelectorAll('.form-color').forEach(field => {
-    const textInput = field.querySelector('.colour-picker-field__item--text');
-    const colorPicker = field.querySelector('.colour-picker-field__item--picker');
-
-    // Ensure values are in sync on load
-    if (textInput.value) {
-        colorPicker.value = textInput.value;
-    } else {
-        textInput.value = colorPicker.value;
-    }
-
-    // Text input -> Color picker
-    textInput.addEventListener('input', () => {
-        const val = textInput.value.trim();
-        if (/^#[0-9A-Fa-f]{6}$/.test(val)) {
-            colorPicker.value = val;
+$(document).ready(function () {
+    Coloris({
+        theme: 'polaroid',
+        themeMode: 'auto',
+        formatToggle: true,
+        onChange: (color, inputEl) => {
+            console.log(`The new color is ${color}`);
         }
-    });
-
-    // Color picker -> Text input
-    colorPicker.addEventListener('input', () => {
-        textInput.value = colorPicker.value;
     });
 });

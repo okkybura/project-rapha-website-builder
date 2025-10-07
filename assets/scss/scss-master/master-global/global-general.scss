@@ -442,6 +442,22 @@ svg {
         }
     }
 
+    &.group-flex {
+        @include display-flex;
+
+        @include align-items-center;
+
+        > div {
+            @include mr-2;
+
+            &:last-child {
+                @include width-100;
+                
+                @include mr-0;
+            }
+        }
+    }
+
     // Group Flex Between
 
     &.group-flex-between {
@@ -482,23 +498,43 @@ svg {
 
             @include align-items-center;
 
-            button {
-                @include overflow-hidden;
+            .color-check {
+                @include position-relative;
 
-                @include p-0;
                 @include mr-2;
 
-                background          : transparent;
+                .form-check-input {
+                    @include position-absolute;
 
-                border              : calc(3 / var(--vw) * var(--multiplier)) solid transparent;
-                border-radius       : calc(4.5 / var(--vw) * var(--multiplier));
+                    @include width-100;
+                    @include height-100;
 
-                &:last-child {
-                    @include mr-0;
+                    cursor              : pointer;
+
+                    opacity             : 0;
+
+                    top                 : 0;
+                    left                : 0;
                 }
 
-                &:hover {
-                    border          : calc(3 / var(--vw) * var(--multiplier)) solid var(--color-primary);
+                .form-check-input:checked ~ .form-check-label {
+                    border              : calc(3 / var(--vw) * var(--multiplier)) solid var(--color-primary);
+                }
+
+                .form-check-label {
+                    @include overflow-hidden;
+
+                    @include p-0;
+                    @include m-0;
+
+                    cursor              : pointer;
+
+                    background          : transparent;
+
+                    border              : calc(3 / var(--vw) * var(--multiplier)) solid transparent;
+                    border-radius       : calc(4.5 / var(--vw) * var(--multiplier));
+
+                    transition          : 0.3s ease;
                 }
             }
 
@@ -661,60 +697,91 @@ svg {
 
     .form-color {
         .color-wrapper {
-            @include display-flex;
+            &.picker-only {
+                .clr-field {
+                    @include position-relative;
 
-            @include align-items-center;
+                    @include display-flex;
 
-            @include height-auto;
+                    @include align-items-center;
 
-            @include p-1;
-            @include px-2;
+                    justify-content     : center;
 
-            resize              : none;
+                    width               : 2.5rem;
+                    height              : 2.4rem !important;
 
-            width               : 7.5rem;
+                    button {
+                        @include position-relative;
 
-            color               : var(--color-black);
+                        top             : 0;
+                        left            : 0;
 
-            background          : var(--color-white);
+                        transform       : unset;
+                    }
 
-            border              : calc(1 / var(--vw) * var(--multiplier)) solid rgba($color-black, 0.25);
-            border-radius       : calc(4.5 / var(--vw) * var(--multiplier));
+                    input {
+                        @include position-absolute;
 
-            box-shadow          : none;
+                        @include width-100;
+                        @include height-100;
 
-            &.no-width {
-                @include width-auto;
+                        @include m-0;
 
-                justify-content     : center;
+                        opacity         : 0;
+
+                        top             : 0;
+                        left            : 0;
+                    }
+                }
             }
 
-            .colour-picker-field__item--text {
-                @include width-100;
+            .clr-field {
+                @include overflow-hidden;
 
-                @include ml-1;
+                @include height-auto;
 
-                font-family         : var(--font-family-general);
-                font-weight         : var(--font-weight-regular);
-                font-size           : calc(15 / var(--vw) * var(--multiplier));
+                @include p-1;
+                @include px-2;
 
-                outline             : none;
+                resize              : none;
 
-                border              : none;
-            }
+                width               : 8.25rem;
 
-            .colour-picker-field__item--picker {
-                @include p-0;
-                
-                flex-shrink         : 0;
+                color               : var(--color-black);
 
-                width               : calc(30 / var(--vw) * var(--multiplier)) !important;
-                height              : calc(32.5 / var(--vw) * var(--multiplier)) !important;
+                background          : var(--color-white);
 
-                background          : none;
-
-                border              : none;
+                border              : calc(1 / var(--vw) * var(--multiplier)) solid rgba($color-black, 0.25);
                 border-radius       : calc(4.5 / var(--vw) * var(--multiplier));
+
+                box-shadow          : none;
+
+                button {
+                    width           : calc(25 / var(--vw) * var(--multiplier)) !important;
+                    height          : calc(25 / var(--vw) * var(--multiplier)) !important;
+
+                    left            : 0.5rem;
+                    right           : unset;
+
+                    border          : none;
+                    border-radius   : calc(4.5 / var(--vw) * var(--multiplier));
+                }
+
+                input {
+                    @include width-100;
+
+                    margin-left         : calc(30 / var(--vw) * var(--multiplier));
+
+                    font-family         : var(--font-family-general);
+                    font-weight         : var(--font-weight-regular);
+                    font-size           : calc(15 / var(--vw) * var(--multiplier));
+
+                    line-height         : 2;
+
+                    outline             : none;
+
+                    border              : none;
+                }
             }
         }
 
@@ -775,6 +842,43 @@ svg {
                 color           : var(--color-grey-light);
 
                 background      : rgba($color-grey-super-light, 75%); 
+            }
+        }
+
+        .select2 {
+            .select2-selection {
+                @include height-100;
+
+                @include p-1;
+
+                font-family         : var(--font-family-general);
+                font-weight         : var(--font-weight-regular);
+                font-size           : calc(15 / var(--vw) * var(--multiplier));
+
+                color               : var(--color-black);
+
+                background          : var(--color-white);
+
+                border              : calc(1 / var(--vw) * var(--multiplier)) solid rgba($color-black, 0.25);
+                border-radius       : calc(4.5 / var(--vw) * var(--multiplier));
+
+                .select2-selection__rendered {
+                    span {
+                        &.icon {
+                            svg {
+                                width           : calc(25 / var(--vw) * var(--multiplier));
+                                height          : calc(25 / var(--vw) * var(--multiplier));
+                            }
+
+                        }
+                    }
+                }
+                
+                .select2-selection__arrow {
+                    top             : 50%;
+
+                    transform       : translateY(-50%);
+                }
             }
         }
     }
@@ -2203,6 +2307,17 @@ svg {
     // Form
 
     .form-group {
+        .form-color {
+            .color-wrapper {
+                &.picker-only {
+                    .clr-field {
+                        width               : 2.9rem;
+                        height              : 2.6rem !important;
+                    }
+                }
+            }
+        }
+
         .form-switch {
             .custom-switch {
                 .custom-control-input:checked ~ .custom-control-label {

@@ -18,6 +18,7 @@
     <!------- CSS ------->
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/6.11.1/css/flag-icons.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mdbassit/Coloris@latest/dist/coloris.min.css" />
     <link rel="stylesheet" href="assets/css/css-master.min.css">
 </head>
 
@@ -632,7 +633,7 @@
                                                                             <div class="form-label">
                                                                                 <label>
                                                                                     Cor padrão
-                                                                                    <i data-toggle="tooltip" data-placement="right" title="Tooltip Here">
+                                                                                    <i data-toggle="tooltip" data-placement="right" title="Essa será a cor padrão para os elementos de todo o site como os botões, você poderá trocar cada um individualmente na estrutura da página">
                                                                                         <svg viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                                                             <rect x="0.5" y="0.5" width="12" height="12" rx="6" stroke="#7396C9" />
                                                                                             <path
@@ -644,8 +645,7 @@
                                                                             </div>
                                                                             <div class="form-color">
                                                                                 <div class="color-wrapper">
-                                                                                    <input class="colour-picker-field__item--picker" name="colour-picker" type="color" value="000000" />
-                                                                                    <input class='colour-picker-field__item colour-picker-field__item--text' value="#000000" />
+                                                                                    <input type="text" data-coloris value="#000000" />
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -705,13 +705,9 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="form-group">
-
-                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-
                                         </div>
                                     </section>
                                 </div>
@@ -761,5 +757,7 @@
     <script src="assets/javascript/custom-select2.js"></script>
     <script src="assets/javascript/custom-javascript.js"></script>
     <script src="assets/javascript/image-uploader.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/gh/mdbassit/Coloris@latest/dist/coloris.min.js"></script>
 </body>
 </html>
