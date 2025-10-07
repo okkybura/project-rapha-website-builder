@@ -12701,6 +12701,7 @@ svg {
   position: relative;
   overflow: hidden;
   border-radius: calc(10 / var(--vw) * var(--multiplier));
+  transition: 0.3s ease;
 }
 .modal.modal-template-list.primary .modal-body .body-wrapper.primary:before {
   position: absolute;
@@ -12722,6 +12723,13 @@ svg {
   transform: translate(-50%, -50%);
   transition: 0.3s ease;
 }
+.modal.modal-template-list.primary .modal-body .body-wrapper.primary .body-image .image {
+  overflow: hidden;
+}
+.modal.modal-template-list.primary .modal-body .body-wrapper.primary .body-image .image img {
+  display: block;
+  transition: 0.3s ease;
+}
 .modal.modal-template-list.primary .modal-body .body-wrapper.primary .body-text {
   margin-bottom: calc(15 / var(--vw) * var(--multiplier)) !important;
 }
@@ -12736,11 +12744,17 @@ svg {
 .modal.modal-template-list.primary .modal-body .body-wrapper.primary .body-button .button:last-child {
   margin-bottom: 0 !important;
 }
+.modal.modal-template-list.primary .modal-body .body-wrapper.primary:hover {
+  box-shadow: 0px 1px 15px 5px rgba(40, 40, 40, 0.25);
+}
 .modal.modal-template-list.primary .modal-body .body-wrapper.primary:hover:before {
   opacity: 1;
 }
 .modal.modal-template-list.primary .modal-body .body-wrapper.primary:hover > .wrapper-inner {
   opacity: 1;
+}
+.modal.modal-template-list.primary .modal-body .body-wrapper.primary:hover .body-image .image img {
+  transform: scale(1.025);
 }
 
 .wizard {
